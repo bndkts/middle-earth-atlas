@@ -21,11 +21,16 @@ touch frame batching, and timeline update cancellation. For rendering changes,
 also check dragging, pinch-to-zoom, releasing one finger during a pinch,
 timeline scrubbing/presets, and viewport resizing in a browser. Test on a real
 phone when possible; CPU-throttled desktop emulation does not reproduce its GPU.
+For map gestures, also test WebKit, interruption during the sharp-map fade, and
+reduced-motion settings. The bitmap must remain aligned with the vector map.
 
 Keep viewport measurements in `measureViewport()` and avoid layout reads after
 map style writes. Touch rendering is frame-batched; release flushes the final
 position. The movement bitmap uses a 4 MP budget on narrow/touch screens and
 12.5 MP on desktop; the stationary map remains vector-sharp.
+Move the bitmap via CSS transforms, not per-frame canvas drawing. Keep the static
+SVG layers hidden during movement and the visible overlay composited. On release,
+restore the vector map before fading out the bitmap; new input cancels that fade.
 
 ## Data changes
 

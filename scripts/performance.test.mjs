@@ -13,11 +13,19 @@ function section(from, to) {
 function harness() {
   const frames = new Map(), timers = new Map(), elements = new Map();
   let id = 0;
-  const element = () => ({
-    listeners: {}, style: {}, classList: { add() {}, remove() {}, toggle() {}, contains() { return false; } },
+  const element = () => {
+    const classes = new Set();
+    return {
+    listeners: {}, style: {}, classList: {
+      add(...names) { names.forEach(n => classes.add(n)); },
+      remove(...names) { names.forEach(n => classes.delete(n)); },
+      toggle(name, on = !classes.has(name)) { if (on) classes.add(name); else classes.delete(name); },
+      contains(name) { return classes.has(name); },
+    },
     addEventListener(name, fn) { this.listeners[name] = fn; },
     setPointerCapture() {}, closest() { return null; },
-  });
+    };
+  };
   const context = vm.createContext({
     $: selector => { if (!elements.has(selector)) elements.set(selector, element()); return elements.get(selector); },
     requestAnimationFrame: fn => { frames.set(++id, fn); return id; },
@@ -34,16 +42,15 @@ function harness() {
 test('viewport dimensions are cached until explicitly refreshed', () => {
   const h = harness();
   h.context.window = { innerWidth: 390, innerHeight: 844 };
-  h.context.mapEl = { clientWidth: 390, clientHeight: 844 };
   h.run(section('const viewport =', 'const reduceMotion ='));
-  h.context.window.innerWidth = h.context.mapEl.clientWidth = 1200;
+  h.context.window.innerWidth = 1200;
   assert.equal(h.run('viewport.width'), 390);
   assert.equal(h.run('isDesktop()'), false);
   h.run('measureViewport()');
-  assert.equal(h.run('viewport.mapWidth'), 1200);
+  assert.equal(h.run('viewport.width'), 1200);
   assert.equal(h.run('isDesktop()'), true);
   h.context.window.matchMedia = () => ({ matches: false });
-  h.run(section('const coarsePointer =', 'let snapBmp ='));
+  h.run(section('const coarsePointer =', 'let snapReady ='));
   assert.equal(h.run('snapshotBudget()'), 12.5e6);
   h.run('coarsePointer.matches = true');
   assert.equal(h.run('snapshotBudget()'), 4e6, 'large touch screens keep the mobile budget');
@@ -61,6 +68,44 @@ test('panning does not rewrite the scale indicator', () => {
   assert.equal(writes, 1);
   h.run('V.s = 2; updateScale()');
   assert.equal(writes, 2);
+});
+
+test('moving the bitmap only changes its compositor transform', () => {
+  const h = harness();
+  h.context.snapCv = h.element();
+  h.context.V = { tx: 20, ty: -30, s: 2 };
+  h.run(section('function drawSnap(){', '// ---------- transform ----------'));
+  // No canvas context is supplied: this must not draw/scale/copy pixels per frame.
+  h.run('drawSnap()');
+  assert.equal(h.context.snapCv.style.transform, 'translate3d(20.00px,-30.00px,0) scale(2)');
+});
+
+test('raster restoration fades after paint and a new gesture cancels stale cleanup', () => {
+  const h = harness(), map = h.element();
+  Object.assign(h.context, {
+    mapEl: map, snapReady: true, V: { s: 2 }, lastLodS: 0, lastLodRun: 0,
+    applyBase() {}, svgLabelLOD() {}, lodPass() {}, reduceMotion: false,
+  });
+  h.run(section('let gestureT =', 'let lodTimer ='));
+  h.run('startGesture(); rastering = true; mapEl.classList.add("rastered"); endGesture()');
+  h.settle();
+  assert.ok(map.classList.contains('restoring'));
+  assert.ok(!map.classList.contains('fading'));
+  h.frame(); h.frame();
+  assert.ok(map.classList.contains('fading'));
+  h.run('startGesture()');
+  assert.ok(!map.classList.contains('fading'));
+  assert.ok(!map.classList.contains('restoring'));
+  h.settle();
+  assert.ok(map.classList.contains('rastered'), 'old fade must not hide the new gesture');
+  h.run('endGesture()'); h.settle(); h.frame(); h.frame(); h.settle();
+  assert.ok(!map.classList.contains('rastered'));
+  assert.ok(!map.classList.contains('fading'));
+  h.context.reduceMotion = true;
+  h.run('startGesture(); rastering = true; mapEl.classList.add("rastered"); endGesture()');
+  h.settle(); h.frame(); h.frame();
+  assert.ok(!map.classList.contains('rastered'));
+  assert.equal(h.timers.size, 0, 'reduced motion skips the fade timer');
 });
 
 test('touch moves batch, pinch transitions flush, and cancellation does not tap', () => {

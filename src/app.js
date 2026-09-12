@@ -10,7 +10,6 @@ const mapEl = $('#map'), world = $('#world'), mkLayer = $('#markers'), dyn = $('
 const viewport = {};
 function measureViewport(){
   viewport.width = window.innerWidth; viewport.height = window.innerHeight;
-  viewport.mapWidth = mapEl.clientWidth; viewport.mapHeight = mapEl.clientHeight;
 }
 measureViewport();
 const isDesktop = () => viewport.width >= 900;
@@ -107,17 +106,15 @@ const EV = []; // timeline event pins
 
 
 // ---------- raster basemap ----------
-// The vector sheet is ~4,500 glyphs; repainting it every frame is what cooked the phone.
-// Once, in the background, we rasterise the static half of the map (#base) into a bitmap.
-// While the map is in motion we blit that bitmap (one GPU draw) and keep only the ~200
-// vector elements that must stay crisp (labels, frame, routes). On release we go back to
-// vector, so a map at rest is always sharp.
+// Rasterise the static map once, then move that canvas with a compositor transform.
+// Do not redraw a viewport-sized canvas on every touch frame. Labels and routes stay
+// on a separate composited layer; the full vector basemap returns after movement.
 const snapCv = $('#snap'), snapCtx = snapCv.getContext('2d');
 // About 16 MB of RGBA pixels on mobile, versus 50 MB on desktop.
 const coarsePointer = window.matchMedia('(pointer: coarse)');
 const snapshotBudget = () => !isDesktop() || coarsePointer.matches ? 4e6 : 12.5e6;
 let snapBudget = snapshotBudget();
-let snapBmp = null, snapK = 0, snapBusy = false, snapDirty = true, snapTimer = null;
+let snapReady = false, snapBusy = false, snapDirty = true, snapTimer = null;
 function snapCss(){
   const src = document.getElementById('mapcss');
   const txt = src?.sheet ? [...src.sheet.cssRules].map(rule => rule.cssText).join('\n') : '';
@@ -149,10 +146,10 @@ function buildSnapshot(){
   const img = new Image();
   img.onload = () => {
     try {
-      const c = document.createElement('canvas'); c.width = w; c.height = h;
-      c.getContext('2d').drawImage(img, 0, 0, w, h);
-      snapBmp = c; snapK = k;
-    } catch (e) {}
+      snapCv.width = w; snapCv.height = h;
+      snapCtx.drawImage(img, 0, 0, w, h);
+      snapReady = true;
+    } catch (e) { snapReady = false; finishRaster(); }
     URL.revokeObjectURL(url); snapBusy = false;
     if (snapDirty) scheduleSnapshot(1500);
   };
@@ -166,39 +163,29 @@ function scheduleSnapshot(delay){
     if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 0);
   }, delay == null ? 700 : delay);
 }
-let deskGrad = null, deskKey = '';
 function drawSnap(){
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
-  const vw = viewport.mapWidth, vh = viewport.mapHeight;
-  const cw = Math.max(1, Math.round(vw * dpr)), ch = Math.max(1, Math.round(vh * dpr));
-  if (snapCv.width !== cw) snapCv.width = cw;
-  if (snapCv.height !== ch) snapCv.height = ch;
-  // the canvas fully covers the (frozen) vector layers beneath it, so it paints the desk too
-  const key = cw + 'x' + ch + document.documentElement.dataset.theme;
-  if (!deskGrad || deskKey !== key) {
-    const cs = getComputedStyle(document.documentElement);
-    deskGrad = snapCtx.createRadialGradient(cw * 0.4, ch * 0.4, 0, cw * 0.4, ch * 0.4, Math.max(cw, ch) * 0.8);
-    deskGrad.addColorStop(0, cs.getPropertyValue('--desk-2').trim() || '#4a372b');
-    deskGrad.addColorStop(1, cs.getPropertyValue('--desk').trim() || '#3b2b22');
-    deskKey = key;
-  }
-  snapCtx.fillStyle = deskGrad; snapCtx.fillRect(0, 0, cw, ch);
-  const s = V.s, k = snapK;
-  snapCtx.drawImage(snapBmp, (-V.tx / s) * k, (-V.ty / s) * k, (vw / s) * k, (vh / s) * k, 0, 0, cw, ch);
+  snapCv.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0) scale(${V.s})`;
 }
 
 // ---------- transform ----------
-// While a finger is down only #world (21 big names, routes, frame) and the markers move.
-// The heavy layers (#worldBase, #worldLab) keep their last transform underneath an opaque
-// canvas showing the raster; on release they get the final transform, paint once, and
-// the canvas is lifted only after that paint has happened - no flash, no layout storm.
-let gestureT = null, gesturing = false, rastering = false, swapT = null;
+// Hide the heavy SVG layers while moving, rather than relying on canvas occlusion.
+// Restore them at the final transform, allow a paint, then fade the bitmap away.
+let gestureT = null, gesturing = false, rastering = false, swapT = null, fadeT = null;
+function cancelRasterSwap(){
+  if (swapT != null) cancelAnimationFrame(swapT);
+  clearTimeout(fadeT); swapT = null; fadeT = null;
+  mapEl.classList.remove('restoring', 'fading');
+}
+function finishRaster(){
+  cancelRasterSwap();
+  rastering = false; mapEl.classList.remove('rastered');
+}
 function startGesture(){
-  clearTimeout(gestureT); if (swapT) { cancelAnimationFrame(swapT); swapT = null; }
+  clearTimeout(gestureT); cancelRasterSwap();
   if (!gesturing) {
     gesturing = true;
     mapEl.classList.add('gesture', 'moving');
-    mapEl.classList.toggle('fallback', !snapBmp);
+    mapEl.classList.toggle('fallback', !snapReady);
   }
 }
 function endGesture(delay){
@@ -207,12 +194,19 @@ function endGesture(delay){
     gesturing = false;
     mapEl.classList.remove('gesture', 'moving', 'fallback');
     applyBase(true);
+    lastLodS = V.s; svgLabelLOD();
     lastLodRun = performance.now(); lodPass();
     if (rastering) {
-      // let the vector layers paint under the canvas before it is removed
-      swapT = requestAnimationFrame(() => { swapT = requestAnimationFrame(() => { swapT = null; if (!gesturing) { rastering = false; mapEl.classList.remove('rastered'); } }); });
+      mapEl.classList.add('restoring');
+      swapT = requestAnimationFrame(() => { swapT = requestAnimationFrame(() => {
+        swapT = null;
+        if (gesturing) return;
+        if (reduceMotion) return finishRaster();
+        mapEl.classList.add('fading');
+        fadeT = setTimeout(finishRaster, 160);
+      }); });
     }
-  }, delay || 90);
+  }, delay ?? 24);
 }
 
 let lodTimer = null, lastLodS = 0, lastLodRun = 0, zoomClass = '', zoomVlo = false;
@@ -265,14 +259,15 @@ function apply(){
   world.style.transform = `translate(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px) scale(${s})`;
   mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)`;
   placeMarkers();
-  const raster = gesturing && !!snapBmp;
+  const raster = gesturing && snapReady;
   if (raster) {
     drawSnap();
     if (!rastering) { rastering = true; mapEl.classList.add('rastered'); }
   } else {
     applyBase();
   }
-  if (Math.abs(s - lastLodS) / (lastLodS || 1) > 0.12) { lastLodS = s; svgLabelLOD(); }
+  // Changing SVG label membership would invalidate the composited overlay mid-zoom.
+  if (!raster && Math.abs(s - lastLodS) / (lastLodS || 1) > 0.12) { lastLodS = s; svgLabelLOD(); }
   if (gesturing) { const now = performance.now(); if (now - lastLodRun > 200) { lastLodRun = now; lodPass(true); } }
   else { clearTimeout(lodTimer); lodTimer = setTimeout(() => { lastLodRun = performance.now(); lodPass(); }, 70); }
   updateScale();
@@ -642,6 +637,7 @@ $('#zin').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1.6, cx, 
 $('#zout').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1/1.6, cx, cy); };
 $('#home').onclick = () => { const h = homeView(); flyTo((viewport.width/2 - h.tx)/h.s, (viewport.height/2 - h.ty)/h.s, h.s, 900); setTimeout(() => { Object.assign(V, h); clamp(); apply(); }, reduceMotion ? 0 : 950); };
 window.addEventListener('resize', () => {
+  if (!gesturing) finishRaster();
   measureViewport();
   const budget = snapshotBudget();
   if (budget !== snapBudget) { snapBudget = budget; scheduleSnapshot(); }
