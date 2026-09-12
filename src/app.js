@@ -6,7 +6,14 @@ const MAPW = 2600, MAPH = 2300;
 const { places: PLACES, journeys: JOURNEYS, timeline: TIMELINE } = window.ATLAS_DATA;
 const TG = 'https://tolkiengateway.net/wiki/';
 const mapEl = $('#map'), world = $('#world'), mkLayer = $('#markers'), dyn = $('#dyn'), sheet = $('#sheet'), body = $('#sheetbody');
-const isDesktop = () => window.innerWidth >= 900;
+// Read dimensions only at startup/resize, never after map style writes in a frame.
+const viewport = {};
+function measureViewport(){
+  viewport.width = window.innerWidth; viewport.height = window.innerHeight;
+  viewport.mapWidth = mapEl.clientWidth; viewport.mapHeight = mapEl.clientHeight;
+}
+measureViewport();
+const isDesktop = () => viewport.width >= 900;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ---------- storage (best-effort) ----------
@@ -106,8 +113,11 @@ const EV = []; // timeline event pins
 // vector elements that must stay crisp (labels, frame, routes). On release we go back to
 // vector, so a map at rest is always sharp.
 const snapCv = $('#snap'), snapCtx = snapCv.getContext('2d');
-const SNAP_MAX_PX = 12.5e6;
-let snapBmp = null, snapK = 0, snapBusy = false, snapDirty = true, snapTimer = null, rasterMax = 0;
+// About 16 MB of RGBA pixels on mobile, versus 50 MB on desktop.
+const coarsePointer = window.matchMedia('(pointer: coarse)');
+const snapshotBudget = () => !isDesktop() || coarsePointer.matches ? 4e6 : 12.5e6;
+let snapBudget = snapshotBudget();
+let snapBmp = null, snapK = 0, snapBusy = false, snapDirty = true, snapTimer = null;
 function snapCss(){
   const src = document.getElementById('mapcss');
   const txt = src?.sheet ? [...src.sheet.cssRules].map(rule => rule.cssText).join('\n') : '';
@@ -121,7 +131,7 @@ function snapCss(){
 function buildSnapshot(){
   if (snapBusy || !baseEl) return;
   snapBusy = true; snapDirty = false;
-  const k = Math.min(1.6, Math.sqrt(SNAP_MAX_PX / (MAPW * MAPH)));
+  const k = Math.min(1.6, Math.sqrt(snapBudget / (MAPW * MAPH)));
   const w = Math.round(MAPW * k), h = Math.round(MAPH * k);
   let url = null;
   try {
@@ -142,7 +152,6 @@ function buildSnapshot(){
       const c = document.createElement('canvas'); c.width = w; c.height = h;
       c.getContext('2d').drawImage(img, 0, 0, w, h);
       snapBmp = c; snapK = k;
-      rasterMax = 99;
     } catch (e) {}
     URL.revokeObjectURL(url); snapBusy = false;
     if (snapDirty) scheduleSnapshot(1500);
@@ -160,7 +169,7 @@ function scheduleSnapshot(delay){
 let deskGrad = null, deskKey = '';
 function drawSnap(){
   const dpr = Math.min(2, window.devicePixelRatio || 1);
-  const vw = mapEl.clientWidth, vh = mapEl.clientHeight;
+  const vw = viewport.mapWidth, vh = viewport.mapHeight;
   const cw = Math.max(1, Math.round(vw * dpr)), ch = Math.max(1, Math.round(vh * dpr));
   if (snapCv.width !== cw) snapCv.width = cw;
   if (snapCv.height !== ch) snapCv.height = ch;
@@ -230,7 +239,7 @@ function placeMarkers(force){
 function cull(){
   const s = V.s, pad = 80 / s;
   const x0 = -V.tx / s - pad, y0 = -V.ty / s - pad;
-  const x1 = x0 + window.innerWidth / s + pad * 2, y1 = y0 + window.innerHeight / s + pad * 2;
+  const x1 = x0 + viewport.width / s + pad * 2, y1 = y0 + viewport.height / s + pad * 2;
   for (let i = 0; i < BUCKETS.length; i++) {
     const b = BUCKETS[i];
     const v = b.x1 > x0 && b.x0 < x1 && b.y1 > y0 && b.y0 < y1;
@@ -269,7 +278,7 @@ function apply(){
   updateScale();
 }
 function clamp(){
-  const vw = window.innerWidth, vh = window.innerHeight;
+  const vw = viewport.width, vh = viewport.height;
   const left = isDesktop() ? 432 : 0, aw = vw - left; // desktop: the panel covers the left strip
   V.min = Math.min(aw / MAPW, vh / MAPH) * 0.9;
   V.s = Math.min(V.max, Math.max(V.min, V.s));
@@ -298,7 +307,7 @@ function zoomAnim(f, ax, ay, dur){ // eased version of zoomAt for taps and butto
   zanim = requestAnimationFrame(step);
 }
 function visibleCenter(){ // centre of the map area not covered by the sheet
-  const vw = window.innerWidth, vh = window.innerHeight;
+  const vw = viewport.width, vh = viewport.height;
   if (isDesktop()) return [ (vw + 432) / 2, vh / 2 ];
   const st = sheet.classList.contains('full') ? vh * 0.5 : (sheet.classList.contains('half') ? vh * 0.5 : 150);
   return [ vw / 2, (vh - st) / 2 + 60 ];
@@ -330,7 +339,7 @@ function flyTo(mx, my, ts, dur){ // map coords -> centre, target scale
   anim = requestAnimationFrame(step);
 }
 function homeView(){
-  const vw = window.innerWidth, vh = window.innerHeight;
+  const vw = viewport.width, vh = viewport.height;
   const left = isDesktop() ? 432 : 0, bottom = isDesktop() ? 0 : 150, top = 110;
   const aw = vw - left, ah = vh - top - bottom;
   const bx0 = 480, by0 = 520, bx1 = 2000, by1 = 1980; // interesting extents
@@ -353,7 +362,7 @@ const RANK_MIN = {1: 0, 2: 0.5, 3: 1.15, 4: 2.5};
 let selected = null, activeCat = null, tlYear = 3019, tlOn = false;
 function placeVisibleInTime(p){ if (!tlOn) return true; if (p.f != null && p.f > tlYear) return false; if (p.to != null && p.to < tlYear) return false; return true; }
 function lodPass(quick){
-  const s = V.s, vw = window.innerWidth, vh = window.innerHeight;
+  const s = V.s, vw = viewport.width, vh = viewport.height;
   const cand = [];
   for (const m of MK) {
     const p = m.p;
@@ -497,17 +506,29 @@ function svgLabelLOD(){
 }
 
 // ---------- scale bar ----------
+const scaleBar = $('#scalebar .bar'), scaleText = $('#scalebar .txt');
+let scaleZoom = null;
 function updateScale(){
+  if (V.s === scaleZoom) return;
+  scaleZoom = V.s;
   const target = 90; // px
   const miles = target / V.s; const nice = [5,10,20,25,50,100,200,250,500,1000];
   let m = nice[0]; for (const n of nice) if (n <= miles) m = n;
-  $('#scalebar .bar').style.width = (m * V.s) + 'px';
-  $('#scalebar .txt').textContent = m + ' miles · ' + (m/3 % 1 ? (m/3).toFixed(1) : m/3) + ' leagues';
+  scaleBar.style.width = (m * V.s) + 'px';
+  scaleText.textContent = m + ' miles · ' + (m/3 % 1 ? (m/3).toFixed(1) : m/3) + ' leagues';
 }
 
 // ---------- pointer handling ----------
 (function pointer(){
   const pts = new Map(); let start = null, moved = false, lastTap = 0, vel = [0,0], lastMove = null, inertia = null, downTarget = null;
+  let pointerFrame = null;
+  function queuePointerApply(){
+    if (pointerFrame == null) pointerFrame = requestAnimationFrame(() => { pointerFrame = null; apply(); });
+  }
+  function flushPointerApply(){
+    if (pointerFrame == null) return;
+    cancelAnimationFrame(pointerFrame); pointerFrame = null; apply();
+  }
   mapEl.addEventListener('pointerdown', e => {
     // pointer capture retargets the matching pointerup to #map, so remember what was pressed
     downTarget = e.target;
@@ -526,7 +547,7 @@ function updateScale(){
       const dx = e.clientX - start.x, dy = e.clientY - start.y;
       if (!moved && Math.hypot(dx, dy) > 4) moved = true;
       if (moved) {
-        V.tx = start.tx + dx; V.ty = start.ty + dy; clamp(); apply();
+        V.tx = start.tx + dx; V.ty = start.ty + dy; clamp(); queuePointerApply();
         const now = performance.now(); const dt = now - lastMove.t;
         if (dt > 0) vel = [ (e.clientX - lastMove.x) / dt, (e.clientY - lastMove.y) / dt ];
         lastMove = { x: e.clientX, y: e.clientY, t: now };
@@ -536,15 +557,18 @@ function updateScale(){
       const ns = Math.min(V.max, Math.max(V.min, start.s * d / start.d));
       // keep the initial midpoint's map position under the current midpoint
       const mapx = (start.mx - start.tx) / start.s, mapy = (start.my - start.ty) / start.s;
-      V.s = ns; V.tx = mx - mapx * ns; V.ty = my - mapy * ns; clamp(); apply();
+      V.s = ns; V.tx = mx - mapx * ns; V.ty = my - mapy * ns; clamp(); queuePointerApply();
     }
   });
   function up(e){
     if (!pts.has(e.pointerId)) return;
+    // Commit the final movement before a pinch becomes a drag or inertia starts.
+    flushPointerApply();
+    const cancelled = e.type === 'pointercancel';
     pts.delete(e.pointerId);
     if (pts.size === 0) {
       mapEl.classList.remove('dragging'); endGesture();
-      if (!moved) {
+      if (!moved && !cancelled) {
         const tgt = downTarget || e.target;
         const t = tgt.closest('.mk'); const ev = tgt.closest('.ev'); const ml = tgt.closest('.ml');
         const now = performance.now();
@@ -553,7 +577,7 @@ function updateScale(){
         else if (ml && ml.dataset.pid) { selectPlace(byId[ml.dataset.pid], { fly: true }); }
         else if (now - lastTap < 320 && e.pointerType !== 'mouse') { zoomAnim(2, e.clientX, e.clientY); lastTap = 0; }
         else { lastTap = now; if (sheet.classList.contains('full') || sheet.classList.contains('half')) setSheet('peek'); }
-      } else if (Math.hypot(vel[0], vel[1]) > 0.25 && !reduceMotion) {
+      } else if (!cancelled && Math.hypot(vel[0], vel[1]) > 0.25 && !reduceMotion) {
         let v = [vel[0], vel[1]]; let last = performance.now();
         startGesture();
         const step = now => { const dt = now - last; last = now; V.tx += v[0] * dt; V.ty += v[1] * dt; v[0] *= Math.pow(0.992, dt); v[1] *= Math.pow(0.992, dt); clamp(); apply(); if (Math.hypot(v[0], v[1]) > 0.02) inertia = requestAnimationFrame(step); else { inertia = null; endGesture(40); lodPass(); } };
@@ -616,14 +640,19 @@ function updateScale(){
 })();
 $('#zin').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1.6, cx, cy); };
 $('#zout').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1/1.6, cx, cy); };
-$('#home').onclick = () => { const h = homeView(); flyTo((window.innerWidth/2 - h.tx)/h.s, (window.innerHeight/2 - h.ty)/h.s, h.s, 900); setTimeout(() => { Object.assign(V, h); clamp(); apply(); }, reduceMotion ? 0 : 950); };
-window.addEventListener('resize', () => { clamp(); apply(); });
+$('#home').onclick = () => { const h = homeView(); flyTo((viewport.width/2 - h.tx)/h.s, (viewport.height/2 - h.ty)/h.s, h.s, 900); setTimeout(() => { Object.assign(V, h); clamp(); apply(); }, reduceMotion ? 0 : 950); };
+window.addEventListener('resize', () => {
+  measureViewport();
+  const budget = snapshotBudget();
+  if (budget !== snapBudget) { snapBudget = budget; scheduleSnapshot(); }
+  clamp(); apply();
+});
 
 // ---------- sheet ----------
 let sheetState = 'peek';
 function setSheet(st){
   sheetState = st; sheet.classList.remove('peek','half','full'); sheet.classList.add(st);
-  const vh = window.innerHeight;
+  const vh = viewport.height;
   const y = st === 'peek' ? `calc(100% - var(--peek))` : (st === 'half' ? `${Math.round(vh*0.5)}px` : `${Math.max(56, Math.round(vh*0.08))}px`);
   sheet.style.transform = `translateY(${y})`;
   if (st !== 'full') body.scrollTop = 0;
@@ -634,7 +663,7 @@ function setSheet(st){
   function cur(){ const m = /translateY\(([-\d.]+)px\)/.exec(sheet.style.transform); if (m) return +m[1]; const r = sheet.getBoundingClientRect(); return r.top; }
   function down(e){ if (isDesktop()) return; dragging = true; sy = e.clientY; y0 = sheet.getBoundingClientRect().top; sheet.classList.add('drag'); lastY = e.clientY; lastT = performance.now(); vy = 0; grab.setPointerCapture && e.pointerId != null && grab.setPointerCapture(e.pointerId); }
   function move(e){ if (!dragging) return; const dy = e.clientY - sy; const ny = Math.max(40, y0 + dy); sheet.style.transform = `translateY(${ny}px)`; const t = performance.now(); vy = (e.clientY - lastY) / Math.max(1, t - lastT); lastY = e.clientY; lastT = t; }
-  function up(){ if (!dragging) return; dragging = false; sheet.classList.remove('drag'); const vh = window.innerHeight; const top = sheet.getBoundingClientRect().top;
+  function up(){ if (!dragging) return; dragging = false; sheet.classList.remove('drag'); const vh = viewport.height; const top = sheet.getBoundingClientRect().top;
     const snaps = [ ['full', Math.max(56, vh*0.08)], ['half', vh*0.5], ['peek', vh - 150] ];
     let best = snaps[0]; let bd = 1e9; for (const s of snaps) { const d = Math.abs(s[1] - top); if (d < bd) { bd = d; best = s; } }
     if (Math.abs(vy) > 0.5) { const i = snaps.findIndex(s => s[0] === best[0]); best = snaps[Math.min(2, Math.max(0, i + (vy > 0 ? 1 : -1)))]; }
@@ -891,7 +920,7 @@ function drawDir(){
   dyn.appendChild(g);
   // fit both
   const cx = (dirA.x + dirB.x) / 2, cy = (dirA.y + dirB.y) / 2; const span = Math.max(Math.abs(dirA.x - dirB.x), Math.abs(dirA.y - dirB.y)) + 200;
-  const vw = window.innerWidth, vh = isDesktop() ? window.innerHeight : window.innerHeight * 0.5;
+  const vw = viewport.width, vh = isDesktop() ? viewport.height : viewport.height * 0.5;
   flyTo(cx, cy, Math.min(V.max, Math.max(V.min, Math.min(vw, vh) / span)));
 }
 function journeyRoad(a, b){ // road distance along a journey if both places are waypoints
@@ -938,6 +967,12 @@ q.addEventListener('blur', () => { setTimeout(() => { q.placeholder = 'Search Mi
 
 // ---------- timeline ----------
 const tl = $('#tl');
+let timelineFrame = null, timelinePanelTimer = null;
+function cancelTimelineUpdate(){
+  if (timelineFrame != null) cancelAnimationFrame(timelineFrame);
+  clearTimeout(timelinePanelTimer);
+  timelineFrame = null; timelinePanelTimer = null;
+}
 tl.value = 400 + 3019 / 3141 * 600;
 // slider 0..1000 <-> abs year, piecewise: [0,80] YT/FA (-9000..-3441), [80,400] SA, [400,1000] TA..FoA 120
 function sliderToYear(v){ v = +v; if (v <= 80) return Math.round(-9000 + (v/80) * (5559)); if (v <= 400) return Math.round(-3441 + ((v-80)/320) * 3441); return Math.round(((v-400)/600) * 3141); }
@@ -946,19 +981,33 @@ const PRESETS = [[-2691,'Rings forged'],[-1744,'Fall of Eregion'],[-121,'Arnor &
 $('#presets').innerHTML = PRESETS.map(([y, t]) => `<button class="chip" data-y="${y}">${esc(t)}</button>`).join('');
 $('#presets').addEventListener('click', e => { const b = e.target.closest('[data-y]'); if (b) { tl.value = yearToSlider(+b.dataset.y); setYear(+b.dataset.y); } });
 function setTimeline(on){
+  cancelTimelineUpdate();
   tlOn = on; $('#tlbar').classList.toggle('on', on); $('#tlbtn').classList.toggle('on', on); mapEl.classList.toggle('tl-on', on);
   if (on) { setYear(sliderToYear(tl.value)); mode('tl'); if (sheetState === 'peek') setSheet('half'); } else { updateRealms(); svgLabelLOD(); lodPass(); if ($('#m-tl').classList.contains('on')) mode('explore'); }
 }
 $('#tlbtn').onclick = () => setTimeline(!tlOn);
-tl.addEventListener('input', () => setYear(sliderToYear(tl.value)));
+tl.addEventListener('input', () => {
+  if (!tlOn || timelineFrame != null) return;
+  timelineFrame = requestAnimationFrame(() => {
+    timelineFrame = null; setYear(sliderToYear(tl.value), true);
+  });
+});
+// Commit immediately on release (also covers keyboard changes).
+tl.addEventListener('change', () => { if (tlOn) setYear(sliderToYear(tl.value)); });
 function nearEvents(y){ return TIMELINE.map(e => [Math.abs(e.y - y), e]).sort((a, b) => a[0] - b[0] || a[1].y - b[1].y).slice(0, 14).sort((a, b) => a[1].y - b[1].y); }
-function setYear(y){
+function setYear(y, deferPanel = false){
+  cancelTimelineUpdate();
   tlYear = y; $('#tlyear').textContent = ageLabel(y);
   const ne = nearEvents(y); const exact = ne.filter(([d]) => d === 0);
   $('#tlnear').textContent = exact.length ? exact[0][1].title : (ne[0] ? `nearest: ${ne[0][1].title} (${ageLabel(ne[0][1].y)})` : '');
   const win = new Set(ne.filter(([d]) => d <= 40).map(([, e]) => e));
   EV.forEach(({ e, el }) => el.classList.toggle('in', win.has(e)));
-  updateRealms(); svgLabelLOD(); lodPass(); renderTimeline(y, ne);
+  updateRealms(); svgLabelLOD(); lodPass();
+  // Map/year feedback stays live while scrubbing; rebuild the panel once settled.
+  if (deferPanel) timelinePanelTimer = setTimeout(() => {
+    timelinePanelTimer = null; renderTimeline(y, ne);
+  }, 120);
+  else renderTimeline(y, ne);
 }
 function renderTimeline(y, ne){
   const el = $('#m-tl');

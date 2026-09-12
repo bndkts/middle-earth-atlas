@@ -14,6 +14,19 @@ The project intentionally has no build step or package dependencies. Please do
 not add a framework or build tool for a change that can be made with the
 existing HTML, CSS, and JavaScript.
 
+## Map performance checks
+
+`npm test` includes dependency-free regression tests for viewport caching,
+touch frame batching, and timeline update cancellation. For rendering changes,
+also check dragging, pinch-to-zoom, releasing one finger during a pinch,
+timeline scrubbing/presets, and viewport resizing in a browser. Test on a real
+phone when possible; CPU-throttled desktop emulation does not reproduce its GPU.
+
+Keep viewport measurements in `measureViewport()` and avoid layout reads after
+map style writes. Touch rendering is frame-batched; release flushes the final
+position. The movement bitmap uses a 4 MP budget on narrow/touch screens and
+12.5 MP on desktop; the stationary map remains vector-sharp.
+
 ## Data changes
 
 Place, journey, and timeline records live in `src/data.js`. Keep IDs stable,
