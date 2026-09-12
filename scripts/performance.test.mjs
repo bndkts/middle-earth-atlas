@@ -33,7 +33,7 @@ function harness() {
     setTimeout: fn => { timers.set(++id, fn); return id; },
     clearTimeout: key => timers.delete(key),
     performance: { now: () => 100 },
-    rasterCache: null, tileLayer: element(), worldLab: element(), drawSnap() {}, markRasterParts() {}, updateSharpCache() {},
+    worldLab: element(), drawSnap() {}, saveView() {}, releaseSnapshotJob() {},
   });
   const run = code => vm.runInContext(code, context);
   const tick = queue => { const jobs = [...queue.values()]; queue.clear(); jobs.forEach(fn => fn(100)); };
@@ -52,7 +52,7 @@ test('viewport dimensions are cached until explicitly refreshed', () => {
   assert.equal(h.run('isDesktop()'), true);
   h.context.window.matchMedia = () => ({ matches: false });
   h.run(section('const coarsePointer =', 'let snapReady ='));
-  assert.equal(h.run('snapshotBudget()'), 12.5e6);
+  assert.equal(h.run('snapshotBudget()'), 6e6);
   h.run('coarsePointer.matches = true');
   assert.equal(h.run('snapshotBudget()'), 4e6, 'large touch screens keep the mobile budget');
   h.run('coarsePointer.matches = false; viewport.width = 390');
@@ -79,7 +79,6 @@ test('moving the bitmap only changes its compositor transform', () => {
   // No canvas context is supplied: this must not draw/scale/copy pixels per frame.
   h.run('drawSnap()');
   assert.equal(h.context.snapCv.style.transform, 'translate3d(20.00px,-30.00px,0) scale(2)');
-  assert.equal(h.context.tileLayer.style.transform,h.context.snapCv.style.transform);
   assert.equal(h.context.worldLab.style.transform,undefined,'hidden SVG lettering stays frozen until gesture-end restoration');
 });
 
@@ -153,16 +152,17 @@ test('snapshot includes overlay artwork and rejects stale or mid-gesture decodes
     return [{ remove: () => removed.push('live content') }];
   }};
   Object.assign(h.context, {
-    snapBusy: false, snapDirty: true, snapReady: false, snapVersion: 1, snapBudget: 4e6,
+    snapBusy: false, snapDirty: true, snapReady: false, snapVersion: 1, snapBudget: 4e6, snapJob: null,
     gesturing: false, rastering: false, MAPW: 2600, MAPH: 2300,
     baseEl: { cloneNode: () => clone }, terrainEl: { cloneNode: () => overlay },
     mapEl: h.element(), snapCv: {}, snapCtx: { drawImage: () => drawn.push(true) },
     document: { createElementNS: () => ({ textContent: '' }) },
     Blob: class {}, XMLSerializer: class { serializeToString() { return '<svg/>'; } },
     URL: { createObjectURL: () => 'blob:test', revokeObjectURL() {} },
-    Image: class { constructor() { images.push(this); } },
+    Image: class { constructor() { images.push(this); } removeAttribute() { this.src = ''; } },
     snapCss: () => '', scheduleSnapshot() {}, finishRaster() {},
   });
+  h.run(section('function releaseSnapshotJob(){', 'function suspendSnapshot(){'));
   h.run(section('function buildSnapshot(){', 'function scheduleSnapshot('));
   h.run('buildSnapshot()');
   assert.equal(appended[0], overlay);
@@ -177,8 +177,23 @@ test('snapshot includes overlay artwork and rejects stale or mid-gesture decodes
   images[2].onload();
   assert.equal(drawn.length, 1);
   assert.equal(h.context.snapReady, true);
+  assert.equal(h.context.snapJob, null);
+  assert.equal(h.context.snapBusy, false);
+  for (const img of images) { assert.equal(img.onload, null); assert.equal(img.onerror, null); assert.equal(img.src, ''); }
   h.run('gesturing = true; buildSnapshot()');
   assert.equal(images.length, 3, 'do not even serialize SVG during gestures');
+  h.run('gesturing = false; buildSnapshot()');
+  const staleLoad = images[3].onload;
+  h.run('releaseSnapshotJob(); buildSnapshot()');
+  staleLoad();
+  assert.equal(h.context.snapJob.img, images[4], 'a cancelled callback cannot release the replacement job');
+  assert.equal(drawn.length, 1);
+  images[4].onerror();
+  assert.equal(h.context.snapJob, null); assert.equal(h.context.snapBusy, false);
+  assert.equal(images[4].src, '');
+  h.run('document.hidden = true; buildSnapshot()');
+  assert.equal(images.length, 5, 'background tabs must not serialize or decode artwork');
+
 });
 
 test('timeline and layer changes invalidate the snapshot only when artwork changes', () => {
@@ -261,58 +276,45 @@ test('timeline batches the latest year and cancels stale panels on commit or clo
   h.frame(); h.settle(); assert.equal(panels.length, 3);
 });
 
-test('geometry indexing measures zoom-hidden artwork once and restores culling styles', () => {
-  const h=harness(), map=h.element();
-  map.classList.add('z-lo');
-  let reads=0;
-  const base={getCTM:()=>({inverse:()=>({multiply:m=>m})})};
-  const bucket={classList:{contains:()=>true},dataset:{b:'1,2'},style:{display:'none'},parentNode:base,getBBox(){}};
-  const part={classList:{contains:()=>false},parentNode:base,
-    getBBox(){reads++;assert.equal(map.classList.contains('z-lo'),false);assert.equal(bucket.style.display,'');return{x:100,y:200,width:20,height:30};},
-    getCTM:()=>({a:1,b:0,c:0,d:1,e:10,f:20}),
-  };
-  base.querySelectorAll=selector=>selector==='.bk'?[bucket]:[bucket,part];
-  const values=[];
-  const clone={querySelectorAll:()=>[0,1].map(i=>({setAttribute:(name,value)=>values[i]=value}))};
-  Object.assign(h.context,{baseEl:base,mapEl:map,clone});
-  h.run(section('const rasterBounds =', 'function buildSnapshot(){'));
-  h.run('markRasterParts(clone)');
-  assert.equal(values[0],'236,536,428,428');
-  assert.equal(values[1],'106,216,28,38');
-  assert.ok(map.classList.contains('z-lo'));
-  assert.equal(bucket.style.display,'none');
-  h.run('markRasterParts(clone)');
-  assert.equal(reads,1,'layer changes must reuse bounds even while SVG is hidden');
-});
 
-test('persistent terrain skips vector restoration and keeps cached movement aligned', () => {
-  const h=harness(), map=h.element();map.classList.add('cached');
+test('snapshot work coalesces and suspension releases pending decodes and canvas memory', () => {
+  const h = harness(), idle = new Map(), revoked = [];
+  let id = 0, builds = 0;
   Object.assign(h.context, {
-    mapEl:map,snapReady:true,V:{s:4,tx:10,ty:20},lastLodS:0,lastLodRun:0,
-    lodTimer:null,lastPosS:4,mkLayer:h.element(),
-    applyBase(){},svgLabelLOD(){},lodPass(){},reduceMotion:false,
+    snapTimer: null, snapIdle: null, snapJob: null, snapBusy: false,
+    snapVersion: 1, snapReady: true, snapDirty: false, gesturing: false,
+    snapCv: { width: 2000, height: 1800 }, document: { hidden: false },
+    window: { requestIdleCallback(fn) { idle.set(++id, fn); return id; }, cancelIdleCallback(id) { idle.delete(id); } },
+    URL: { revokeObjectURL(url) { revoked.push(url); } },
+    finishRaster() {}, mapEl: h.element(), buildSnapshot() { builds++; },
   });
-  h.run(section('let gestureT =', 'let lodTimer ='));
-  h.run('startGesture(); rastering=true; endGesture()');h.settle();
-  assert.equal(map.classList.contains('restoring'),false);
-  assert.equal(map.classList.contains('fading'),false);
-  assert.equal(h.frames.size,0,'no paint/fade cycle between successive gestures');
+  h.run(section('function cancelSnapshotSchedule(){', 'function invalidateSnapshot(){'));
+  h.run(section('function scheduleSnapshot(', 'function drawSnap(){'));
+  h.run('scheduleSnapshot(); scheduleSnapshot()');
+  assert.equal(h.timers.size, 1);
+  h.settle(); assert.equal(idle.size, 1);
+  h.run('scheduleSnapshot()');
+  assert.equal(idle.size, 0, 'a replacement also cancels already queued idle work');
+  h.settle();
+  const img = {src:'blob:pending', onload() {}, onerror() {}, removeAttribute() { this.src = ''; }};
+  h.context.snapJob = { img, url: img.src }; h.context.snapBusy = true;
+  h.run('document.hidden = true; suspendSnapshot(); scheduleSnapshot()');
+  assert.equal(idle.size, 0); assert.equal(h.timers.size, 0);
+  assert.equal(h.context.snapCv.width * h.context.snapCv.height, 0);
+  assert.equal(h.context.snapReady, false); assert.equal(h.context.snapJob, null);
+  assert.equal(h.context.snapBusy, false); assert.equal(img.onload, null);
+  assert.equal(img.onerror, null); assert.equal(img.src, '');
+  assert.deepEqual(revoked, ['blob:pending']);
+  h.run('document.hidden = false; scheduleSnapshot()'); h.settle();
+  [...idle.values()][0](); assert.equal(builds, 1);
 });
 
-test('gesture end restores vectors without waiting for incomplete or undersized background tiles',()=>{
-  const h=harness(),map=h.element();map.classList.add('cached');
-  let basePaints=0;
-  Object.assign(h.context,{
-    mapEl:map,snapReady:true,rasterCache:{isSharp:()=>false,schedule(){}},
-    V:{s:6,tx:10,ty:20},lastLodS:0,lastLodRun:0,lodTimer:null,lastPosS:6,
-    mkLayer:h.element(),applyBase(){basePaints++;},svgLabelLOD(){},lodPass(){},reduceMotion:true,
-  });
-  h.run(section('function updateSharpCache(){','function drawSnap(){'));
-  h.run(section('let gestureT =','let lodTimer ='));
-  h.run('startGesture(); rastering=true; mapEl.classList.add("rastered"); endGesture()');
-  h.settle();
-  assert.equal(map.classList.contains('cached'),false);
-  assert.ok(basePaints>0,'vector culling and transform must be restored even if idle callbacks never run');
-  h.frame();h.frame();
-  assert.equal(map.classList.contains('rastered'),false,'preview must stop covering the sharp SVG');
+test('map emphasis animations settle instead of repainting indefinitely', () => {
+  const css = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8');
+  for (const selector of ['.ev i', '.ring i', '.wp i::after']) {
+    const rule = css.slice(css.indexOf(selector + '{')).split('}')[0];
+    assert.ok(rule.includes('animation:'));
+    assert.ok(!rule.includes('infinite'), selector);
+  }
+  assert.ok(!source.includes('setInterval('), 'idle view persistence must not poll storage');
 });

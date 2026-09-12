@@ -31,7 +31,6 @@ No `npm install` is required.
 ```text
 index.html              Document shell and inline interactive map SVG
 src/app.js              Application and interaction logic
-src/raster-cache.js     Incremental nearby-terrain cache with a fixed pixel budget
 src/data.js             Places, journeys, and timeline data
 src/images.js           Image metadata and asset paths
 src/details.mjs         Lazy-loaded close-up miniatures and viewport culling
@@ -43,23 +42,15 @@ nginx.conf              UTF-8 static-server configuration
 scripts/                Repository validation
 ```
 
-The large SVG intentionally remains inline as the source artwork and fallback.
-The renderer uses an overview bitmap during gestures and prepares sharper
-512-pixel terrain tiles in idle time, starting with the viewport and then
-one surrounding ring. Geometry outside each tile is omitted. Only one tile is
-prepared at a time, with longer pauses after expensive draws; gestures and hidden
-tabs pause the queue. Panning and zooming move existing bitmaps. At rest, cached
-terrain is used only when it fully covers the viewport at the actual display pixel
-ratio. Otherwise the sharp vector map returns after the gesture, including when
-idle work is delayed or the memory budget cannot accommodate full-resolution tiles.
-
-The cache retains at most 20 tiles on mobile/touch devices (about 21 MB of RGBA
-pixels), or 32 on desktop (about 34 MB), in addition to the existing 16/50 MB
-overview bitmap. A pending decode and browser bookkeeping add transient overhead.
-Eviction releases canvas storage; timeline and artwork-layer changes invalidate
-both caches. Labels, journeys and interactive miniatures remain separate.
-Reduced-resolution tiles remain movement previews; they never determine the
-sharpness of the resting map.
+The inline SVG remains the source artwork. One overview bitmap is reused during
+gestures; the culled vector map always returns at rest, so detail stays sharp at
+any display pixel ratio. Panning and zooming never prepare additional SVG images.
+The overview uses at most about 16 MB of RGBA pixels on mobile/touch devices or
+24 MB on desktop. Browser rendering overhead is additional to those budgets.
+Decoded images are detached after drawing; hiding the page cancels pending work
+and releases the canvas. Timeline and artwork-layer changes rebuild the preview.
+Labels, journeys and interactive miniatures remain separate. Marker emphasis
+animations finish after two pulses, allowing a settled map to stop repainting.
 
 Zoom in closely to find **Little discoveries**: original SVG miniatures with
 short stories, available by touch or keyboard and switchable in Layers. Their

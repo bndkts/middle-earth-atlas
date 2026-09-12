@@ -21,8 +21,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 #map.dragging{cursor:grabbing}
 #worldBase,#worldLab,#world{position:absolute;left:0;top:0;width:2600px;height:2300px;transform-origin:0 0;pointer-events:none}
 #tbase,#tlab,#terrain{position:absolute;left:0;top:0;display:block;width:2600px;height:2300px;overflow:visible}
-#snap{position:absolute;left:0;top:0;width:2600px;height:2300px;transform-origin:0 0;display:none;pointer-events:none;opacity:1;will-change:transform,opacity}
-.rastered #snap{display:block}
+#snap{position:absolute;left:0;top:0;width:2600px;height:2300px;transform-origin:0 0;display:none;pointer-events:none;opacity:1}
+.rastered #snap{display:block;will-change:transform}
 .rastered:not(.restoring) #worldBase,.rastered:not(.restoring) #worldLab{visibility:hidden}
 .rastered:not(.restoring) #terrain :is(#realms,.roads,.decor,.neat){visibility:hidden}
 .rastered #terrain :is(#realms,.roads,.decor,.neat){opacity:0}
@@ -36,20 +36,6 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 
 #markers{position:absolute;left:0;top:0;width:0;height:0;z-index:3;contain:layout style;transform-origin:0 0}
 #tex{position:absolute;inset:0;pointer-events:none;z-index:2;background-image:url("../assets/texture.png");background-size:256px 256px;opacity:var(--noise-op)}
-/* Cached previews cover gestures; only display-resolution coverage replaces vectors at rest. */
-#maptiles{display:none;position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
-#maptiles canvas{position:absolute;display:block}
-.rastered #maptiles,.cached #maptiles{display:block}
-.fading #maptiles{opacity:0;transition:opacity 140ms ease-out}
-#worldLab{z-index:1}
-.cached #snap{display:block;opacity:1;transition:none}
-.cached #worldBase{display:none}
-.cached #terrain :is(#realms,.roads,.decor,.neat){display:none}
-.cached #worldLab{visibility:visible!important;opacity:1;transition:none}
-/* SVG lettering rerasterizes on pinch; HTML place markers keep moving throughout. */
-.cached.gesture #worldLab{visibility:hidden!important}
-.moving #maptiles{will-change:transform}
-
 /* ---------- terrain svg ---------- */
 
 .z-lo .waves{opacity:.6}
@@ -108,12 +94,12 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .mk.g-set{--c:var(--set)}.mk.g-fort{--c:var(--fort)}.mk.g-nat{--c:var(--nat)}.mk.g-mtn{--c:var(--mtn)}.mk.g-wat{--c:var(--wat)}.mk.g-bat{--c:var(--bat)}.mk.g-ruin{--c:var(--ruin)}
 .ev{position:absolute;left:0;top:0;width:0;height:0;pointer-events:auto;cursor:pointer;display:none}
 .tl-on .ev.in{display:block}
-.ev i{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--accent);border:2px solid var(--halo);box-shadow:0 0 0 3px var(--accent-soft);animation:evp 2.2s infinite}
+.ev i{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--accent);border:2px solid var(--halo);box-shadow:0 0 0 3px var(--accent-soft);animation:evp 2.2s 2}
 @keyframes evp{0%{box-shadow:0 0 0 2px var(--accent-soft)}60%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 2px transparent}}
-@media (prefers-reduced-motion:reduce){.ev i{animation:none}}
+@media (prefers-reduced-motion:reduce){.ev i,.ring i,.wp i::after{animation:none!important}}
 .ring{position:absolute;left:0;top:0;pointer-events:none;display:none}
 .ring.on{display:block}
-.ring i{position:absolute;left:-18px;top:-18px;width:36px;height:36px;border-radius:50%;border:2px solid var(--accent);opacity:.9;animation:rp 1.6s ease-out infinite}
+.ring i{position:absolute;left:-18px;top:-18px;width:36px;height:36px;border-radius:50%;border:2px solid var(--accent);opacity:.9;animation:rp 1.6s ease-out 2}
 @keyframes rp{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.4);opacity:0}}
 /* ---------- top bar ---------- */
 #top{position:absolute;top:0;left:0;right:0;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px 0;z-index:20;pointer-events:none;display:flex;flex-direction:column;gap:8px}
@@ -331,7 +317,7 @@ a{color:var(--accent)}
 .wp{position:absolute;left:0;top:0;pointer-events:none;display:none;z-index:6;--jc:var(--accent)}
 .wp.on{display:block}
 .wp i{position:absolute;left:-11px;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--jc);border:3px solid var(--paper);box-shadow:0 1px 4px rgba(0,0,0,.35)}
-.wp i::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--jc);animation:rp 1.4s ease-out infinite}
+.wp i::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--jc);animation:rp 1.4s ease-out 2}
 .wp .wpl{position:absolute;left:16px;top:-30px;white-space:nowrap;background:var(--paper);border:1px solid var(--jc);border-left-width:4px;border-radius:8px;padding:4px 9px 5px;box-shadow:var(--shadow);line-height:1.15}
 .wp .wpl b{display:block;font-family:'Cinzel',Georgia,serif;font-size:12px;font-weight:700;color:var(--text)}
 .wp .wpl small{display:block;font-size:11px;font-style:italic;color:var(--muted)}

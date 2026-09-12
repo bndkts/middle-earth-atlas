@@ -126,19 +126,35 @@ const EV = []; // timeline event pins
 
 
 // ---------- raster basemap ----------
-// Rasterise terrain and the current roads/realms/illustrations, then move the
-// canvas with a compositor transform. Rebuild only when map content changes.
-// Do not redraw a viewport-sized canvas on every touch frame. Labels and routes stay
-// on separate layers. Idle-rendered tiles refine the overview without restoring
-// thousands of SVG nodes when they fully cover the view at display resolution.
+// One bounded preview is reused during gestures. At rest the culled SVG always
+// supplies sharp detail. Never decode a new SVG image for each visited map tile:
+// native SVG documents/layout trees cost much more memory than canvas pixels.
 const snapCv = $('#snap'), snapCtx = snapCv.getContext('2d');
-// About 16 MB of RGBA pixels on mobile, versus 50 MB on desktop.
 const coarsePointer = window.matchMedia('(pointer: coarse)');
-const snapshotBudget = () => !isDesktop() || coarsePointer.matches ? 4e6 : 12.5e6;
+const snapshotBudget = () => !isDesktop() || coarsePointer.matches ? 4e6 : 6e6;
 let snapBudget = snapshotBudget();
 let snapReady = false, snapBusy = false, snapDirty = true, snapTimer = null;
-let snapVersion = 0, snapState = '', rasterCache = null;
-const tileLayer = $('#maptiles');
+let snapVersion = 0, snapState = '', snapIdle = null, snapJob = null;
+function cancelSnapshotSchedule(){
+  clearTimeout(snapTimer); snapTimer = null;
+  if (snapIdle != null) window.cancelIdleCallback(snapIdle);
+  snapIdle = null;
+}
+function releaseSnapshotJob(){
+  if (!snapJob) return;
+  const {img, url} = snapJob;
+  img.onload = img.onerror = null;
+  img.removeAttribute('src');
+  URL.revokeObjectURL(url);
+  snapJob = null; snapBusy = false;
+}
+function suspendSnapshot(){
+  cancelSnapshotSchedule(); releaseSnapshotJob();
+  snapVersion++; snapReady = false; snapDirty = true;
+  finishRaster();
+  snapCv.width = snapCv.height = 0;
+  if (gesturing) mapEl.classList.add('fallback');
+}
 function invalidateSnapshot(){
   const state = [
     mapEl.classList.contains('roads-off'), mapEl.classList.contains('realms-on'),
@@ -146,7 +162,7 @@ function invalidateSnapshot(){
   ].join('|');
   if (state === snapState) return;
   snapState = state; snapVersion++; snapReady = false;
-  rasterCache?.invalidate(); mapEl.classList.remove('cached');
+  releaseSnapshotJob();
   // Never show a cached realm or creature from a different timeline/layer state.
   applyBase(true);
   if (rastering) finishRaster();
@@ -163,61 +179,20 @@ function snapCss(){
   names.forEach(n => { const v = cs.getPropertyValue(n); if (v) vars += n + ':' + v.trim() + ';'; });
   return ':root,svg{' + vars + '}' + txt;
 }
-// Cache immutable geometry bounds once, while the original SVG is measurable.
-// Only detached snapshot copies receive metadata; no live DOM is added for prefetch.
-const rasterBounds = new WeakMap();
-function markRasterParts(clone){
-  const selector = '.bk, .waves > *, .formlines > *, .tones > *, .lakes > *, .textures > *, .ground > *, .fields > *, .marshes > *, .forests > :not(.trees), .trees > *, .rivers > *, .fringe > *, .mountains > .menv';
-  const live = [...baseEl.querySelectorAll(selector)], copies = [...clone.querySelectorAll(selector)];
-  const chosen = new Set(live);
-  let inverse;
-  const zoomClasses=['z-lo','z-mid','z-hi','z-vlo'].filter(name=>mapEl.classList.contains(name));
-  const needsBounds=!rasterBounds.has(baseEl);
-  const hiddenBuckets=needsBounds ? [...baseEl.querySelectorAll('.bk')].filter(el=>el.style.display==='none') : [];
-  if (needsBounds) {
-    mapEl.classList.remove(...zoomClasses);
-    hiddenBuckets.forEach(el=>el.style.display='');
-  }
-  try { live.forEach((el,i) => {
-    if (typeof el.getBBox !== 'function') return;
-    for (let parent=el.parentNode; parent && parent!==baseEl; parent=parent.parentNode) if (chosen.has(parent)) return;
-    let bounds = rasterBounds.get(el);
-    if (!bounds) {
-      if (el.classList.contains('bk')) {
-        const [x,y] = el.dataset.b.split(',').map(Number); bounds=[x*300-64,y*300-64,428,428];
-      } else {
-        inverse ??= baseEl.getCTM().inverse();
-        const b=el.getBBox(), m=inverse.multiply(el.getCTM());
-        const points=[[b.x,b.y],[b.x+b.width,b.y],[b.x,b.y+b.height],[b.x+b.width,b.y+b.height]];
-        const xs=points.map(([x,y])=>m.a*x+m.c*y+m.e), ys=points.map(([x,y])=>m.b*x+m.d*y+m.f);
-        const x=Math.min(...xs)-4,y=Math.min(...ys)-4;
-        bounds=[x,y,Math.max(...xs)-x+4,Math.max(...ys)-y+4];
-      }
-      rasterBounds.set(el,bounds);
-    }
-    copies[i].setAttribute('data-raster-bounds',bounds.join(','));
-  });
-    rasterBounds.set(baseEl,true);
-  } finally {
-    if (needsBounds) mapEl.classList.add(...zoomClasses);
-    hiddenBuckets.forEach(el=>el.style.display='none');
-  }
-}
 function buildSnapshot(){
-  if (snapBusy || !baseEl) return;
+  if (snapBusy || !baseEl || document.hidden) return;
   if (gesturing || rastering) { scheduleSnapshot(250); return; }
   snapBusy = true; snapDirty = false;
   const version = snapVersion;
   const k = Math.min(1.6, Math.sqrt(snapBudget / (MAPW * MAPH)));
   const w = Math.round(MAPW * k), h = Math.round(MAPH * k);
-  let url = null, clone;
+  let url = null;
   try {
-    clone = baseEl.cloneNode(true);
+    const clone = baseEl.cloneNode(true);
     clone.removeAttribute('style');
     clone.setAttribute('viewBox', '0 0 ' + MAPW + ' ' + MAPH);
     clone.setAttribute('width', w); clone.setAttribute('height', h);
     clone.querySelectorAll('.bk').forEach(e => e.removeAttribute('style'));
-    markRasterParts(clone);
     const overlay = terrainEl.cloneNode(true);
     // Keep SVG definitions/clipping and map artwork, but not live labels/routes.
     overlay.querySelectorAll('.mlabels, #dyn').forEach(e => e.remove());
@@ -231,41 +206,36 @@ function buildSnapshot(){
     url = URL.createObjectURL(blob);
   } catch (e) { snapBusy = false; console.warn('Terrain cache unavailable; using vector map.', e); return; }
   const img = new Image();
+  const job = snapJob = {img, url};
   img.onload = () => {
+    if (snapJob !== job) return;
     // A decode can finish after another year/layer was selected or a gesture began.
-    // Do not publish stale content or replace a canvas currently being moved.
-    if (version !== snapVersion || gesturing || rastering) {
-      URL.revokeObjectURL(url); snapBusy = false; scheduleSnapshot(250); return;
+    if (version !== snapVersion || gesturing || rastering || document.hidden) {
+      releaseSnapshotJob(); scheduleSnapshot(250); return;
     }
     try {
       snapCv.width = w; snapCv.height = h;
       snapCtx.drawImage(img, 0, 0, w, h);
-      snapReady = true;
-      rasterCache?.setSource(clone, k);
-      updateSharpCache(); drawSnap();
-    } catch (e) { snapReady = false; mapEl.classList.remove('cached'); rasterCache?.invalidate(); finishRaster(); }
-    URL.revokeObjectURL(url); snapBusy = false;
+      snapReady = true; drawSnap();
+    } catch (e) { snapReady = false; finishRaster(); }
+    finally { releaseSnapshotJob(); }
     if (snapDirty) scheduleSnapshot(1500);
   };
-  img.onerror = () => { URL.revokeObjectURL(url); snapBusy = false; };
+  img.onerror = () => { if (snapJob === job) releaseSnapshotJob(); };
   img.src = url;
 }
 function scheduleSnapshot(delay){
-  snapDirty = true; clearTimeout(snapTimer);
+  snapDirty = true; cancelSnapshotSchedule();
+  if (document.hidden) return;
   snapTimer = setTimeout(() => {
-    const go = () => buildSnapshot();
-    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 0);
+    snapTimer = null;
+    const go = () => { snapIdle = null; buildSnapshot(); };
+    if (window.requestIdleCallback) snapIdle = window.requestIdleCallback(go, { timeout: 2500 });
+    else go();
   }, delay == null ? 700 : delay);
-}
-function updateSharpCache(){
-  const sharp=!!(snapReady && rasterCache?.isSharp());
-  const wasCached=mapEl.classList.contains('cached');
-  mapEl.classList.toggle('cached',sharp);
-  if(wasCached && !sharp) applyBase(true);
 }
 function drawSnap(){
   snapCv.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0) scale(${V.s})`;
-  tileLayer.style.transform = snapCv.style.transform;
 }
 
 // ---------- transform ----------
@@ -296,13 +266,11 @@ function endGesture(delay){
   gestureT = setTimeout(() => {
     gesturing = false;
     mapEl.classList.remove('gesture', 'moving', 'fallback');
-    updateSharpCache();
+    saveView();
     mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)`;
     applyBase(true);
     lastLodS = V.s; svgLabelLOD();
     lastLodRun = performance.now(); lodPass();
-    rasterCache?.schedule(100);
-    if (mapEl.classList.contains('cached')) { finishRaster(); return; }
     if (rastering) {
       mapEl.classList.add('restoring');
       swapT = requestAnimationFrame(() => { swapT = requestAnimationFrame(() => {
@@ -318,11 +286,6 @@ function endGesture(delay){
 
 let lodTimer = null, lastLodS = 0, lastLodRun = 0, zoomClass = '', zoomVlo = false;
 const terrainEl = $('#terrain'), baseEl = $('#tbase'), worldBase = $('#worldBase'), worldLab = $('#worldLab');
-rasterCache = window.ATLAS_RASTER.create({
-  layer: tileLayer, getView: () => ({...V,...viewport,left:isDesktop()?432:0,dpr:window.devicePixelRatio}),
-  paused: () => gesturing || rastering, compact: () => !isDesktop() || coarsePointer.matches,
-  onUpdate: () => { if (!gesturing && !rastering) updateSharpCache(); },
-});
 // Spatial buckets: off-screen groups are display:none'd so paint cost tracks the
 // viewport, not the size of the map.
 const BK = 300;
@@ -363,7 +326,6 @@ function applyBase(force){
   if (zc !== zoomClass) { mapEl.classList.remove('z-lo','z-mid','z-hi'); mapEl.classList.add(zc); zoomClass = zc; }
   const vlo = s < 0.32;
   if (vlo !== zoomVlo) { mapEl.classList.toggle('z-vlo', vlo); zoomVlo = vlo; }
-  if (mapEl.classList.contains('cached')) return;
   cull();
   baseEl.style.setProperty('--zs', (1 / Math.min(4, Math.max(1, s / 2.2))).toFixed(2));
 }
@@ -379,10 +341,8 @@ function apply(){
     drawSnap();
     if (!rastering) { rastering = true; mapEl.classList.add('rastered'); }
   } else {
-    updateSharpCache();
     applyBase();
     if (snapReady) drawSnap();
-    rasterCache?.schedule();
   }
   // Changing SVG label membership would invalidate the composited overlay mid-zoom.
   if (!gesturing && Math.abs(s - lastLodS) / (lastLodS || 1) > 0.12) { lastLodS = s; svgLabelLOD(); }
@@ -1308,6 +1268,7 @@ function restoreURL(){
   if (state.error) { toast(state.error); $('#search-status').textContent = state.error; }
 }
 window.addEventListener('popstate',restoreURL);
+function saveView(){ store.set('view', { s: V.s, tx: V.tx, ty: V.ty }); }
 // ---------- init ----------
 renderExplore(); renderLayers(); applyLayers();
 (function init(){
@@ -1316,11 +1277,14 @@ renderExplore(); renderLayers(); applyLayers();
   if (saved && saved.s) { Object.assign(V, saved); } else Object.assign(V, h);
   clamp(); apply(); svgLabelLOD(); lodPass(); setSheet('peek'); scheduleSnapshot(400);
   setTimeout(warmDetails, 1800);
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) warmDetails(); });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { saveView(); suspendSnapshot(); }
+    else { if (!snapReady) scheduleSnapshot(700); warmDetails(); }
+  });
+  window.addEventListener('pageshow', () => { if (!snapReady) scheduleSnapshot(700); });
   const measure = () => requestAnimationFrame(() => { measureLabels(); lodPass(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure); else setTimeout(measure, 800);
-  window.addEventListener('pagehide', () => store.set('view', { s: V.s, tx: V.tx, ty: V.ty }));
-  setInterval(() => store.set('view', { s: V.s, tx: V.tx, ty: V.ty }), 5000);
+  window.addEventListener('pagehide', () => { saveView(); suspendSnapshot(); });
 })();
 restoreURL();
 })();
