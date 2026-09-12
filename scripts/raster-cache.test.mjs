@@ -104,3 +104,30 @@ test('tile sources prune distant artwork while preserving layer classes and SVG 
   assert.match(svg,/width="514" height="514"/);
   assert.doesNotMatch(svg,/viewBox="0 0 2600 2300"/);
 });
+
+test('Retina previews constrained by the memory budget never qualify as a sharp resting map',()=>{
+  const h=harness();h.start();h.tick();
+  for(let i=0;i<30;i++)h.complete();
+  const visible=h.context.ATLAS_RASTER.plan(h.view,20).filter(t=>t.visible);
+  assert.ok(visible.every(t=>h.canvases.some(c=>c.attached&&c.dataset.tile===t.key)));
+  assert.ok(visible[0].density<h.view.s*h.view.dpr,'fixture must exercise the pixel-budget limit');
+  assert.equal(h.cache.isSharp(),false,'complete low-resolution coverage is still only a preview');
+});
+
+test('a cache can replace vectors only after full display-resolution coverage is ready',()=>{
+  const h=harness();h.view.width=180;h.view.height=250;h.start();h.tick();
+  assert.equal(h.cache.isSharp(),false,'overview stretched onto a Retina display is insufficient');
+  h.complete();assert.equal(h.cache.isSharp(),false,'partial sharp coverage must not expose blurry gaps');
+  for(let i=0;i<25;i++)h.complete();
+  assert.equal(h.cache.isSharp(),true,'small Retina views can fit sharp tiles without increasing the budget');
+  h.view.tx-=1200;
+  assert.equal(h.cache.isSharp(),false,'panning into uncached geography restores vectors immediately');
+  h.cache.invalidate();assert.equal(h.cache.isSharp(),false);
+});
+
+test('overview sharpness uses the actual device pixel ratio',()=>{
+  const h=harness();h.view.s=.4;h.view.dpr=1;h.start();
+  assert.equal(h.cache.isSharp(),true);
+  h.view.dpr=3;
+  assert.equal(h.cache.isSharp(),false,'CSS-resolution checks must not hide Retina detail');
+});

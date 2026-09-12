@@ -36,9 +36,11 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 
 #markers{position:absolute;left:0;top:0;width:0;height:0;z-index:3;contain:layout style;transform-origin:0 0}
 #tex{position:absolute;inset:0;pointer-events:none;z-index:2;background-image:url("../assets/texture.png");background-size:256px 256px;opacity:var(--noise-op)}
-/* Reuse prepared terrain during and between gestures; lettering stays live. */
-#maptiles{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
+/* Cached previews cover gestures; only display-resolution coverage replaces vectors at rest. */
+#maptiles{display:none;position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
 #maptiles canvas{position:absolute;display:block}
+.rastered #maptiles,.cached #maptiles{display:block}
+.fading #maptiles{opacity:0;transition:opacity 140ms ease-out}
 #worldLab{z-index:1}
 .cached #snap{display:block;opacity:1;transition:none}
 .cached #worldBase{display:none}

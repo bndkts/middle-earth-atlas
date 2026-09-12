@@ -44,19 +44,22 @@ scripts/                Repository validation
 ```
 
 The large SVG intentionally remains inline as the source artwork and fallback.
-Once the overview bitmap is ready, the renderer keeps it visible and prepares
-sharper 512-pixel terrain tiles in idle time, starting with the viewport and then
+The renderer uses an overview bitmap during gestures and prepares sharper
+512-pixel terrain tiles in idle time, starting with the viewport and then
 one surrounding ring. Geometry outside each tile is omitted. Only one tile is
 prepared at a time, with longer pauses after expensive draws; gestures and hidden
-tabs pause the queue. Panning and zooming
-move existing bitmaps without restoring the full vector terrain after each gesture.
+tabs pause the queue. Panning and zooming move existing bitmaps. At rest, cached
+terrain is used only when it fully covers the viewport at the actual display pixel
+ratio. Otherwise the sharp vector map returns after the gesture, including when
+idle work is delayed or the memory budget cannot accommodate full-resolution tiles.
 
 The cache retains at most 20 tiles on mobile/touch devices (about 21 MB of RGBA
 pixels), or 32 on desktop (about 34 MB), in addition to the existing 16/50 MB
 overview bitmap. A pending decode and browser bookkeeping add transient overhead.
 Eviction releases canvas storage; timeline and artwork-layer changes invalidate
 both caches. Labels, journeys and interactive miniatures remain separate.
-Unvisited areas initially use the overview and sharpen as idle time is available.
+Reduced-resolution tiles remain movement previews; they never determine the
+sharpness of the resting map.
 
 Zoom in closely to find **Little discoveries**: original SVG miniatures with
 short stories, available by touch or keyboard and switchable in Layers. Their

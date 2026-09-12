@@ -130,7 +130,7 @@ const EV = []; // timeline event pins
 // canvas with a compositor transform. Rebuild only when map content changes.
 // Do not redraw a viewport-sized canvas on every touch frame. Labels and routes stay
 // on separate layers. Idle-rendered tiles refine the overview without restoring
-// thousands of SVG nodes after each gesture.
+// thousands of SVG nodes when they fully cover the view at display resolution.
 const snapCv = $('#snap'), snapCtx = snapCv.getContext('2d');
 // About 16 MB of RGBA pixels on mobile, versus 50 MB on desktop.
 const coarsePointer = window.matchMedia('(pointer: coarse)');
@@ -242,7 +242,7 @@ function buildSnapshot(){
       snapCtx.drawImage(img, 0, 0, w, h);
       snapReady = true;
       rasterCache?.setSource(clone, k);
-      mapEl.classList.add('cached'); drawSnap();
+      updateSharpCache(); drawSnap();
     } catch (e) { snapReady = false; mapEl.classList.remove('cached'); rasterCache?.invalidate(); finishRaster(); }
     URL.revokeObjectURL(url); snapBusy = false;
     if (snapDirty) scheduleSnapshot(1500);
@@ -256,6 +256,12 @@ function scheduleSnapshot(delay){
     const go = () => buildSnapshot();
     if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 0);
   }, delay == null ? 700 : delay);
+}
+function updateSharpCache(){
+  const sharp=!!(snapReady && rasterCache?.isSharp());
+  const wasCached=mapEl.classList.contains('cached');
+  mapEl.classList.toggle('cached',sharp);
+  if(wasCached && !sharp) applyBase(true);
 }
 function drawSnap(){
   snapCv.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0) scale(${V.s})`;
@@ -290,6 +296,7 @@ function endGesture(delay){
   gestureT = setTimeout(() => {
     gesturing = false;
     mapEl.classList.remove('gesture', 'moving', 'fallback');
+    updateSharpCache();
     mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)`;
     applyBase(true);
     lastLodS = V.s; svgLabelLOD();
@@ -314,6 +321,7 @@ const terrainEl = $('#terrain'), baseEl = $('#tbase'), worldBase = $('#worldBase
 rasterCache = window.ATLAS_RASTER.create({
   layer: tileLayer, getView: () => ({...V,...viewport,left:isDesktop()?432:0,dpr:window.devicePixelRatio}),
   paused: () => gesturing || rastering, compact: () => !isDesktop() || coarsePointer.matches,
+  onUpdate: () => { if (!gesturing && !rastering) updateSharpCache(); },
 });
 // Spatial buckets: off-screen groups are display:none'd so paint cost tracks the
 // viewport, not the size of the map.
@@ -371,6 +379,7 @@ function apply(){
     drawSnap();
     if (!rastering) { rastering = true; mapEl.classList.add('rastered'); }
   } else {
+    updateSharpCache();
     applyBase();
     if (snapReady) drawSnap();
     rasterCache?.schedule();

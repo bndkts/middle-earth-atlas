@@ -33,7 +33,7 @@ function harness() {
     setTimeout: fn => { timers.set(++id, fn); return id; },
     clearTimeout: key => timers.delete(key),
     performance: { now: () => 100 },
-    rasterCache: null, tileLayer: element(), worldLab: element(), drawSnap() {}, markRasterParts() {},
+    rasterCache: null, tileLayer: element(), worldLab: element(), drawSnap() {}, markRasterParts() {}, updateSharpCache() {},
   });
   const run = code => vm.runInContext(code, context);
   const tick = queue => { const jobs = [...queue.values()]; queue.clear(); jobs.forEach(fn => fn(100)); };
@@ -297,4 +297,22 @@ test('persistent terrain skips vector restoration and keeps cached movement alig
   assert.equal(map.classList.contains('restoring'),false);
   assert.equal(map.classList.contains('fading'),false);
   assert.equal(h.frames.size,0,'no paint/fade cycle between successive gestures');
+});
+
+test('gesture end restores vectors without waiting for incomplete or undersized background tiles',()=>{
+  const h=harness(),map=h.element();map.classList.add('cached');
+  let basePaints=0;
+  Object.assign(h.context,{
+    mapEl:map,snapReady:true,rasterCache:{isSharp:()=>false,schedule(){}},
+    V:{s:6,tx:10,ty:20},lastLodS:0,lastLodRun:0,lodTimer:null,lastPosS:6,
+    mkLayer:h.element(),applyBase(){basePaints++;},svgLabelLOD(){},lodPass(){},reduceMotion:true,
+  });
+  h.run(section('function updateSharpCache(){','function drawSnap(){'));
+  h.run(section('let gestureT =','let lodTimer ='));
+  h.run('startGesture(); rastering=true; mapEl.classList.add("rastered"); endGesture()');
+  h.settle();
+  assert.equal(map.classList.contains('cached'),false);
+  assert.ok(basePaints>0,'vector culling and transform must be restored even if idle callbacks never run');
+  h.frame();h.frame();
+  assert.equal(map.classList.contains('rastered'),false,'preview must stop covering the sharp SVG');
 });

@@ -3,8 +3,8 @@
 'use strict';
 const SIZE = 512, BLEED = 1, MAPW = 2600, MAPH = 2300;
 function plan(view, limit){
-  const ratio = Math.min(1.5, view.dpr || 1);
-  let level = Math.max(-2, Math.min(8, Math.ceil(Math.log2(view.s * ratio) * 2)));
+  const ratio = Math.max(1, view.dpr || 1);
+  let level = Math.max(-2, Math.min(12, Math.ceil(Math.log2(view.s * ratio) * 2)));
   const bounds = span => ({
     x0: Math.max(0, Math.floor((view.left - view.tx) / view.s / span)),
     y0: Math.max(0, Math.floor(-view.ty / view.s / span)),
@@ -27,7 +27,7 @@ function plan(view, limit){
   }
   return result.sort((a,b)=>a.priority-b.priority).slice(0,limit);
 }
-function create({layer,getView,paused,compact}){
+function create({layer,getView,paused,compact,onUpdate=()=>{}}){
   let generation=0, timer=null, idle=null, source=null, preparing=null, busy=null, cooldown=100;
   const cache=new Map(), failed=new Set();
   const limit=()=>compact()?20:32;
@@ -107,6 +107,15 @@ function create({layer,getView,paused,compact}){
       cache.set(tile.key,{...tile,canvas}); layer.appendChild(canvas);
     }
   }
+  function isSharp(){
+    const view=getView(), required=view.s*Math.max(1,view.dpr||1);
+    const baseDensity=source?.baseDensity ?? preparing?.baseDensity ?? 0;
+    if(baseDensity>=required) return true;
+    const visible=plan(view,limit()).filter(tile=>tile.visible);
+    // Memory limits may lower preview resolution. Such tiles are useful while
+    // moving, but must never replace the resting vector map on a Retina display.
+    return visible.length>0 && visible.every(tile=>tile.density>=required && cache.has(tile.key));
+  }
   function pump(){
     if(document.hidden) return;
     if(paused() || global.navigator?.scheduling?.isInputPending?.()){ schedule(180); return; }
@@ -125,7 +134,8 @@ function create({layer,getView,paused,compact}){
       const key=[...cache.keys()].find(k=>!keys.has(k)) || cache.keys().next().value;
       release(cache.get(key)); cache.delete(key);
     }
-    if(view.s*Math.min(1.5,view.dpr||1)<=source.baseDensity){ return; }
+    onUpdate();
+    if(view.s*Math.max(1,view.dpr||1)<=source.baseDensity){ return; }
     const next=wanted.find(t=>!cache.has(t.key) && !failed.has(t.key));
     if(!next) return;
     const image=new Image(), version=generation;
@@ -137,7 +147,7 @@ function create({layer,getView,paused,compact}){
     image.src=url;
   }
   document.addEventListener('visibilitychange',()=>{ if(document.hidden) cancel(); else schedule(250); });
-  return {setSource,invalidate,schedule};
+  return {setSource,invalidate,schedule,isSharp};
 }
 global.ATLAS_RASTER={create,plan};
 })(globalThis);
