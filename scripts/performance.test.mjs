@@ -83,7 +83,8 @@ test('moving the bitmap only changes its compositor transform', () => {
 test('raster restoration fades after paint and a new gesture cancels stale cleanup', () => {
   const h = harness(), map = h.element();
   Object.assign(h.context, {
-    mapEl: map, snapReady: true, V: { s: 2 }, lastLodS: 0, lastLodRun: 0,
+    mapEl: map, snapReady: true, V: { s: 2, tx: 0, ty: 0 }, lastLodS: 0, lastLodRun: 0,
+    lodTimer: null, lastPosS: 2, mkLayer: h.element(),
     applyBase() {}, svgLabelLOD() {}, lodPass() {}, reduceMotion: false,
   });
   h.run(section('let gestureT =', 'let lodTimer ='));
@@ -106,6 +107,97 @@ test('raster restoration fades after paint and a new gesture cancels stale clean
   h.settle(); h.frame(); h.frame();
   assert.ok(!map.classList.contains('rastered'));
   assert.equal(h.timers.size, 0, 'reduced motion skips the fade timer');
+});
+
+test('gestures transform the marker layer without per-marker layout or collision work', () => {
+  const h = harness(), calls = [];
+  Object.assign(h.context, {
+    V: { s: 4, tx: 20, ty: -30 }, world: h.element(), mkLayer: h.element(),
+    mapEl: h.element(), gesturing: true, gestureScale: 2, snapReady: true,
+    rastering: false, lastLodS: 2, lastLodRun: 0, lodTimer: null,
+    placeMarkers: () => calls.push('markers'), lodPass: () => calls.push('collisions'),
+    svgLabelLOD: () => calls.push('labels'), applyBase: () => calls.push('base'),
+    drawSnap: () => calls.push('bitmap'), updateScale() {},
+  });
+  h.run(section('function apply(){', 'function clamp(){'));
+  h.run('apply(); V.s = 5; apply()');
+  assert.deepEqual(calls, ['bitmap', 'bitmap']);
+  assert.equal(h.context.mkLayer.style.transform, 'translate3d(20.00px,-30.00px,0) scale(2.5)');
+  assert.equal(h.timers.size, 0);
+  h.run('gesturing = false; apply()');
+  assert.equal(h.context.mkLayer.style.transform, 'translate3d(20.00px,-30.00px,0)');
+  h.settle();
+  assert.deepEqual(calls.slice(2), ['markers', 'base', 'labels', 'collisions']);
+});
+
+test('collision passes from other UI callbacks also defer until the gesture ends', () => {
+  const h = harness();
+  h.context.gesturing = true;
+  h.run(section('function lodPass(quick){', '// Blink keeps charging'));
+  // MK and all collision-layout dependencies are intentionally unavailable.
+  h.run('lodPass(); lodPass(true)');
+});
+
+test('snapshot includes overlay artwork and rejects stale or mid-gesture decodes', () => {
+  const h = harness(), images = [], removed = [], appended = [], drawn = [];
+  const clone = {
+    removeAttribute() {}, setAttribute() {}, classList: { toggle() {} },
+    querySelectorAll: () => [], appendChild: child => appended.push(child),
+    insertBefore() {}, firstChild: null,
+  };
+  const overlay = { querySelectorAll: selector => {
+    assert.equal(selector, '.mlabels, #dyn');
+    return [{ remove: () => removed.push('live content') }];
+  }};
+  Object.assign(h.context, {
+    snapBusy: false, snapDirty: true, snapReady: false, snapVersion: 1, snapBudget: 4e6,
+    gesturing: false, rastering: false, MAPW: 2600, MAPH: 2300,
+    baseEl: { cloneNode: () => clone }, terrainEl: { cloneNode: () => overlay },
+    mapEl: h.element(), snapCv: {}, snapCtx: { drawImage: () => drawn.push(true) },
+    document: { createElementNS: () => ({ textContent: '' }) },
+    Blob: class {}, XMLSerializer: class { serializeToString() { return '<svg/>'; } },
+    URL: { createObjectURL: () => 'blob:test', revokeObjectURL() {} },
+    Image: class { constructor() { images.push(this); } },
+    snapCss: () => '', scheduleSnapshot() {}, finishRaster() {},
+  });
+  h.run(section('function buildSnapshot(){', 'function scheduleSnapshot('));
+  h.run('buildSnapshot()');
+  assert.equal(appended[0], overlay);
+  assert.deepEqual(removed, ['live content']);
+  h.run('snapVersion++');
+  images[0].onload();
+  assert.equal(drawn.length, 0, 'outdated timeline must not reach the canvas');
+  h.run('buildSnapshot(); gesturing = true');
+  images[1].onload();
+  assert.equal(drawn.length, 0, 'a decode must not replace the moving bitmap');
+  h.run('gesturing = false; buildSnapshot()');
+  images[2].onload();
+  assert.equal(drawn.length, 1);
+  assert.equal(h.context.snapReady, true);
+  h.run('gesturing = true; buildSnapshot()');
+  assert.equal(images.length, 3, 'do not even serialize SVG during gestures');
+});
+
+test('timeline and layer changes invalidate the snapshot only when artwork changes', () => {
+  const h = harness(), map = h.element(), node = { className: 'deco' };
+  let scheduled = 0;
+  Object.assign(h.context, {
+    mapEl: map, snapState: '', snapVersion: 0, snapReady: true,
+    rastering: false, gesturing: false, applyBase() {}, finishRaster() {},
+    $$: () => [{ getAttribute: () => node.className }],
+    scheduleSnapshot: () => scheduled++,
+  });
+  h.run(section('function invalidateSnapshot(){', 'function snapCss(){'));
+  h.run('invalidateSnapshot(); invalidateSnapshot()');
+  assert.equal(scheduled, 1);
+  node.className = 'deco hid';
+  h.run('invalidateSnapshot()');
+  assert.equal(scheduled, 2);
+  map.classList.add('roads-off');
+  h.run('invalidateSnapshot()');
+  assert.equal(scheduled, 3);
+  assert.equal(h.context.snapReady, false);
+  assert.equal(h.context.snapVersion, 3);
 });
 
 test('touch moves batch, pinch transitions flush, and cancellation does not tap', () => {

@@ -24,13 +24,17 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 #snap{position:absolute;left:0;top:0;width:2600px;height:2300px;transform-origin:0 0;display:none;pointer-events:none;opacity:1;will-change:transform,opacity}
 .rastered #snap{display:block}
 .rastered:not(.restoring) #worldBase,.rastered:not(.restoring) #worldLab{visibility:hidden}
+.rastered:not(.restoring) #terrain :is(#realms,.roads,.decor,.neat){visibility:hidden}
+.rastered #terrain :is(#realms,.roads,.decor,.neat){opacity:0}
+.fading #terrain :is(#realms,.roads,.decor,.neat){opacity:1;transition:opacity 140ms ease-out}
 .moving #world{will-change:transform}
+.moving #markers{will-change:transform}
 .rastered #worldLab{opacity:0}
 .fading #snap{opacity:0;transition:opacity 140ms ease-out}
 .fading #worldLab{opacity:1;transition:opacity 140ms ease-out}
 .moving.fallback #tlab{display:none}
 
-#markers{position:absolute;left:0;top:0;width:0;height:0;z-index:3;contain:layout style}
+#markers{position:absolute;left:0;top:0;width:0;height:0;z-index:3;contain:layout style;transform-origin:0 0}
 #tex{position:absolute;inset:0;pointer-events:none;z-index:2;background-image:url("../assets/texture.png");background-size:256px 256px;opacity:var(--noise-op)}
 /* ---------- terrain svg ---------- */
 

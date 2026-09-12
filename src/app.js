@@ -108,7 +108,8 @@ const EV = []; // timeline event pins
 
 
 // ---------- raster basemap ----------
-// Rasterise the static map once, then move that canvas with a compositor transform.
+// Rasterise terrain and the current roads/realms/illustrations, then move the
+// canvas with a compositor transform. Rebuild only when map content changes.
 // Do not redraw a viewport-sized canvas on every touch frame. Labels and routes stay
 // on a separate composited layer; the full vector basemap returns after movement.
 const snapCv = $('#snap'), snapCtx = snapCv.getContext('2d');
@@ -117,6 +118,19 @@ const coarsePointer = window.matchMedia('(pointer: coarse)');
 const snapshotBudget = () => !isDesktop() || coarsePointer.matches ? 4e6 : 12.5e6;
 let snapBudget = snapshotBudget();
 let snapReady = false, snapBusy = false, snapDirty = true, snapTimer = null;
+let snapVersion = 0, snapState = '';
+function invalidateSnapshot(){
+  const state = [
+    mapEl.classList.contains('roads-off'), mapEl.classList.contains('realms-on'),
+    ...$$('#realms .realm, #terrain .deco').map(el => el.getAttribute('class'))
+  ].join('|');
+  if (state === snapState) return;
+  snapState = state; snapVersion++; snapReady = false;
+  // Never show a cached realm or creature from a different timeline/layer state.
+  if (rastering) { applyBase(true); finishRaster(); }
+  if (gesturing) mapEl.classList.add('fallback');
+  scheduleSnapshot(150);
+}
 function snapCss(){
   const src = document.getElementById('mapcss');
   const txt = src?.sheet ? [...src.sheet.cssRules].map(rule => rule.cssText).join('\n') : '';
@@ -129,7 +143,9 @@ function snapCss(){
 }
 function buildSnapshot(){
   if (snapBusy || !baseEl) return;
+  if (gesturing || rastering) { scheduleSnapshot(250); return; }
   snapBusy = true; snapDirty = false;
+  const version = snapVersion;
   const k = Math.min(1.6, Math.sqrt(snapBudget / (MAPW * MAPH)));
   const w = Math.round(MAPW * k), h = Math.round(MAPH * k);
   let url = null;
@@ -139,14 +155,25 @@ function buildSnapshot(){
     clone.setAttribute('viewBox', '0 0 ' + MAPW + ' ' + MAPH);
     clone.setAttribute('width', w); clone.setAttribute('height', h);
     clone.querySelectorAll('.bk').forEach(e => e.removeAttribute('style'));
+    const overlay = terrainEl.cloneNode(true);
+    // Keep SVG definitions/clipping and map artwork, but not live labels/routes.
+    overlay.querySelectorAll('.mlabels, #dyn').forEach(e => e.remove());
+    clone.appendChild(overlay);
+    clone.classList.toggle('roads-off', mapEl.classList.contains('roads-off'));
+    clone.classList.toggle('realms-on', mapEl.classList.contains('realms-on'));
     const st = document.createElementNS('http://www.w3.org/2000/svg', 'style');
-    st.textContent = snapCss();
+    st.textContent = snapCss() + '\n*{transition:none!important;animation:none!important}';
     clone.insertBefore(st, clone.firstChild);
     const blob = new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml;charset=utf-8' });
     url = URL.createObjectURL(blob);
   } catch (e) { snapBusy = false; return; }
   const img = new Image();
   img.onload = () => {
+    // A decode can finish after another year/layer was selected or a gesture began.
+    // Do not publish stale content or replace a canvas currently being moved.
+    if (version !== snapVersion || gesturing || rastering) {
+      URL.revokeObjectURL(url); snapBusy = false; scheduleSnapshot(250); return;
+    }
     try {
       snapCv.width = w; snapCv.height = h;
       snapCtx.drawImage(img, 0, 0, w, h);
@@ -172,7 +199,7 @@ function drawSnap(){
 // ---------- transform ----------
 // Hide the heavy SVG layers while moving, rather than relying on canvas occlusion.
 // Restore them at the final transform, allow a paint, then fade the bitmap away.
-let gestureT = null, gesturing = false, rastering = false, swapT = null, fadeT = null;
+let gestureT = null, gesturing = false, rastering = false, swapT = null, fadeT = null, gestureScale = 1;
 function cancelRasterSwap(){
   if (swapT != null) cancelAnimationFrame(swapT);
   clearTimeout(fadeT); swapT = null; fadeT = null;
@@ -184,7 +211,9 @@ function finishRaster(){
 }
 function startGesture(){
   clearTimeout(gestureT); cancelRasterSwap();
+  clearTimeout(lodTimer);
   if (!gesturing) {
+    gestureScale = lastPosS > 0 ? lastPosS : V.s;
     gesturing = true;
     mapEl.classList.add('gesture', 'moving');
     mapEl.classList.toggle('fallback', !snapReady);
@@ -195,6 +224,7 @@ function endGesture(delay){
   gestureT = setTimeout(() => {
     gesturing = false;
     mapEl.classList.remove('gesture', 'moving', 'fallback');
+    mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)`;
     applyBase(true);
     lastLodS = V.s; svgLabelLOD();
     lastLodRun = performance.now(); lodPass();
@@ -259,8 +289,10 @@ function applyBase(force){
 function apply(){
   const s = V.s;
   world.style.transform = `translate(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px) scale(${s})`;
-  mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)`;
-  placeMarkers();
+  // Freeze marker membership and layout; one parent transform follows a pinch.
+  mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)` +
+    (gesturing ? ` scale(${s / gestureScale})` : '');
+  if (!gesturing) placeMarkers();
   const raster = gesturing && snapReady;
   if (raster) {
     drawSnap();
@@ -269,9 +301,8 @@ function apply(){
     applyBase();
   }
   // Changing SVG label membership would invalidate the composited overlay mid-zoom.
-  if (!raster && Math.abs(s - lastLodS) / (lastLodS || 1) > 0.12) { lastLodS = s; svgLabelLOD(); }
-  if (gesturing) { const now = performance.now(); if (now - lastLodRun > 200) { lastLodRun = now; lodPass(true); } }
-  else { clearTimeout(lodTimer); lodTimer = setTimeout(() => { lastLodRun = performance.now(); lodPass(); }, 70); }
+  if (!gesturing && Math.abs(s - lastLodS) / (lastLodS || 1) > 0.12) { lastLodS = s; svgLabelLOD(); }
+  if (!gesturing) { clearTimeout(lodTimer); lodTimer = setTimeout(() => { lastLodRun = performance.now(); lodPass(); }, 70); }
   updateScale();
 }
 function clamp(){
@@ -359,6 +390,7 @@ const RANK_MIN = {1: 0, 2: 0.5, 3: 1.15, 4: 2.5};
 let selected = null, activeCat = null, tlYear = 3019, tlOn = false;
 function placeVisibleInTime(p){ if (!tlOn) return true; if (p.f != null && p.f > tlYear) return false; if (p.to != null && p.to < tlYear) return false; return true; }
 function lodPass(quick){
+  if (gesturing) return;
   const s = V.s, vw = viewport.width, vh = viewport.height;
   const cand = [];
   for (const m of MK) {
@@ -492,6 +524,7 @@ function measureLabels(){
   LBL_MEASURED = true;
 }
 function svgLabelLOD(){
+  if (gesturing) return;
   const s = V.s, y = tlOn ? tlYear : 3019;
   for (let i = 0; i < LBL.length; i++) {
     const L = LBL[i];
@@ -843,7 +876,9 @@ function applyLayers(){
 }
 function updateRealms(){ const y = tlOn ? tlYear : 3019; $$('#realms .realm').forEach(r => { const f = r.dataset.from != null ? +r.dataset.from : null, t = r.dataset.to != null ? +r.dataset.to : null; r.classList.toggle('on', (f == null || f <= y) && (t == null || t >= y)); });
   // dated decorations (Smaug, the Eye, the Watcher…) follow the timeline; with it off they are shown as legend
-  $$('#terrain .deco[data-from],#terrain .deco[data-to]').forEach(g => { const f = g.dataset.from != null ? +g.dataset.from : null, t = g.dataset.to != null ? +g.dataset.to : null; g.classList.toggle('hid', tlOn && !((f == null || f <= y) && (t == null || t >= y))); }); }
+  $$('#terrain .deco[data-from],#terrain .deco[data-to]').forEach(g => { const f = g.dataset.from != null ? +g.dataset.from : null, t = g.dataset.to != null ? +g.dataset.to : null; g.classList.toggle('hid', tlOn && !((f == null || f <= y) && (t == null || t >= y))); });
+  invalidateSnapshot();
+}
 function renderLayers(){
   const el = $('#m-layers');
   const sw = (id, on) => `<button class="sw ${on?'on':''}" data-sw="${id}" role="switch" aria-checked="${on}"></button>`;
