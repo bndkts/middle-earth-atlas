@@ -700,7 +700,21 @@ function renderExplore(){
       <a href="https://github.com/bndkts/middle-earth-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute ↗</a>
       <a href="https://github.com/bndkts/middle-earth-atlas/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a>
     </div>
-    <p class="src">The MIT License covers the source code and documentation. Copyrighted artwork is explicitly excluded.</p>`;
+    <p class="src">The MIT License covers the source code and documentation. Copyrighted artwork is explicitly excluded.</p>
+    <p class="maker-credit">Made with
+      <svg class="maker-ring" viewBox="0 0 48 40" role="img" aria-label="the One Ring">
+        <defs><linearGradient id="maker-ring-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9cb79"/><stop offset=".4" stop-color="#b7802b"/><stop offset=".7" stop-color="#f0d58a"/><stop offset="1" stop-color="#936222"/></linearGradient></defs>
+        <g transform="rotate(-24 24 20)" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 17C6 3 42 3 42 17v6c0 14-36 14-36 0Z" fill="url(#maker-ring-gold)" stroke="#8c642a" stroke-width="1.2"/>
+          <ellipse cx="24" cy="17" rx="14.5" ry="7.5" fill="var(--paper)" stroke="#936222" stroke-width="1.5"/>
+          <path d="M10 14c5-7 23-7 28 0M9 27c7 8 24 8 30 0" fill="none" stroke="#fff0bc" stroke-width=".8" opacity=".8"/>
+          <g fill="none" stroke="#86591f" stroke-width=".8">
+            <path d="m13 26 2 4 1-4m-3 2 5 1m2-2 1 5 2-4-3 1m6-1-1 4 3-2-2-1m5-3-1 5 3-4m-3 2 4-1"/>
+          </g>
+        </g>
+      </svg>
+      by <a href="https://github.com/bndkts" target="_blank" rel="noopener">@bndkts</a>
+    </p>`;
   el.addEventListener('click', e => {
     const go = e.target.closest('[data-go]'); if (go) return selectPlace(byId[go.dataset.go], { fly: true });
     const j = e.target.closest('[data-j]'); if (j) return openJourney(j.dataset.j);
