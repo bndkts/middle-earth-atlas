@@ -6,6 +6,7 @@ import { test } from 'node:test';
 const source = readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
 const data = { window: {} };
 vm.runInNewContext(readFileSync(new URL('../src/data.js', import.meta.url), 'utf8'), data);
+vm.runInNewContext(readFileSync(new URL('../src/url-state.js', import.meta.url), 'utf8'), data);
 const { timeline, places } = data.window.ATLAS_DATA;
 function section(from, to) {
   const start = source.indexOf(from), end = source.indexOf(to, start);
@@ -16,13 +17,13 @@ function harness() {
   const elements = new Map();
   const element = () => ({ value: 0, innerHTML: '', textContent: '',
     classList: { toggle() {}, contains() { return false; } },
-    addEventListener() {}, insertAdjacentHTML() {},
+    addEventListener() {}, insertAdjacentHTML() {}, setAttribute() {},
   });
   const c = vm.createContext({
     TIMELINE: timeline, PLACES: places, EV: [], tl: element(), tlOn: true,
     $: id => { if (!elements.has(id)) elements.set(id, element()); return elements.get(id); },
     tlYear: 3019, mapEl: element(), sheetState: 'half',
-    updateRealms() {}, svgLabelLOD() {}, lodPass() {}, renderTimeline() {}, mode() {},
+    window: data.window, syncURL() {}, focusPanel() {}, updateRealms() {}, svgLabelLOD() {}, lodPass() {}, renderTimeline() {}, mode() {},
     ageLabel: String, esc: String, setSheet() {}, TG: 'https://tolkiengateway.net/wiki/',
     clearTimeout() {}, cancelAnimationFrame() {}, V: { s: 1 },
     flyTo(x, y) { c.destination = [x, y]; },

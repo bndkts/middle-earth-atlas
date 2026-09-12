@@ -207,3 +207,23 @@
 .beel{fill:none;stroke:var(--ink);stroke-width:.45;stroke-linecap:round;opacity:.7}
 .mlw{fill:none;stroke:var(--ink);stroke-width:.6}
 .deco{transition:opacity .3s}.deco.hid{opacity:0}
+
+/* Original close-up miniatures: engraved contours, restrained earth pigments.
+   Scoped to the new artwork so existing terrain keeps its own line weights. */
+.detail-art{fill:none;stroke:var(--ink);stroke-width:.5;stroke-linecap:round;stroke-linejoin:round}
+.detail-art .dt-fine{fill:none;stroke:var(--ink-warm);stroke-width:.3;opacity:.8}
+.detail-art .dt-paper{fill:var(--land-hi)}
+.detail-art .dt-warm{fill:#b19a70}
+.detail-art .dt-wood{fill:none;stroke:#7b6344;stroke-width:.9}
+.detail-art .dt-cloth{fill:#ddc8a2;stroke:var(--ink-warm);stroke-width:.35}
+.detail-art .dt-rust{fill:#af744a}
+.detail-art .dt-leaf{fill:var(--forest-dark);stroke:var(--forest-ink);stroke-width:.35}
+.detail-art .dt-earth{fill:#b5a17a;stroke:var(--ink-warm);opacity:.75}
+.detail-art .dt-stone{fill:#b8b1a0;stroke:var(--ink-warm)}
+.detail-art .dt-water{fill:var(--river-ink);stroke:var(--river)}
+.detail-art .dt-blue{stroke:var(--river);stroke-width:.4}
+.detail-art .dt-silver{fill:none;stroke:var(--land-hi);stroke-width:.4}
+.detail-art .dt-gold{fill:none;stroke:#e2c46c;stroke-width:.55}
+.detail-art .dt-gold-fill{fill:var(--gold);stroke:none}
+.detail-art .dt-ink{fill:var(--ink);stroke:none}
+.detail-art .dt-pot{fill:#635e50;stroke:var(--ink)}

@@ -1,0 +1,20 @@
+{
+  "places": {
+    "rivendell": [
+      {"label": "Foundation: The Lord of the Rings, Appendix B, Second Age (1697)", "url": "https://tolkiengateway.net/wiki/Rivendell#References", "scope": "Foundation year; reference located through Tolkien Gateway"},
+      {"label": "Location and Bilbo's visit: The Hobbit, A Short Rest", "url": "https://tolkiengateway.net/wiki/A_Short_Rest", "scope": "Valley and visit; chapter reference, not a claim that map coordinates are canonical"},
+      {"label": "Council: The Fellowship of the Ring, The Council of Elrond", "url": "https://tolkiengateway.net/wiki/The_Council_of_Elrond", "scope": "Council and decision to destroy the Ring"}
+    ]
+  },
+  "journeys": {
+    "fellowship": [{"label": "The Fellowship of the Ring, Books I–II; The Lord of the Rings, Appendix B, The Great Years", "url": "https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins", "scope": "Major dated milestones; intermediate waypoints are atlas reconstructions"}],
+    "frodo-sam": [{"label": "The Two Towers, Book IV; The Return of the King, Book VI; Appendix B", "url": "https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins", "scope": "Narrative and chronology; not independent verification of every waypoint"}],
+    "three-hunters": [{"label": "The Two Towers, Book III; The Return of the King, Book V; Appendix B", "url": "https://tolkiengateway.net/wiki/Appendix_B", "scope": "Narrative reading references; precise intermediate map positions are reconstructed"}],
+    "merry-pippin": [{"label": "The Two Towers, The Uruk-hai, Treebeard, Flotsam and Jetsam; Appendix B", "url": "https://tolkiengateway.net/wiki/Appendix_B", "scope": "Narrative reading references and chronology"}],
+    "gandalf-pippin": [{"label": "The Two Towers, The Palantír; The Return of the King, Minas Tirith; Appendix B", "url": "https://tolkiengateway.net/wiki/Appendix_B", "scope": "Narrative reading references; intermediate riding stops are reconstructed"}],
+    "rohirrim": [{"label": "The Return of the King, The Muster of Rohan, The Ride of the Rohirrim; Appendix B", "url": "https://tolkiengateway.net/wiki/Appendix_B", "scope": "Narrative reading references and chronology"}],
+    "bilbo": [{"label": "The Hobbit, An Unexpected Party through The Last Stage", "url": "https://tolkiengateway.net/wiki/Quest_of_Erebor", "scope": "Narrative route; exact daily dates and intermediate locations are not all explicitly established in the book"}],
+    "return-home": [{"label": "The Return of the King, Many Partings, Homeward Bound, The Scouring of the Shire; Appendix B", "url": "https://tolkiengateway.net/wiki/Appendix_B", "scope": "Narrative reading references and chronology"}],
+    "grey-havens": [{"label": "The Return of the King, The Grey Havens; Appendix B", "url": "https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins", "scope": "Narrative and chronology; intermediate stopping places are reconstructed"}]
+  }
+}

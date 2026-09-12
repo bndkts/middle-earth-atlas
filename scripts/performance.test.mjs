@@ -23,7 +23,7 @@ function harness() {
       contains(name) { return classes.has(name); },
     },
     addEventListener(name, fn) { this.listeners[name] = fn; },
-    setPointerCapture() {}, closest() { return null; },
+    setAttribute() {}, setPointerCapture() {}, closest() { return null; },
     };
   };
   const context = vm.createContext({
@@ -235,6 +235,7 @@ test('touch moves batch, pinch transitions flush, and cancellation does not tap'
 test('timeline batches the latest year and cancels stale panels on commit or close', () => {
   const h = harness(), tl = h.element(), panels = [];
   Object.assign(h.context, {
+    window: { ATLAS_URL: { dateFromYear: y => ({age:'TA',year:y}) } }, syncURL() {},
     tl, tlOn: true, tlYear: 3019, TIMELINE: [], EV: [], mapEl: h.element(), sheetState: 'half',
     esc: x => x, ageLabel: y => String(y), updateRealms() {}, svgLabelLOD() {}, lodPass() {},
     renderTimeline: y => panels.push(y), mode() {}, setSheet() {},

@@ -1,0 +1,2904 @@
+{
+  "schemaVersion": 1,
+  "revision": "b06bd2780c0a67278d8e12646fd0cf6c3c07b8bd950df12b444897d7d1492cc3",
+  "documentation": "https://atlas.bag-end.eu/data/",
+  "coordinateSystem": {
+    "name": "atlas-schematic",
+    "width": 2600,
+    "height": 2300,
+    "origin": "top-left",
+    "xDirection": "right",
+    "yDirection": "down",
+    "units": "map units, not latitude/longitude",
+    "notice": "Map positions are schematic reconstructions, not surveyed locations. The scale varies by region; map distances are estimates, not measured road lengths."
+  },
+  "calendar": {
+    "offsets": {
+      "YT": -9031,
+      "FA": -4031,
+      "SA": -3441,
+      "TA": 0,
+      "FoA": 3021
+    },
+    "notice": "absoluteYear = year + age offset; a sorting convention, not Gregorian time. YT does not imply solar-year duration."
+  },
+  "reuseNotice": "Code and documentation are MIT licensed. No additional rights in Tolkien works or third-party illustrations are granted. See documentation.",
+  "records": [
+    {
+      "id": "fellowship",
+      "name": "The Fellowship of the Ring",
+      "travellers": "Frodo, Sam, Merry, Pippin, Gandalf, Aragorn, Legolas, Gimli, Boromir",
+      "url": "https://atlas.bag-end.eu/journeys/fellowship/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=fellowship",
+      "references": [
+        {
+          "label": "The Fellowship of the Ring, Books I–II; The Lord of the Rings, Appendix B, The Great Years",
+          "url": "https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins",
+          "scope": "Major dated milestones; intermediate waypoints are atlas reconstructions"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Hobbiton (Bag End)",
+          "placeId": "bag-end",
+          "dateLabel": "23 Sep T.A. 3018",
+          "note": "Frodo, Sam and Pippin leave Bag End at dusk as a Black Rider comes to Hobbiton",
+          "coordinates": {
+            "x": 698,
+            "y": 898,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bag_End",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Green Hill Country",
+          "placeId": "green-hill-country",
+          "dateLabel": "24 Sep T.A. 3018",
+          "note": "The hobbits cut across country south-east; a Black Rider sniffs along the road",
+          "coordinates": {
+            "x": 695,
+            "y": 938,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Green_Hill_Country",
+          "placeUrl": "https://atlas.bag-end.eu/?place=green-hill-country"
+        },
+        {
+          "sequence": 3,
+          "placeName": "Woody End",
+          "placeId": null,
+          "dateLabel": "24 Sep T.A. 3018",
+          "note": "Meeting with Gildor Inglorion and the High Elves; night in the elves' hall",
+          "coordinates": {
+            "x": 738,
+            "y": 922,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 4,
+          "placeName": "Bamfurlong (Farmer Maggot's farm)",
+          "placeId": "bamfurlong",
+          "dateLabel": "25 Sep T.A. 3018",
+          "note": "Farmer Maggot gives supper and drives them in his waggon to the Ferry",
+          "coordinates": {
+            "x": 744,
+            "y": 942,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bamfurlong",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bamfurlong"
+        },
+        {
+          "sequence": 5,
+          "placeName": "Bucklebury Ferry",
+          "placeId": "bucklebury-ferry",
+          "dateLabel": "25 Sep T.A. 3018",
+          "note": "Merry meets them; a Black Rider watches from the far bank",
+          "coordinates": {
+            "x": 758,
+            "y": 916,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bucklebury_Ferry",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bucklebury-ferry"
+        },
+        {
+          "sequence": 6,
+          "placeName": "Crickhollow",
+          "placeId": "crickhollow",
+          "dateLabel": "25 Sep T.A. 3018",
+          "note": "Frodo's new house in Buckland; the conspiracy is unmasked",
+          "coordinates": {
+            "x": 770,
+            "y": 905,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Crickhollow",
+          "placeUrl": "https://atlas.bag-end.eu/?place=crickhollow"
+        },
+        {
+          "sequence": 7,
+          "placeName": "Old Forest (gate in the High Hay)",
+          "placeId": "hay-gate",
+          "dateLabel": "26 Sep T.A. 3018",
+          "note": "The four hobbits enter the Old Forest at dawn",
+          "coordinates": {
+            "x": 773,
+            "y": 914,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/High_Hay",
+          "placeUrl": "https://atlas.bag-end.eu/?place=hay-gate"
+        },
+        {
+          "sequence": 8,
+          "placeName": "Withywindle / Old Man Willow",
+          "placeId": "old-man-willow",
+          "dateLabel": "26 Sep T.A. 3018",
+          "note": "Merry and Pippin swallowed by Old Man Willow; Tom Bombadil rescues them",
+          "coordinates": {
+            "x": 786,
+            "y": 925,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Old_Man_Willow",
+          "placeUrl": "https://atlas.bag-end.eu/?place=old-man-willow"
+        },
+        {
+          "sequence": 9,
+          "placeName": "Tom Bombadil's house",
+          "placeId": "tom-bombadils-house",
+          "dateLabel": "26–28 Sep T.A. 3018",
+          "note": "Two nights with Tom Bombadil and Goldberry",
+          "coordinates": {
+            "x": 799,
+            "y": 910,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Tom_Bombadil%27s_House",
+          "placeUrl": "https://atlas.bag-end.eu/?place=tom-bombadils-house"
+        },
+        {
+          "sequence": 10,
+          "placeName": "Barrow-downs",
+          "placeId": "great-barrow",
+          "dateLabel": "28 Sep T.A. 3018",
+          "note": "Captured by a Barrow-wight; Bombadil breaks the barrow and the hobbits take the blades of Westernesse",
+          "coordinates": {
+            "x": 814,
+            "y": 905,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Barrow-downs",
+          "placeUrl": "https://atlas.bag-end.eu/?place=great-barrow"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Bree (The Prancing Pony)",
+          "placeId": "prancing-pony",
+          "dateLabel": "29–30 Sep T.A. 3018",
+          "note": "Frodo vanishes at the Pony; they meet Strider; the inn is raided in the early hours of 30 Sep",
+          "coordinates": {
+            "x": 819,
+            "y": 895,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/The_Prancing_Pony",
+          "placeUrl": "https://atlas.bag-end.eu/?place=prancing-pony"
+        },
+        {
+          "sequence": 12,
+          "placeName": "Midgewater Marshes",
+          "placeId": "midgewater-marshes",
+          "dateLabel": "1–2 Oct T.A. 3018",
+          "note": "Strider leads them off the Road through the marshes",
+          "coordinates": {
+            "x": 860,
+            "y": 892,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Midgewater_Marshes",
+          "placeUrl": "https://atlas.bag-end.eu/?place=midgewater-marshes"
+        },
+        {
+          "sequence": 13,
+          "placeName": "Weathertop (Amon Sûl)",
+          "placeId": "weathertop",
+          "dateLabel": "6 Oct T.A. 3018",
+          "note": "Attack of the five Nazgûl at night; Frodo is stabbed with the Morgul-knife",
+          "coordinates": {
+            "x": 905,
+            "y": 890,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Weathertop",
+          "placeUrl": "https://atlas.bag-end.eu/places/weathertop/"
+        },
+        {
+          "sequence": 14,
+          "placeName": "Last Bridge (Bridge of Mitheithel)",
+          "placeId": "last-bridge",
+          "dateLabel": "13 Oct T.A. 3018",
+          "note": "Frodo crosses the Hoarwell; Glorfindel's beryl is found on the bridge",
+          "coordinates": {
+            "x": 1010,
+            "y": 885,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Last_Bridge",
+          "placeUrl": "https://atlas.bag-end.eu/?place=last-bridge"
+        },
+        {
+          "sequence": 15,
+          "placeName": "Trollshaws",
+          "placeId": "trollshaws",
+          "dateLabel": "17–18 Oct T.A. 3018",
+          "note": "The company passes Bilbo's stone trolls; Glorfindel finds them at dusk on 18 Oct",
+          "coordinates": {
+            "x": 1050,
+            "y": 865,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Trollshaws",
+          "placeUrl": "https://atlas.bag-end.eu/?place=trollshaws"
+        },
+        {
+          "sequence": 16,
+          "placeName": "Ford of Bruinen",
+          "placeId": "ford-of-bruinen",
+          "dateLabel": "20 Oct T.A. 3018",
+          "note": "Flight to the Ford; the Nine Riders are swept away by the flood",
+          "coordinates": {
+            "x": 1095,
+            "y": 875,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Ford_of_Bruinen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=ford-of-bruinen"
+        },
+        {
+          "sequence": 17,
+          "placeName": "Rivendell (Imladris)",
+          "placeId": "rivendell",
+          "dateLabel": "20 Oct – 25 Dec T.A. 3018",
+          "note": "Frodo healed; Council of Elrond on 25 Oct; the Company of the Ring departs at dusk on 25 Dec",
+          "coordinates": {
+            "x": 1110,
+            "y": 868,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Rivendell",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        },
+        {
+          "sequence": 18,
+          "placeName": "Hollin (Eregion)",
+          "placeId": null,
+          "dateLabel": "8 Jan T.A. 3019",
+          "note": "The Company reaches Hollin; crebain from Dunland spy on them",
+          "coordinates": {
+            "x": 1150,
+            "y": 1050,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 19,
+          "placeName": "Caradhras (Redhorn Pass attempt)",
+          "placeId": "redhorn-pass",
+          "dateLabel": "11–12 Jan T.A. 3019",
+          "note": "Snow and rockfall on the Redhorn; the Company is forced back down",
+          "coordinates": {
+            "x": 1218,
+            "y": 1085,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Redhorn_Pass",
+          "placeUrl": "https://atlas.bag-end.eu/?place=redhorn-pass"
+        },
+        {
+          "sequence": 20,
+          "placeName": "Moria West-gate (Doors of Durin)",
+          "placeId": "doors-of-durin",
+          "dateLabel": "13 Jan T.A. 3019",
+          "note": "Wolves attack in the early hours; at nightfall the Watcher in the Water seizes Frodo and the Company enters Moria",
+          "coordinates": {
+            "x": 1195,
+            "y": 1092,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Doors_of_Durin",
+          "placeUrl": "https://atlas.bag-end.eu/?place=doors-of-durin"
+        },
+        {
+          "sequence": 21,
+          "placeName": "Chamber of Mazarbul",
+          "placeId": "chamber-of-mazarbul",
+          "dateLabel": "15 Jan T.A. 3019",
+          "note": "Balin's tomb; orcs and a cave-troll attack",
+          "coordinates": {
+            "x": 1200,
+            "y": 1090,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Chamber_of_Mazarbul",
+          "placeUrl": "https://atlas.bag-end.eu/?place=chamber-of-mazarbul"
+        },
+        {
+          "sequence": 22,
+          "placeName": "Bridge of Khazad-dûm",
+          "placeId": "bridge-of-khazad-dum",
+          "dateLabel": "15 Jan T.A. 3019",
+          "note": "Gandalf confronts the Balrog and falls into the abyss",
+          "coordinates": {
+            "x": 1225,
+            "y": 1093,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bridge_of_Khazad-d%C3%BBm",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bridge-of-khazad-dum"
+        },
+        {
+          "sequence": 23,
+          "placeName": "Dimrill Dale (Azanulbizar)",
+          "placeId": "dimrill-dale",
+          "dateLabel": "15 Jan T.A. 3019",
+          "note": "The Company emerges by the East-gate and passes Mirrormere",
+          "coordinates": {
+            "x": 1238,
+            "y": 1098,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Dimrill_Dale",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dimrill-dale"
+        },
+        {
+          "sequence": 24,
+          "placeName": "Nimrodel",
+          "placeId": null,
+          "dateLabel": "15 Jan T.A. 3019",
+          "note": "They reach the stream Nimrodel late at night and meet Haldir's elves",
+          "coordinates": {
+            "x": 1268,
+            "y": 1130,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 25,
+          "placeName": "Cerin Amroth",
+          "placeId": "cerin-amroth",
+          "dateLabel": "16 Jan T.A. 3019",
+          "note": "The heart of the elven-realm; Aragorn remembers Arwen",
+          "coordinates": {
+            "x": 1290,
+            "y": 1145,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Cerin_Amroth",
+          "placeUrl": "https://atlas.bag-end.eu/?place=cerin-amroth"
+        },
+        {
+          "sequence": 26,
+          "placeName": "Caras Galadhon",
+          "placeId": "caras-galadhon",
+          "dateLabel": "17 Jan – 16 Feb T.A. 3019",
+          "note": "Guests of Celeborn and Galadriel; the Mirror of Galadriel on 14 Feb",
+          "coordinates": {
+            "x": 1305,
+            "y": 1160,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Caras_Galadhon",
+          "placeUrl": "https://atlas.bag-end.eu/?place=caras-galadhon"
+        },
+        {
+          "sequence": 27,
+          "placeName": "The Tongue (Egladil), departure by boat",
+          "placeId": "the-tongue",
+          "dateLabel": "16 Feb T.A. 3019",
+          "note": "Farewell to Lórien; the Company sets out down Anduin in three boats",
+          "coordinates": {
+            "x": 1345,
+            "y": 1170,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Egladil",
+          "placeUrl": "https://atlas.bag-end.eu/?place=the-tongue"
+        },
+        {
+          "sequence": 28,
+          "placeName": "Sarn Gebir",
+          "placeId": "sarn-gebir",
+          "dateLabel": "23 Feb T.A. 3019",
+          "note": "Orc archers attack from the east bank at night; Legolas shoots the winged Nazgûl",
+          "coordinates": {
+            "x": 1420,
+            "y": 1375,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Sarn_Gebir",
+          "placeUrl": "https://atlas.bag-end.eu/?place=sarn-gebir"
+        },
+        {
+          "sequence": 29,
+          "placeName": "Argonath (Gates of the Kings)",
+          "placeId": "argonath",
+          "dateLabel": "25 Feb T.A. 3019",
+          "note": "The boats pass between the pillars of Isildur and Anárion",
+          "coordinates": {
+            "x": 1425,
+            "y": 1392,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Argonath",
+          "placeUrl": "https://atlas.bag-end.eu/?place=argonath"
+        },
+        {
+          "sequence": 30,
+          "placeName": "Parth Galen",
+          "placeId": "parth-galen",
+          "dateLabel": "25–26 Feb T.A. 3019",
+          "note": "Camp below Amon Hen; Boromir tries to take the Ring; the Fellowship breaks on 26 Feb",
+          "coordinates": {
+            "x": 1420,
+            "y": 1445,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Parth_Galen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        }
+      ]
+    },
+    {
+      "id": "frodo-sam",
+      "name": "Frodo & Sam to Mount Doom",
+      "travellers": "Frodo, Sam (and Gollum)",
+      "url": "https://atlas.bag-end.eu/journeys/frodo-sam/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=frodo-sam",
+      "references": [
+        {
+          "label": "The Two Towers, Book IV; The Return of the King, Book VI; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins",
+          "scope": "Narrative and chronology; not independent verification of every waypoint"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Parth Galen",
+          "placeId": "parth-galen",
+          "dateLabel": "26 Feb T.A. 3019",
+          "note": "Frodo puts on the Ring and flees; Sam catches him at the boats",
+          "coordinates": {
+            "x": 1420,
+            "y": 1445,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Parth_Galen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Eastern shore of Nen Hithoel",
+          "placeId": null,
+          "dateLabel": "26 Feb T.A. 3019",
+          "note": "They cross the lake by boat and land below Amon Lhaw",
+          "coordinates": {
+            "x": 1462,
+            "y": 1447,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 3,
+          "placeName": "Emyn Muil (eastern)",
+          "placeId": "emyn-muil",
+          "dateLabel": "27–29 Feb T.A. 3019",
+          "note": "Three days lost among the crags of the Emyn Muil",
+          "coordinates": {
+            "x": 1470,
+            "y": 1385,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Emyn_Muil",
+          "placeUrl": "https://atlas.bag-end.eu/?place=emyn-muil"
+        },
+        {
+          "sequence": 4,
+          "placeName": "Descent from the Emyn Muil",
+          "placeId": null,
+          "dateLabel": "29 Feb T.A. 3019",
+          "note": "Sam's elven rope; Gollum is captured and swears on the Precious",
+          "coordinates": {
+            "x": 1500,
+            "y": 1458,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 5,
+          "placeName": "Dead Marshes",
+          "placeId": "dead-marshes",
+          "dateLabel": "1–2 Mar T.A. 3019",
+          "note": "Gollum guides them past the Mere of Dead Faces; a Nazgûl passes overhead",
+          "coordinates": {
+            "x": 1560,
+            "y": 1475,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Dead_Marshes",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dead-marshes"
+        },
+        {
+          "sequence": 6,
+          "placeName": "Desolation of the Morannon (slag-mounds)",
+          "placeId": "desolation-of-the-morannon",
+          "dateLabel": "4 Mar T.A. 3019",
+          "note": "Frodo reaches the slag-mounds on the edge of the Desolation",
+          "coordinates": {
+            "x": 1636,
+            "y": 1502,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Desolation_of_the_Morannon",
+          "placeUrl": "https://atlas.bag-end.eu/?place=desolation-of-the-morannon"
+        },
+        {
+          "sequence": 7,
+          "placeName": "The Morannon (Black Gate)",
+          "placeId": "morannon",
+          "dateLabel": "5 Mar T.A. 3019",
+          "note": "Hidden in sight of the Gate; they turn south at dusk on Gollum's counsel",
+          "coordinates": {
+            "x": 1650,
+            "y": 1525,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Morannon",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morannon"
+        },
+        {
+          "sequence": 8,
+          "placeName": "North Ithilien",
+          "placeId": null,
+          "dateLabel": "6 Mar T.A. 3019",
+          "note": "The land of herbs; Sam's stewed rabbit; Faramir's rangers ambush the Southrons",
+          "coordinates": {
+            "x": 1592,
+            "y": 1560,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 9,
+          "placeName": "Henneth Annûn",
+          "placeId": "henneth-annun",
+          "dateLabel": "7–8 Mar T.A. 3019",
+          "note": "Taken by Faramir to the Window of the Sunset; they leave on 8 Mar",
+          "coordinates": {
+            "x": 1570,
+            "y": 1600,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Henneth_Ann%C3%BBn",
+          "placeUrl": "https://atlas.bag-end.eu/?place=henneth-annun"
+        },
+        {
+          "sequence": 10,
+          "placeName": "Morgul-road",
+          "placeId": null,
+          "dateLabel": "9 Mar T.A. 3019",
+          "note": "Frodo reaches the Morgul-road at dusk",
+          "coordinates": {
+            "x": 1580,
+            "y": 1640,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 11,
+          "placeName": "Cross-roads",
+          "placeId": null,
+          "dateLabel": "10 Mar T.A. 3019",
+          "note": "The fallen king's head crowned with flowers; the Dawnless Day",
+          "coordinates": {
+            "x": 1578,
+            "y": 1652,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 12,
+          "placeName": "Morgul Vale (Minas Morgul)",
+          "placeId": "morgul-vale",
+          "dateLabel": "10 Mar T.A. 3019",
+          "note": "They watch the Morgul-host march out to war",
+          "coordinates": {
+            "x": 1602,
+            "y": 1655,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Morgul_Vale",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morgul-vale"
+        },
+        {
+          "sequence": 13,
+          "placeName": "Stairs of Cirith Ungol",
+          "placeId": "stairs-of-cirith-ungol",
+          "dateLabel": "10–11 Mar T.A. 3019",
+          "note": "The Straight Stair and the Winding Stair; Gollum nearly repents",
+          "coordinates": {
+            "x": 1620,
+            "y": 1655,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Stairs_of_Cirith_Ungol",
+          "placeUrl": "https://atlas.bag-end.eu/?place=stairs-of-cirith-ungol"
+        },
+        {
+          "sequence": 14,
+          "placeName": "Shelob's Lair (Torech Ungol)",
+          "placeId": "torech-ungol",
+          "dateLabel": "13 Mar T.A. 3019",
+          "note": "Gollum betrays them; Frodo stung; Sam wounds Shelob with Sting",
+          "coordinates": {
+            "x": 1628,
+            "y": 1653,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Torech_Ungol",
+          "placeUrl": "https://atlas.bag-end.eu/?place=torech-ungol"
+        },
+        {
+          "sequence": 15,
+          "placeName": "Tower of Cirith Ungol",
+          "placeId": "tower-of-cirith-ungol",
+          "dateLabel": "13–14 Mar T.A. 3019",
+          "note": "Frodo captured by orcs; Sam rescues him in the Tower on 14 Mar",
+          "coordinates": {
+            "x": 1635,
+            "y": 1650,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Tower_of_Cirith_Ungol",
+          "placeUrl": "https://atlas.bag-end.eu/?place=tower-of-cirith-ungol"
+        },
+        {
+          "sequence": 16,
+          "placeName": "Morgai",
+          "placeId": "morgai",
+          "dateLabel": "15–17 Mar T.A. 3019",
+          "note": "Escape into the valley behind the Morgai; northward along the trench",
+          "coordinates": {
+            "x": 1640,
+            "y": 1620,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Morgai",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morgai"
+        },
+        {
+          "sequence": 17,
+          "placeName": "Durthang road",
+          "placeId": null,
+          "dateLabel": "18 Mar T.A. 3019",
+          "note": "Overtaken by an orc-company on the road from Durthang and driven towards Udûn",
+          "coordinates": {
+            "x": 1660,
+            "y": 1572,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 18,
+          "placeName": "Isenmouthe (Carach Angren)",
+          "placeId": "isenmouthe",
+          "dateLabel": "18–19 Mar T.A. 3019",
+          "note": "They escape the orc column in the press before the Isenmouthe",
+          "coordinates": {
+            "x": 1685,
+            "y": 1568,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Isenmouthe",
+          "placeUrl": "https://atlas.bag-end.eu/?place=isenmouthe"
+        },
+        {
+          "sequence": 19,
+          "placeName": "Road across Gorgoroth",
+          "placeId": null,
+          "dateLabel": "19–22 Mar T.A. 3019",
+          "note": "Along the Barad-dûr road; on 22 Mar they turn south towards the Mountain",
+          "coordinates": {
+            "x": 1712,
+            "y": 1585,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 20,
+          "placeName": "Plateau of Gorgoroth",
+          "placeId": "gorgoroth",
+          "dateLabel": "23 Mar T.A. 3019",
+          "note": "Frodo and Sam cast away their arms and gear",
+          "coordinates": {
+            "x": 1720,
+            "y": 1640,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Gorgoroth",
+          "placeUrl": "https://atlas.bag-end.eu/?place=gorgoroth"
+        },
+        {
+          "sequence": 21,
+          "placeName": "Feet of Mount Doom",
+          "placeId": null,
+          "dateLabel": "24 Mar T.A. 3019",
+          "note": "Their last journey; Sam carries Frodo up the Mountain",
+          "coordinates": {
+            "x": 1703,
+            "y": 1600,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 22,
+          "placeName": "Sammath Naur (Cracks of Doom)",
+          "placeId": "sammath-naur",
+          "dateLabel": "25 Mar T.A. 3019",
+          "note": "Gollum seizes the Ring and falls into the Fire; Barad-dûr falls",
+          "coordinates": {
+            "x": 1700,
+            "y": 1593,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Sammath_Naur",
+          "placeUrl": "https://atlas.bag-end.eu/?place=sammath-naur"
+        },
+        {
+          "sequence": 23,
+          "placeName": "Rescue by the Eagles",
+          "placeId": null,
+          "dateLabel": "25 Mar T.A. 3019",
+          "note": "Gwaihir, Landroval and Meneldor bear them from the slopes as the Mountain erupts",
+          "coordinates": {
+            "x": 1700,
+            "y": 1596,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 24,
+          "placeName": "Field of Cormallen",
+          "placeId": "field-of-cormallen",
+          "dateLabel": "8 Apr T.A. 3019",
+          "note": "The Ring-bearers wake in Ithilien and are honoured by the Host of the West",
+          "coordinates": {
+            "x": 1520,
+            "y": 1580,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Field_of_Cormallen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=field-of-cormallen"
+        }
+      ]
+    },
+    {
+      "id": "three-hunters",
+      "name": "Aragorn, Legolas & Gimli",
+      "travellers": "Aragorn, Legolas, Gimli (later Gandalf, Théoden, the Grey Company)",
+      "url": "https://atlas.bag-end.eu/journeys/three-hunters/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=three-hunters",
+      "references": [
+        {
+          "label": "The Two Towers, Book III; The Return of the King, Book V; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Appendix_B",
+          "scope": "Narrative reading references; precise intermediate map positions are reconstructed"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Parth Galen",
+          "placeId": "parth-galen",
+          "dateLabel": "26 Feb T.A. 3019",
+          "note": "Boromir's funeral boat; the Three Hunters set out after the orcs at evening",
+          "coordinates": {
+            "x": 1420,
+            "y": 1445,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Parth_Galen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        },
+        {
+          "sequence": 2,
+          "placeName": "West cliff of the Emyn Muil",
+          "placeId": null,
+          "dateLabel": "27 Feb T.A. 3019",
+          "note": "They reach the west-cliff at sunrise and descend to the plains",
+          "coordinates": {
+            "x": 1418,
+            "y": 1402,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 3,
+          "placeName": "The Wold / Eastemnet",
+          "placeId": null,
+          "dateLabel": "28 Feb T.A. 3019",
+          "note": "Running over the grasslands of Rohan on the orcs' trail",
+          "coordinates": {
+            "x": 1398,
+            "y": 1400,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 4,
+          "placeName": "Meeting with Éomer",
+          "placeId": null,
+          "dateLabel": "30 Feb T.A. 3019",
+          "note": "Éomer's éored, returning from the battle at Fangorn's eaves, meets them; horses are lent",
+          "coordinates": {
+            "x": 1378,
+            "y": 1400,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 5,
+          "placeName": "Eaves of Fangorn (battlefield)",
+          "placeId": null,
+          "dateLabel": "30 Feb T.A. 3019",
+          "note": "Camp beside the burned orc-pile; an old man is glimpsed in the night",
+          "coordinates": {
+            "x": 1365,
+            "y": 1385,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 6,
+          "placeName": "Treebeard's Hill, Fangorn",
+          "placeId": "treebeards-hill",
+          "dateLabel": "1 Mar T.A. 3019",
+          "note": "Gandalf the White returns; Shadowfax comes",
+          "coordinates": {
+            "x": 1355,
+            "y": 1345,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Treebeard",
+          "placeUrl": "https://atlas.bag-end.eu/?place=treebeards-hill"
+        },
+        {
+          "sequence": 7,
+          "placeName": "Edoras (Meduseld)",
+          "placeId": "meduseld",
+          "dateLabel": "2 Mar T.A. 3019",
+          "note": "Gandalf heals Théoden; Wormtongue is cast out; the Rohirrim ride west",
+          "coordinates": {
+            "x": 1300,
+            "y": 1539,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Meduseld",
+          "placeUrl": "https://atlas.bag-end.eu/?place=meduseld"
+        },
+        {
+          "sequence": 8,
+          "placeName": "Helm's Deep (the Hornburg)",
+          "placeId": "hornburg",
+          "dateLabel": "3–4 Mar T.A. 3019",
+          "note": "Battle of the Hornburg; the Huorns destroy Saruman's army",
+          "coordinates": {
+            "x": 1250,
+            "y": 1444,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Hornburg",
+          "placeUrl": "https://atlas.bag-end.eu/?place=hornburg"
+        },
+        {
+          "sequence": 9,
+          "placeName": "Isengard (Orthanc)",
+          "placeId": "isengard",
+          "dateLabel": "5 Mar T.A. 3019",
+          "note": "Parley with Saruman; Wormtongue throws down the palantír",
+          "coordinates": {
+            "x": 1230,
+            "y": 1390,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Isengard",
+          "placeUrl": "https://atlas.bag-end.eu/places/isengard/"
+        },
+        {
+          "sequence": 10,
+          "placeName": "Dol Baran",
+          "placeId": "dol-baran",
+          "dateLabel": "5–6 Mar T.A. 3019",
+          "note": "Camp under Dol Baran; Pippin looks in the palantír; the Grey Company overtakes Aragorn in the early hours",
+          "coordinates": {
+            "x": 1195,
+            "y": 1400,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Dol_Baran",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dol-baran"
+        },
+        {
+          "sequence": 11,
+          "placeName": "The Hornburg (again)",
+          "placeId": "hornburg",
+          "dateLabel": "6 Mar T.A. 3019",
+          "note": "Aragorn shows himself to Sauron in the Orthanc-stone; Halbarad brings Arwen's standard",
+          "coordinates": {
+            "x": 1250,
+            "y": 1444,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Hornburg",
+          "placeUrl": "https://atlas.bag-end.eu/?place=hornburg"
+        },
+        {
+          "sequence": 12,
+          "placeName": "Dunharrow (Harrowdale)",
+          "placeId": "dunharrow",
+          "dateLabel": "7 Mar T.A. 3019",
+          "note": "Aragorn comes to Dunharrow at nightfall; farewell to Éowyn",
+          "coordinates": {
+            "x": 1310,
+            "y": 1565,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Dunharrow",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dunharrow"
+        },
+        {
+          "sequence": 13,
+          "placeName": "Paths of the Dead (Dwimorberg)",
+          "placeId": "paths-of-the-dead",
+          "dateLabel": "8 Mar T.A. 3019",
+          "note": "The Grey Company enters the Dark Door at daybreak; the Dead follow",
+          "coordinates": {
+            "x": 1319,
+            "y": 1583,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Paths_of_the_Dead",
+          "placeUrl": "https://atlas.bag-end.eu/?place=paths-of-the-dead"
+        },
+        {
+          "sequence": 14,
+          "placeName": "Stone of Erech",
+          "placeId": "stone-of-erech",
+          "dateLabel": "8 Mar T.A. 3019",
+          "note": "At midnight Aragorn summons the Oathbreakers at the Stone",
+          "coordinates": {
+            "x": 1300,
+            "y": 1680,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Stone_of_Erech",
+          "placeUrl": "https://atlas.bag-end.eu/?place=stone-of-erech"
+        },
+        {
+          "sequence": 15,
+          "placeName": "Calembel on Ciril",
+          "placeId": "calembel",
+          "dateLabel": "9 Mar T.A. 3019",
+          "note": "The Grey Company rides through Lamedon; the townsfolk flee the Dead",
+          "coordinates": {
+            "x": 1360,
+            "y": 1712,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Calembel",
+          "placeUrl": "https://atlas.bag-end.eu/?place=calembel"
+        },
+        {
+          "sequence": 16,
+          "placeName": "Crossing of the Ringló",
+          "placeId": null,
+          "dateLabel": "10 Mar T.A. 3019",
+          "note": "Aragorn crosses the Ringló on the Dawnless Day",
+          "coordinates": {
+            "x": 1386,
+            "y": 1745,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 17,
+          "placeName": "Linhir",
+          "placeId": "linhir",
+          "dateLabel": "11 Mar T.A. 3019",
+          "note": "The men of Lamedon fighting the Haradrim flee before the Dead; Angbor of Lamedon stays",
+          "coordinates": {
+            "x": 1420,
+            "y": 1810,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Linhir",
+          "placeUrl": "https://atlas.bag-end.eu/?place=linhir"
+        },
+        {
+          "sequence": 18,
+          "placeName": "Lebennin",
+          "placeId": null,
+          "dateLabel": "12 Mar T.A. 3019",
+          "note": "The enemy is driven towards Pelargir",
+          "coordinates": {
+            "x": 1460,
+            "y": 1770,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 19,
+          "placeName": "Pelargir",
+          "placeId": "pelargir",
+          "dateLabel": "13 Mar T.A. 3019",
+          "note": "The Corsair fleet of Umbar is captured; the Dead are released",
+          "coordinates": {
+            "x": 1520,
+            "y": 1790,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Pelargir",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelargir"
+        },
+        {
+          "sequence": 20,
+          "placeName": "Harlond (Anduin)",
+          "placeId": "harlond-gondor",
+          "dateLabel": "15 Mar T.A. 3019",
+          "note": "The black ships come up Anduin; the standard of Arwen is unfurled",
+          "coordinates": {
+            "x": 1516,
+            "y": 1652,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Harlond",
+          "placeUrl": "https://atlas.bag-end.eu/?place=harlond-gondor"
+        },
+        {
+          "sequence": 21,
+          "placeName": "Pelennor Fields",
+          "placeId": "pelennor-fields",
+          "dateLabel": "15 Mar T.A. 3019",
+          "note": "Battle of the Pelennor Fields; Théoden falls; the Witch-king is destroyed",
+          "coordinates": {
+            "x": 1514,
+            "y": 1640,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Pelennor_Fields",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelennor-fields"
+        },
+        {
+          "sequence": 22,
+          "placeName": "Minas Tirith",
+          "placeId": "minas-tirith",
+          "dateLabel": "15–18 Mar T.A. 3019",
+          "note": "The Houses of Healing; the Last Debate; the Host of the West marches out on 18 Mar",
+          "coordinates": {
+            "x": 1505,
+            "y": 1635,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Minas_Tirith",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        },
+        {
+          "sequence": 23,
+          "placeName": "Osgiliath",
+          "placeId": "osgiliath",
+          "dateLabel": "18 Mar T.A. 3019",
+          "note": "The Host crosses Anduin by the repaired bridge",
+          "coordinates": {
+            "x": 1527,
+            "y": 1638,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Osgiliath",
+          "placeUrl": "https://atlas.bag-end.eu/?place=osgiliath"
+        },
+        {
+          "sequence": 24,
+          "placeName": "Cross-roads / Morgul Vale",
+          "placeId": null,
+          "dateLabel": "19 Mar T.A. 3019",
+          "note": "The Host comes to the Morgul-vale and turns north at the Cross-roads",
+          "coordinates": {
+            "x": 1578,
+            "y": 1652,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 25,
+          "placeName": "North Ithilien",
+          "placeId": null,
+          "dateLabel": "20–23 Mar T.A. 3019",
+          "note": "Aragorn dismisses the faint-hearted to retake Cair Andros",
+          "coordinates": {
+            "x": 1585,
+            "y": 1560,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 26,
+          "placeName": "Desolation of the Morannon",
+          "placeId": "desolation-of-the-morannon",
+          "dateLabel": "24 Mar T.A. 3019",
+          "note": "The Host camps in the Desolation before the Gate",
+          "coordinates": {
+            "x": 1636,
+            "y": 1502,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Desolation_of_the_Morannon",
+          "placeUrl": "https://atlas.bag-end.eu/?place=desolation-of-the-morannon"
+        },
+        {
+          "sequence": 27,
+          "placeName": "The Morannon (Slag-hills)",
+          "placeId": "slag-hills",
+          "dateLabel": "25 Mar T.A. 3019",
+          "note": "Battle of the Morannon; the Mouth of Sauron; the Ring is destroyed",
+          "coordinates": {
+            "x": 1642,
+            "y": 1513,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Slag-hills",
+          "placeUrl": "https://atlas.bag-end.eu/?place=slag-hills"
+        },
+        {
+          "sequence": 28,
+          "placeName": "Field of Cormallen",
+          "placeId": "field-of-cormallen",
+          "dateLabel": "8 Apr T.A. 3019",
+          "note": "Praise of the Ring-bearers; the Host returns to Minas Tirith for the crowning on 1 May",
+          "coordinates": {
+            "x": 1520,
+            "y": 1580,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Field_of_Cormallen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=field-of-cormallen"
+        }
+      ]
+    },
+    {
+      "id": "merry-pippin",
+      "name": "Merry & Pippin",
+      "travellers": "Merry, Pippin (captives of Uglúk's Uruk-hai; then with Treebeard)",
+      "url": "https://atlas.bag-end.eu/journeys/merry-pippin/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=merry-pippin",
+      "references": [
+        {
+          "label": "The Two Towers, The Uruk-hai, Treebeard, Flotsam and Jetsam; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Appendix_B",
+          "scope": "Narrative reading references and chronology"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Parth Galen",
+          "placeId": "parth-galen",
+          "dateLabel": "26 Feb T.A. 3019",
+          "note": "Captured by the Uruk-hai of Isengard; Boromir falls defending them",
+          "coordinates": {
+            "x": 1420,
+            "y": 1445,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Parth_Galen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Emyn Muil descent",
+          "placeId": null,
+          "dateLabel": "26–27 Feb T.A. 3019",
+          "note": "Carried down from the hills; Pippin drops his elven brooch as a token",
+          "coordinates": {
+            "x": 1420,
+            "y": 1408,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 3,
+          "placeName": "Eastemnet (the Wold)",
+          "placeId": null,
+          "dateLabel": "27–28 Feb T.A. 3019",
+          "note": "The orcs run west across the plains of Rohan; Grishnákh's orcs join them",
+          "coordinates": {
+            "x": 1405,
+            "y": 1405,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 4,
+          "placeName": "Overtaken by Éomer's éored",
+          "placeId": null,
+          "dateLabel": "28 Feb T.A. 3019",
+          "note": "The Riders surround the orc-band at nightfall near the forest",
+          "coordinates": {
+            "x": 1385,
+            "y": 1393,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 5,
+          "placeName": "Eaves of Fangorn (battle)",
+          "placeId": null,
+          "dateLabel": "29 Feb T.A. 3019",
+          "note": "The Rohirrim destroy the orcs at sunrise; the hobbits escape into the forest",
+          "coordinates": {
+            "x": 1365,
+            "y": 1385,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 6,
+          "placeName": "Treebeard's Hill",
+          "placeId": "treebeards-hill",
+          "dateLabel": "29 Feb T.A. 3019",
+          "note": "Meeting with Treebeard the Ent",
+          "coordinates": {
+            "x": 1355,
+            "y": 1345,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Treebeard",
+          "placeUrl": "https://atlas.bag-end.eu/?place=treebeards-hill"
+        },
+        {
+          "sequence": 7,
+          "placeName": "Wellinghall",
+          "placeId": "wellinghall",
+          "dateLabel": "29 Feb T.A. 3019",
+          "note": "Night at Treebeard's ent-house; ent-draughts",
+          "coordinates": {
+            "x": 1235,
+            "y": 1360,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Wellinghall",
+          "placeUrl": "https://atlas.bag-end.eu/?place=wellinghall"
+        },
+        {
+          "sequence": 8,
+          "placeName": "Derndingle (Entmoot)",
+          "placeId": "derndingle",
+          "dateLabel": "30 Feb – 2 Mar T.A. 3019",
+          "note": "The Entmoot decides for war; the Ents march at afternoon on 2 Mar",
+          "coordinates": {
+            "x": 1290,
+            "y": 1360,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Derndingle",
+          "placeUrl": "https://atlas.bag-end.eu/?place=derndingle"
+        },
+        {
+          "sequence": 9,
+          "placeName": "Southern Fangorn",
+          "placeId": null,
+          "dateLabel": "2 Mar T.A. 3019",
+          "note": "The Ents and Huorns move down the western marches of the forest",
+          "coordinates": {
+            "x": 1255,
+            "y": 1385,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 10,
+          "placeName": "Nan Curunír (Wizard's Vale)",
+          "placeId": "nan-curunir",
+          "dateLabel": "2 Mar T.A. 3019",
+          "note": "The Ents reach Isengard at night as Saruman's army marches out",
+          "coordinates": {
+            "x": 1230,
+            "y": 1375,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Nan_Curun%C3%ADr",
+          "placeUrl": "https://atlas.bag-end.eu/?place=nan-curunir"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Isengard",
+          "placeId": "isengard",
+          "dateLabel": "3 Mar T.A. 3019",
+          "note": "The Ents break the walls and flood the ring of Isengard",
+          "coordinates": {
+            "x": 1230,
+            "y": 1390,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Isengard",
+          "placeUrl": "https://atlas.bag-end.eu/places/isengard/"
+        },
+        {
+          "sequence": 12,
+          "placeName": "Gates of Isengard",
+          "placeId": "gate-of-isengard",
+          "dateLabel": "5 Mar T.A. 3019",
+          "note": "Merry and Pippin greet Théoden and Gandalf among the wreckage at noon",
+          "coordinates": {
+            "x": 1229,
+            "y": 1391,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Isengard",
+          "placeUrl": "https://atlas.bag-end.eu/?place=gate-of-isengard"
+        }
+      ]
+    },
+    {
+      "id": "gandalf-pippin",
+      "name": "Gandalf's ride with Pippin",
+      "travellers": "Gandalf and Pippin on Shadowfax",
+      "url": "https://atlas.bag-end.eu/journeys/gandalf-pippin/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=gandalf-pippin",
+      "references": [
+        {
+          "label": "The Two Towers, The Palantír; The Return of the King, Minas Tirith; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Appendix_B",
+          "scope": "Narrative reading references; intermediate riding stops are reconstructed"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Dol Baran",
+          "placeId": "dol-baran",
+          "dateLabel": "5 Mar T.A. 3019",
+          "note": "After the palantír, Gandalf takes Pippin and rides for Minas Tirith in the night",
+          "coordinates": {
+            "x": 1195,
+            "y": 1400,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Dol_Baran",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dol-baran"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Gap of Rohan",
+          "placeId": "gap-of-rohan",
+          "dateLabel": "6 Mar T.A. 3019",
+          "note": "Shadowfax runs east through the Gap and across the Westemnet",
+          "coordinates": {
+            "x": 1205,
+            "y": 1415,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Gap_of_Rohan",
+          "placeUrl": "https://atlas.bag-end.eu/?place=gap-of-rohan"
+        },
+        {
+          "sequence": 3,
+          "placeName": "Westemnet",
+          "placeId": null,
+          "dateLabel": "6 Mar T.A. 3019",
+          "note": "Rest hidden in a fold of the plains by day",
+          "coordinates": {
+            "x": 1290,
+            "y": 1470,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 4,
+          "placeName": "Edoras (passed)",
+          "placeId": null,
+          "dateLabel": "6 Mar T.A. 3019",
+          "note": "They ride past Edoras in the night without stopping",
+          "coordinates": {
+            "x": 1300,
+            "y": 1540,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 5,
+          "placeName": "The Folde",
+          "placeId": null,
+          "dateLabel": "7 Mar T.A. 3019",
+          "note": "Through the Folde and Eastfold; the beacons of Gondor are lit",
+          "coordinates": {
+            "x": 1320,
+            "y": 1555,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 6,
+          "placeName": "Eastfold",
+          "placeId": null,
+          "dateLabel": "7 Mar T.A. 3019",
+          "note": "Riders of Rohan are met on the road bringing the Red Arrow",
+          "coordinates": {
+            "x": 1350,
+            "y": 1575,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 7,
+          "placeName": "Mering Stream / Firien Wood",
+          "placeId": null,
+          "dateLabel": "7–8 Mar T.A. 3019",
+          "note": "Crossing into Anórien beneath the Halifirien",
+          "coordinates": {
+            "x": 1420,
+            "y": 1590,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 8,
+          "placeName": "Anórien (the beacon-hills)",
+          "placeId": null,
+          "dateLabel": "8 Mar T.A. 3019",
+          "note": "Under Min-Rimmon and Nardol; the errand-riders of Gondor pass them",
+          "coordinates": {
+            "x": 1445,
+            "y": 1608,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 9,
+          "placeName": "Eilenach / Drúadan Forest road",
+          "placeId": null,
+          "dateLabel": "8 Mar T.A. 3019",
+          "note": "The road skirts the Drúadan Forest beneath the beacon of Eilenach",
+          "coordinates": {
+            "x": 1478,
+            "y": 1618,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 10,
+          "placeName": "Amon Dîn",
+          "placeId": "amon-din",
+          "dateLabel": "8 Mar T.A. 3019",
+          "note": "Last beacon before the City; the Rammas Echor lies ahead",
+          "coordinates": {
+            "x": 1490,
+            "y": 1622,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Amon_D%C3%AEn",
+          "placeUrl": "https://atlas.bag-end.eu/?place=amon-din"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Pelennor (Rammas Echor gate)",
+          "placeId": "pelennor-fields",
+          "dateLabel": "9 Mar T.A. 3019",
+          "note": "They pass the gate of the outer wall before dawn",
+          "coordinates": {
+            "x": 1514,
+            "y": 1640,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Pelennor_Fields",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelennor-fields"
+        },
+        {
+          "sequence": 12,
+          "placeName": "Minas Tirith",
+          "placeId": "minas-tirith",
+          "dateLabel": "9 Mar T.A. 3019",
+          "note": "Gandalf reaches Minas Tirith at dawn; Pippin swears service to Denethor",
+          "coordinates": {
+            "x": 1505,
+            "y": 1635,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Minas_Tirith",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        }
+      ]
+    },
+    {
+      "id": "rohirrim",
+      "name": "The Ride of the Rohirrim",
+      "travellers": "Théoden, Éomer, Éowyn (as Dernhelm), Merry and 6,000 Riders",
+      "url": "https://atlas.bag-end.eu/journeys/rohirrim/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=rohirrim",
+      "references": [
+        {
+          "label": "The Return of the King, The Muster of Rohan, The Ride of the Rohirrim; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Appendix_B",
+          "scope": "Narrative reading references and chronology"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Dunharrow (Harrowdale)",
+          "placeId": "dunharrow",
+          "dateLabel": "9–10 Mar T.A. 3019",
+          "note": "The Muster of Rohan; Hirgon brings the Red Arrow; the host rides at dawn on 10 Mar",
+          "coordinates": {
+            "x": 1310,
+            "y": 1565,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Dunharrow",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dunharrow"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Edoras",
+          "placeId": "edoras",
+          "dateLabel": "10 Mar T.A. 3019",
+          "note": "Théoden takes leave of Meduseld on the Dawnless Day",
+          "coordinates": {
+            "x": 1300,
+            "y": 1540,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Edoras",
+          "placeUrl": "https://atlas.bag-end.eu/places/edoras/"
+        },
+        {
+          "sequence": 3,
+          "placeName": "The Folde",
+          "placeId": null,
+          "dateLabel": "10 Mar T.A. 3019",
+          "note": "The host rides east along the Great West Road",
+          "coordinates": {
+            "x": 1320,
+            "y": 1555,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 4,
+          "placeName": "Eastfold",
+          "placeId": null,
+          "dateLabel": "11 Mar T.A. 3019",
+          "note": "Riders from Eastfold join the muster",
+          "coordinates": {
+            "x": 1350,
+            "y": 1575,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 5,
+          "placeName": "Halifirien / Firien Wood",
+          "placeId": null,
+          "dateLabel": "11 Mar T.A. 3019",
+          "note": "Crossing the Mering Stream into Anórien",
+          "coordinates": {
+            "x": 1410,
+            "y": 1600,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 6,
+          "placeName": "Min-Rimmon",
+          "placeId": "min-rimmon",
+          "dateLabel": "12 Mar T.A. 3019",
+          "note": "Théoden camps under Min-Rimmon",
+          "coordinates": {
+            "x": 1445,
+            "y": 1608,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Min-Rimmon",
+          "placeUrl": "https://atlas.bag-end.eu/?place=min-rimmon"
+        },
+        {
+          "sequence": 7,
+          "placeName": "Drúadan Forest",
+          "placeId": null,
+          "dateLabel": "13 Mar T.A. 3019",
+          "note": "Ghân-buri-Ghân offers to guide the host past the enemy in Anórien",
+          "coordinates": {
+            "x": 1470,
+            "y": 1615,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 8,
+          "placeName": "Stonewain Valley",
+          "placeId": "stonewain-valley",
+          "dateLabel": "14 Mar T.A. 3019",
+          "note": "The Wild Men lead the Rohirrim through the hidden valley",
+          "coordinates": {
+            "x": 1487,
+            "y": 1611,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Stonewain_Valley",
+          "placeUrl": "https://atlas.bag-end.eu/?place=stonewain-valley"
+        },
+        {
+          "sequence": 9,
+          "placeName": "Grey Wood under Amon Dîn",
+          "placeId": "grey-wood",
+          "dateLabel": "14 Mar T.A. 3019",
+          "note": "The host halts in the Grey Wood; Widfara smells a change in the wind",
+          "coordinates": {
+            "x": 1492,
+            "y": 1626,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Grey_Wood",
+          "placeUrl": "https://atlas.bag-end.eu/?place=grey-wood"
+        },
+        {
+          "sequence": 10,
+          "placeName": "Rammas Echor (north wall)",
+          "placeId": "rammas-echor",
+          "dateLabel": "15 Mar T.A. 3019",
+          "note": "The Riders pass the broken outer wall before dawn",
+          "coordinates": {
+            "x": 1518,
+            "y": 1610,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Rammas_Echor",
+          "placeUrl": "https://atlas.bag-end.eu/?place=rammas-echor"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Pelennor Fields",
+          "placeId": "pelennor-fields",
+          "dateLabel": "15 Mar T.A. 3019",
+          "note": "The horns of Rohan at cockcrow; Théoden's charge; Éowyn and Merry slay the Witch-king",
+          "coordinates": {
+            "x": 1514,
+            "y": 1640,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Pelennor_Fields",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelennor-fields"
+        },
+        {
+          "sequence": 12,
+          "placeName": "Minas Tirith",
+          "placeId": "minas-tirith",
+          "dateLabel": "15 Mar T.A. 3019",
+          "note": "Théoden's body is borne to the City; Éomer becomes King",
+          "coordinates": {
+            "x": 1505,
+            "y": 1635,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Minas_Tirith",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        }
+      ]
+    },
+    {
+      "id": "bilbo",
+      "name": "Bilbo's Journey (There and Back Again)",
+      "travellers": "Bilbo Baggins, Thorin and Company, Gandalf",
+      "url": "https://atlas.bag-end.eu/journeys/bilbo/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=bilbo",
+      "references": [
+        {
+          "label": "The Hobbit, An Unexpected Party through The Last Stage",
+          "url": "https://tolkiengateway.net/wiki/Quest_of_Erebor",
+          "scope": "Narrative route; exact daily dates and intermediate locations are not all explicitly established in the book"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Bag End",
+          "placeId": "bag-end",
+          "dateLabel": "27 Apr T.A. 2941",
+          "note": "The morning after the Unexpected Party, Bilbo runs out without a pocket-handkerchief",
+          "coordinates": {
+            "x": 698,
+            "y": 898,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bag_End",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        },
+        {
+          "sequence": 2,
+          "placeName": "The Green Dragon, Bywater",
+          "placeId": "green-dragon-inn",
+          "dateLabel": "27 Apr T.A. 2941",
+          "note": "Bilbo joins the dwarves at the inn and they ride east",
+          "coordinates": {
+            "x": 708,
+            "y": 906,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/The_Green_Dragon",
+          "placeUrl": "https://atlas.bag-end.eu/?place=green-dragon-inn"
+        },
+        {
+          "sequence": 3,
+          "placeName": "Brandywine Bridge",
+          "placeId": "brandywine-bridge",
+          "dateLabel": "29 Apr T.A. 2941",
+          "note": "Out of the Shire and into the wild lands",
+          "coordinates": {
+            "x": 752,
+            "y": 893,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Brandywine_Bridge",
+          "placeUrl": "https://atlas.bag-end.eu/?place=brandywine-bridge"
+        },
+        {
+          "sequence": 4,
+          "placeName": "Bree",
+          "placeId": "bree",
+          "dateLabel": "c. 1 May T.A. 2941",
+          "note": "Past Bree; the Lone-lands begin",
+          "coordinates": {
+            "x": 820,
+            "y": 895,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bree",
+          "placeUrl": "https://atlas.bag-end.eu/places/bree/"
+        },
+        {
+          "sequence": 5,
+          "placeName": "Weathertop (passed)",
+          "placeId": null,
+          "dateLabel": "c. mid-May T.A. 2941",
+          "note": "Dreary hills and ruined castles of the Lone-lands",
+          "coordinates": {
+            "x": 905,
+            "y": 890,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 6,
+          "placeName": "Last Bridge",
+          "placeId": "last-bridge",
+          "dateLabel": "c. 27 May T.A. 2941",
+          "note": "Crossing the Hoarwell in the rain; Gandalf has vanished",
+          "coordinates": {
+            "x": 1010,
+            "y": 885,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Last_Bridge",
+          "placeUrl": "https://atlas.bag-end.eu/?place=last-bridge"
+        },
+        {
+          "sequence": 7,
+          "placeName": "The Trolls' clearing (Trollshaws)",
+          "placeId": null,
+          "dateLabel": "c. 29 May T.A. 2941",
+          "note": "Bilbo tries to pick William's pocket; Gandalf tricks the trolls into stone; the troll-hoard",
+          "coordinates": {
+            "x": 1050,
+            "y": 865,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 8,
+          "placeName": "Rivendell (The Last Homely House)",
+          "placeId": "rivendell",
+          "dateLabel": "c. 7 Jun – Midsummer T.A. 2941",
+          "note": "Elrond reads the moon-letters on Thrór's map; departure on Midsummer morning",
+          "coordinates": {
+            "x": 1110,
+            "y": 868,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Rivendell",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        },
+        {
+          "sequence": 9,
+          "placeName": "High Pass (thunder-battle)",
+          "placeId": "high-pass",
+          "dateLabel": "c. 1–3 Jul T.A. 2941",
+          "note": "Stone-giants in the storm; shelter in the goblins' front porch",
+          "coordinates": {
+            "x": 1150,
+            "y": 855,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/High_Pass",
+          "placeUrl": "https://atlas.bag-end.eu/?place=high-pass"
+        },
+        {
+          "sequence": 10,
+          "placeName": "Goblin-town",
+          "placeId": "goblin-town",
+          "dateLabel": "c. 3–5 Jul T.A. 2941",
+          "note": "Captured by goblins; Gandalf slays the Great Goblin; Bilbo finds the Ring and plays riddles with Gollum",
+          "coordinates": {
+            "x": 1152,
+            "y": 850,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Goblin-town",
+          "placeUrl": "https://atlas.bag-end.eu/?place=goblin-town"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Eagles' Eyrie",
+          "placeId": "eagles-eyrie",
+          "dateLabel": "c. 6 Jul T.A. 2941",
+          "note": "Out of the frying-pan: rescued from the Wargs by the Eagles",
+          "coordinates": {
+            "x": 1180,
+            "y": 830,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Eagles",
+          "placeUrl": "https://atlas.bag-end.eu/?place=eagles-eyrie"
+        },
+        {
+          "sequence": 12,
+          "placeName": "The Carrock",
+          "placeId": "carrock",
+          "dateLabel": "c. 7 Jul T.A. 2941",
+          "note": "The Eagles set them down on the great rock in Anduin",
+          "coordinates": {
+            "x": 1215,
+            "y": 835,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Carrock",
+          "placeUrl": "https://atlas.bag-end.eu/?place=carrock"
+        },
+        {
+          "sequence": 13,
+          "placeName": "Beorn's House",
+          "placeId": "beorns-house",
+          "dateLabel": "c. 7–10 Jul T.A. 2941",
+          "note": "Guests of the skin-changer; ponies lent for the road to the forest",
+          "coordinates": {
+            "x": 1235,
+            "y": 850,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Beorn%27s_house",
+          "placeUrl": "https://atlas.bag-end.eu/?place=beorns-house"
+        },
+        {
+          "sequence": 14,
+          "placeName": "Forest Gate",
+          "placeId": "forest-gate",
+          "dateLabel": "c. 14 Jul T.A. 2941",
+          "note": "Gandalf leaves them; the company enters Mirkwood on the Elf-path",
+          "coordinates": {
+            "x": 1306,
+            "y": 826,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Forest_Gate",
+          "placeUrl": "https://atlas.bag-end.eu/?place=forest-gate"
+        },
+        {
+          "sequence": 15,
+          "placeName": "Elf-path, Mirkwood",
+          "placeId": null,
+          "dateLabel": "late Jul T.A. 2941",
+          "note": "Days of darkness under the trees; Bombur's night-eyes",
+          "coordinates": {
+            "x": 1400,
+            "y": 740,
+            "approximate": true
+          },
+          "via": [
+            {
+              "x": 1350,
+              "y": 780
+            }
+          ],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 16,
+          "placeName": "Enchanted River",
+          "placeId": null,
+          "dateLabel": "c. early Aug T.A. 2941",
+          "note": "Bombur falls into the black stream and sleeps for days",
+          "coordinates": {
+            "x": 1495,
+            "y": 701,
+            "approximate": true
+          },
+          "via": [
+            {
+              "x": 1450,
+              "y": 715
+            }
+          ],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 17,
+          "placeName": "Spiders' glade",
+          "placeId": "spiders-colony",
+          "dateLabel": "c. early Sep T.A. 2941",
+          "note": "Attercop: Bilbo names Sting and frees the dwarves from the spiders; the Wood-elves take the dwarves",
+          "coordinates": {
+            "x": 1510,
+            "y": 725,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Mirkwood",
+          "placeUrl": "https://atlas.bag-end.eu/?place=spiders-colony"
+        },
+        {
+          "sequence": 18,
+          "placeName": "Thranduil's Halls",
+          "placeId": "thranduils-halls",
+          "dateLabel": "c. Sep T.A. 2941",
+          "note": "The dwarves imprisoned; Bilbo lurks invisible in the Elvenking's caves",
+          "coordinates": {
+            "x": 1545,
+            "y": 690,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Thranduil%27s_Halls",
+          "placeUrl": "https://atlas.bag-end.eu/?place=thranduils-halls"
+        },
+        {
+          "sequence": 19,
+          "placeName": "Forest River (barrels)",
+          "placeId": null,
+          "dateLabel": "c. 21 Sep T.A. 2941",
+          "note": "Escape in barrels down the Forest River to the Long Lake",
+          "coordinates": {
+            "x": 1590,
+            "y": 695,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 20,
+          "placeName": "Lake-town (Esgaroth)",
+          "placeId": "esgaroth",
+          "dateLabel": "22 Sep – c. 10 Oct T.A. 2941",
+          "note": "Welcomed by the Master; Bilbo's birthday; the company is feasted and re-equipped",
+          "coordinates": {
+            "x": 1642,
+            "y": 708,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Esgaroth",
+          "placeUrl": "https://atlas.bag-end.eu/places/esgaroth/"
+        },
+        {
+          "sequence": 21,
+          "placeName": "Long Lake (by boat)",
+          "placeId": null,
+          "dateLabel": "c. 11 Oct T.A. 2941",
+          "note": "Rowed up the lake to the River Running and the Desolation of Smaug",
+          "coordinates": {
+            "x": 1632,
+            "y": 690,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 22,
+          "placeName": "Erebor (the Lonely Mountain)",
+          "placeId": "secret-door-erebor",
+          "dateLabel": "19 Oct T.A. 2941",
+          "note": "Durin's Day: the thrush knocks and the secret door opens; Bilbo steals the cup; Smaug flies to burn Lake-town",
+          "coordinates": {
+            "x": 1600,
+            "y": 615,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Back_Door",
+          "placeUrl": "https://atlas.bag-end.eu/?place=secret-door-erebor"
+        },
+        {
+          "sequence": 23,
+          "placeName": "Ravenhill",
+          "placeId": "ravenhill",
+          "dateLabel": "Nov T.A. 2941",
+          "note": "Roäc the raven brings news of Smaug's death; the siege of the Mountain",
+          "coordinates": {
+            "x": 1612,
+            "y": 628,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Ravenhill",
+          "placeUrl": "https://atlas.bag-end.eu/?place=ravenhill"
+        },
+        {
+          "sequence": 24,
+          "placeName": "Dale (Battle of Five Armies)",
+          "placeId": "battle-of-five-armies",
+          "dateLabel": "late Nov T.A. 2941",
+          "note": "Battle of Five Armies in the last week of autumn; Thorin dies; Dáin becomes King under the Mountain",
+          "coordinates": {
+            "x": 1605,
+            "y": 635,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Battle_of_Five_Armies",
+          "placeUrl": "https://atlas.bag-end.eu/?place=battle-of-five-armies"
+        },
+        {
+          "sequence": 25,
+          "placeName": "Northern eaves of Mirkwood",
+          "placeId": null,
+          "dateLabel": "Dec T.A. 2941",
+          "note": "Homeward with Gandalf and Beorn, round the north of the forest",
+          "coordinates": {
+            "x": 1450,
+            "y": 592,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 26,
+          "placeName": "Beorn's House (Yule)",
+          "placeId": "beorns-house",
+          "dateLabel": "Yule T.A. 2941",
+          "note": "Midwinter feast at Beorn's hall",
+          "coordinates": {
+            "x": 1235,
+            "y": 850,
+            "approximate": false
+          },
+          "via": [
+            {
+              "x": 1320,
+              "y": 592
+            },
+            {
+              "x": 1260,
+              "y": 660
+            },
+            {
+              "x": 1250,
+              "y": 755
+            }
+          ],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Beorn%27s_house",
+          "placeUrl": "https://atlas.bag-end.eu/?place=beorns-house"
+        },
+        {
+          "sequence": 27,
+          "placeName": "High Pass",
+          "placeId": "high-pass",
+          "dateLabel": "spring T.A. 2942",
+          "note": "Back over the Misty Mountains by the High Pass",
+          "coordinates": {
+            "x": 1150,
+            "y": 855,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/High_Pass",
+          "placeUrl": "https://atlas.bag-end.eu/?place=high-pass"
+        },
+        {
+          "sequence": 28,
+          "placeName": "Rivendell",
+          "placeId": "rivendell",
+          "dateLabel": "1 May T.A. 2942",
+          "note": "Elrond's house again; a week of rest and tales",
+          "coordinates": {
+            "x": 1110,
+            "y": 868,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Rivendell",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        },
+        {
+          "sequence": 29,
+          "placeName": "Trollshaws (troll-hoard)",
+          "placeId": "trollshaws",
+          "dateLabel": "May T.A. 2942",
+          "note": "Bilbo and Gandalf dig up the trolls' gold",
+          "coordinates": {
+            "x": 1050,
+            "y": 865,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Trollshaws",
+          "placeUrl": "https://atlas.bag-end.eu/?place=trollshaws"
+        },
+        {
+          "sequence": 30,
+          "placeName": "Bag End",
+          "placeId": "bag-end",
+          "dateLabel": "22 Jun T.A. 2942",
+          "note": "Home to find his goods being auctioned by the Sackville-Bagginses",
+          "coordinates": {
+            "x": 698,
+            "y": 898,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bag_End",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    },
+    {
+      "id": "return-home",
+      "name": "The Hobbits' Return",
+      "travellers": "Frodo, Sam, Merry, Pippin, Gandalf (with Elrond, Galadriel, Celeborn as far as Eregion)",
+      "url": "https://atlas.bag-end.eu/journeys/return-home/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=return-home",
+      "references": [
+        {
+          "label": "The Return of the King, Many Partings, Homeward Bound, The Scouring of the Shire; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Appendix_B",
+          "scope": "Narrative reading references and chronology"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Minas Tirith",
+          "placeId": "minas-tirith",
+          "dateLabel": "19 Jul T.A. 3019",
+          "note": "The funeral escort of King Théoden sets out from the City",
+          "coordinates": {
+            "x": 1505,
+            "y": 1635,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Minas_Tirith",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Anórien (Great West Road)",
+          "placeId": null,
+          "dateLabel": "late Jul T.A. 3019",
+          "note": "The slow procession passes beneath the beacon-hills",
+          "coordinates": {
+            "x": 1490,
+            "y": 1622,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 3,
+          "placeName": "Edoras (Meduseld)",
+          "placeId": "meduseld",
+          "dateLabel": "7–14 Aug T.A. 3019",
+          "note": "Théoden buried on 10 Aug; Éomer betroths Éowyn to Faramir; the guests leave on 14 Aug",
+          "coordinates": {
+            "x": 1300,
+            "y": 1539,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Meduseld",
+          "placeUrl": "https://atlas.bag-end.eu/?place=meduseld"
+        },
+        {
+          "sequence": 4,
+          "placeName": "Helm's Deep",
+          "placeId": "helms-deep",
+          "dateLabel": "18 Aug T.A. 3019",
+          "note": "Legolas is shown the Glittering Caves of Aglarond",
+          "coordinates": {
+            "x": 1250,
+            "y": 1445,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Helm%27s_Deep",
+          "placeUrl": "https://atlas.bag-end.eu/places/helms-deep/"
+        },
+        {
+          "sequence": 5,
+          "placeName": "Isengard",
+          "placeId": "isengard",
+          "dateLabel": "22 Aug T.A. 3019",
+          "note": "Treebeard's Treegarth; Saruman has been let go; Aragorn takes leave at sunset",
+          "coordinates": {
+            "x": 1230,
+            "y": 1390,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Isengard",
+          "placeUrl": "https://atlas.bag-end.eu/places/isengard/"
+        },
+        {
+          "sequence": 6,
+          "placeName": "Dunland",
+          "placeId": null,
+          "dateLabel": "28 Aug T.A. 3019",
+          "note": "They overtake Saruman and Wormtongue on the road; Saruman turns towards the Shire",
+          "coordinates": {
+            "x": 1140,
+            "y": 1230,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 7,
+          "placeName": "Ford of the Swanfleet (Glanduin)",
+          "placeId": null,
+          "dateLabel": "c. 3 Sep T.A. 3019",
+          "note": "The old ford east of the falls; into Eregion",
+          "coordinates": {
+            "x": 1128,
+            "y": 1102,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 8,
+          "placeName": "Hollin, in sight of the Mountains of Moria",
+          "placeId": null,
+          "dateLabel": "6–13 Sep T.A. 3019",
+          "note": "A week's halt; Galadriel and Celeborn depart over the Redhorn on 13 Sep",
+          "coordinates": {
+            "x": 1162,
+            "y": 1078,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 9,
+          "placeName": "Northern Hollin",
+          "placeId": null,
+          "dateLabel": "mid-Sep T.A. 3019",
+          "note": "Northward along the mountains' feet",
+          "coordinates": {
+            "x": 1150,
+            "y": 1050,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 10,
+          "placeName": "Ford of Bruinen",
+          "placeId": "ford-of-bruinen",
+          "dateLabel": "21 Sep T.A. 3019",
+          "note": "Across the Loudwater into the valley of Rivendell",
+          "coordinates": {
+            "x": 1095,
+            "y": 875,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Ford_of_Bruinen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=ford-of-bruinen"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Rivendell",
+          "placeId": "rivendell",
+          "dateLabel": "21 Sep – 5 Oct T.A. 3019",
+          "note": "Bilbo's 129th birthday; Bilbo gives Frodo the Red Book",
+          "coordinates": {
+            "x": 1110,
+            "y": 868,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Rivendell",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        },
+        {
+          "sequence": 12,
+          "placeName": "Ford of Bruinen (again)",
+          "placeId": "ford-of-bruinen",
+          "dateLabel": "6 Oct T.A. 3019",
+          "note": "Frodo feels the first return of the Morgul-wound's pain",
+          "coordinates": {
+            "x": 1095,
+            "y": 875,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Ford_of_Bruinen",
+          "placeUrl": "https://atlas.bag-end.eu/?place=ford-of-bruinen"
+        },
+        {
+          "sequence": 13,
+          "placeName": "Trollshaws",
+          "placeId": "trollshaws",
+          "dateLabel": "c. 10 Oct T.A. 3019",
+          "note": "Past the stone trolls on the way west",
+          "coordinates": {
+            "x": 1050,
+            "y": 865,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Trollshaws",
+          "placeUrl": "https://atlas.bag-end.eu/?place=trollshaws"
+        },
+        {
+          "sequence": 14,
+          "placeName": "Last Bridge",
+          "placeId": "last-bridge",
+          "dateLabel": "c. 14 Oct T.A. 3019",
+          "note": "Over the Hoarwell into the Lone-lands",
+          "coordinates": {
+            "x": 1010,
+            "y": 885,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Last_Bridge",
+          "placeUrl": "https://atlas.bag-end.eu/?place=last-bridge"
+        },
+        {
+          "sequence": 15,
+          "placeName": "Weathertop",
+          "placeId": "weathertop",
+          "dateLabel": "c. 24 Oct T.A. 3019",
+          "note": "Frodo will not look at the hill as they pass it",
+          "coordinates": {
+            "x": 905,
+            "y": 890,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Weathertop",
+          "placeUrl": "https://atlas.bag-end.eu/places/weathertop/"
+        },
+        {
+          "sequence": 16,
+          "placeName": "Bree (The Prancing Pony)",
+          "placeId": "prancing-pony",
+          "dateLabel": "28–30 Oct T.A. 3019",
+          "note": "Barliman's troubles; news of ruffians in the Shire",
+          "coordinates": {
+            "x": 819,
+            "y": 895,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/The_Prancing_Pony",
+          "placeUrl": "https://atlas.bag-end.eu/?place=prancing-pony"
+        },
+        {
+          "sequence": 17,
+          "placeName": "Brandywine Bridge",
+          "placeId": "brandywine-bridge",
+          "dateLabel": "30 Oct T.A. 3019",
+          "note": "The Travellers find the Bridge gated and guarded by Shirriffs at dark",
+          "coordinates": {
+            "x": 752,
+            "y": 893,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Brandywine_Bridge",
+          "placeUrl": "https://atlas.bag-end.eu/?place=brandywine-bridge"
+        },
+        {
+          "sequence": 18,
+          "placeName": "Frogmorton",
+          "placeId": "frogmorton",
+          "dateLabel": "1 Nov T.A. 3019",
+          "note": "Arrested by the Shirriffs at the Shirriff-house",
+          "coordinates": {
+            "x": 725,
+            "y": 900,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Frogmorton",
+          "placeUrl": "https://atlas.bag-end.eu/?place=frogmorton"
+        },
+        {
+          "sequence": 19,
+          "placeName": "Bywater",
+          "placeId": "bywater",
+          "dateLabel": "2–3 Nov T.A. 3019",
+          "note": "The Shire is roused; Battle of Bywater on 3 Nov ends the War of the Ring",
+          "coordinates": {
+            "x": 707,
+            "y": 905,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bywater",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bywater"
+        },
+        {
+          "sequence": 20,
+          "placeName": "Bag End",
+          "placeId": "bag-end",
+          "dateLabel": "3 Nov T.A. 3019",
+          "note": "Saruman slain by Wormtongue at the door of Bag End; the Scouring of the Shire",
+          "coordinates": {
+            "x": 698,
+            "y": 898,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bag_End",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    },
+    {
+      "id": "grey-havens",
+      "name": "The Last Riding to the Grey Havens",
+      "travellers": "Frodo, Sam, Bilbo, Elrond, Galadriel, Gandalf (Merry and Pippin ride after)",
+      "url": "https://atlas.bag-end.eu/journeys/grey-havens/",
+      "mapUrl": "https://atlas.bag-end.eu/?journey=grey-havens",
+      "references": [
+        {
+          "label": "The Return of the King, The Grey Havens; Appendix B",
+          "url": "https://tolkiengateway.net/wiki/Timeline_of_Frodo_Baggins",
+          "scope": "Narrative and chronology; intermediate stopping places are reconstructed"
+        }
+      ],
+      "reconstructionNotice": "Dates reproduce the atlas chronology; some intermediate dates and stopping places are reconstructed. A dated waypoint does not mean every traveller was present. Approximate positions and route detours are illustrative, not canonical coordinates.",
+      "waypoints": [
+        {
+          "sequence": 1,
+          "placeName": "Bag End",
+          "placeId": "bag-end",
+          "dateLabel": "21 Sep T.A. 3021",
+          "note": "Frodo and Sam set out from Hobbiton; the Red Book is given to Sam",
+          "coordinates": {
+            "x": 698,
+            "y": 898,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bag_End",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        },
+        {
+          "sequence": 2,
+          "placeName": "Green Hill Country",
+          "placeId": "green-hill-country",
+          "dateLabel": "21 Sep T.A. 3021",
+          "note": "Over the Green Hills towards Stock, as three years before",
+          "coordinates": {
+            "x": 695,
+            "y": 938,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Green_Hill_Country",
+          "placeUrl": "https://atlas.bag-end.eu/?place=green-hill-country"
+        },
+        {
+          "sequence": 3,
+          "placeName": "Woody End",
+          "placeId": null,
+          "dateLabel": "22 Sep T.A. 3021",
+          "note": "Meeting with the Last Riding of the Keepers of the Rings: Elrond, Galadriel and Bilbo",
+          "coordinates": {
+            "x": 738,
+            "y": 922,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 4,
+          "placeName": "Tuckborough (passed)",
+          "placeId": null,
+          "dateLabel": "c. 23 Sep T.A. 3021",
+          "note": "Riding quietly west through the Green Hill Country",
+          "coordinates": {
+            "x": 700,
+            "y": 922,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 5,
+          "placeName": "Michel Delving (passed)",
+          "placeId": null,
+          "dateLabel": "c. 25 Sep T.A. 3021",
+          "note": "Across the Westfarthing, unseen by the Shire-folk",
+          "coordinates": {
+            "x": 672,
+            "y": 905,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 6,
+          "placeName": "White Downs",
+          "placeId": "white-downs",
+          "dateLabel": "c. 25 Sep T.A. 3021",
+          "note": "Over the downs; the elves go by night and are not seen",
+          "coordinates": {
+            "x": 672,
+            "y": 893,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/White_Downs",
+          "placeUrl": "https://atlas.bag-end.eu/?place=white-downs"
+        },
+        {
+          "sequence": 7,
+          "placeName": "Far Downs",
+          "placeId": "far-downs",
+          "dateLabel": "c. 26 Sep T.A. 3021",
+          "note": "The western bounds of the Shire",
+          "coordinates": {
+            "x": 650,
+            "y": 900,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Far_Downs",
+          "placeUrl": "https://atlas.bag-end.eu/?place=far-downs"
+        },
+        {
+          "sequence": 8,
+          "placeName": "Tower Hills (Emyn Beraid)",
+          "placeId": "tower-hills",
+          "dateLabel": "c. 27 Sep T.A. 3021",
+          "note": "The White Towers on the downs; a far glimpse of the Sea",
+          "coordinates": {
+            "x": 612,
+            "y": 895,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Tower_Hills",
+          "placeUrl": "https://atlas.bag-end.eu/?place=tower-hills"
+        },
+        {
+          "sequence": 9,
+          "placeName": "Descent to the Lune",
+          "placeId": null,
+          "dateLabel": "c. 28 Sep T.A. 3021",
+          "note": "Down the long slope towards the Gulf of Lune",
+          "coordinates": {
+            "x": 585,
+            "y": 902,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 10,
+          "placeName": "Grey Havens (Mithlond)",
+          "placeId": "mithlond",
+          "dateLabel": "29 Sep T.A. 3021",
+          "note": "Círdan's white ship; Frodo, Bilbo, Gandalf and the Ring-bearers sail into the West; end of the Third Age",
+          "coordinates": {
+            "x": 540,
+            "y": 905,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Mithlond",
+          "placeUrl": "https://atlas.bag-end.eu/places/mithlond/"
+        },
+        {
+          "sequence": 11,
+          "placeName": "Road home",
+          "placeId": null,
+          "dateLabel": "early Oct T.A. 3021",
+          "note": "Sam, Merry and Pippin ride back in silence",
+          "coordinates": {
+            "x": 650,
+            "y": 900,
+            "approximate": true
+          },
+          "via": [],
+          "placeSourceUrl": null,
+          "placeUrl": null
+        },
+        {
+          "sequence": 12,
+          "placeName": "Bag End",
+          "placeId": "bag-end",
+          "dateLabel": "6 Oct T.A. 3021",
+          "note": "'Well, I'm back,' Sam said",
+          "coordinates": {
+            "x": 698,
+            "y": 898,
+            "approximate": false
+          },
+          "via": [],
+          "placeSourceUrl": "https://tolkiengateway.net/wiki/Bag_End",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    }
+  ]
+}

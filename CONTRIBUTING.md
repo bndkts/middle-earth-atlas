@@ -61,3 +61,28 @@ not granting downstream users rights that you do not hold. See
 - Avoid adding external dependencies unless they solve a clear, documented
   maintenance problem.
 - Do not commit generated editor files, credentials, or local server output.
+
+## Reading pages and public data
+
+Keep place, journey, and event IDs stable, even when titles or dates change.
+Add new event IDs explicitly to `src/data.js`; never derive public IDs from
+array positions. The static generator reads the existing dataset without
+introducing a runtime build requirement.
+
+After editing data, `content/publication.json`, `content/references.json`, or
+content templates, run `npm run generate` and commit the generated changes.
+`npm test` checks output freshness as well as links, metadata, export identity,
+and URL interpretation. Do not hand-edit generated HTML or JSON. The generated
+metadata block in `index.html` is managed by the same command; the rest of the
+map shell remains hand-maintained.
+
+Publish additional reading pages only when descriptions, sources and useful
+relationships are present. Distinguish reading references from individually
+verified claims. Keep uncertainty notices next to reconstructed dates or
+positions, including JSON exports. Null values must not turn into invented
+historical dates. Do not treat map coordinates as latitude/longitude.
+
+Check new pages without JavaScript and at mobile widths. Changes to navigation
+must preserve direct links, browser Back/Forward, keyboard focus and the
+existing map-gesture behavior. For breaking export changes, add a new version
+under `data/`; preserve existing versioned contracts.

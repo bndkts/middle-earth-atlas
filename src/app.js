@@ -5,6 +5,24 @@ const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const MAPW = 2600, MAPH = 2300;
 const { places: PLACES, journeys: JOURNEYS, timeline: TIMELINE } = window.ATLAS_DATA;
 const TG = 'https://tolkiengateway.net/wiki/';
+const published = window.ATLAS_PUBLICATION;
+const urlState = {place:null,journey:null,event:null,year:null};
+let restoringURL = true;
+function syncURL(patch, replace=false){
+  Object.assign(urlState, patch);
+  if (restoringURL) return;
+  queueMicrotask(() => {
+    const latest = '/' + window.ATLAS_URL.search(urlState);
+    if (!restoringURL && latest !== location.pathname + location.search) history[replace ? 'replaceState' : 'pushState'](null, '', latest);
+  });
+}
+function focusPanel(id){
+  const heading = $('#m-'+id+' h1, #m-'+id+' h2');
+  if (heading) { heading.tabIndex = -1; heading.focus({preventScroll:true}); }
+}
+function readingLink(kind,id,label){
+  return published[kind].includes(id) ? `<a class="pill" href="/${kind}/${id}/">${esc(label)}</a>` : '';
+}
 const mapEl = $('#map'), world = $('#world'), mkLayer = $('#markers'), dyn = $('#dyn'), sheet = $('#sheet'), body = $('#sheetbody');
 // Read dimensions only at startup/resize, never after map style writes in a frame.
 const viewport = {};
@@ -391,6 +409,7 @@ let selected = null, activeCat = null, tlYear = 3019, tlOn = false;
 function placeVisibleInTime(p){ if (!tlOn) return true; if (p.f != null && p.f > tlYear) return false; if (p.to != null && p.to < tlYear) return false; return true; }
 function lodPass(quick){
   if (gesturing) return;
+  updateDetails();
   const s = V.s, vw = viewport.width, vh = viewport.height;
   const cand = [];
   for (const m of MK) {
@@ -601,10 +620,12 @@ function updateScale(){
       if (!moved && !cancelled) {
         const tgt = downTarget || e.target;
         const t = tgt.closest('.mk'); const ev = tgt.closest('.ev'); const ml = tgt.closest('.ml');
+        const discovery = tgt.closest('[data-discovery]');
         const now = performance.now();
         if (t) { selectPlace(MK[+t.dataset.i].p, { fly: true }); }
         else if (ev) { showEvent(EV[+ev.dataset.e].e); }
         else if (ml && ml.dataset.pid) { selectPlace(byId[ml.dataset.pid], { fly: true }); }
+        else if (discovery && detailLayer) { detailLayer.open(discovery.dataset.discovery); }
         else if (now - lastTap < 320 && e.pointerType !== 'mouse') { zoomAnim(2, e.clientX, e.clientY); lastTap = 0; }
         else { lastTap = now; if (sheet.classList.contains('full') || sheet.classList.contains('half')) setSheet('peek'); }
       } else if (!cancelled && Math.hypot(vel[0], vel[1]) > 0.25 && !reduceMotion) {
@@ -642,7 +663,7 @@ function updateScale(){
   // keyboard: arrows pan, +/- zoom, H home, / search, Esc back, R wander, L layers, T timeline, N night
   document.addEventListener('keydown', e => {
     const tag = (e.target.tagName || '').toLowerCase();
-    if (tag === 'input' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.metaKey || e.ctrlKey || e.altKey) return;
     const step = e.shiftKey ? 320 : 90;
     const pan = (dx, dy) => { const [cx, cy] = visibleCenter(); flyTo((cx + dx - V.tx) / V.s, (cy + dy - V.ty) / V.s, V.s, 160); };
     switch (e.key) {
@@ -662,7 +683,7 @@ function updateScale(){
     }
     e.preventDefault();
   });
-  mapEl.addEventListener('dblclick', e => { if (e.pointerType === 'touch') return; zoomAnim(2, e.clientX, e.clientY); });
+  mapEl.addEventListener('dblclick', e => { if (e.pointerType === 'touch' || e.target.closest('[data-discovery]')) return; zoomAnim(2, e.clientX, e.clientY); });
   mapEl.addEventListener('contextmenu', e => e.preventDefault());
   // iOS Safari: keep the browser's own pinch / double-tap page zoom out of the map
   ['touchstart', 'touchmove', 'touchend'].forEach(t => mapEl.addEventListener(t, e => { if (e.touches.length > 1 || t !== 'touchstart') e.preventDefault(); }, { passive: false }));
@@ -701,11 +722,57 @@ function setSheet(st){
     setSheet(best[0]); }
   grab.addEventListener('pointerdown', down); grab.addEventListener('pointermove', move); grab.addEventListener('pointerup', up); grab.addEventListener('pointercancel', up);
   // also allow dragging from the sheet body when it is scrolled to the top and not in full state
-  body.addEventListener('pointerdown', e => { if (isDesktop()) return; if (sheetState === 'full' && body.scrollTop > 0) return; if (e.target.closest('input, button, a, .presets, #chips')) return; down(e); body.setPointerCapture(e.pointerId); }, { passive: true });
+  body.addEventListener('pointerdown', e => { if (isDesktop()) return; if (sheetState === 'full' && body.scrollTop > 0) return; if (e.target.closest('input, select, button, a, .presets, #chips')) return; down(e); body.setPointerCapture(e.pointerId); }, { passive: true });
   body.addEventListener('pointermove', e => { if (!dragging) return; if (Math.abs(e.clientY - sy) > 6) { move(e); } });
   body.addEventListener('pointerup', up); body.addEventListener('pointercancel', up);
 })();
-function mode(id){ $$('.mode').forEach(m => m.classList.toggle('on', m.id === 'm-' + id)); body.scrollTop = 0; }
+function mode(id){
+  $$('.mode').forEach(m => m.classList.toggle('on', m.id === 'm-' + id)); body.scrollTop = 0;
+  if (id === 'explore' || id === 'discovery') syncURL({place:null,journey:null,event:null});
+  if (id === 'explore' && !restoringURL) focusPanel('explore');
+}
+
+// ---------- little discoveries ----------
+// Keep this sibling SVG out of the full-map snapshot. Only settled views load
+// artwork or change its DOM; gestures hide it and continue using the same bitmap.
+let detailLayer = null, detailLoading = false, detailFailed = false, openedDiscovery = null;
+function updateDetails(){
+  if (gesturing) return;
+  const enabled = LAYERS.details !== false;
+  if (detailLayer) {
+    detailLayer.update({ ...V, ...viewport, left: isDesktop() ? 432 : 0 }, tlOn ? tlYear : null, enabled);
+    return;
+  }
+  if (V.s < 3.2 || !enabled) { detailFailed = false; return; }
+  if (detailLoading || detailFailed) return;
+  detailLoading = true;
+  import('./details.mjs').then(module => {
+    detailLayer = module.createDetailLayer($('#details'), openDiscovery);
+    detailLoading = false; updateDetails(); // Recheck current zoom, year and motion after loading.
+  }).catch(() => { detailLoading = false; detailFailed = true; });
+}
+function openDiscovery(d){
+  if (!d) return;
+  openedDiscovery = d;
+  const el = $('#m-discovery'), place = byId[d.place];
+  el.innerHTML = `<button class="back" data-back>${ico('back')} Back to the map</button>
+    <div class="discovery-illustration"><svg viewBox="-25 -24 50 48" aria-hidden="true"><g class="detail-art">${d.art}</g></svg><span>${esc(d.label)}</span></div>
+    <div class="eyebrow">A little discovery</div><h2 id="discovery-title" tabindex="-1">${esc(d.title)}</h2>
+    <p class="desc">${esc(d.text)}</p>
+    <p class="src">A miniature inspired by Middle-earth; its position is illustrative.${d.source ? ` <a href="${TG + d.source}" target="_blank" rel="noopener">Read the story ↗</a>` : ''}</p>
+    ${place ? `<button class="row" data-discovery-place>${pIcon(place)}<span class="tx"><b>${esc(place.n)}</b><small>Read about this corner of the map</small></span></button>` : ''}`;
+  mode('discovery'); if (sheetState === 'peek') setSheet('half');
+  $('#discovery-title').focus({ preventScroll:true });
+}
+$('#m-discovery').addEventListener('click', e => {
+  if (e.target.closest('[data-back]')) {
+    mode('explore');
+    if (!isDesktop()) setSheet('peek');
+    const origin = openedDiscovery && $(`[data-discovery="${openedDiscovery.id}"]`);
+    (origin || $('#zin')).focus({ preventScroll:true });
+  }
+  if (e.target.closest('[data-discovery-place]') && openedDiscovery) selectPlace(byId[openedDiscovery.place]);
+});
 
 // ---------- explore ----------
 const FEATURED = ['hobbiton','rivendell','minas-tirith','moria','lothlorien','erebor','edoras','mount-doom','isengard','helms-deep','bree','minas-morgul','dol-amroth','grey-havens','weathertop','barad-dur','dale','esgaroth','fangorn-forest','cirith-ungol'].filter(id => byId[id]);
@@ -716,9 +783,11 @@ function renderExplore(){
     <div class="hero"><div><div class="eyebrow">Gazetteer · Third Age</div><h1>Middle-earth</h1></div><small>${PLACES.length} places · ${TIMELINE.length} events</small></div>
     <p class="sub" style="margin-top:6px"><span class="t-only">Pinch to travel, tap a name to read its tale — from Bag End to the Sammath Naur.</span><span class="f-only">Scroll to zoom, drag to travel, click a name to read its tale — from Bag End to the Sammath Naur.</span></p>
     <div class="hints f-only"><span><span class="kbd">/</span> search</span><span><span class="kbd">←</span><span class="kbd">↑</span><span class="kbd">↓</span><span class="kbd">→</span> pan</span><span><span class="kbd">+</span><span class="kbd">−</span> zoom</span><span><span class="kbd">H</span> home</span><span><span class="kbd">R</span> wander</span><span><span class="kbd">Esc</span> back</span></div>
+    <nav class="reading-nav" aria-label="Read the atlas"><a href="/places/">Places</a><a href="/journeys/">Journeys</a><a href="/methodology/">Sources &amp; method</a><a href="/data/">Open data</a></nav>
     <div class="tiles">${feat.map(p => `<button class="tile" data-go="${p.id}">${pIcon(p)}<b>${esc(p.n)}</b><small>${esc(p.r)}</small></button>`).join('')}</div>
     <div class="orn"><span>Journeys</span></div>
     <div class="list">${JOURNEYS.map(j => `<button class="row j" data-j="${j.id}" style="--jc:${j.color}"><span class="ic">${ico('route')}</span><span class="tx"><b>${esc(j.name)}</b><small>${esc(j.legs[0].date)} → ${esc(j.legs[j.legs.length-1].date)} · ${j.legs.length} waypoints</small></span></button>`).join('')}</div>
+    <p class="sub discovery-hint">Look a little closer: zoom into the countryside to find tiny drawings. Tap a gold sparkle to discover their stories.</p>
     <div class="orn"><span>Wander</span></div>
     <div class="list">
       <button class="row" id="ex-wander"><span class="ic">${ico('dice')}</span><span class="tx"><b>Take me somewhere</b><small>A random corner of the map</small></span></button>
@@ -763,11 +832,11 @@ $('#wander').onclick = wander;
 // ---------- chips ----------
 (function chips(){
   const el = $('#chips');
-  el.innerHTML = CATS.map(c => `<button class="chip" role="tab" data-cat="${c.id}" title="${c.name}">${ico(c.icon)}<span class="m-only">${c.name}</span><span class="d-only">${c.short}</span></button>`).join('');
+  el.innerHTML = CATS.map(c => `<button class="chip" aria-pressed="false" data-cat="${c.id}" title="${c.name}">${ico(c.icon)}<span class="m-only">${c.name}</span><span class="d-only">${c.short}</span></button>`).join('');
   el.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; setCat(activeCat === b.dataset.cat ? null : b.dataset.cat); });
 })();
 function setCat(id){
-  activeCat = id; $$('#chips .chip').forEach(b => b.classList.toggle('on', b.dataset.cat === id));
+  activeCat = id; $$('#chips .chip').forEach(b => { b.classList.toggle('on', b.dataset.cat === id); b.setAttribute('aria-pressed', String(b.dataset.cat === id)); });
   if (id) { const c = CATS.find(x => x.id === id); listResults(PLACES.filter(p => catOfType[p.t] === id).sort((a,b) => a.k - b.k || a.n.localeCompare(b.n)), c.name, `${PLACES.filter(p => catOfType[p.t] === id).length} places`); mode('search'); if (sheetState === 'peek') setSheet('half'); }
   else { if ($('#m-search').classList.contains('on')) { mode('explore'); } }
   lodPass();
@@ -795,6 +864,7 @@ function rowHTML(p, extra=''){
   return `<button class="row" data-go="${p.id}" style="--c:var(--${TYPE_GROUP[p.t]||'set'})"><span class="ic">${pIcon(p)}</span><span class="tx"><b>${esc(p.n)}</b><small>${esc(TYPE_LABEL[p.t]||p.t)} · ${esc(p.r)}${alt}</small></span>${extra}</button>`;
 }
 function listResults(list, title, sub){
+  $('#search-status').textContent = sub || `${list.length} results`;
   const el = $('#m-search');
   el.innerHTML = `<div class="hero"><h2>${esc(title)}</h2><small>${esc(sub||'')}</small></div><div class="list" style="margin-top:6px">${list.length ? list.map(p => rowHTML(p)).join('') : '<p class="sub">Nothing found in the lore. Try another spelling — e.g. “Lorien”, “Bag End”, “Amon Sul”.</p>'}</div>`;
 }
@@ -812,11 +882,14 @@ qclear.onclick = () => { q.value = ''; qclear.classList.remove('on'); if (dirPic
 let ringEl = $('#ring');
 function selectPlace(p, opt={}){
   if (!p) return;
+  clearTimeout(qTimer);
   if (dirPick) { setDirSlot(dirPick, p); return; }
   if (selected) { const m = MK.find(m => m.p === selected); if (m) m.el.classList.remove('sel'); }
   selected = p; const m = MK.find(m => m.p === p); if (m) { m.el.classList.add('sel'); }
   ringEl.classList.add('on');
   renderPlace(p); mode('place');
+  syncURL({place:p.id,journey:null,event:null});
+  focusPanel('place');
   if (sheetState === 'peek') setSheet('half');
   if (opt.fly) { const target = opt.scale || Math.max(V.s, p._area ? (p.t === 'region' || p.t === 'realm' || p.t === 'range' || p.t === 'river' ? 0.45 : 1.2) : (p.k === 1 ? 0.9 : p.k === 2 ? 1.6 : p.k === 3 ? 2.6 : 4)); flyTo(p.x, p.y, target); }
   lodPass();
@@ -851,6 +924,7 @@ function renderPlace(p){
       <button class="abtn" data-center>${ico('center')}Centre</button>
       ${src ? `<a class="abtn" href="${esc(src)}" target="_blank" rel="noopener">${ico('book')}Lore</a>` : `<button class="abtn" disabled>${ico('book')}Lore</button>`}
     </div>
+    ${readingLink('places',p.id,'Read the place guide')}
     <p class="desc">${esc(p.d)}</p>
     <dl class="kv">${when}${pp}<dt>Attested in</dt><dd>${esc({Hobbit:'The Hobbit',LotR:'The Lord of the Rings',Silm:'The Silmarillion',UT:'Unfinished Tales',HoME:'The History of Middle-earth',Letters:'Letters of J.R.R. Tolkien'}[p.c] || p.c || '—')}</dd></dl>
     ${ev}${jr}
@@ -869,10 +943,12 @@ function clearSelection(){ if (selected) { const m = MK.find(m => m.p === select
 
 // ---------- layers ----------
 const LAYERS = store.get('layers') || { labels: true, terrain: true, roads: true, realms: true, journeys: {} };
+LAYERS.details ??= true;
 function applyLayers(){
   mapEl.classList.toggle('tlabels-off', !LAYERS.terrain); mapEl.classList.toggle('roads-off', !LAYERS.roads); mapEl.classList.toggle('realms-on', LAYERS.realms);
   mkLayer.style.visibility = LAYERS.labels ? '' : 'hidden';
   drawJourneys(); updateRealms(); store.set('layers', LAYERS);
+  updateDetails();
 }
 function updateRealms(){ const y = tlOn ? tlYear : 3019; $$('#realms .realm').forEach(r => { const f = r.dataset.from != null ? +r.dataset.from : null, t = r.dataset.to != null ? +r.dataset.to : null; r.classList.toggle('on', (f == null || f <= y) && (t == null || t >= y)); });
   // dated decorations (Smaug, the Eye, the Watcher…) follow the timeline; with it off they are shown as legend
@@ -881,25 +957,26 @@ function updateRealms(){ const y = tlOn ? tlYear : 3019; $$('#realms .realm').fo
 }
 function renderLayers(){
   const el = $('#m-layers');
-  const sw = (id, on) => `<button class="sw ${on?'on':''}" data-sw="${id}" role="switch" aria-checked="${on}"></button>`;
+  const sw = (id, on) => `<button class="sw ${on?'on':''}" data-sw="${id}" role="switch" aria-labelledby="layer-label-${id.replace(':','-')}" aria-checked="${on}"></button>`;
   el.innerHTML = `<button class="back" data-back>${ico('back')} Back</button><h2>Layers</h2>
     <div class="list">
-      <div class="lrow"><span class="tx"><b>Place names</b><small>Cities, halls, hills — appear as you zoom</small></span>${sw('labels', LAYERS.labels)}</div>
-      <div class="lrow"><span class="tx"><b>Lands, ranges &amp; rivers</b><small>The lettering drawn on the map itself</small></span>${sw('terrain', LAYERS.terrain)}</div>
-      <div class="lrow"><span class="tx"><b>Roads</b><small>East Road, Greenway, Harad Road…</small></span>${sw('roads', LAYERS.roads)}</div>
-      <div class="lrow"><span class="tx"><b>Realms</b><small>Tinted territories — change with the timeline</small></span>${sw('realms', LAYERS.realms)}</div>
+      <div class="lrow"><span class="tx"><b id="layer-label-labels">Place names</b><small>Cities, halls, hills — appear as you zoom</small></span>${sw('labels', LAYERS.labels)}</div>
+      <div class="lrow"><span class="tx"><b id="layer-label-terrain">Lands, ranges &amp; rivers</b><small>The lettering drawn on the map itself</small></span>${sw('terrain', LAYERS.terrain)}</div>
+      <div class="lrow"><span class="tx"><b id="layer-label-roads">Roads</b><small>East Road, Greenway, Harad Road…</small></span>${sw('roads', LAYERS.roads)}</div>
+      <div class="lrow"><span class="tx"><b id="layer-label-realms">Realms</b><small>Tinted territories — change with the timeline</small></span>${sw('realms', LAYERS.realms)}</div>
+      <div class="lrow"><span class="tx"><b>Little discoveries</b><small>Tiny illustrated stories, revealed up close</small></span><button class="sw ${LAYERS.details?'on':''}" data-sw="details" role="switch" aria-label="Little discoveries" aria-checked="${LAYERS.details}"></button></div>
     </div>
     <div class="orn"><span>Journeys</span></div>
-    <div class="list">${JOURNEYS.map(j => `<div class="lrow"><span class="jsw" style="background:${j.color}"></span><span class="tx"><b>${esc(j.name)}</b><small>${esc(j.who || '')}</small></span><button class="pill" data-openj="${j.id}">details</button>${sw('j:'+j.id, !!LAYERS.journeys[j.id])}</div>`).join('')}</div>
+    <div class="list">${JOURNEYS.map(j => `<div class="lrow"><span class="jsw" style="background:${j.color}"></span><span class="tx"><b id="layer-label-j-${j.id}">${esc(j.name)}</b><small>${esc(j.who || '')}</small></span><button class="pill" data-openj="${j.id}" aria-label="${esc('Details: '+j.name)}">details</button>${sw('j:'+j.id, !!LAYERS.journeys[j.id])}</div>`).join('')}</div>
     <div class="pills" style="margin-top:10px"><button class="pill" data-alljs="1">Show all journeys</button><button class="pill" data-alljs="0">Hide all</button></div>`;
 }
 $('#m-layers').addEventListener('click', e => {
   if (e.target.closest('[data-back]')) return mode('explore');
-  const s = e.target.closest('[data-sw]'); if (s) { const id = s.dataset.sw; if (id.startsWith('j:')) LAYERS.journeys[id.slice(2)] = !LAYERS.journeys[id.slice(2)]; else LAYERS[id] = !LAYERS[id]; applyLayers(); renderLayers(); return; }
+  const s = e.target.closest('[data-sw]'); if (s) { const id = s.dataset.sw; if (id.startsWith('j:')) LAYERS.journeys[id.slice(2)] = !LAYERS.journeys[id.slice(2)]; else LAYERS[id] = !LAYERS[id]; applyLayers(); renderLayers(); $('#m-layers [data-sw="'+CSS.escape(id)+'"]').focus(); return; }
   const oj = e.target.closest('[data-openj]'); if (oj) return openJourney(oj.dataset.openj);
   const all = e.target.closest('[data-alljs]'); if (all) { JOURNEYS.forEach(j => LAYERS.journeys[j.id] = all.dataset.alljs === '1'); applyLayers(); renderLayers(); }
 });
-function openLayers(){ renderLayers(); mode('layers'); if (sheetState === 'peek') setSheet('half'); }
+function openLayers(){ renderLayers(); mode('layers'); if (sheetState === 'peek') setSheet('half'); focusPanel('layers'); }
 $('#layersbtn').onclick = openLayers;
 // A leg's optional via points describe the approach from the preceding waypoint.
 function routePoints(legs){ return legs.flatMap((l, i) => i ? [...(l.via || []), l] : [l]); }
@@ -927,8 +1004,9 @@ function openJourney(id){
     <div class="stat"><div><b>${estimateLabel(total)} mi</b><small>schematic route estimate</small></div><div><b>${j.legs.length}</b><small>waypoints · ${esc(j.legs[0].date.replace(/^\d+ \w+ /,''))}</small></div></div>
     <p class="src">The line joins the recorded waypoints and any mapped detours. Its estimated length uses the map's uneven scale; unrecorded bends and terrain are not represented.</p>
     <div class="actions" style="grid-template-columns:1fr 1fr"><button class="abtn primary" data-play>${ico('play')}Follow the road</button><button class="abtn" data-hidej>${ico('x')}Hide route</button></div>
-    <ul class="evl" id="jlegs">${j.legs.map((l, i) => `<li data-leg="${i}" style="cursor:pointer"><b>${esc(l.date)}</b>${esc(l.place)}${l.note ? `<span class="sub"> — ${esc(l.note)}</span>` : ''}</li>`).join('')}</ul>`;
-  el.dataset.j = id; mode('journey'); if (sheetState === 'peek') setSheet('half');
+    ${readingLink('journeys',j.id,'Read the journey guide')}
+    <ul class="evl" id="jlegs">${j.legs.map((l, i) => `<li><button class="waypoint-button" data-leg="${i}"><b>${esc(l.date)}</b>${esc(l.place)}${l.note ? `<span class="sub"> — ${esc(l.note)}</span>` : ''}</button></li>`).join('')}</ul>`;
+  el.dataset.j = id; mode('journey'); syncURL({place:null,journey:id,event:null}); focusPanel('journey'); if (sheetState === 'peek') setSheet('half');
   stopPlay(); clearWaypoint();
   flyTo(j.legs[0].x, j.legs[0].y, Math.max(V.s, 1.2));
 }
@@ -1047,9 +1125,15 @@ $('#presets').addEventListener('click', e => { const b = e.target.closest('[data
 function setTimeline(on){
   cancelTimelineUpdate();
   tlOn = on; $('#tlbar').classList.toggle('on', on); $('#tlbtn').classList.toggle('on', on); mapEl.classList.toggle('tl-on', on);
-  if (on) { setYear(sliderToYear(tl.value)); mode('tl'); if (sheetState === 'peek') setSheet('half'); } else { updateRealms(); svgLabelLOD(); lodPass(); if ($('#m-tl').classList.contains('on')) mode('explore'); }
+  if (on) { setYear(sliderToYear(tl.value)); mode('tl'); syncURL({place:null,journey:null,event:null}); if (sheetState === 'peek') setSheet('half'); } else { updateRealms(); svgLabelLOD(); lodPass(); if ($('#m-tl').classList.contains('on')) mode('explore'); syncURL({year:null,event:null}); }
 }
 $('#tlbtn').onclick = () => setTimeline(!tlOn);
+$('#year-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const y = window.ATLAS_URL.absoluteYear($('#year-age').value, Number($('#year-number').value), timelineEnd);
+  if (y == null) { toast('Choose a year within the selected age and supported timeline.'); return; }
+  tl.value = yearToSlider(y); setYear(y); mode('tl'); syncURL({place:null,journey:null,event:null}); focusPanel('tl');
+});
 tl.addEventListener('input', () => {
   if (!tlOn || timelineFrame != null) return;
   timelineFrame = requestAnimationFrame(() => {
@@ -1067,6 +1151,10 @@ function nearEvents(y){
 function setYear(y, deferPanel = false){
   cancelTimelineUpdate();
   tlYear = y; $('#tlyear').textContent = ageLabel(y);
+  tl.setAttribute('aria-valuetext', ageLabel(y));
+  const date = window.ATLAS_URL.dateFromYear(y);
+  $('#year-age').value = date.age; $('#year-number').value = date.year;
+  if (!deferPanel) syncURL({year:y,event:null});
   const ne = nearEvents(y); const exact = ne.filter(([d]) => d === 0);
   $('#tlnear').textContent = exact.length ? `${exact.length} events in this year` : (ne[0] ? `nearest: ${ne[0][1].title} (${ageLabel(ne[0][1].absoluteYear)})` : '');
   const win = new Set(ne.filter(([d]) => d <= 40).map(([, e]) => e));
@@ -1084,7 +1172,7 @@ function renderTimeline(y, ne){
   el.innerHTML = `<div class="hero"><div><div class="eyebrow">The map in</div><h1>${esc(ageLabel(y))}</h1></div><button class="pill" data-tloff>${ico('x')} leave</button></div>
     <p class="sub" style="margin-top:4px">${gone ? `${gone} notable entries fall outside their recorded period and are greyed on the map. A ruined site or former realm can still exist geographically.` : 'No notable entries fall outside their recorded periods.'} Undated entries remain visible. Drag the slider or pick a moment below.</p>
     <div class="orn"><span>Events near this year</span></div>
-    <ul class="evl">${ne.map(([d, e]) => `<li data-ev="${TIMELINE.indexOf(e)}" style="cursor:pointer;${d===0?'background:var(--accent-soft);border-radius:8px':''}"><b>${esc(e.timeLabel || ageLabel(e.absoluteYear))}${e.date ? ' · ' + esc(e.date) : ''}</b>${esc(e.title)}<span class="sub"> — ${esc(e.place)}</span></li>`).join('')}</ul>`;
+    <ul class="evl">${ne.map(([d, e]) => `<li style="${d===0?'background:var(--accent-soft);border-radius:8px':''}"><button class="waypoint-button" data-ev="${TIMELINE.indexOf(e)}"><b>${esc(e.timeLabel || ageLabel(e.absoluteYear))}${e.date ? ' · ' + esc(e.date) : ''}</b>${esc(e.title)}<span class="sub"> — ${esc(e.place)}</span></button></li>`).join('')}</ul>`;
 }
 $('#m-tl').addEventListener('click', e => {
   if (e.target.closest('[data-tloff]')) return setTimeline(false);
@@ -1096,7 +1184,7 @@ function showEvent(ev){
   const el = $('#m-tl');
   const src = ev.src ? (ev.src.startsWith('tg:') ? TG + ev.src.slice(3) : ev.src) : null;
   el.insertAdjacentHTML('afterbegin', `<div style="background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:12px"><div class="eyebrow">${esc(ev.timeLabel || ageLabel(ev.absoluteYear))}${ev.date ? ' · ' + esc(ev.date) : ''}</div><h3 style="font-size:16px;margin:4px 0 6px">${esc(ev.title)}</h3><p style="margin:0 0 6px;font-size:15px">${esc(ev.text)}</p><div class="pills"><span class="pill">${esc(ev.place)}</span>${ev.approximate ? '<span class="pill">Approximate map location</span>' : ''}${src ? `<a class="pill" href="${esc(src)}" target="_blank" rel="noopener">Tolkien Gateway ↗</a>` : ''}</div></div>`);
-  mode('tl'); if (sheetState === 'peek') setSheet('half');
+  mode('tl'); syncURL({place:null,journey:null,event:ev.id,year:ev.absoluteYear}); focusPanel('tl'); if (sheetState === 'peek') setSheet('half');
   flyTo(ev.x, ev.y, Math.max(V.s, 1.4));
 }
 
@@ -1121,6 +1209,24 @@ window.__fly = flyTo;
   if (window.ResizeObserver) new ResizeObserver(syncTop).observe(top);
   window.addEventListener('resize', syncTop); syncTop();
 })();
+// ---------- URL navigation ----------
+function restoreURL(){
+  restoringURL = true;
+  stopPlay(); clearWaypoint(); dirPick = null; q.value = ''; activeCat = null;
+  $('#qclear').classList.remove('on');
+  $$('#chips .chip').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+  clearSelection();
+  const state = window.ATLAS_URL.parse(location.search,window.ATLAS_DATA,timelineEnd);
+  setTimeline(false); mode('explore');
+  if (state.year != null) { tl.value = yearToSlider(state.year); setTimeline(true); setYear(state.year); }
+  if (state.place) selectPlace(byId[state.place],{fly:true});
+  if (state.journey) openJourney(state.journey);
+  if (state.event) showEvent(TIMELINE.find(ev=>ev.id===state.event));
+  Object.assign(urlState,state);
+  restoringURL = false;
+  if (state.error) { toast(state.error); $('#search-status').textContent = state.error; }
+}
+window.addEventListener('popstate',restoreURL);
 // ---------- init ----------
 renderExplore(); renderLayers(); applyLayers();
 (function init(){
@@ -1133,4 +1239,5 @@ renderExplore(); renderLayers(); applyLayers();
   window.addEventListener('pagehide', () => store.set('view', { s: V.s, tx: V.tx, ty: V.ty }));
   setInterval(() => store.set('view', { s: V.s, tx: V.tx, ty: V.ty }), 5000);
 })();
+restoreURL();
 })();

@@ -41,6 +41,24 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .z-lo .waves{opacity:.6}
 .z-hi .waves{opacity:.35}
 #terrain{--zs:1}
+#details{position:absolute;inset:0;width:2600px;height:2300px;overflow:visible;pointer-events:none}
+/* No miniature SVG painting, interaction, or focus targets during a gesture. */
+.gesture #details{display:none}
+.detail-scene{pointer-events:auto;cursor:pointer;outline:none}
+.detail-hit{fill:transparent;stroke:none}
+.detail-scene:focus-visible .detail-hit{fill:var(--accent-soft);stroke:var(--accent);stroke-width:.5;stroke-dasharray:1 1}
+.detail-spark{fill:var(--gold);stroke:var(--paper);stroke-width:.35}
+.detail-scene:hover .detail-spark,.detail-scene:focus-visible .detail-spark{fill:var(--accent)}
+.discovery-illustration{display:flex;align-items:center;flex-direction:column;margin:12px 0 22px;padding:12px 16px 18px;background:var(--paper-2);border:1px solid var(--line);border-radius:50% 50% 8px 8px}
+.discovery-illustration svg{display:block;width:180px;height:150px}
+.discovery-illustration span{font-style:italic;color:var(--muted);letter-spacing:.04em}
+.discovery-hint{padding:12px 0;border-bottom:1px solid var(--line);font-style:italic}
+#m-discovery .row>svg{width:22px;height:22px;flex-shrink:0}
+@media(max-width:899px){
+  .discovery-illustration{flex-direction:row;border-radius:10px;gap:12px;padding:8px 12px;margin:8px 0 16px}
+  .discovery-illustration svg{width:92px;height:82px;flex-shrink:0}
+  .discovery-illustration span{font-size:14px}
+}
 .gesture.fallback .trees,.gesture.fallback .mreed,.gesture.fallback .mwater,.gesture.fallback .waves,.gesture.fallback .fcell,.gesture.fallback .fhatch,.gesture.fallback .pkh,.gesture.fallback .pkk,.gesture.fallback .hlh{display:none}
 
 .z-hi .pkl,.z-hi .trt,.z-hi .fcanopy,.z-hi .land{stroke-width:calc(var(--zs) * .9px)}
@@ -309,3 +327,13 @@ a{color:var(--accent)}
 @media (max-width:899px){
   #sheet{--peek:150px}
 }
+
+/* Reading links and native controls for keyboard and agent navigation. */
+.reading-nav{display:flex;gap:8px 16px;flex-wrap:wrap;margin:12px 0;font-size:14px}
+.waypoint-button{display:block;width:100%;text-align:left;color:inherit;font:inherit;padding:4px 0}
+.waypoint-button:hover{background:var(--accent-soft)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#year-form{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:10px 0;font-size:13px}
+#year-form select,#year-form input{font:inherit;color:var(--text);background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:5px;max-width:150px}
+#year-number{width:76px}

@@ -1,0 +1,38 @@
+{
+  "baseUrl": "https://atlas.bag-end.eu",
+  "places": [
+    "rivendell",
+    "hobbiton",
+    "bag-end",
+    "the-shire",
+    "minas-tirith",
+    "moria",
+    "lothlorien",
+    "erebor",
+    "edoras",
+    "mount-doom",
+    "isengard",
+    "helms-deep",
+    "bree",
+    "minas-morgul",
+    "dol-amroth",
+    "mithlond",
+    "weathertop",
+    "barad-dur",
+    "dale",
+    "esgaroth",
+    "fangorn-forest",
+    "cirith-ungol"
+  ],
+  "journeys": [
+    "fellowship",
+    "frodo-sam",
+    "three-hunters",
+    "merry-pippin",
+    "gandalf-pippin",
+    "rohirrim",
+    "bilbo",
+    "return-home",
+    "grey-havens"
+  ]
+}

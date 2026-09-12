@@ -2,3 +2,5 @@
 .playwright-cli/
 node_modules/
 npm-debug.log*
+
+output/

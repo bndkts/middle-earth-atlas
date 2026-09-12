@@ -17307,7 +17307,8 @@ window.ATLAS_DATA = {
       "text": "Durin, eldest of the Seven Fathers of the Dwarves, wakes beneath Mount Gundabad, ever after a holy place to his people. He wanders south to Azanulbizar and sees the crown of stars in Mirrormere.",
       "src": "tg:Durin",
       "absoluteYear": -7981,
-      "placeId": "mount-gundabad"
+      "placeId": "mount-gundabad",
+      "id": "durin-the-deathless-awakes-yt-1050"
     },
     {
       "age": "YT",
@@ -17320,7 +17321,8 @@ window.ATLAS_DATA = {
       "text": "Durin founds the mansions of Khazad-dûm beneath the Misty Mountains above Mirrormere. It becomes the greatest of all Dwarf-kingdoms.",
       "src": "tg:Khazad-dûm",
       "absoluteYear": -7981,
-      "placeId": "dimrill-dale"
+      "placeId": "dimrill-dale",
+      "id": "khazad-d-m-founded-yt-1050"
     },
     {
       "age": "YT",
@@ -17334,7 +17336,8 @@ window.ATLAS_DATA = {
       "src": "tg:Nandor",
       "absoluteYear": -7916,
       "placeId": "vales-of-anduin",
-      "approximate": true
+      "approximate": true,
+      "id": "the-nandor-turn-aside-at-the-misty-mountains-yt-1115"
     },
     {
       "age": "FA",
@@ -17347,7 +17350,8 @@ window.ATLAS_DATA = {
       "text": "The Dwarf-cities of Nogrod and Belegost flourish in the Blue Mountains and trade with the Elves of Beleriand throughout the First Age.",
       "src": "tg:Belegost",
       "absoluteYear": -4030,
-      "placeId": "blue-mountains"
+      "placeId": "blue-mountains",
+      "id": "dwarves-of-nogrod-and-belegost-fa-1"
     },
     {
       "age": "FA",
@@ -17361,7 +17365,8 @@ window.ATLAS_DATA = {
       "src": "tg:War_of_Wrath",
       "absoluteYear": -3486,
       "placeId": "lindon",
-      "approximate": true
+      "approximate": true,
+      "id": "war-of-wrath-begins-fa-545"
     },
     {
       "age": "FA",
@@ -17375,7 +17380,8 @@ window.ATLAS_DATA = {
       "src": "tg:First_Age",
       "absoluteYear": -3444,
       "placeId": "lindon",
-      "approximate": true
+      "approximate": true,
+      "id": "morgoth-overthrown-end-of-the-first-age-fa-587"
     },
     {
       "age": "SA",
@@ -17388,7 +17394,8 @@ window.ATLAS_DATA = {
       "text": "Gil-galad establishes the realm of Lindon around the Gulf of Lune; Círdan builds the havens of Mithlond, whence the Elves may sail to the West.",
       "src": "tg:Grey_Havens",
       "absoluteYear": -3440,
-      "placeId": "mithlond"
+      "placeId": "mithlond",
+      "id": "foundation-of-lindon-and-the-grey-havens-sa-1"
     },
     {
       "age": "SA",
@@ -17401,7 +17408,8 @@ window.ATLAS_DATA = {
       "text": "Many Dwarves of ruined Belegost and Nogrod migrate east to Khazad-dûm, swelling its wealth and power.",
       "src": "tg:Khazad-dûm",
       "absoluteYear": -3401,
-      "placeId": "moria"
+      "placeId": "moria",
+      "id": "dwarves-of-the-blue-mountains-come-to-khazad-d-m-sa-40"
     },
     {
       "age": "SA",
@@ -17414,7 +17422,8 @@ window.ATLAS_DATA = {
       "text": "Vëantur captains the first ship of Númenor back to Middle-earth, landing at the Grey Havens; Men of the West begin to visit the coasts.",
       "src": "tg:Vëantur",
       "absoluteYear": -2841,
-      "placeId": "mithlond"
+      "placeId": "mithlond",
+      "id": "first-n-men-rean-ship-reaches-middle-earth-sa-600"
     },
     {
       "age": "SA",
@@ -17427,7 +17436,8 @@ window.ATLAS_DATA = {
       "text": "Noldor led by Galadriel and Celeborn, and later Celebrimbor, found the realm of Eregion (Hollin) near the West-gate of Moria, in friendship with the Dwarves.",
       "src": "tg:Eregion",
       "absoluteYear": -2691,
-      "placeId": "ost-in-edhil"
+      "placeId": "ost-in-edhil",
+      "id": "eregion-founded-sa-750"
     },
     {
       "age": "SA",
@@ -17441,7 +17451,8 @@ window.ATLAS_DATA = {
       "src": "tg:Lond_Daer",
       "absoluteYear": -2641,
       "placeId": "lond-daer",
-      "approximate": true
+      "approximate": true,
+      "id": "vinyalond-lond-daer-established-sa-800"
     },
     {
       "age": "SA",
@@ -17454,7 +17465,8 @@ window.ATLAS_DATA = {
       "text": "Alarmed by the Númenóreans, Sauron chooses Mordor as his stronghold and begins the building of the Dark Tower.",
       "src": "tg:Barad-dûr",
       "absoluteYear": -2441,
-      "placeId": "barad-dur"
+      "placeId": "barad-dur",
+      "id": "sauron-begins-barad-d-r-sa-1000"
     },
     {
       "age": "SA",
@@ -17467,7 +17479,8 @@ window.ATLAS_DATA = {
       "text": "Sauron, disguised as Annatar 'Lord of Gifts', is rejected by Gil-galad in Lindon but welcomed by Celebrimbor's smiths in Eregion.",
       "src": "tg:Annatar",
       "absoluteYear": -2241,
-      "placeId": "ost-in-edhil"
+      "placeId": "ost-in-edhil",
+      "id": "annatar-comes-to-eregion-sa-1200"
     },
     {
       "age": "SA",
@@ -17480,7 +17493,8 @@ window.ATLAS_DATA = {
       "text": "Under Annatar's guidance the Gwaith-i-Mírdain begin forging the Rings of Power; the Seven and the Nine are made in these years.",
       "src": "tg:Rings_of_Power",
       "absoluteYear": -1941,
-      "placeId": "ost-in-edhil"
+      "placeId": "ost-in-edhil",
+      "id": "the-rings-of-power-are-forged-sa-1500"
     },
     {
       "age": "SA",
@@ -17493,7 +17507,8 @@ window.ATLAS_DATA = {
       "text": "Celebrimbor alone forges Vilya, Nenya and Narya, the Three Rings of the Elves, untouched by Sauron's hand.",
       "src": "tg:Three_Rings",
       "absoluteYear": -1851,
-      "placeId": "ost-in-edhil"
+      "placeId": "ost-in-edhil",
+      "id": "the-three-rings-completed-sa-1590"
     },
     {
       "age": "SA",
@@ -17506,7 +17521,8 @@ window.ATLAS_DATA = {
       "text": "Sauron forges the One Ring in the fires of Orodruin and completes Barad-dûr; the Elves perceive him and hide the Three.",
       "src": "tg:The_One_Ring",
       "absoluteYear": -1841,
-      "placeId": "mount-doom"
+      "placeId": "mount-doom",
+      "id": "the-one-ring-forged-sa-1600"
     },
     {
       "age": "SA",
@@ -17520,7 +17536,8 @@ window.ATLAS_DATA = {
       "src": "tg:War_of_the_Elves_and_Sauron",
       "absoluteYear": -1746,
       "placeId": "eregion",
-      "approximate": true
+      "approximate": true,
+      "id": "sauron-invades-eriador-sa-1695"
     },
     {
       "age": "SA",
@@ -17533,7 +17550,8 @@ window.ATLAS_DATA = {
       "text": "Eregion is laid waste and Celebrimbor slain; the Gates of Moria are shut. Sauron takes the Nine and the Seven, but not the Three.",
       "src": "tg:Sack_of_Eregion",
       "absoluteYear": -1744,
-      "placeId": "ost-in-edhil"
+      "placeId": "ost-in-edhil",
+      "id": "sack-of-eregion-sa-1697"
     },
     {
       "age": "SA",
@@ -17546,7 +17564,8 @@ window.ATLAS_DATA = {
       "text": "Elrond, retreating north with the survivors of Eregion, founds the refuge of Imladris in a hidden valley beneath the Misty Mountains.",
       "src": "tg:Rivendell",
       "absoluteYear": -1744,
-      "placeId": "rivendell"
+      "placeId": "rivendell",
+      "id": "rivendell-founded-sa-1697"
     },
     {
       "age": "SA",
@@ -17562,7 +17581,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_of_the_Gwathló",
       "absoluteYear": -1740,
       "placeId": "battle-of-the-gwathlo",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-of-the-gwathl-sa-1701"
     },
     {
       "age": "SA",
@@ -17576,7 +17596,8 @@ window.ATLAS_DATA = {
       "src": "tg:Lond_Daer",
       "absoluteYear": -1641,
       "placeId": "lond-daer",
-      "approximate": true
+      "approximate": true,
+      "id": "n-men-rean-dominions-on-the-coasts-sa-1800"
     },
     {
       "age": "SA",
@@ -17590,7 +17611,8 @@ window.ATLAS_DATA = {
       "src": "tg:Nazgûl",
       "absoluteYear": -1190,
       "placeId": "mordor",
-      "approximate": true
+      "approximate": true,
+      "id": "the-nazg-l-first-appear-sa-2251"
     },
     {
       "age": "SA",
@@ -17604,7 +17626,8 @@ window.ATLAS_DATA = {
       "src": "tg:Umbar",
       "absoluteYear": -1161,
       "placeId": "umbar",
-      "approximate": true
+      "approximate": true,
+      "id": "umbar-fortified-sa-2280"
     },
     {
       "age": "SA",
@@ -17617,7 +17640,8 @@ window.ATLAS_DATA = {
       "text": "The haven of Pelargir is built on the Anduin and becomes the chief harbour of the Faithful Númenóreans.",
       "src": "tg:Pelargir",
       "absoluteYear": -1091,
-      "placeId": "pelargir"
+      "placeId": "pelargir",
+      "id": "pelargir-built-sa-2350"
     },
     {
       "age": "SA",
@@ -17631,7 +17655,8 @@ window.ATLAS_DATA = {
       "src": "tg:Ar-Pharazôn",
       "absoluteYear": -180,
       "placeId": "umbar",
-      "approximate": true
+      "approximate": true,
+      "id": "ar-pharaz-n-lands-at-umbar-sa-3261"
     },
     {
       "age": "SA",
@@ -17645,7 +17670,8 @@ window.ATLAS_DATA = {
       "src": "tg:Downfall_of_Númenor",
       "absoluteYear": -122,
       "placeId": "belfalas",
-      "approximate": true
+      "approximate": true,
+      "id": "downfall-of-n-menor-sa-3319"
     },
     {
       "age": "SA",
@@ -17658,7 +17684,8 @@ window.ATLAS_DATA = {
       "text": "Elendil founds the North-kingdom of Arnor, with his capital at Annúminas on Lake Evendim, and holds the palantíri of the North.",
       "src": "tg:Arnor",
       "absoluteYear": -121,
-      "placeId": "annuminas"
+      "placeId": "annuminas",
+      "id": "arnor-founded-sa-3320"
     },
     {
       "age": "SA",
@@ -17671,7 +17698,8 @@ window.ATLAS_DATA = {
       "text": "Isildur and Anárion found the South-kingdom of Gondor; Osgiliath is their capital, with Minas Ithil and Minas Anor on either hand.",
       "src": "tg:Gondor",
       "absoluteYear": -121,
-      "placeId": "osgiliath"
+      "placeId": "osgiliath",
+      "id": "gondor-founded-sa-3320"
     },
     {
       "age": "SA",
@@ -17684,7 +17712,8 @@ window.ATLAS_DATA = {
       "text": "Sauron attacks Gondor, seizes Minas Ithil and burns the White Tree; Isildur flees down Anduin to Elendil while Anárion holds Osgiliath.",
       "src": "tg:Minas_Ithil",
       "absoluteYear": -12,
-      "placeId": "minas-morgul"
+      "placeId": "minas-morgul",
+      "id": "sauron-takes-minas-ithil-sa-3429"
     },
     {
       "age": "SA",
@@ -17697,7 +17726,8 @@ window.ATLAS_DATA = {
       "text": "Gil-galad and Elendil form the Last Alliance; in S.A. 3431 their host musters at Imladris.",
       "src": "tg:Last_Alliance_of_Elves_and_Men",
       "absoluteYear": -11,
-      "placeId": "rivendell"
+      "placeId": "rivendell",
+      "id": "last-alliance-of-elves-and-men-sa-3430"
     },
     {
       "age": "SA",
@@ -17710,7 +17740,8 @@ window.ATLAS_DATA = {
       "text": "The host of the Last Alliance crosses the Misty Mountains and defeats Sauron's armies on the Battle Plain before the Morannon.",
       "src": "tg:Battle_of_Dagorlad",
       "absoluteYear": -7,
-      "placeId": "dagorlad"
+      "placeId": "dagorlad",
+      "id": "battle-of-dagorlad-sa-3434"
     },
     {
       "age": "SA",
@@ -17723,7 +17754,8 @@ window.ATLAS_DATA = {
       "text": "The Alliance lays siege to the Dark Tower for seven years; Anárion is slain in S.A. 3440.",
       "src": "tg:Siege_of_Barad-dûr",
       "absoluteYear": -7,
-      "placeId": "barad-dur"
+      "placeId": "barad-dur",
+      "id": "siege-of-barad-d-r-begins-sa-3434"
     },
     {
       "age": "SA",
@@ -17736,7 +17768,8 @@ window.ATLAS_DATA = {
       "text": "Gil-galad and Elendil perish overthrowing Sauron; Isildur cuts the Ring from his hand with the hilt-shard of Narsil but refuses to destroy it. End of the Second Age.",
       "src": "tg:Isildur",
       "absoluteYear": 0,
-      "placeId": "mount-doom"
+      "placeId": "mount-doom",
+      "id": "sauron-overthrown-isildur-takes-the-ring-sa-3441"
     },
     {
       "age": "TA",
@@ -17750,7 +17783,8 @@ window.ATLAS_DATA = {
       "src": "tg:Disaster_of_the_Gladden_Fields",
       "absoluteYear": 2,
       "placeId": "gladden-fields",
-      "approximate": true
+      "approximate": true,
+      "id": "disaster-of-the-gladden-fields-ta-2"
     },
     {
       "age": "TA",
@@ -17763,7 +17797,8 @@ window.ATLAS_DATA = {
       "text": "Ohtar, Isildur's esquire, brings the shards of Narsil to Imladris, where Valandil, Isildur's heir, is kept.",
       "src": "tg:Ohtar",
       "absoluteYear": 3,
-      "placeId": "rivendell"
+      "placeId": "rivendell",
+      "id": "shards-of-narsil-brought-to-rivendell-ta-3"
     },
     {
       "age": "TA",
@@ -17776,7 +17811,8 @@ window.ATLAS_DATA = {
       "text": "King Ostoher rebuilds Minas Anor, where the Kings of Gondor thereafter dwell in summer.",
       "src": "tg:Ostoher",
       "absoluteYear": 420,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "minas-anor-rebuilt-ta-420"
     },
     {
       "age": "TA",
@@ -17789,7 +17825,8 @@ window.ATLAS_DATA = {
       "text": "Tarostar drives back the first invasion of Easterlings and takes the name Rómendacil, 'East-victor'; he is slain in a later battle in T.A. 541.",
       "src": "tg:Rómendacil_I",
       "absoluteYear": 500,
-      "placeId": "dagorlad"
+      "placeId": "dagorlad",
+      "id": "r-mendacil-i-defeats-the-easterlings-ta-500"
     },
     {
       "age": "TA",
@@ -17802,7 +17839,8 @@ window.ATLAS_DATA = {
       "text": "Tarannon Falastur, first of the Ship-kings, extends Gondor's power along the coasts west and south of the Mouths of Anduin.",
       "src": "tg:Tarannon_Falastur",
       "absoluteYear": 830,
-      "placeId": "pelargir"
+      "placeId": "pelargir",
+      "id": "the-ship-kings-of-gondor-ta-830"
     },
     {
       "age": "TA",
@@ -17815,7 +17853,8 @@ window.ATLAS_DATA = {
       "text": "On the death of Eärendur, Arnor is divided among his sons into Arthedain, Cardolan and Rhudaur; Fornost becomes the seat of Arthedain.",
       "src": "tg:Arnor",
       "absoluteYear": 861,
-      "placeId": "fornost-erain"
+      "placeId": "fornost-erain",
+      "id": "division-of-arnor-ta-861"
     },
     {
       "age": "TA",
@@ -17829,7 +17868,8 @@ window.ATLAS_DATA = {
       "src": "tg:Eärnil_I",
       "absoluteYear": 933,
       "placeId": "umbar",
-      "approximate": true
+      "approximate": true,
+      "id": "e-rnil-i-takes-umbar-ta-933"
     },
     {
       "age": "TA",
@@ -17842,7 +17882,8 @@ window.ATLAS_DATA = {
       "text": "The five Wizards, emissaries of the Valar, land at the Grey Havens; Círdan gives Narya to Gandalf.",
       "src": "tg:Istari",
       "absoluteYear": 1000,
-      "placeId": "mithlond"
+      "placeId": "mithlond",
+      "id": "the-istari-arrive-ta-1000"
     },
     {
       "age": "TA",
@@ -17856,7 +17897,8 @@ window.ATLAS_DATA = {
       "src": "tg:Hyarmendacil_I",
       "absoluteYear": 1050,
       "placeId": "near-harad",
-      "approximate": true
+      "approximate": true,
+      "id": "hyarmendacil-i-conquers-harad-ta-1050"
     },
     {
       "age": "TA",
@@ -17869,7 +17911,8 @@ window.ATLAS_DATA = {
       "text": "A shadow falls upon the forest as Sauron, in secret, makes his stronghold at Amon Lanc; Men begin to call it Mirkwood.",
       "src": "tg:Mirkwood",
       "absoluteYear": 1050,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "greenwood-the-great-becomes-mirkwood-ta-1050"
     },
     {
       "age": "TA",
@@ -17883,7 +17926,8 @@ window.ATLAS_DATA = {
       "src": "tg:Harfoots",
       "absoluteYear": 1050,
       "placeId": "the-angle",
-      "approximate": true
+      "approximate": true,
+      "id": "harfoots-enter-eriador-ta-1050"
     },
     {
       "age": "TA",
@@ -17896,7 +17940,8 @@ window.ATLAS_DATA = {
       "text": "The Wise learn that an evil power has made a stronghold at Dol Guldur, and suppose it to be one of the Nazgûl.",
       "src": "tg:Dol_Guldur",
       "absoluteYear": 1100,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "the-wise-discover-dol-guldur-ta-1100"
     },
     {
       "age": "TA",
@@ -17909,7 +17954,8 @@ window.ATLAS_DATA = {
       "text": "The Stoors come over the Redhorn Pass and settle in the Angle and in Dunland; the Fallohides enter Eriador by way of Rivendell.",
       "src": "tg:Stoors",
       "absoluteYear": 1150,
-      "placeId": "redhorn-pass"
+      "placeId": "redhorn-pass",
+      "id": "stoors-cross-the-redhorn-pass-ta-1150"
     },
     {
       "age": "TA",
@@ -17923,7 +17969,8 @@ window.ATLAS_DATA = {
       "src": "tg:Rómendacil_II",
       "absoluteYear": 1248,
       "placeId": "rhovanion",
-      "approximate": true
+      "approximate": true,
+      "id": "r-mendacil-ii-defeats-the-easterlings-ta-1248"
     },
     {
       "age": "TA",
@@ -17936,7 +17983,8 @@ window.ATLAS_DATA = {
       "text": "Rómendacil II builds the Pillars of the Kings, giant likenesses of Isildur and Anárion, to mark Gondor's northern bound on Anduin.",
       "src": "tg:Argonath",
       "absoluteYear": 1250,
-      "placeId": "argonath"
+      "placeId": "argonath",
+      "id": "the-argonath-raised-ta-1250"
     },
     {
       "age": "TA",
@@ -17950,7 +17998,8 @@ window.ATLAS_DATA = {
       "src": "tg:Angmar",
       "absoluteYear": 1300,
       "placeId": "carn-dum",
-      "approximate": true
+      "approximate": true,
+      "id": "the-witch-king-founds-angmar-ta-1300"
     },
     {
       "age": "TA",
@@ -17963,7 +18012,8 @@ window.ATLAS_DATA = {
       "text": "Hobbits move westward from the Angle, fleeing the troubles of Rhudaur and Angmar, and some settle at Bree.",
       "src": "tg:Bree",
       "absoluteYear": 1300,
-      "placeId": "bree"
+      "placeId": "bree",
+      "id": "hobbits-settle-in-bree-ta-1300"
     },
     {
       "age": "TA",
@@ -17976,7 +18026,8 @@ window.ATLAS_DATA = {
       "text": "King Argeleb I of Arthedain is slain in battle against Rhudaur, now secretly allied with Angmar, on the Weather Hills.",
       "src": "tg:Argeleb_I",
       "absoluteYear": 1356,
-      "placeId": "weather-hills"
+      "placeId": "weather-hills",
+      "id": "argeleb-i-slain-fighting-rhudaur-ta-1356"
     },
     {
       "age": "TA",
@@ -17989,7 +18040,8 @@ window.ATLAS_DATA = {
       "text": "The Witch-king invades Arnor: the tower of Amon Sûl is burned and razed, Rhudaur occupied and Cardolan ravaged; Arveleg I is slain.",
       "src": "tg:Amon_Sûl",
       "absoluteYear": 1409,
-      "placeId": "weathertop"
+      "placeId": "weathertop",
+      "id": "fall-of-the-tower-of-amon-s-l-ta-1409"
     },
     {
       "age": "TA",
@@ -18002,7 +18054,8 @@ window.ATLAS_DATA = {
       "text": "Civil war breaks out in Gondor over the succession of Eldacar, whose mother was a Northman; in 1437 Osgiliath is burned and the palantír lost.",
       "src": "tg:Kin-strife",
       "absoluteYear": 1432,
-      "placeId": "osgiliath"
+      "placeId": "osgiliath",
+      "id": "the-kin-strife-begins-ta-1432"
     },
     {
       "age": "TA",
@@ -18016,7 +18069,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_of_the_Crossings_of_Erui",
       "absoluteYear": 1447,
       "placeId": "crossings-of-erui",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-of-the-crossings-of-erui-ta-1447"
     },
     {
       "age": "TA",
@@ -18030,7 +18084,8 @@ window.ATLAS_DATA = {
       "src": "tg:Corsairs_of_Umbar",
       "absoluteYear": 1448,
       "placeId": "umbar",
-      "approximate": true
+      "approximate": true,
+      "id": "rebels-seize-umbar-ta-1448"
     },
     {
       "age": "TA",
@@ -18043,7 +18098,8 @@ window.ATLAS_DATA = {
       "text": "Marcho and Blanco lead hobbits across the Bridge of Stonebows with leave of King Argeleb II; the Shire Reckoning begins.",
       "src": "tg:Shire",
       "absoluteYear": 1601,
-      "placeId": "brandywine-bridge"
+      "placeId": "brandywine-bridge",
+      "id": "founding-of-the-shire-ta-1601"
     },
     {
       "age": "TA",
@@ -18056,7 +18112,8 @@ window.ATLAS_DATA = {
       "text": "The Corsairs of Umbar ravage Pelargir and slay Minardil, King of Gondor.",
       "src": "tg:Minardil",
       "absoluteYear": 1634,
-      "placeId": "pelargir"
+      "placeId": "pelargir",
+      "id": "corsairs-slay-king-minardil-at-pelargir-ta-1634"
     },
     {
       "age": "TA",
@@ -18069,7 +18126,8 @@ window.ATLAS_DATA = {
       "text": "The Plague sweeps from Rhovanion into Gondor: King Telemnar and his children die, the White Tree withers and Osgiliath is largely deserted. It reaches the Shire in 1637.",
       "src": "tg:Great_Plague",
       "absoluteYear": 1636,
-      "placeId": "osgiliath"
+      "placeId": "osgiliath",
+      "id": "the-great-plague-ta-1636"
     },
     {
       "age": "TA",
@@ -18082,7 +18140,8 @@ window.ATLAS_DATA = {
       "text": "The last Dúnedain of Cardolan perish in the Plague; evil spirits out of Angmar and Rhudaur enter the deserted mounds of Tyrn Gorthad.",
       "src": "tg:Barrow-wights",
       "absoluteYear": 1636,
-      "placeId": "barrow-downs"
+      "placeId": "barrow-downs",
+      "id": "barrow-wights-enter-the-barrow-downs-ta-1636"
     },
     {
       "age": "TA",
@@ -18095,7 +18154,8 @@ window.ATLAS_DATA = {
       "text": "Tarondor moves the King's house from Osgiliath to Minas Anor and plants a seedling of the White Tree; the watch on Mordor is abandoned.",
       "src": "tg:Tarondor",
       "absoluteYear": 1640,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "the-king-s-seat-moved-to-minas-anor-ta-1640"
     },
     {
       "age": "TA",
@@ -18109,7 +18169,8 @@ window.ATLAS_DATA = {
       "src": "tg:Telumehtar",
       "absoluteYear": 1810,
       "placeId": "umbar",
-      "approximate": true
+      "approximate": true,
+      "id": "umbar-retaken-ta-1810"
     },
     {
       "age": "TA",
@@ -18123,7 +18184,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_of_the_Plains",
       "absoluteYear": 1856,
       "placeId": "battle-of-the-plains",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-of-the-plains-ta-1856"
     },
     {
       "age": "TA",
@@ -18136,7 +18198,8 @@ window.ATLAS_DATA = {
       "text": "King Calimehtar wins a great victory over the Wainriders on Dagorlad, aided by a revolt of the Northmen in Rhovanion.",
       "src": "tg:Calimehtar",
       "absoluteYear": 1899,
-      "placeId": "dagorlad"
+      "placeId": "dagorlad",
+      "id": "calimehtar-defeats-the-wainriders-ta-1899"
     },
     {
       "age": "TA",
@@ -18150,7 +18213,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_of_the_Camp",
       "absoluteYear": 1944,
       "placeId": "south-ithilien",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-of-the-camp-ta-1944"
     },
     {
       "age": "TA",
@@ -18163,7 +18227,8 @@ window.ATLAS_DATA = {
       "text": "The Witch-king overruns Arthedain and takes Fornost; King Arvedui flees to the Lossoth of Forochel. End of the North-kingdom.",
       "src": "tg:Fornost",
       "absoluteYear": 1974,
-      "placeId": "fornost-erain"
+      "placeId": "fornost-erain",
+      "id": "fall-of-fornost-ta-1974"
     },
     {
       "age": "TA",
@@ -18176,7 +18241,8 @@ window.ATLAS_DATA = {
       "text": "Círdan's ship sent to rescue Arvedui founders in the ice; the last King of Arthedain and the palantíri of Annúminas and Amon Sûl are lost.",
       "src": "tg:Arvedui",
       "absoluteYear": 1975,
-      "placeId": "icebay-of-forochel"
+      "placeId": "icebay-of-forochel",
+      "id": "arvedui-drowns-in-the-icebay-of-forochel-ta-1975"
     },
     {
       "age": "TA",
@@ -18190,7 +18256,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_of_Fornost",
       "absoluteYear": 1975,
       "placeId": "battle-of-fornost",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-of-fornost-ta-1975"
     },
     {
       "age": "TA",
@@ -18204,7 +18271,8 @@ window.ATLAS_DATA = {
       "src": "tg:Angmar",
       "absoluteYear": 1975,
       "placeId": "carn-dum",
-      "approximate": true
+      "approximate": true,
+      "id": "angmar-destroyed-ta-1975"
     },
     {
       "age": "TA",
@@ -18218,7 +18286,8 @@ window.ATLAS_DATA = {
       "src": "tg:Éothéod",
       "absoluteYear": 1977,
       "placeId": "eotheod",
-      "approximate": true
+      "approximate": true,
+      "id": "frumgar-leads-the-oth-od-north-ta-1977"
     },
     {
       "age": "TA",
@@ -18232,7 +18301,8 @@ window.ATLAS_DATA = {
       "src": "tg:Bucca_of_the_Marish",
       "absoluteYear": 1979,
       "placeId": "the-marish",
-      "approximate": true
+      "approximate": true,
+      "id": "bucca-of-the-marish-first-thain-ta-1979"
     },
     {
       "age": "TA",
@@ -18245,7 +18315,8 @@ window.ATLAS_DATA = {
       "text": "Delving for mithril, the Dwarves release a Balrog of Morgoth beneath Caradhras; Durin VI is slain, and Náin I the next year.",
       "src": "tg:Durin's_Bane",
       "absoluteYear": 1980,
-      "placeId": "moria"
+      "placeId": "moria",
+      "id": "durin-s-bane-awakes-ta-1980"
     },
     {
       "age": "TA",
@@ -18258,7 +18329,8 @@ window.ATLAS_DATA = {
       "text": "Durin's folk abandon Khazad-dûm. Fear drives many Silvan Elves from Lórien; Amroth and Nimrodel are lost.",
       "src": "tg:Moria",
       "absoluteYear": 1981,
-      "placeId": "dimrill-dale"
+      "placeId": "dimrill-dale",
+      "id": "the-dwarves-flee-moria-ta-1981"
     },
     {
       "age": "TA",
@@ -18272,7 +18344,8 @@ window.ATLAS_DATA = {
       "src": "tg:Amroth",
       "absoluteYear": 1981,
       "placeId": "edhellond",
-      "approximate": true
+      "approximate": true,
+      "id": "amroth-lost-at-sea-ta-1981"
     },
     {
       "age": "TA",
@@ -18285,7 +18358,8 @@ window.ATLAS_DATA = {
       "text": "Thráin I comes to the Lonely Mountain, founds the Kingdom under the Mountain and finds the Arkenstone.",
       "src": "tg:Erebor",
       "absoluteYear": 1999,
-      "placeId": "erebor"
+      "placeId": "erebor",
+      "id": "erebor-founded-ta-1999"
     },
     {
       "age": "TA",
@@ -18298,7 +18372,8 @@ window.ATLAS_DATA = {
       "text": "After a two-year siege the Nazgûl take Minas Ithil and its palantír; it becomes the Tower of Sorcery, and Minas Anor is renamed Minas Tirith.",
       "src": "tg:Minas_Morgul",
       "absoluteYear": 2002,
-      "placeId": "minas-morgul"
+      "placeId": "minas-morgul",
+      "id": "minas-ithil-becomes-minas-morgul-ta-2002"
     },
     {
       "age": "TA",
@@ -18311,7 +18386,8 @@ window.ATLAS_DATA = {
       "text": "Answering the Witch-king's challenge, King Eärnur rides alone to the gate of Minas Morgul and is never seen again. Mardil becomes the first Ruling Steward.",
       "src": "tg:Eärnur",
       "absoluteYear": 2050,
-      "placeId": "minas-morgul"
+      "placeId": "minas-morgul",
+      "id": "e-rnur-rides-to-minas-morgul-the-stewards-rule-ta-2050"
     },
     {
       "age": "TA",
@@ -18324,7 +18400,8 @@ window.ATLAS_DATA = {
       "text": "Gandalf goes to Dol Guldur; Sauron retreats into the East and hides for four centuries.",
       "src": "tg:Watchful_Peace",
       "absoluteYear": 2063,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "the-watchful-peace-begins-ta-2063"
     },
     {
       "age": "TA",
@@ -18337,7 +18414,8 @@ window.ATLAS_DATA = {
       "text": "Thorin I leaves Erebor and goes north to the Grey Mountains, where most of Durin's folk are gathering.",
       "src": "tg:Thorin_I",
       "absoluteYear": 2210,
-      "placeId": "grey-mountains"
+      "placeId": "grey-mountains",
+      "id": "thorin-i-removes-to-the-grey-mountains-ta-2210"
     },
     {
       "age": "TA",
@@ -18350,7 +18428,8 @@ window.ATLAS_DATA = {
       "text": "The Oldbucks cross the Brandywine and settle Buckland; Isumbras I becomes the first Took Thain.",
       "src": "tg:Buckland",
       "absoluteYear": 2340,
-      "placeId": "bucklebury"
+      "placeId": "bucklebury",
+      "id": "buckland-settled-ta-2340"
     },
     {
       "age": "TA",
@@ -18363,7 +18442,8 @@ window.ATLAS_DATA = {
       "text": "The Watchful Peace ends; Sauron returns with increased strength. The White Council is formed in 2463.",
       "src": "tg:Dol_Guldur",
       "absoluteYear": 2460,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "sauron-returns-to-dol-guldur-ta-2460"
     },
     {
       "age": "TA",
@@ -18377,7 +18457,8 @@ window.ATLAS_DATA = {
       "src": "tg:Déagol",
       "absoluteYear": 2463,
       "placeId": "gladden-fields",
-      "approximate": true
+      "approximate": true,
+      "id": "d-agol-finds-the-ring-ta-2463"
     },
     {
       "age": "TA",
@@ -18390,7 +18471,8 @@ window.ATLAS_DATA = {
       "text": "Gollum creeps under the mountains and dwells by his lake for nearly five hundred years.",
       "src": "tg:Gollum",
       "absoluteYear": 2470,
-      "placeId": "goblin-town"
+      "placeId": "goblin-town",
+      "id": "sm-agol-hides-in-the-misty-mountains-ta-2470"
     },
     {
       "age": "TA",
@@ -18403,7 +18485,8 @@ window.ATLAS_DATA = {
       "text": "The Uruks of Mordor first appear; Osgiliath is finally deserted and its great stone bridge broken.",
       "src": "tg:Osgiliath",
       "absoluteYear": 2475,
-      "placeId": "osgiliath"
+      "placeId": "osgiliath",
+      "id": "osgiliath-finally-ruined-ta-2475"
     },
     {
       "age": "TA",
@@ -18416,7 +18499,8 @@ window.ATLAS_DATA = {
       "text": "Elrond's wife is captured and tormented by Orcs; though rescued, she leaves Middle-earth the next year.",
       "src": "tg:Celebrían",
       "absoluteYear": 2509,
-      "placeId": "redhorn-pass"
+      "placeId": "redhorn-pass",
+      "id": "celebr-an-waylaid-in-the-redhorn-pass-ta-2509"
     },
     {
       "age": "TA",
@@ -18429,7 +18513,8 @@ window.ATLAS_DATA = {
       "text": "Eorl the Young and the Éothéod ride to Gondor's aid and destroy the Balchoth and Orcs on the Field of Celebrant.",
       "src": "tg:Battle_of_the_Field_of_Celebrant",
       "absoluteYear": 2510,
-      "placeId": "field-of-celebrant"
+      "placeId": "field-of-celebrant",
+      "id": "battle-of-the-field-of-celebrant-ta-2510"
     },
     {
       "age": "TA",
@@ -18442,7 +18527,8 @@ window.ATLAS_DATA = {
       "text": "Cirion the Steward gives Calenardhon to Eorl at the tomb of Elendil on the Halifirien; the Riddermark of Rohan is founded.",
       "src": "tg:Oath_of_Eorl",
       "absoluteYear": 2510,
-      "placeId": "halifirien"
+      "placeId": "halifirien",
+      "id": "oath-of-eorl-ta-2510"
     },
     {
       "age": "TA",
@@ -18456,7 +18542,8 @@ window.ATLAS_DATA = {
       "src": "tg:Eorl",
       "absoluteYear": 2545,
       "placeId": "the-wold",
-      "approximate": true
+      "approximate": true,
+      "id": "eorl-falls-in-the-wold-ta-2545"
     },
     {
       "age": "TA",
@@ -18469,7 +18556,8 @@ window.ATLAS_DATA = {
       "text": "At the feast for Meduseld, Baldor son of Brego vows to tread the Paths of the Dead; he never returns.",
       "src": "tg:Baldor",
       "absoluteYear": 2570,
-      "placeId": "dwimorberg"
+      "placeId": "dwimorberg",
+      "id": "baldor-enters-the-paths-of-the-dead-ta-2570"
     },
     {
       "age": "TA",
@@ -18482,7 +18570,8 @@ window.ATLAS_DATA = {
       "text": "Dragons multiply in the Grey Mountains; Dáin I and his son Frór are killed at the doors of their hall. Thrór returns to Erebor in 2590.",
       "src": "tg:Dáin_I",
       "absoluteYear": 2589,
-      "placeId": "grey-mountains"
+      "placeId": "grey-mountains",
+      "id": "d-in-i-slain-by-a-cold-drake-ta-2589"
     },
     {
       "age": "TA",
@@ -18495,7 +18584,8 @@ window.ATLAS_DATA = {
       "text": "Isengrim II begins excavating the Great Smials, the ancestral home of the Tooks.",
       "src": "tg:Great_Smials",
       "absoluteYear": 2683,
-      "placeId": "tuckborough"
+      "placeId": "tuckborough",
+      "id": "great-smials-begun-ta-2683"
     },
     {
       "age": "TA",
@@ -18509,7 +18599,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_of_Greenfields",
       "absoluteYear": 2747,
       "placeId": "greenfields",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-of-greenfields-ta-2747"
     },
     {
       "age": "TA",
@@ -18522,7 +18613,8 @@ window.ATLAS_DATA = {
       "text": "Rohan is invaded from west and east; the Dunlending Wulf takes Meduseld while Helm Hammerhand holds out in the Hornburg.",
       "src": "tg:Wulf",
       "absoluteYear": 2758,
-      "placeId": "edoras"
+      "placeId": "edoras",
+      "id": "wulf-seizes-edoras-ta-2758"
     },
     {
       "age": "TA",
@@ -18535,7 +18627,8 @@ window.ATLAS_DATA = {
       "text": "Five months of snow bring famine to Rohan and Eriador; Helm dies in the snow and Fréaláf drives out Wulf in 2759. Gandalf aids the starving Shire.",
       "src": "tg:Long_Winter",
       "absoluteYear": 2758,
-      "placeId": "helms-deep"
+      "placeId": "helms-deep",
+      "id": "the-long-winter-ta-2758"
     },
     {
       "age": "TA",
@@ -18548,7 +18641,8 @@ window.ATLAS_DATA = {
       "text": "Steward Beren gives Saruman the keys of Orthanc; the Wizard settles in Isengard as a warden for Gondor.",
       "src": "tg:Isengard",
       "absoluteYear": 2759,
-      "placeId": "isengard"
+      "placeId": "isengard",
+      "id": "saruman-takes-up-his-abode-in-isengard-ta-2759"
     },
     {
       "age": "TA",
@@ -18561,7 +18655,8 @@ window.ATLAS_DATA = {
       "text": "The dragon Smaug destroys Dale and drives the Dwarves from the Lonely Mountain; Thrór escapes with Thráin II and Thorin II.",
       "src": "tg:Smaug",
       "absoluteYear": 2770,
-      "placeId": "erebor"
+      "placeId": "erebor",
+      "id": "smaug-descends-upon-erebor-ta-2770"
     },
     {
       "age": "TA",
@@ -18575,7 +18670,8 @@ window.ATLAS_DATA = {
       "src": "tg:Thrór",
       "absoluteYear": 2790,
       "placeId": "dimrill-gate",
-      "approximate": true
+      "approximate": true,
+      "id": "thr-r-slain-by-azog-ta-2790"
     },
     {
       "age": "TA",
@@ -18588,7 +18684,8 @@ window.ATLAS_DATA = {
       "text": "The Dwarves win a bitter victory before the East-gate of Moria; Azog is slain by Dáin Ironfoot, but Moria remains shut.",
       "src": "tg:Battle_of_Azanulbizar",
       "absoluteYear": 2799,
-      "placeId": "dimrill-dale"
+      "placeId": "dimrill-dale",
+      "id": "battle-of-azanulbizar-ta-2799"
     },
     {
       "age": "TA",
@@ -18602,7 +18699,8 @@ window.ATLAS_DATA = {
       "src": "tg:Thráin_II",
       "absoluteYear": 2802,
       "placeId": "thorins-halls",
-      "approximate": true
+      "approximate": true,
+      "id": "thr-in-ii-settles-in-the-blue-mountains-ta-2802"
     },
     {
       "age": "TA",
@@ -18615,7 +18713,8 @@ window.ATLAS_DATA = {
       "text": "Seeking Erebor, Thráin is captured by Sauron's servants and the last of the Seven Rings is taken from him.",
       "src": "tg:Thráin_II",
       "absoluteYear": 2845,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "thr-in-ii-imprisoned-in-dol-guldur-ta-2845"
     },
     {
       "age": "TA",
@@ -18628,7 +18727,8 @@ window.ATLAS_DATA = {
       "text": "Gandalf discovers that the Necromancer is indeed Sauron; he finds the dying Thráin and receives the map and key of Erebor.",
       "src": "tg:Dol_Guldur",
       "absoluteYear": 2850,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "gandalf-enters-dol-guldur-ta-2850"
     },
     {
       "age": "TA",
@@ -18641,7 +18741,8 @@ window.ATLAS_DATA = {
       "text": "The Haradrim cross the Poros; Túrin II of Gondor, aided by Rohan, defeats them, though Folcwine's twin sons fall.",
       "src": "tg:Battle_of_the_Crossings_of_Poros",
       "absoluteYear": 2885,
-      "placeId": "crossings-of-poros"
+      "placeId": "crossings-of-poros",
+      "id": "battle-of-the-crossings-of-poros-ta-2885"
     },
     {
       "age": "TA",
@@ -18654,7 +18755,8 @@ window.ATLAS_DATA = {
       "text": "Bilbo, son of Bungo Baggins and Belladonna Took, is born at Bag End.",
       "src": "tg:Bilbo_Baggins",
       "absoluteYear": 2890,
-      "placeId": "hobbiton"
+      "placeId": "hobbiton",
+      "id": "bilbo-baggins-born-ta-2890"
     },
     {
       "age": "TA",
@@ -18667,7 +18769,8 @@ window.ATLAS_DATA = {
       "text": "Most of Ithilien's remaining people flee the Uruks of Mordor; the Rangers of Ithilien make the hidden refuge of Henneth Annûn.",
       "src": "tg:Henneth_Annûn",
       "absoluteYear": 2901,
-      "placeId": "henneth-annun"
+      "placeId": "henneth-annun",
+      "id": "henneth-ann-n-built-ta-2901"
     },
     {
       "age": "TA",
@@ -18680,7 +18783,8 @@ window.ATLAS_DATA = {
       "text": "The Baranduin freezes; White Wolves invade Eriador and the Shire. Floods the next year ruin Tharbad.",
       "src": "tg:Fell_Winter",
       "absoluteYear": 2911,
-      "placeId": "brandywine-bridge"
+      "placeId": "brandywine-bridge",
+      "id": "the-fell-winter-ta-2911"
     },
     {
       "age": "TA",
@@ -18693,7 +18797,8 @@ window.ATLAS_DATA = {
       "text": "Great floods devastate Enedwaith and Minhiriath; Tharbad is ruined and deserted.",
       "src": "tg:Tharbad",
       "absoluteYear": 2912,
-      "placeId": "tharbad"
+      "placeId": "tharbad",
+      "id": "tharbad-ruined-ta-2912"
     },
     {
       "age": "TA",
@@ -18707,7 +18812,8 @@ window.ATLAS_DATA = {
       "src": "tg:Arador",
       "absoluteYear": 2930,
       "placeId": "coldfells",
-      "approximate": true
+      "approximate": true,
+      "id": "arador-slain-by-trolls-ta-2930"
     },
     {
       "age": "TA",
@@ -18721,7 +18827,8 @@ window.ATLAS_DATA = {
       "src": "tg:Aragorn_II",
       "absoluteYear": 2931,
       "placeId": "eriador",
-      "approximate": true
+      "approximate": true,
+      "id": "aragorn-born-ta-2931"
     },
     {
       "age": "TA",
@@ -18734,7 +18841,8 @@ window.ATLAS_DATA = {
       "text": "The Quest of Erebor begins: Bilbo runs to the Green Dragon at Bywater to join Thorin and Company.",
       "src": "tg:Quest_of_Erebor",
       "absoluteYear": 2941,
-      "placeId": "bag-end"
+      "placeId": "bag-end",
+      "id": "bilbo-leaves-bag-end-ta-2941"
     },
     {
       "age": "TA",
@@ -18747,7 +18855,8 @@ window.ATLAS_DATA = {
       "text": "Lost in the goblin-tunnels, Bilbo finds the Ring and wins the riddle-game with Gollum.",
       "src": "tg:Riddles_in_the_Dark",
       "absoluteYear": 2941,
-      "placeId": "goblin-town"
+      "placeId": "goblin-town",
+      "id": "bilbo-finds-the-one-ring-ta-2941"
     },
     {
       "age": "TA",
@@ -18760,7 +18869,8 @@ window.ATLAS_DATA = {
       "text": "Saruman at last agrees to an attack; Sauron, having prepared his plans, abandons Dol Guldur.",
       "src": "tg:Dol_Guldur",
       "absoluteYear": 2941,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "the-white-council-attacks-dol-guldur-ta-2941"
     },
     {
       "age": "TA",
@@ -18773,7 +18883,8 @@ window.ATLAS_DATA = {
       "text": "The thrush knocks and the last light of Durin's Day reveals the keyhole; Bilbo enters the Mountain and wakes Smaug.",
       "src": "tg:Durin's_Day",
       "absoluteYear": 2941,
-      "placeId": "erebor"
+      "placeId": "erebor",
+      "id": "durin-s-day-the-secret-door-opens-ta-2941"
     },
     {
       "age": "TA",
@@ -18786,7 +18897,8 @@ window.ATLAS_DATA = {
       "text": "Smaug burns Lake-town and is slain by Bard the Bowman with the Black Arrow.",
       "src": "tg:Smaug",
       "absoluteYear": 2941,
-      "placeId": "esgaroth"
+      "placeId": "esgaroth",
+      "id": "death-of-smaug-ta-2941"
     },
     {
       "age": "TA",
@@ -18799,7 +18911,8 @@ window.ATLAS_DATA = {
       "text": "Elves, Men and Dwarves, with the Eagles and Beorn, defeat the Goblins and Wargs of the Misty Mountains in the last week of autumn; Thorin dies and Dáin becomes King under the Mountain.",
       "src": "tg:Battle_of_Five_Armies",
       "absoluteYear": 2941,
-      "placeId": "dale"
+      "placeId": "dale",
+      "id": "battle-of-five-armies-ta-2941"
     },
     {
       "age": "TA",
@@ -18812,7 +18925,8 @@ window.ATLAS_DATA = {
       "text": "Sauron returns in secret to Mordor; in 2951 he declares himself openly and begins rebuilding Barad-dûr.",
       "src": "tg:Sauron",
       "absoluteYear": 2942,
-      "placeId": "barad-dur"
+      "placeId": "barad-dur",
+      "id": "sauron-returns-to-mordor-ta-2942"
     },
     {
       "age": "TA",
@@ -18825,7 +18939,8 @@ window.ATLAS_DATA = {
       "text": "Bilbo comes home with the Ring and his share of the troll-hoard, to find his goods being auctioned.",
       "src": "tg:Bilbo_Baggins",
       "absoluteYear": 2942,
-      "placeId": "bag-end"
+      "placeId": "bag-end",
+      "id": "bilbo-returns-to-bag-end-ta-2942"
     },
     {
       "age": "TA",
@@ -18838,7 +18953,8 @@ window.ATLAS_DATA = {
       "text": "Bard rebuilds Dale and becomes its King; Gollum leaves the mountains to hunt the thief of his Precious.",
       "src": "tg:Dale",
       "absoluteYear": 2944,
-      "placeId": "dale"
+      "placeId": "dale",
+      "id": "dale-rebuilt-ta-2944"
     },
     {
       "age": "TA",
@@ -18851,7 +18967,8 @@ window.ATLAS_DATA = {
       "text": "Sauron sends three of the Nazgûl to hold Dol Guldur; Elrond reveals to Aragorn his lineage and Aragorn goes into the Wild.",
       "src": "tg:Dol_Guldur",
       "absoluteYear": 2951,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "nazg-l-reoccupy-dol-guldur-ta-2951"
     },
     {
       "age": "TA",
@@ -18864,7 +18981,8 @@ window.ATLAS_DATA = {
       "text": "After the last meeting of the White Council, Saruman withdraws to Isengard, fortifies it and sets spies in Bree and the Southfarthing.",
       "src": "tg:Saruman",
       "absoluteYear": 2953,
-      "placeId": "isengard"
+      "placeId": "isengard",
+      "id": "saruman-takes-isengard-for-his-own-ta-2953"
     },
     {
       "age": "TA",
@@ -18877,7 +18995,8 @@ window.ATLAS_DATA = {
       "text": "Orodruin erupts again; the last inhabitants of Ithilien flee over Anduin.",
       "src": "tg:Mount_Doom",
       "absoluteYear": 2954,
-      "placeId": "mount-doom"
+      "placeId": "mount-doom",
+      "id": "mount-doom-bursts-into-flame-ta-2954"
     },
     {
       "age": "TA",
@@ -18891,7 +19010,8 @@ window.ATLAS_DATA = {
       "src": "tg:Thorongil",
       "absoluteYear": 2980,
       "placeId": "umbar",
-      "approximate": true
+      "approximate": true,
+      "id": "thorongil-s-raid-on-umbar-ta-2980"
     },
     {
       "age": "TA",
@@ -18904,7 +19024,8 @@ window.ATLAS_DATA = {
       "text": "On the hill of Cerin Amroth Aragorn and Arwen pledge themselves to one another. In the same year Théoden becomes King of Rohan.",
       "src": "tg:Cerin_Amroth",
       "absoluteYear": 2980,
-      "placeId": "cerin-amroth"
+      "placeId": "cerin-amroth",
+      "id": "aragorn-and-arwen-plight-their-troth-ta-2980"
     },
     {
       "age": "TA",
@@ -18917,7 +19038,8 @@ window.ATLAS_DATA = {
       "text": "Balin leaves Erebor with Ori, Óin and many Dwarves to recolonise Moria. He is slain in Dimrill Dale in 2994 and the colony destroyed.",
       "src": "tg:Balin",
       "absoluteYear": 2989,
-      "placeId": "moria"
+      "placeId": "moria",
+      "id": "balin-s-expedition-to-moria-ta-2989"
     },
     {
       "age": "TA",
@@ -18930,7 +19052,8 @@ window.ATLAS_DATA = {
       "text": "Bilbo's eleventy-first birthday: he vanishes with the Ring, leaves it to Frodo and departs for Rivendell. Gandalf's suspicions grow.",
       "src": "tg:Bilbo's_Farewell_Party",
       "absoluteYear": 3001,
-      "placeId": "hobbiton"
+      "placeId": "hobbiton",
+      "id": "bilbo-s-farewell-party-ta-3001"
     },
     {
       "age": "TA",
@@ -18943,7 +19066,8 @@ window.ATLAS_DATA = {
       "text": "Released from Mordor, Gollum is taken by Aragorn in the Dead Marshes and brought to Thranduil in Mirkwood. Gandalf reads Isildur's scroll in Minas Tirith.",
       "src": "tg:Gollum",
       "absoluteYear": 3017,
-      "placeId": "dead-marshes"
+      "placeId": "dead-marshes",
+      "id": "gollum-captured-in-the-dead-marshes-ta-3017"
     },
     {
       "age": "TA",
@@ -18956,7 +19080,8 @@ window.ATLAS_DATA = {
       "text": "Gandalf reaches Hobbiton and tells Frodo the history of the One Ring; Frodo resolves to leave the Shire.",
       "src": "tg:The_Shadow_of_the_Past",
       "absoluteYear": 3018,
-      "placeId": "bag-end"
+      "placeId": "bag-end",
+      "id": "gandalf-reveals-the-ring-s-nature-ta-3018"
     },
     {
       "age": "TA",
@@ -18969,7 +19094,8 @@ window.ATLAS_DATA = {
       "text": "The War of the Ring opens: Sauron assails Osgiliath; Boromir and Faramir hold the western shore. About the same time Thranduil is attacked and Gollum escapes.",
       "src": "tg:Sauron's_attack_on_Osgiliath",
       "absoluteYear": 3018,
-      "placeId": "osgiliath"
+      "placeId": "osgiliath",
+      "id": "sauron-attacks-osgiliath-ta-3018"
     },
     {
       "age": "TA",
@@ -18982,7 +19108,8 @@ window.ATLAS_DATA = {
       "text": "Saruman reveals his treachery and holds Gandalf on the pinnacle of Orthanc until Gwaihir bears him away on 18 Sep.",
       "src": "tg:Orthanc",
       "absoluteYear": 3018,
-      "placeId": "isengard"
+      "placeId": "isengard",
+      "id": "gandalf-imprisoned-in-orthanc-ta-3018"
     },
     {
       "age": "TA",
@@ -18995,7 +19122,8 @@ window.ATLAS_DATA = {
       "text": "The Nazgûl drive off the Rangers guarding Sarn Ford and enter the Shire the next day.",
       "src": "tg:Sarn_Ford",
       "absoluteYear": 3018,
-      "placeId": "sarn-ford"
+      "placeId": "sarn-ford",
+      "id": "the-black-riders-at-sarn-ford-ta-3018"
     },
     {
       "age": "TA",
@@ -19008,7 +19136,8 @@ window.ATLAS_DATA = {
       "text": "Frodo, Sam and Pippin set out on foot as a Black Rider comes to Hobbiton at nightfall.",
       "src": "tg:Frodo_Baggins",
       "absoluteYear": 3018,
-      "placeId": "bag-end"
+      "placeId": "bag-end",
+      "id": "frodo-leaves-bag-end-ta-3018"
     },
     {
       "age": "TA",
@@ -19022,7 +19151,8 @@ window.ATLAS_DATA = {
       "src": "tg:Old_Forest",
       "absoluteYear": 3018,
       "placeId": "old-man-willow",
-      "approximate": true
+      "approximate": true,
+      "id": "the-old-forest-ta-3018"
     },
     {
       "age": "TA",
@@ -19035,7 +19165,8 @@ window.ATLAS_DATA = {
       "text": "Frodo vanishes at the inn and meets Strider; the inn and Crickhollow are raided by the Nazgûl in the early hours of 30 Sep.",
       "src": "tg:The_Prancing_Pony",
       "absoluteYear": 3018,
-      "placeId": "bree"
+      "placeId": "bree",
+      "id": "the-prancing-pony-ta-3018"
     },
     {
       "age": "TA",
@@ -19048,7 +19179,8 @@ window.ATLAS_DATA = {
       "text": "Five Nazgûl attack the camp beneath Amon Sûl; the Witch-king stabs Frodo with a Morgul-knife.",
       "src": "tg:Weathertop",
       "absoluteYear": 3018,
-      "placeId": "weathertop"
+      "placeId": "weathertop",
+      "id": "attack-on-weathertop-ta-3018"
     },
     {
       "age": "TA",
@@ -19061,7 +19193,8 @@ window.ATLAS_DATA = {
       "text": "Glorfindel's horse bears Frodo over the Ford; Elrond's flood sweeps the Nine Riders away.",
       "src": "tg:Ford_of_Bruinen",
       "absoluteYear": 3018,
-      "placeId": "ford-of-bruinen"
+      "placeId": "ford-of-bruinen",
+      "id": "flight-to-the-ford-of-bruinen-ta-3018"
     },
     {
       "age": "TA",
@@ -19074,7 +19207,8 @@ window.ATLAS_DATA = {
       "text": "The Council resolves that the Ring must be destroyed in Mount Doom; Frodo takes the burden.",
       "src": "tg:Council_of_Elrond",
       "absoluteYear": 3018,
-      "placeId": "rivendell"
+      "placeId": "rivendell",
+      "id": "council-of-elrond-ta-3018"
     },
     {
       "age": "TA",
@@ -19087,7 +19221,8 @@ window.ATLAS_DATA = {
       "text": "The Company of the Ring leaves Rivendell at dusk, heading south.",
       "src": "tg:Fellowship_of_the_Ring",
       "absoluteYear": 3018,
-      "placeId": "rivendell"
+      "placeId": "rivendell",
+      "id": "the-fellowship-departs-ta-3018"
     },
     {
       "age": "TA",
@@ -19100,7 +19235,8 @@ window.ATLAS_DATA = {
       "text": "Snow and stones drive the Fellowship back from the Redhorn Pass.",
       "src": "tg:Caradhras",
       "absoluteYear": 3019,
-      "placeId": "caradhras"
+      "placeId": "caradhras",
+      "id": "defeat-on-caradhras-ta-3019"
     },
     {
       "age": "TA",
@@ -19113,7 +19249,8 @@ window.ATLAS_DATA = {
       "text": "The Fellowship enters the West-gate on 13 Jan, finds Balin's tomb, and on 15 Jan Gandalf falls with the Balrog from the Bridge.",
       "src": "tg:Bridge_of_Khazad-dûm",
       "absoluteYear": 3019,
-      "placeId": "bridge-of-khazad-dum"
+      "placeId": "bridge-of-khazad-dum",
+      "id": "the-passage-of-moria-ta-3019"
     },
     {
       "age": "TA",
@@ -19126,7 +19263,8 @@ window.ATLAS_DATA = {
       "text": "Received by Celeborn and Galadriel; the Mirror of Galadriel on 14 Feb; departure by boat on 16 Feb.",
       "src": "tg:Lothlórien",
       "absoluteYear": 3019,
-      "placeId": "caras-galadhon"
+      "placeId": "caras-galadhon",
+      "id": "the-fellowship-in-lothl-rien-ta-3019"
     },
     {
       "age": "TA",
@@ -19139,7 +19277,8 @@ window.ATLAS_DATA = {
       "text": "After the Endless Stair, Gandalf slays the Balrog on the peak of Zirakzigil and passes away, to be sent back as Gandalf the White.",
       "src": "tg:Battle_of_the_Peak",
       "absoluteYear": 3019,
-      "placeId": "celebdil"
+      "placeId": "celebdil",
+      "id": "gandalf-casts-down-the-balrog-ta-3019"
     },
     {
       "age": "TA",
@@ -19152,7 +19291,8 @@ window.ATLAS_DATA = {
       "text": "Saruman's forces attack the Fords; Théodred, the King's son, is slain.",
       "src": "tg:Battles_of_the_Fords_of_Isen",
       "absoluteYear": 3019,
-      "placeId": "fords-of-isen"
+      "placeId": "fords-of-isen",
+      "id": "first-battle-of-the-fords-of-isen-ta-3019"
     },
     {
       "age": "TA",
@@ -19165,7 +19305,8 @@ window.ATLAS_DATA = {
       "text": "Boromir falls defending Merry and Pippin, who are taken by the Uruk-hai; Frodo and Sam go east alone; the Three Hunters pursue the orcs.",
       "src": "tg:Breaking_of_the_Fellowship",
       "absoluteYear": 3019,
-      "placeId": "parth-galen"
+      "placeId": "parth-galen",
+      "id": "breaking-of-the-fellowship-ta-3019"
     },
     {
       "age": "TA",
@@ -19179,7 +19320,8 @@ window.ATLAS_DATA = {
       "src": "tg:Éomer",
       "absoluteYear": 3019,
       "placeId": "fangorn-forest",
-      "approximate": true
+      "approximate": true,
+      "id": "omer-destroys-the-uruk-hai-at-fangorn-ta-3019"
     },
     {
       "age": "TA",
@@ -19192,7 +19334,8 @@ window.ATLAS_DATA = {
       "text": "Erkenbrand's Westfold forces are defeated; the same day Gandalf heals Théoden at Edoras and the Ents march on Isengard.",
       "src": "tg:Battles_of_the_Fords_of_Isen",
       "absoluteYear": 3019,
-      "placeId": "fords-of-isen"
+      "placeId": "fords-of-isen",
+      "id": "second-battle-of-the-fords-of-isen-ta-3019"
     },
     {
       "age": "TA",
@@ -19205,7 +19348,8 @@ window.ATLAS_DATA = {
       "text": "The Ents break the walls of Isengard and flood the ring; Saruman is trapped in Orthanc.",
       "src": "tg:Isengard",
       "absoluteYear": 3019,
-      "placeId": "isengard"
+      "placeId": "isengard",
+      "id": "destruction-of-isengard-ta-3019"
     },
     {
       "age": "TA",
@@ -19218,7 +19362,8 @@ window.ATLAS_DATA = {
       "text": "Saruman's host assails Helm's Deep through the night; at dawn Théoden rides out and the Huorns destroy the fleeing orcs.",
       "src": "tg:Battle_of_the_Hornburg",
       "absoluteYear": 3019,
-      "placeId": "helms-deep"
+      "placeId": "helms-deep",
+      "id": "battle-of-the-hornburg-ta-3019"
     },
     {
       "age": "TA",
@@ -19232,7 +19377,8 @@ window.ATLAS_DATA = {
       "src": "tg:Palantír_of_Orthanc",
       "absoluteYear": 3019,
       "placeId": "dol-baran",
-      "approximate": true
+      "approximate": true,
+      "id": "the-voice-of-saruman-pippin-and-the-palant-r-ta-3019"
     },
     {
       "age": "TA",
@@ -19245,7 +19391,8 @@ window.ATLAS_DATA = {
       "text": "Faramir takes Frodo and Sam to the Window of the Sunset, and lets them go on 8 Mar.",
       "src": "tg:Henneth_Annûn",
       "absoluteYear": 3019,
-      "placeId": "henneth-annun"
+      "placeId": "henneth-annun",
+      "id": "frodo-at-henneth-ann-n-ta-3019"
     },
     {
       "age": "TA",
@@ -19258,7 +19405,8 @@ window.ATLAS_DATA = {
       "text": "Aragorn passes the Dark Door at daybreak and at midnight summons the Dead at the Stone of Erech.",
       "src": "tg:Paths_of_the_Dead",
       "absoluteYear": 3019,
-      "placeId": "stone-of-erech"
+      "placeId": "stone-of-erech",
+      "id": "the-paths-of-the-dead-ta-3019"
     },
     {
       "age": "TA",
@@ -19271,7 +19419,8 @@ window.ATLAS_DATA = {
       "text": "Gandalf and Pippin arrive at dawn; Darkness begins to flow out of Mordor. The Dawnless Day is 10 Mar.",
       "src": "tg:Minas_Tirith",
       "absoluteYear": 3019,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "gandalf-reaches-minas-tirith-ta-3019"
     },
     {
       "age": "TA",
@@ -19284,7 +19433,8 @@ window.ATLAS_DATA = {
       "text": "The Rohirrim ride from Harrowdale; Merry rides hidden with 'Dernhelm'. Cair Andros falls to an army from the Morannon.",
       "src": "tg:The_Ride_of_the_Rohirrim",
       "absoluteYear": 3019,
-      "placeId": "dunharrow"
+      "placeId": "dunharrow",
+      "id": "muster-of-rohan-ta-3019"
     },
     {
       "age": "TA",
@@ -19298,7 +19448,8 @@ window.ATLAS_DATA = {
       "src": "tg:Celeborn",
       "absoluteYear": 3019,
       "placeId": "lothlorien",
-      "approximate": true
+      "approximate": true,
+      "id": "first-assault-on-l-rien-ta-3019"
     },
     {
       "age": "TA",
@@ -19312,7 +19463,8 @@ window.ATLAS_DATA = {
       "src": "tg:Ents",
       "absoluteYear": 3019,
       "placeId": "the-wold",
-      "approximate": true
+      "approximate": true,
+      "id": "the-ents-defeat-the-invaders-of-rohan-ta-3019"
     },
     {
       "age": "TA",
@@ -19325,7 +19477,8 @@ window.ATLAS_DATA = {
       "text": "Gollum leads Frodo into Torech Ungol; Frodo is stung and Sam takes the Ring. Frodo is captured by the orcs of Cirith Ungol on 13 Mar.",
       "src": "tg:Shelob's_Lair",
       "absoluteYear": 3019,
-      "placeId": "torech-ungol"
+      "placeId": "torech-ungol",
+      "id": "shelob-s-lair-ta-3019"
     },
     {
       "age": "TA",
@@ -19338,7 +19491,8 @@ window.ATLAS_DATA = {
       "text": "The Grey Company and the Dead seize the ships of the Corsairs of Umbar; the Dead are released.",
       "src": "tg:Battle_of_Pelargir",
       "absoluteYear": 3019,
-      "placeId": "pelargir"
+      "placeId": "pelargir",
+      "id": "aragorn-captures-the-fleet-at-pelargir-ta-3019"
     },
     {
       "age": "TA",
@@ -19351,7 +19505,8 @@ window.ATLAS_DATA = {
       "text": "Faramir is wounded on the retreat from the Causeway Forts; the siege of Minas Tirith begins on 14 Mar.",
       "src": "tg:Siege_of_Minas_Tirith",
       "absoluteYear": 3019,
-      "placeId": "pelennor-fields"
+      "placeId": "pelennor-fields",
+      "id": "the-pelennor-overrun-ta-3019"
     },
     {
       "age": "TA",
@@ -19364,7 +19519,8 @@ window.ATLAS_DATA = {
       "text": "Sam finds Frodo in the topmost chamber and they escape into Mordor on 15 Mar.",
       "src": "tg:Tower_of_Cirith_Ungol",
       "absoluteYear": 3019,
-      "placeId": "tower-of-cirith-ungol"
+      "placeId": "tower-of-cirith-ungol",
+      "id": "sam-rescues-frodo-from-the-tower-ta-3019"
     },
     {
       "age": "TA",
@@ -19377,7 +19533,8 @@ window.ATLAS_DATA = {
       "text": "The Witch-king breaks the Gate; the Rohirrim arrive at cockcrow. Théoden falls; Éowyn and Merry slay the Witch-king; Aragorn comes up Anduin and the field is won.",
       "src": "tg:Battle_of_the_Pelennor_Fields",
       "absoluteYear": 3019,
-      "placeId": "pelennor-fields"
+      "placeId": "pelennor-fields",
+      "id": "battle-of-the-pelennor-fields-ta-3019"
     },
     {
       "age": "TA",
@@ -19391,7 +19548,8 @@ window.ATLAS_DATA = {
       "src": "tg:Battle_under_the_trees",
       "absoluteYear": 3019,
       "placeId": "woodland-realm",
-      "approximate": true
+      "approximate": true,
+      "id": "battle-under-the-trees-ta-3019"
     },
     {
       "age": "TA",
@@ -19404,7 +19562,8 @@ window.ATLAS_DATA = {
       "text": "Easterlings storm Dale; King Brand and Dáin Ironfoot fall, and Men and Dwarves are besieged in Erebor.",
       "src": "tg:Battle_of_Dale",
       "absoluteYear": 3019,
-      "placeId": "dale"
+      "placeId": "dale",
+      "id": "battle-of-dale-ta-3019"
     },
     {
       "age": "TA",
@@ -19417,7 +19576,8 @@ window.ATLAS_DATA = {
       "text": "Aragorn leads 7,000 men from Minas Tirith towards the Black Gate; Frodo is overtaken by orcs on the Durthang road.",
       "src": "tg:Host_of_the_West",
       "absoluteYear": 3019,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "the-host-of-the-west-marches-ta-3019"
     },
     {
       "age": "TA",
@@ -19430,7 +19590,8 @@ window.ATLAS_DATA = {
       "text": "The Host is surrounded on the Slag-hills; the Mouth of Sauron parleys; the Eagles come.",
       "src": "tg:Battle_of_the_Morannon",
       "absoluteYear": 3019,
-      "placeId": "morannon"
+      "placeId": "morannon",
+      "id": "battle-of-the-morannon-ta-3019"
     },
     {
       "age": "TA",
@@ -19443,7 +19604,8 @@ window.ATLAS_DATA = {
       "text": "Gollum bites the Ring from Frodo's hand and falls into the Cracks of Doom; Barad-dûr collapses and Sauron passes away. In Gondor this becomes the first day of the New Year.",
       "src": "tg:Cracks_of_Doom",
       "absoluteYear": 3019,
-      "placeId": "sammath-naur"
+      "placeId": "sammath-naur",
+      "id": "the-ring-is-destroyed-ta-3019"
     },
     {
       "age": "TA",
@@ -19456,7 +19618,8 @@ window.ATLAS_DATA = {
       "text": "Bard II and Thorin III Stonehelm sally out and drive the Easterlings from Dale.",
       "src": "tg:Battle_of_Dale",
       "absoluteYear": 3019,
-      "placeId": "erebor"
+      "placeId": "erebor",
+      "id": "siege-of-erebor-broken-ta-3019"
     },
     {
       "age": "TA",
@@ -19469,7 +19632,8 @@ window.ATLAS_DATA = {
       "text": "Celeborn crosses Anduin and takes Dol Guldur; Galadriel throws down its walls and lays bare its pits.",
       "src": "tg:Dol_Guldur",
       "absoluteYear": 3019,
-      "placeId": "dol-guldur"
+      "placeId": "dol-guldur",
+      "id": "dol-guldur-destroyed-ta-3019"
     },
     {
       "age": "TA",
@@ -19483,7 +19647,8 @@ window.ATLAS_DATA = {
       "src": "tg:Eryn_Lasgalen",
       "absoluteYear": 3019,
       "placeId": "mirkwood",
-      "approximate": true
+      "approximate": true,
+      "id": "meeting-of-celeborn-and-thranduil-ta-3019"
     },
     {
       "age": "TA",
@@ -19497,7 +19662,8 @@ window.ATLAS_DATA = {
       "src": "tg:Field_of_Cormallen",
       "absoluteYear": 3019,
       "placeId": "field-of-cormallen",
-      "approximate": true
+      "approximate": true,
+      "id": "field-of-cormallen-ta-3019"
     },
     {
       "age": "TA",
@@ -19510,7 +19676,8 @@ window.ATLAS_DATA = {
       "text": "Aragorn is crowned before the Gate of Minas Tirith, the crown set on his head by Gandalf. Elrond and Arwen set out from Rivendell.",
       "src": "tg:Aragorn_II",
       "absoluteYear": 3019,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "crowning-of-king-elessar-ta-3019"
     },
     {
       "age": "TA",
@@ -19523,7 +19690,8 @@ window.ATLAS_DATA = {
       "text": "Arwen comes to the City and weds King Elessar; Aragorn has found the sapling of the White Tree on Mindolluin on 25 Jun.",
       "src": "tg:Arwen",
       "absoluteYear": 3019,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "wedding-of-aragorn-and-arwen-ta-3019"
     },
     {
       "age": "TA",
@@ -19536,7 +19704,8 @@ window.ATLAS_DATA = {
       "text": "Théoden is laid in the ninth mound at Edoras; Éomer betroths Éowyn to Faramir.",
       "src": "tg:Théoden",
       "absoluteYear": 3019,
-      "placeId": "edoras"
+      "placeId": "edoras",
+      "id": "funeral-of-th-oden-ta-3019"
     },
     {
       "age": "TA",
@@ -19550,7 +19719,8 @@ window.ATLAS_DATA = {
       "src": "tg:Saruman",
       "absoluteYear": 3019,
       "placeId": "dunland",
-      "approximate": true
+      "approximate": true,
+      "id": "saruman-met-in-dunland-ta-3019"
     },
     {
       "age": "TA",
@@ -19563,7 +19733,8 @@ window.ATLAS_DATA = {
       "text": "The hobbits rout Sharkey's ruffians; Saruman is slain by Wormtongue at Bag End. Last battle of the War of the Ring.",
       "src": "tg:Battle_of_Bywater",
       "absoluteYear": 3019,
-      "placeId": "bywater"
+      "placeId": "bywater",
+      "id": "battle-of-bywater-ta-3019"
     },
     {
       "age": "TA",
@@ -19576,7 +19747,8 @@ window.ATLAS_DATA = {
       "text": "The mallorn planted by Sam from Galadriel's gift blossoms; 1420 becomes the Shire's year of marvellous plenty. Sam weds Rose Cotton on 1 May.",
       "src": "tg:Party_Tree",
       "absoluteYear": 3020,
-      "placeId": "hobbiton"
+      "placeId": "hobbiton",
+      "id": "the-mallorn-flowers-in-the-party-field-ta-3020"
     },
     {
       "age": "TA",
@@ -19590,7 +19762,8 @@ window.ATLAS_DATA = {
       "src": "tg:Woody_End",
       "absoluteYear": 3021,
       "placeId": "woody-end",
-      "approximate": true
+      "approximate": true,
+      "id": "the-last-riding-of-the-keepers-of-the-rings-ta-3021"
     },
     {
       "age": "TA",
@@ -19603,7 +19776,8 @@ window.ATLAS_DATA = {
       "text": "Frodo, Bilbo, Gandalf, Elrond and Galadriel sail into the West on Círdan's ship. End of the Third Age.",
       "src": "tg:Grey_Havens",
       "absoluteYear": 3021,
-      "placeId": "mithlond"
+      "placeId": "mithlond",
+      "id": "departure-from-the-grey-havens-ta-3021"
     },
     {
       "age": "FoA",
@@ -19616,7 +19790,8 @@ window.ATLAS_DATA = {
       "text": "In Gondor the Fourth Age is reckoned from 25 Mar T.A. 3021; the Dominion of Men begins under King Elessar.",
       "src": "tg:Fourth_Age",
       "absoluteYear": 3022,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "the-fourth-age-begins-foa-1"
     },
     {
       "age": "FoA",
@@ -19629,7 +19804,8 @@ window.ATLAS_DATA = {
       "text": "The King forbids Men to enter the Shire, making it a Free Land under his protection; Sam is elected Mayor. The Drúadan Forest is likewise given to the Woses.",
       "src": "tg:Shire",
       "absoluteYear": 3027,
-      "placeId": "brandywine-bridge"
+      "placeId": "brandywine-bridge",
+      "id": "elessar-s-edict-the-shire-a-free-land-foa-6"
     },
     {
       "age": "FoA",
@@ -19642,7 +19818,8 @@ window.ATLAS_DATA = {
       "text": "Aragorn dwells for a while by Lake Evendim in the restored city of Annúminas and meets his friends at the Brandywine Bridge; Sam receives the Star of the Dúnedain.",
       "src": "tg:Annúminas",
       "absoluteYear": 3036,
-      "placeId": "annuminas"
+      "placeId": "annuminas",
+      "id": "king-elessar-comes-north-to-ann-minas-foa-15"
     },
     {
       "age": "FoA",
@@ -19655,7 +19832,8 @@ window.ATLAS_DATA = {
       "text": "The King grants the lands from the Far Downs to the Tower Hills to the Shire; Elanor and Fastred settle at Undertowers.",
       "src": "tg:Westmarch",
       "absoluteYear": 3052,
-      "placeId": "tower-hills"
+      "placeId": "tower-hills",
+      "id": "the-westmarch-added-to-the-shire-foa-31"
     },
     {
       "age": "FoA",
@@ -19668,7 +19846,8 @@ window.ATLAS_DATA = {
       "text": "After Rose's death Sam gives the Red Book to Elanor at the Tower Hills and, last of the Ring-bearers, sails from the Grey Havens.",
       "src": "tg:Samwise_Gamgee",
       "absoluteYear": 3082,
-      "placeId": "mithlond"
+      "placeId": "mithlond",
+      "id": "sam-passes-over-the-sea-foa-61"
     },
     {
       "age": "FoA",
@@ -19681,7 +19860,8 @@ window.ATLAS_DATA = {
       "text": "The two old hobbits leave the Shire, see King Éomer before his death, and die in Gondor, laid to rest in Rath Dínen.",
       "src": "tg:Meriadoc_Brandybuck",
       "absoluteYear": 3084,
-      "placeId": "edoras"
+      "placeId": "edoras",
+      "id": "merry-and-pippin-ride-to-rohan-and-gondor-foa-63"
     },
     {
       "age": "FoA",
@@ -19694,7 +19874,8 @@ window.ATLAS_DATA = {
       "text": "Faramir, Prince of Ithilien and Steward of Gondor, dies; Elboron succeeds him in Ithilien.",
       "src": "tg:Faramir",
       "absoluteYear": 3103,
-      "placeId": "emyn-arnen"
+      "placeId": "emyn-arnen",
+      "id": "death-of-faramir-foa-82"
     },
     {
       "age": "FoA",
@@ -19707,7 +19888,8 @@ window.ATLAS_DATA = {
       "text": "Aragorn lays down his life in the House of the Kings; Eldarion succeeds him. Arwen dies on Cerin Amroth the following year.",
       "src": "tg:Aragorn_II",
       "absoluteYear": 3141,
-      "placeId": "minas-tirith"
+      "placeId": "minas-tirith",
+      "id": "death-of-king-elessar-foa-120"
     },
     {
       "age": "FoA",
@@ -19721,7 +19903,8 @@ window.ATLAS_DATA = {
       "src": "tg:Legolas",
       "absoluteYear": 3141,
       "placeId": "ithilien",
-      "approximate": true
+      "approximate": true,
+      "id": "legolas-and-gimli-sail-into-the-west-foa-120"
     },
     {
       "age": "FoA",
@@ -19734,7 +19917,8 @@ window.ATLAS_DATA = {
       "text": "Arwen Undómiel goes alone to fading Lórien and lays herself to rest on Cerin Amroth.",
       "src": "tg:Arwen",
       "absoluteYear": 3142,
-      "placeId": "cerin-amroth"
+      "placeId": "cerin-amroth",
+      "id": "death-of-arwen-foa-121"
     },
     {
       "age": "FoA",
@@ -19749,7 +19933,8 @@ window.ATLAS_DATA = {
       "src": "tg:Durin_VII",
       "absoluteYear": 3192,
       "placeId": "moria",
-      "dateUncertain": true
+      "dateUncertain": true,
+      "id": "durin-vii-retakes-khazad-d-m-foa-171"
     }
   ]
 };
