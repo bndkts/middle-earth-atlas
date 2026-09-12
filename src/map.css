@@ -21,9 +21,12 @@
 .scl{fill:none;stroke:var(--forest-ink);stroke-width:.6;stroke-linecap:round;opacity:.42}
 .z-lo .textures{opacity:.6}
 /* fields */
-.fwash-field{fill:var(--field);opacity:.35;stroke:none}
-.fcell{fill:none;stroke:var(--ink-warm);stroke-width:.45;opacity:.28;stroke-linejoin:round}
-.fhatch{fill:none;stroke:var(--ink-warm);stroke-width:.4;opacity:.3;stroke-linecap:round}
+.fwash-field{fill:var(--field);opacity:.22;stroke:none}
+/* Inset parcels leave grassy lanes; muted crop washes replace the coarse grid. */
+.fcell{stroke:var(--ink-warm);stroke-width:.18;stroke-opacity:.25;fill-opacity:.2;stroke-linejoin:round}
+.field-meadow{fill:#819260}.field-grain{fill:#c8aa61}
+.field-earth{fill:#a88968}.field-fallow{fill:#a9a880}
+.fhatch{fill:none;stroke:var(--ink-warm);stroke-width:.16;opacity:.27;stroke-linecap:round}
 .z-lo .fcell,.z-lo .fhatch{display:none}
 /* marshes */
 .marshwash{fill:var(--marsh);opacity:.42;stroke:none}
@@ -40,11 +43,18 @@
 .fwash2{fill:var(--forest-ink);opacity:.055}
 .z-hi .fcanopy{opacity:.35}
 .trt{stroke:var(--ink);stroke-width:.8;fill:none}
-.trc{fill:var(--tc,var(--tree));stroke:var(--ink);stroke-width:.5}
+.trc{fill:var(--tc,var(--tree));stroke:var(--ink);stroke-width:.3;stroke-linejoin:round;stroke-linecap:round}
+.trb{fill:var(--ink-warm)}
+.tr-shade{fill:var(--ink);opacity:.18}
+.tr-detail{fill:none;stroke:var(--ink);stroke-width:.2;stroke-linecap:round;stroke-linejoin:round;opacity:.6}
+.tr-birch{fill:var(--land-hi);stroke:var(--ink-warm);stroke-width:.18;stroke-linejoin:round}
+.z-vlo .tr-detail,.z-lo .tr-detail{display:none}
 .z-lo .trees{display:none}
 /* hills & mountains */
-.hll{fill:var(--land-hi);stroke:var(--ink);stroke-width:.75;stroke-linecap:round;stroke-linejoin:round}
-.hlh{fill:none;stroke:var(--ink);stroke-width:.45;opacity:.5;stroke-linecap:round}
+.hlground{fill:var(--land)}
+.hlshade{fill:var(--ink-warm);opacity:.12}
+.hll{fill:none;stroke:var(--ink);stroke-width:.45;stroke-linecap:round;stroke-linejoin:round}
+.hlh{fill:none;stroke:var(--ink-warm);stroke-width:.23;opacity:.55;stroke-linecap:round}
 .menv{fill:var(--peak-shade);opacity:.08;stroke:none}
 .z-mid .menv{opacity:.05}.z-hi .menv{display:none}
 .pkf{fill:var(--peak)}.pks{fill:var(--peak-shade);opacity:.5}
@@ -52,7 +62,15 @@
 .pkh{fill:none;stroke:var(--ink);stroke-width:.42;opacity:.6;stroke-linecap:round}
 .pkk{fill:none;stroke:var(--ink);stroke-width:.5;opacity:.55;stroke-linecap:round}
 .pksnow{fill:var(--snow);stroke:none}
-.doomf{fill:var(--doom)}.lava{fill:#d8471f}.smoke{fill:none;stroke:var(--ink);stroke-width:1.4;opacity:.55;stroke-linecap:round}
+.doomf{fill:var(--doom)}.lava{fill:#d8471f}
+.doom-contour{fill:none;stroke:var(--ink);stroke-width:.55;stroke-linejoin:round;stroke-linecap:round}
+.doom-ridge{fill:none;stroke:var(--ink);stroke-width:.28;opacity:.5;stroke-linecap:round}
+.doom-crater{fill:#392c28;stroke:var(--ink);stroke-width:.4}
+.doom-ember{fill:#b84c2b}
+.doom-lava{fill:none;stroke:#c85b32;stroke-width:.4;stroke-linecap:round;stroke-linejoin:round}
+.smoke-plume{fill:var(--ink);opacity:.13}
+.smoke-faint{opacity:.07}
+.smoke{fill:none;stroke:var(--ink);stroke-width:.35;opacity:.2;stroke-linecap:round}
 /* rivers, roads */
 .rv{fill:var(--river);stroke:var(--land);stroke-width:1.7;paint-order:stroke;stroke-linejoin:round}
 .road{fill:none;stroke:var(--road);stroke-linecap:round;stroke-linejoin:round;opacity:.92}
@@ -110,6 +128,33 @@
 .z-vlo .ground{display:none}
 
 /* ground cover & easter eggs */
+/* Architectural vignettes: carved stone, fine masonry, and muted timber.
+   Keep these rules in map.css so the gesture bitmap uses the same artwork. */
+.ar-stone{fill:var(--land-hi);stroke:var(--ink);stroke-width:.45;stroke-linejoin:round}
+.ar-rock{fill:#c9bd9f;stroke:var(--ink-warm);stroke-width:.35;stroke-linejoin:round}
+.ar-dark .ar-stone{fill:#514942}
+.ar-shade{fill:var(--ink);opacity:.24}
+.ar-line,.ar-fine{fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round}
+.ar-line{stroke-width:.4}
+.ar-fine{stroke-width:.25;opacity:.7}
+.ar-opening{fill:var(--ink)}
+.ar-highlight{fill:none;stroke:var(--land-hi);stroke-width:.25;stroke-linecap:round;opacity:.5}
+.ar-roof,.ar-wood{fill:#947550;stroke:var(--ink);stroke-width:.4;stroke-linejoin:round}
+.ar-recess{fill:#766e5c;stroke:var(--ink);stroke-width:.35}
+.ar-turf{fill:var(--forest-dark);stroke:var(--ink-warm);stroke-width:.35}
+.ar-door{fill:#557343;stroke:var(--ink);stroke-width:.4}
+/* Engraved creatures share fine contours and a restrained parchment palette. */
+.cr-fill{fill:var(--creature-fill,#83735c);stroke:var(--ink);stroke-width:.55;stroke-linejoin:round;stroke-linecap:round}
+.cr-line,.cr-fine{fill:none;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round}
+.cr-line{stroke-width:.55}
+.cr-fine{stroke-width:.32;opacity:.65}
+.cr-shadow{fill:var(--ink);opacity:.25}
+.cr-ink{fill:var(--ink)}
+.cr-light{fill:var(--land-hi)}
+.cr-light-line{fill:none;stroke:var(--land-hi);stroke-width:.3;stroke-linecap:round;opacity:.7}
+.cr-web{fill:none;stroke:var(--ink-warm);stroke-width:.25;opacity:.28}
+.cr-cloth{fill:#824630;stroke:var(--ink);stroke-width:.5;stroke-linejoin:round}
+.cr-leaf{fill:var(--forest-dark);stroke:var(--ink);stroke-width:.4}
 .grl{fill:none;stroke:var(--ink-warm);stroke-width:.95;stroke-linecap:round;opacity:.72}
 .htd{fill:var(--ink-warm);opacity:.55}
 .hml{fill:var(--land-hi);stroke:var(--ink);stroke-width:.75;opacity:.65;stroke-linecap:round}

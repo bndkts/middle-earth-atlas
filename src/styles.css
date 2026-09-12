@@ -39,7 +39,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 #terrain{--zs:1}
 .gesture.fallback .trees,.gesture.fallback .mreed,.gesture.fallback .mwater,.gesture.fallback .waves,.gesture.fallback .fcell,.gesture.fallback .fhatch,.gesture.fallback .pkh,.gesture.fallback .pkk,.gesture.fallback .hlh{display:none}
 
-.z-hi .pkl,.z-hi .hll,.z-hi .trt,.z-hi .fcanopy,.z-hi .land{stroke-width:calc(var(--zs) * .9px)}
+.z-hi .pkl,.z-hi .trt,.z-hi .fcanopy,.z-hi .land{stroke-width:calc(var(--zs) * .9px)}
+.z-hi .hll{stroke-width:calc(var(--zs) * .5px)}
 /* dynamic svg (routes, directions) */
 .jr{fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.85;stroke-dasharray:9 5}
 .jr-glow{fill:none;stroke:var(--halo);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.7}

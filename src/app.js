@@ -68,7 +68,9 @@ svgLabels.forEach(el => {
   if (p) { el.dataset.pid = p.id; el.style.pointerEvents = 'auto'; el.style.cursor = 'pointer'; p._svgLabel = true; }
 });
 // historical label windows (absolute years)
-const HIST = {'ARNOR':[-121,861],'ROHAN':[2510,null],'MIRKWOOD':[1050,null],'ANGMAR':[1300,1975],'EREGION':[-2691,null],'DAGORLAD':[-7,null]};
+// Eregion/Hollin remains a geographical name after the realm falls. Forest
+// names, unlike the geography, have distinct historical windows.
+const HIST = {'ARNOR':[-121,861],'ROHAN':[2510,null],'MIRKWOOD':[1050,3019],'GREENWOOD THE GREAT':[null,1049],'ERYN LASGALEN':[3019,null],'ANGMAR':[1300,1975],'EREGION':[-2691,null],'DAGORLAD':[-7,null]};
 svgLabels.forEach(el => { const w = HIST[el.textContent.trim()]; if (w) { if (w[0]!=null) el.dataset.from = w[0]; if (w[1]!=null) el.dataset.to = w[1]; } });
 
 // ---------- markers ----------
@@ -510,7 +512,7 @@ function updateScale(){
   const miles = target / V.s; const nice = [5,10,20,25,50,100,200,250,500,1000];
   let m = nice[0]; for (const n of nice) if (n <= miles) m = n;
   scaleBar.style.width = (m * V.s) + 'px';
-  scaleText.textContent = m + ' miles · ' + (m/3 % 1 ? (m/3).toFixed(1) : m/3) + ' leagues';
+  scaleText.textContent = '≈ ' + m + ' miles · schematic scale';
 }
 
 // ---------- pointer handling ----------
@@ -692,7 +694,7 @@ function renderExplore(){
       <button class="row" id="ex-layers"><span class="ic">${ico('layers')}</span><span class="tx"><b>Layers</b><small>Realms, roads, journeys, labels</small></span></button>
     </div>
     <div class="orn"><span>Sources</span></div>
-    <p class="src">Descriptions and dates follow Tolkien's texts (The Hobbit, The Lord of the Rings and its Appendices, Unfinished Tales); each place links to its <a href="https://tolkiengateway.net" target="_blank" rel="noopener">Tolkien Gateway</a> article. The map is an original drawing at roughly one unit per mile; positions of minor places marked “approximate” are best estimates from the text.</p>
+    <p class="src">Descriptions and dates draw on Tolkien's texts (The Hobbit, The Lord of the Rings and its Appendices, Unfinished Tales); each place links to its <a href="https://tolkiengateway.net" target="_blank" rel="noopener">Tolkien Gateway</a> article. This is a schematic drawing with uneven regional scale. Distance estimates use a nominal mile per map unit, rounded to about two significant figures; they are not measured road lengths. Small interiors are spread apart for readability. Places marked “approximate” have additionally uncertain positions.</p>
     <div class="oss-links" aria-label="Open-source project links">
       <a href="https://github.com/bndkts/middle-earth-atlas" target="_blank" rel="noopener">GitHub repository ↗</a>
       <a href="https://github.com/bndkts/middle-earth-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute ↗</a>
@@ -773,11 +775,12 @@ function selectPlace(p, opt={}){
   lodPass();
 }
 function nearby(p, n=6){ return PLACES.filter(o => o !== p && !o._area && o.k <= 3).map(o => [Math.hypot(o.x-p.x, o.y-p.y), o]).sort((a,b) => a[0]-b[0]).slice(0, n); }
-function journeysThrough(p){ const out = []; JOURNEYS.forEach(j => { const legs = j.legs.filter(l => Math.hypot(l.x - p.x, l.y - p.y) < 14 || norm(l.place).includes(p._n)); if (legs.length) out.push([j, legs[0]]); }); return out; }
+function journeysThrough(p){ const out = []; JOURNEYS.forEach(j => { const legs = j.legs.filter(l => l.placeId === p.id); if (legs.length) out.push([j, legs[0]]); }); return out; }
 function renderPlace(p){
   const el = $('#m-place');
   const alts = (p.alt||[]).length ? `<div class="alts">${esc(p.alt.join(' · '))}</div>` : '';
-  const when = (p.f != null || p.to != null) ? `<dt>Existed</dt><dd>${p.fi ? 'c. ' : ''}${p.f != null ? ageLabel(p.f) : '—'} → ${p.to != null ? ageLabel(p.to) : 'present (T.A. 3019)'}${p.fi ? ' <span class="sub">(approximate)</span>' : ''}</dd>` : '';
+  const periodLabel = p.t === 'battle' ? 'Event period' : p.t === 'realm' ? 'Realm period' : p.t === 'ruin' ? 'Before ruin' : 'Recorded period';
+  const when = (p.f != null || p.to != null) ? `<dt>${periodLabel}</dt><dd>${p.fi ? 'c. ' : ''}${p.f != null ? ageLabel(p.f) : 'unknown start'} → ${p.to != null ? ageLabel(p.to) : 'no recorded end'}${p.fi ? ' <span class="sub">(estimated)</span>' : ''}</dd>` : '';
   const pp = (p.pp||[]).length ? `<dt>Peoples</dt><dd>${esc(p.pp.join(', '))}</dd>` : '';
   const ev = (p.ev||[]).length ? `<div class="orn"><span>Chronicle</span></div><ul class="evl">${p.ev.map(e => `<li><b>${esc(ageLabel(e.y))}</b>${esc(e.t)}</li>`).join('')}</ul>` : '';
   const jt = journeysThrough(p);
@@ -805,7 +808,7 @@ function renderPlace(p){
     <dl class="kv">${when}${pp}<dt>Attested in</dt><dd>${esc({Hobbit:'The Hobbit',LotR:'The Lord of the Rings',Silm:'The Silmarillion',UT:'Unfinished Tales',HoME:'The History of Middle-earth',Letters:'Letters of J.R.R. Tolkien'}[p.c] || p.c || '—')}</dd></dl>
     ${ev}${jr}
     <div class="orn"><span>Nearby</span></div>
-    <div class="list">${nb.map(([d, o]) => rowHTML(o, `<span class="dist">${fmtNum(d)} mi</span>`)).join('')}</div>
+    <div class="list">${nb.map(([d, o]) => rowHTML(o, distanceEligible(p) && distanceEligible(o) ? `<span class="dist">${estimateLabel(d)} mi on map</span>` : '')).join('')}</div>
     ${src ? `<p class="src" style="margin-top:12px">Source: <a href="${esc(src)}" target="_blank" rel="noopener">${esc(decodeURIComponent(src.replace(TG,'')).replace(/_/g,' '))} — Tolkien Gateway</a></p>` : ''}`;
 }
 $('#m-place').addEventListener('click', e => {
@@ -849,12 +852,15 @@ $('#m-layers').addEventListener('click', e => {
 });
 function openLayers(){ renderLayers(); mode('layers'); if (sheetState === 'peek') setSheet('half'); }
 $('#layersbtn').onclick = openLayers;
-function catmull(pts){ if (pts.length < 2) return ''; const P = [pts[0], ...pts, pts[pts.length-1]]; let d = `M${P[1].x},${P[1].y}`; for (let i = 1; i < P.length - 2; i++) { const p0=P[i-1],p1=P[i],p2=P[i+1],p3=P[i+2]; d += ` C${p1.x+(p2.x-p0.x)/6},${p1.y+(p2.y-p0.y)/6} ${p2.x-(p3.x-p1.x)/6},${p2.y-(p3.y-p1.y)/6} ${p2.x},${p2.y}`; } return d; }
+// A leg's optional via points describe the approach from the preceding waypoint.
+function routePoints(legs){ return legs.flatMap((l, i) => i ? [...(l.via || []), l] : [l]); }
+function routePath(legs){ return routePoints(legs).map((p, i) => `${i ? 'L' : 'M'}${p.x},${p.y}`).join(' '); }
+function routeDistance(legs){ const pts = routePoints(legs); return pts.reduce((d, p, i) => i ? d + Math.hypot(p.x - pts[i-1].x, p.y - pts[i-1].y) : 0, 0); }
 function drawJourneys(){
   let html = '';
   JOURNEYS.forEach(j => {
     if (!LAYERS.journeys[j.id]) return;
-    const d = catmull(j.legs);
+    const d = routePath(j.legs);
     html += `<path class="jr-glow" d="${d}"/><path class="jr" d="${d}" style="stroke:${j.color}"/>` + j.legs.map(l => `<circle class="jr-pt" cx="${l.x}" cy="${l.y}" r="2.2" style="stroke:${j.color}"/>`).join('');
   });
   $('#jlayer') && $('#jlayer').remove();
@@ -866,10 +872,11 @@ function openJourney(id){
   const j = JOURNEYS.find(x => x.id === id); if (!j) return;
   LAYERS.journeys[id] = true; applyLayers();
   const el = $('#m-journey');
-  const total = j.legs.reduce((a, l, i) => i ? a + Math.hypot(l.x - j.legs[i-1].x, l.y - j.legs[i-1].y) : 0, 0);
+  const total = routeDistance(j.legs);
   el.innerHTML = `<button class="back" data-back>${ico('back')} Back</button>
     <div class="ph"><div class="big" style="background:${j.color};color:#fff;border-color:transparent">${ico('route')}</div><div class="t"><h1>${esc(j.name)}</h1><div class="alts">${esc(j.who || '')}</div></div></div>
-    <div class="stat"><div><b>${fmtNum(total)} mi</b><small>waypoint to waypoint</small></div><div><b>${j.legs.length}</b><small>waypoints · ${esc(j.legs[0].date.replace(/^\d+ \w+ /,''))}</small></div></div>
+    <div class="stat"><div><b>${estimateLabel(total)} mi</b><small>schematic route estimate</small></div><div><b>${j.legs.length}</b><small>waypoints · ${esc(j.legs[0].date.replace(/^\d+ \w+ /,''))}</small></div></div>
+    <p class="src">The line joins the recorded waypoints and any mapped detours. Its estimated length uses the map's uneven scale; unrecorded bends and terrain are not represented.</p>
     <div class="actions" style="grid-template-columns:1fr 1fr"><button class="abtn primary" data-play>${ico('play')}Follow the road</button><button class="abtn" data-hidej>${ico('x')}Hide route</button></div>
     <ul class="evl" id="jlegs">${j.legs.map((l, i) => `<li data-leg="${i}" style="cursor:pointer"><b>${esc(l.date)}</b>${esc(l.place)}${l.note ? `<span class="sub"> — ${esc(l.note)}</span>` : ''}</li>`).join('')}</ul>`;
   el.dataset.j = id; mode('journey'); if (sheetState === 'peek') setSheet('half');
@@ -894,8 +901,8 @@ function setWaypoint(j, i){
   wpEl.style.setProperty('--jc', j.color);
   wpEl.querySelector('b').textContent = l.place; wpEl.querySelector('small').textContent = l.date;
   hovRef.wp = l; wpEl.classList.add('on'); placeMarkers(true);
-  const n = norm(l.place); wpMk = MK.find(m => m.p._n === n || m.p._alts.includes(n)); if (wpMk) wpMk.el.classList.add('hl');
-  if (i > 0) { const g = document.createElementNS('http://www.w3.org/2000/svg', 'path'); g.id = 'jprog'; g.setAttribute('class', 'jr-prog'); g.setAttribute('d', catmull(j.legs.slice(0, i + 1))); g.style.stroke = j.color; dyn.appendChild(g); }
+  wpMk = MK.find(m => m.p.id === l.placeId); if (wpMk) wpMk.el.classList.add('hl');
+  if (i > 0) { const g = document.createElementNS('http://www.w3.org/2000/svg', 'path'); g.id = 'jprog'; g.setAttribute('class', 'jr-prog'); g.setAttribute('d', routePath(j.legs.slice(0, i + 1))); g.style.stroke = j.color; dyn.appendChild(g); }
 }
 function highlightLeg(i){ $$('#jlegs li').forEach((li, k) => li.style.background = k === i ? 'var(--accent-soft)' : ''); const li = $$('#jlegs li')[i]; if (li && sheetState !== 'peek') li.scrollIntoView({ block: 'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
   const j = JOURNEYS.find(x => x.id === $('#m-journey').dataset.j); if (j) setWaypoint(j, i); }
@@ -905,6 +912,9 @@ function stopPlay(){ if (playTimer) { clearTimeout(playTimer); playTimer = null;
 function clearWaypoint(){ setWaypoint(null); $$('#jlegs li').forEach(li => li.style.background = ''); }
 
 // ---------- directions ----------
+function distanceEligible(p){ return !!p && !p._area && p.k < 4 && !['house','hall','inn','tomb','gate'].includes(p.t) && !['white-tower','court-of-the-fountain','citadel','the-hallow'].includes(p.id); }
+function estimateLabel(d){ return d > 0 && d < 1 ? '≈ less than 1' : '≈ ' + Number(d.toPrecision(2)).toLocaleString('en-US'); }
+function roadDays(distance, pace){ return distance * (4 / 3) / pace; }
 let dirA = null, dirB = null, dirPick = null;
 function openDirections(a, b){ if (a) dirA = a; if (b) dirB = b; renderDirections(); mode('dir'); if (sheetState === 'peek') setSheet('half'); drawDir(); }
 function setDirSlot(slot, p){ if (slot === 'a') dirA = p; else dirB = p; dirPick = null; q.value = ''; qclear.classList.remove('on'); q.blur(); renderDirections(); mode('dir'); drawDir(); }
@@ -919,13 +929,21 @@ function drawDir(){
   const vw = viewport.width, vh = isDesktop() ? viewport.height : viewport.height * 0.5;
   flyTo(cx, cy, Math.min(V.max, Math.max(V.min, Math.min(vw, vh) / span)));
 }
-function journeyRoad(a, b){ // road distance along a journey if both places are waypoints
+function journeyRoad(a, b){ // Mapped segment only; repeated visits choose the shortest intervening segment.
   const out = [];
+  if (a.id === b.id || !distanceEligible(a) || !distanceEligible(b)) return out;
   JOURNEYS.forEach(j => {
-    const ia = j.legs.findIndex(l => Math.hypot(l.x-a.x, l.y-a.y) < 14), ib = j.legs.findIndex(l => Math.hypot(l.x-b.x, l.y-b.y) < 14);
-    if (ia < 0 || ib < 0 || ia === ib) return; const [s, e] = ia < ib ? [ia, ib] : [ib, ia];
-    let d = 0; for (let i = s + 1; i <= e; i++) d += Math.hypot(j.legs[i].x - j.legs[i-1].x, j.legs[i].y - j.legs[i-1].y);
-    out.push([j, d, j.legs[s].date, j.legs[e].date]);
+    let best = null;
+    j.legs.forEach((la, ia) => {
+      if (la.placeId !== a.id) return;
+      j.legs.forEach((lb, ib) => {
+        if (lb.placeId !== b.id) return;
+        const [s, e] = ia < ib ? [ia, ib] : [ib, ia];
+        const d = routeDistance(j.legs.slice(s, e + 1));
+        if (!best || d < best[1]) best = [j, d, j.legs[s].date, j.legs[e].date];
+      });
+    });
+    if (best) out.push(best);
   });
   return out;
 }
@@ -935,19 +953,19 @@ function renderDirections(){
   let stats = '';
   if (dirA && dirB) {
     const d = Math.hypot(dirA.x - dirB.x, dirA.y - dirB.y);
-    const days = (mpd) => { const v = d / mpd; return v < 1 ? 'less than a day' : (v < 2 ? '1 day' : `${Math.round(v)} days`); };
+    const days = (mpd) => { const v = roadDays(d, mpd); return v === 0 ? '0 days' : v < 1 ? 'less than a day' : `about ${Math.round(v)} ${Math.round(v) === 1 ? 'day' : 'days'}`; };
     const roads = journeyRoad(dirA, dirB);
-    stats = `<div class="stat"><div><b>${fmtNum(d)} mi</b><small>as the Eagle flies · ${fmtNum(d*1.609)} km</small></div><div><b>${fmtNum(d/3)}</b><small>leagues</small></div></div>
-      <h3>Travel time, by road (add a third for the winding way)</h3>
+    stats = !distanceEligible(dirA) || !distanceEligible(dirB) ? `<p class="src">Distances and travel times are unavailable for area labels and small sites or interiors shown at an enlarged scale. Choose nearby towns or other major landmarks for a rough map estimate.</p>` : `<div class="stat"><div><b>${estimateLabel(d)} mi</b><small>straight line on this map · ${estimateLabel(d*1.609344)} km</small></div><div><b>${estimateLabel(d/3)}</b><small>leagues</small></div></div>
+      <p class="src">A rough estimate from this schematic map, whose regional scale varies.${dirA.ap || dirB.ap ? ' At least one endpoint also has an uncertain position.' : ''}</p>
+      <h3>Illustrative travel time</h3>
+      <p class="src">Assumes a road one third longer than the map's straight line (${estimateLabel(d*4/3)} mi). No road network, mountain crossings, delays or rest days are calculated.</p>
       <div class="trav">
-        <div><span>On foot, a hobbit's pace (18 mi/day)</span><b>${days(18)}</b></div>
-        <div><span>Riding, easy stages (40 mi/day)</span><b>${days(40)}</b></div>
-        <div><span>Riding hard, as the Rohirrim (100 mi/day)</span><b>${days(100)}</b></div>
-        <div><span>On Shadowfax (150 mi/day)</span><b>${days(150)}</b></div>
-        <div><span>Great Eagle</span><b>${d < 300 ? 'a few hours' : (d < 900 ? 'a day' : 'two days')}</b></div>
+        <div><span>Walking scenario (18 mi/day)</span><b>${days(18)}</b></div>
+        <div><span>Riding scenario (40 mi/day)</span><b>${days(40)}</b></div>
+        <div><span>Fast riding scenario (60 mi/day)</span><b>${days(60)}</b></div>
       </div>
-      ${roads.length ? `<h3>As the story went</h3><div class="trav">${roads.map(([j, rd, d1, d2]) => `<div><span style="color:${j.color}">${esc(j.name)}</span><b>${fmtNum(rd)} mi · ${esc(d1)} → ${esc(d2)}</b></div>`).join('')}</div>` : ''}
-      <p class="src">Paces after Tolkien's own reckonings: the Fellowship walked about 18–20 miles a day; Théoden's host rode 100 miles a day from Dunharrow to Minas Tirith; Shadowfax bore Gandalf some 450 miles in three nights.</p>`;
+      ${roads.length ? `<h3>Mapped journey segments</h3><div class="trav">${roads.map(([j, rd, d1, d2]) => `<div><span style="color:${j.color}">${esc(j.name)}</span><b>${estimateLabel(rd)} mi · ${esc(d1)} → ${esc(d2)}</b></div>`).join('')}</div><p class="src">Dates follow the journey's chronology, including when the selected endpoints are reversed. Repeated visits use the shortest mapped segment.</p>` : ''}
+      <p class="src">These paces are illustrative assumptions, not fixed speeds established by Tolkien for peoples, armies or individual characters.</p>`;
   }
   el.innerHTML = `<button class="back" data-back>${ico('back')} Back</button><h2>Directions</h2>
     <div class="dirbox" style="margin-top:8px"><span class="dot"></span>${slot('a', dirA)}<span class="vl"></span><button class="pill" data-swap style="justify-self:start">${ico('swap')} swap</button><span class="dot b"></span>${slot('b', dirB)}</div>
@@ -969,10 +987,11 @@ function cancelTimelineUpdate(){
   clearTimeout(timelinePanelTimer);
   timelineFrame = null; timelinePanelTimer = null;
 }
-tl.value = 400 + 3019 / 3141 * 600;
-// slider 0..1000 <-> abs year, piecewise: [0,80] YT/FA (-9000..-3441), [80,400] SA, [400,1000] TA..FoA 120
-function sliderToYear(v){ v = +v; if (v <= 80) return Math.round(-9000 + (v/80) * (5559)); if (v <= 400) return Math.round(-3441 + ((v-80)/320) * 3441); return Math.round(((v-400)/600) * 3141); }
-function yearToSlider(y){ if (y <= -3441) return Math.max(0, (y + 9000) / 5559 * 80); if (y <= 0) return 80 + (y + 3441) / 3441 * 320; return 400 + y / 3141 * 600; }
+const timelineEnd = Math.max(3141, ...TIMELINE.map(e => e.absoluteYear));
+tl.value = yearToSlider(3019);
+// Keep the early-age compression, but derive the final year from the data.
+function sliderToYear(v){ v = Math.max(0, Math.min(1000, +v)); if (v <= 80) return Math.round(-9000 + (v/80) * (5559)); if (v <= 400) return Math.round(-3441 + ((v-80)/320) * 3441); return Math.round(((v-400)/600) * timelineEnd); }
+function yearToSlider(y){ if (y <= -3441) return Math.max(0, (y + 9000) / 5559 * 80); if (y <= 0) return 80 + (y + 3441) / 3441 * 320; return Math.min(1000, 400 + y / timelineEnd * 600); }
 const PRESETS = [[-2691,'Rings forged'],[-1744,'Fall of Eregion'],[-121,'Arnor & Gondor founded'],[-7,'Last Alliance'],[2,'Gladden Fields'],[1409,'Angmar strikes'],[1974,'Fall of Arthedain'],[1980,'Durin\'s Bane'],[2510,'Field of Celebrant'],[2770,'Smaug'],[2941,'Five Armies'],[3019,'War of the Ring'],[3141,'Fourth Age']];
 $('#presets').innerHTML = PRESETS.map(([y, t]) => `<button class="chip" data-y="${y}">${esc(t)}</button>`).join('');
 $('#presets').addEventListener('click', e => { const b = e.target.closest('[data-y]'); if (b) { tl.value = yearToSlider(+b.dataset.y); setYear(+b.dataset.y); } });
@@ -990,12 +1009,17 @@ tl.addEventListener('input', () => {
 });
 // Commit immediately on release (also covers keyboard changes).
 tl.addEventListener('change', () => { if (tlOn) setYear(sliderToYear(tl.value)); });
-function nearEvents(y){ return TIMELINE.map(e => [Math.abs(e.y - y), e]).sort((a, b) => a[0] - b[0] || a[1].y - b[1].y).slice(0, 14).sort((a, b) => a[1].y - b[1].y); }
+function nearEvents(y){
+  const ranked = TIMELINE.map(e => [Math.abs(e.absoluteYear - y), e]).sort((a, b) => a[0] - b[0] || a[1].absoluteYear - b[1].absoluteYear);
+  // Do not silently drop later events in a busy year (3019 has 36).
+  const count = Math.max(14, ranked.filter(([d]) => d === 0).length);
+  return ranked.slice(0, count).sort((a, b) => a[1].absoluteYear - b[1].absoluteYear);
+}
 function setYear(y, deferPanel = false){
   cancelTimelineUpdate();
   tlYear = y; $('#tlyear').textContent = ageLabel(y);
   const ne = nearEvents(y); const exact = ne.filter(([d]) => d === 0);
-  $('#tlnear').textContent = exact.length ? exact[0][1].title : (ne[0] ? `nearest: ${ne[0][1].title} (${ageLabel(ne[0][1].y)})` : '');
+  $('#tlnear').textContent = exact.length ? `${exact.length} events in this year` : (ne[0] ? `nearest: ${ne[0][1].title} (${ageLabel(ne[0][1].absoluteYear)})` : '');
   const win = new Set(ne.filter(([d]) => d <= 40).map(([, e]) => e));
   EV.forEach(({ e, el }) => el.classList.toggle('in', win.has(e)));
   updateRealms(); svgLabelLOD(); lodPass();
@@ -1009,9 +1033,9 @@ function renderTimeline(y, ne){
   const el = $('#m-tl');
   const gone = PLACES.filter(p => !placeVisibleInTime(p) && p.k <= 2).length;
   el.innerHTML = `<div class="hero"><div><div class="eyebrow">The map in</div><h1>${esc(ageLabel(y))}</h1></div><button class="pill" data-tloff>${ico('x')} leave</button></div>
-    <p class="sub" style="margin-top:4px">${gone ? `${gone} notable places do not yet exist, or lie in ruin, in this year — they are greyed on the map.` : 'Every place on the map stands in this year.'} Drag the slider or pick a moment below.</p>
+    <p class="sub" style="margin-top:4px">${gone ? `${gone} notable entries fall outside their recorded period and are greyed on the map. A ruined site or former realm can still exist geographically.` : 'No notable entries fall outside their recorded periods.'} Undated entries remain visible. Drag the slider or pick a moment below.</p>
     <div class="orn"><span>Events near this year</span></div>
-    <ul class="evl">${ne.map(([d, e]) => `<li data-ev="${TIMELINE.indexOf(e)}" style="cursor:pointer;${d===0?'background:var(--accent-soft);border-radius:8px':''}"><b>${esc(ageLabel(e.y))}${e.date ? ' · ' + esc(e.date) : ''}</b>${esc(e.title)}<span class="sub"> — ${esc(e.place)}</span></li>`).join('')}</ul>`;
+    <ul class="evl">${ne.map(([d, e]) => `<li data-ev="${TIMELINE.indexOf(e)}" style="cursor:pointer;${d===0?'background:var(--accent-soft);border-radius:8px':''}"><b>${esc(e.timeLabel || ageLabel(e.absoluteYear))}${e.date ? ' · ' + esc(e.date) : ''}</b>${esc(e.title)}<span class="sub"> — ${esc(e.place)}</span></li>`).join('')}</ul>`;
 }
 $('#m-tl').addEventListener('click', e => {
   if (e.target.closest('[data-tloff]')) return setTimeline(false);
@@ -1019,10 +1043,10 @@ $('#m-tl').addEventListener('click', e => {
 });
 function showEvent(ev){
   if (!tlOn) setTimeline(true);
-  tl.value = yearToSlider(ev.y); tlYear = ev.y; setYear(ev.y);
+  tl.value = yearToSlider(ev.absoluteYear); setYear(ev.absoluteYear);
   const el = $('#m-tl');
   const src = ev.src ? (ev.src.startsWith('tg:') ? TG + ev.src.slice(3) : ev.src) : null;
-  el.insertAdjacentHTML('afterbegin', `<div style="background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:12px"><div class="eyebrow">${esc(ageLabel(ev.y))}${ev.date ? ' · ' + esc(ev.date) : ''}</div><h3 style="font-size:16px;margin:4px 0 6px">${esc(ev.title)}</h3><p style="margin:0 0 6px;font-size:15px">${esc(ev.text)}</p><div class="pills"><span class="pill">${esc(ev.place)}</span>${src ? `<a class="pill" href="${esc(src)}" target="_blank" rel="noopener">Tolkien Gateway ↗</a>` : ''}</div></div>`);
+  el.insertAdjacentHTML('afterbegin', `<div style="background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:12px"><div class="eyebrow">${esc(ev.timeLabel || ageLabel(ev.absoluteYear))}${ev.date ? ' · ' + esc(ev.date) : ''}</div><h3 style="font-size:16px;margin:4px 0 6px">${esc(ev.title)}</h3><p style="margin:0 0 6px;font-size:15px">${esc(ev.text)}</p><div class="pills"><span class="pill">${esc(ev.place)}</span>${ev.approximate ? '<span class="pill">Approximate map location</span>' : ''}${src ? `<a class="pill" href="${esc(src)}" target="_blank" rel="noopener">Tolkien Gateway ↗</a>` : ''}</div></div>`);
   mode('tl'); if (sheetState === 'peek') setSheet('half');
   flyTo(ev.x, ev.y, Math.max(V.s, 1.4));
 }

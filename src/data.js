@@ -709,7 +709,7 @@ window.ATLAS_DATA = {
       "x": 706,
       "y": 906,
       "k": 3,
-      "d": "The site at Bywater's crossroads where, on 3 November T.A. 3019, an army of some hundred Hobbits led by Merry Brandybuck and Pippin Took ambushed and defeated Sharkey's ruffians, killing nineteen for the loss of nineteen Hobbits — the last battle fought in the Shire and the climax of its Scouring.",
+      "d": "On a banked stretch of the Bywater Road on 3 November T.A. 3019, Hobbits led by Merry and Pippin trapped Sharkey's ruffians. Nearly seventy ruffians were killed and twelve captured; nineteen Hobbits died and about thirty were wounded. This was the last battle of the War of the Ring.",
       "ev": [
         {
           "y": 3019,
@@ -2280,9 +2280,9 @@ window.ATLAS_DATA = {
         "Barrow-wight's mound"
       ],
       "t": "tomb",
-      "r": "Old Forest",
-      "x": 792,
-      "y": 913,
+      "r": "Barrow-downs",
+      "x": 814,
+      "y": 905,
       "k": 3,
       "d": "The largest and most feared of the Barrow-downs' mounds, haunted by a Barrow-wight that entrapped Frodo, Sam, Merry and Pippin in T.A. 3018, dressing them as if for burial with ancient treasure. Tom Bombadil banished the wight and gave each Hobbit a barrow-blade from its hoard, one of which Merry later used to help wound the Witch-king at the Pelennor Fields.",
       "ev": [
@@ -3409,7 +3409,7 @@ window.ATLAS_DATA = {
       "x": 572,
       "y": 760,
       "k": 2,
-      "d": "Fair halls delved into the eastern face of the southern Blue Mountains, founded c. T.A. 2802 by Thráin II after Durin's Folk fled the Grey Mountains, with stores of goods and a forge where Thorin Oakenshield himself worked iron. Most of its people departed for Erebor after the Battle of Five Armies, but the halls remained a Dwarf-settlement under Durin's line into the Fourth Age.",
+      "d": "Halls established by Thráin II in T.A. 2802 in the eastern side of the southern Ered Luin after the wandering years following the loss of Erebor. Thorin worked iron here before his quest. The exact location is unrecorded, and whether the description places them north or south of the Gulf of Lune is debated; the marker is conjectural.",
       "ev": [
         {
           "y": 2802,
@@ -3474,7 +3474,7 @@ window.ATLAS_DATA = {
       "t": "ruin",
       "r": "Blue Mountains",
       "x": 566,
-      "y": 876,
+      "y": 830,
       "k": 3,
       "d": "The greater of the two First Age Dwarf-cities beneath the Blue Mountains, home of the Broadbeam clan, whose warriors under Azaghâl of Belegost fought and wounded Glaurung the dragon at the Nirnaeth Arnoediad. Broken like Nogrod by the War of Wrath, its ruins lie forgotten beneath the mountains by the Third Age.",
       "ev": [
@@ -3568,13 +3568,13 @@ window.ATLAS_DATA = {
       "x": 820,
       "y": 785,
       "k": 2,
-      "d": "'Royal Fornost', the later capital of Arnor and then of Arthedain, on the North Downs about a hundred miles north of Bree. Captured and burned by the Witch-king in T.A. 1974, it was avenged the next year when Eärnur's host broke Angmar on the plain before its gates; feared afterward as 'Deadmen's Dike', it lies in ruin at the end of the Third Age.",
+      "d": "'Royal Fornost', the later capital of Arnor and then of Arthedain, on the North Downs about a hundred miles north of Bree. Captured by the Witch-king in T.A. 1974, it was avenged the next year when Eärnur's host broke Angmar on the plain before its gates; feared afterward as 'Deadmen's Dike', it lies in ruin at the end of the Third Age.",
       "ev": [
         {
           "y": 1974,
           "a": "TA",
           "yr": 1974,
-          "t": "The Witch-king storms and burns Fornost; King Arvedui flees north."
+          "t": "The Witch-king captures Fornost; King Arvedui flees north."
         },
         {
           "y": 1975,
@@ -4397,14 +4397,8 @@ window.ATLAS_DATA = {
       "x": 1090,
       "y": 650,
       "k": 2,
-      "d": "A three-peaked mountain at the northern end of the Misty Mountains, sacred to the Dwarves as the place where Durin the Deathless, eldest of their Fathers, is said to have first awoken. Seized by Orcs after Sauron's assault on Khazad-dûm around S.A. 1697, it became their northern stronghold and capital, fought over again in the War of the Dwarves and Orcs and at the Battle of Five Armies.",
+      "d": "A three-peaked mountain at the northern end of the Misty Mountains, sacred to the Dwarves as the place where Durin the Deathless, eldest of their Fathers, is said to have first awoken. Seized by Orcs after Sauron's assault on Khazad-dûm in S.A. 1697 (the sacking itself is undated), it became their northern stronghold and capital, fought over again in the War of the Dwarves and Orcs and at the Battle of Five Armies.",
       "ev": [
-        {
-          "y": -1744,
-          "a": "SA",
-          "yr": 1697,
-          "t": "First Sacking of Gundabad by Orcs."
-        },
         {
           "y": 2793,
           "a": "TA",
@@ -4819,7 +4813,7 @@ window.ATLAS_DATA = {
       "x": 1215,
       "y": 1095,
       "k": 1,
-      "d": "The greatest mansion of the Dwarves, delved by Durin the Deathless beneath the Misty Mountains and once the wonder of the western world for its mithril and its craftsmanship. Abandoned after a Balrog was delved into in T.A. 1980, briefly recolonised by Balin in T.A. 2989–2994, it is a haunt of Orcs and worse by the time the Fellowship crosses it in T.A. 3019.",
+      "d": "The greatest mansion of the Dwarves, delved by Durin beneath the Misty Mountains. The Balrog killed Durin VI in T.A. 1980 and Náin I in 1981, after which the Dwarves fled. Balin briefly recolonised it in 2989–2994. It is a haunt of Orcs and worse when the Fellowship crosses it in 3019.",
       "ev": [
         {
           "y": -9030,
@@ -4831,7 +4825,13 @@ window.ATLAS_DATA = {
           "y": 1980,
           "a": "TA",
           "yr": 1980,
-          "t": "Dwarves delving too deep and too greedily awaken a Balrog; Durin VI is slain and Moria abandoned."
+          "t": "The Dwarves awaken a Balrog; Durin VI is slain."
+        },
+        {
+          "y": 1981,
+          "a": "TA",
+          "yr": 1981,
+          "t": "Náin I is slain; the surviving Dwarves flee Moria."
         },
         {
           "y": 2989,
@@ -5130,7 +5130,7 @@ window.ATLAS_DATA = {
         }
       ],
       "f": -9030,
-      "to": 2994,
+      "to": null,
       "pp": [
         "Dwarves"
       ],
@@ -5505,17 +5505,10 @@ window.ATLAS_DATA = {
       "x": 1088,
       "y": 648,
       "k": 4,
-      "d": "Orcs seized Mount Gundabad from the Dwarves in the years following Sauron's assault on Khazad-dûm around S.A. 1697, driving out its guardians and making the mountain their own stronghold in the north for the remainder of the Second Age and into the Third.",
-      "ev": [
-        {
-          "y": -1744,
-          "a": "SA",
-          "yr": 1697,
-          "t": "Orcs first capture Mount Gundabad from its Dwarvish keepers."
-        }
-      ],
-      "f": -1741,
-      "to": -1741,
+      "d": "After Sauron's assault on Khazad-dûm in S.A. 1697, Orcs harried the Dwarves and sacked Gundabad, beginning a long occupation. The exact year of the sacking is not recorded.",
+      "ev": [],
+      "f": null,
+      "to": null,
       "pp": [
         "Orcs",
         "Dwarves"
@@ -6356,10 +6349,10 @@ window.ATLAS_DATA = {
       "alt": [],
       "t": "gate",
       "r": "Mirkwood",
-      "x": 1305,
-      "y": 855,
+      "x": 1306,
+      "y": 826,
       "k": 3,
-      "d": "The western entrance to Mirkwood where the Old Forest Road and the Elf-path both begin, marked by two great trees leaning together like a doorway. Thorin's Company entered the forest here in T.A. 2941 against Beorn's stern warning to keep to the path at all costs.",
+      "d": "The western entrance of the Elf-path into northern Mirkwood, framed by two great trees. Thorin's Company entered here in T.A. 2941 after Beorn warned them to stay on the path. The Old Forest Road lay farther south.",
       "ev": [
         {
           "y": 2941,
@@ -6373,7 +6366,7 @@ window.ATLAS_DATA = {
       "pp": [],
       "c": "Hobbit",
       "s": "tg:Forest_Gate",
-      "ap": false,
+      "ap": true,
       "fi": false
     },
     {
@@ -6388,15 +6381,8 @@ window.ATLAS_DATA = {
       "x": 1450,
       "y": 865,
       "k": 3,
-      "d": "An ancient road built by Dwarves running east-west through the middle of Mirkwood from the Old Ford to the Long Lake, once part of a great trade route. By T.A. 2941 it was overgrown and cobwebbed, crossing the Enchanted River by a crumbling stone bridge where Thorin's Company nearly lost Bombur.",
-      "ev": [
-        {
-          "y": 2941,
-          "a": "TA",
-          "yr": 2941,
-          "t": "Bombur falls into the Enchanted River while crossing the road's bridge"
-        }
-      ],
+      "d": "The ancient Dwarf-road across Mirkwood, south of the Elf-path. By T.A. 2941 its eastern reaches were unsafe and disused; Beorn directed Thorin's Company to the northern path instead. Bombur's fall into the Enchanted River occurred on that northern journey.",
+      "ev": [],
       "f": -3440,
       "to": null,
       "pp": [],
@@ -6412,9 +6398,9 @@ window.ATLAS_DATA = {
       "t": "road",
       "r": "Mirkwood",
       "x": 1400,
-      "y": 780,
+      "y": 740,
       "k": 3,
-      "d": "A narrower, little-used track through northern Mirkwood linking the Forest Gate to the Elvenking's Halls and on toward the Long Marshes, crossed midway by a permanent ferry over the Enchanted River. Thorin's Company followed it briefly in T.A. 2941 before straying from the path and being taken by spiders and Wood-elves.",
+      "d": "A narrow path through northern Mirkwood from the Forest Gate toward the Elvenking's Halls. Thorin's Company followed it in T.A. 2941, crossing the Enchanted River in a small boat before later straying toward the Wood-elves' feasts. Its course on this map is reconstructed.",
       "ev": [],
       "f": -2691,
       "to": null,
@@ -6735,10 +6721,10 @@ window.ATLAS_DATA = {
       "alt": [],
       "t": "landmark",
       "r": "Mirkwood",
-      "x": 1350,
-      "y": 860,
+      "x": 1510,
+      "y": 725,
       "k": 4,
-      "d": "A dark stretch of Mirkwood west of the Elf-path where enormous spiders, bred in the shadow of Dol Guldur, spun thick webs between the trees and preyed on anything that strayed from the path. Bilbo Baggins fought and named his sword Sting here in T.A. 2941 while freeing Thorin's Company from their webs.",
+      "d": "A reconstructed location off the Elf-path in eastern Mirkwood, beyond the Enchanted River, where giant spiders captured Thorin's companions in T.A. 2941. Bilbo fought the spiders and named his sword Sting while rescuing the Dwarves.",
       "ev": [
         {
           "y": 2941,
@@ -7005,7 +6991,7 @@ window.ATLAS_DATA = {
       "x": 1640,
       "y": 716,
       "k": 2,
-      "d": "A great lake fed by the Forest River and drained by the River Running, lying south of Erebor between Mirkwood and the Iron Hills' foothills. Esgaroth stood on stilts in its waters, and it was here that Bard shot Smaug from a boat with the Black Arrow in T.A. 2941.",
+      "d": "A great lake fed by the Forest River and drained by the River Running, south of Erebor. Esgaroth stood on stilts in its waters. In T.A. 2941 Bard shot Smaug with the Black Arrow while defending the burning town; the dragon fell into the lake.",
       "ev": [
         {
           "y": 2941,
@@ -7133,13 +7119,13 @@ window.ATLAS_DATA = {
       "x": 1615,
       "y": 642,
       "k": 2,
-      "d": "Fought on 17 March T.A. 3019, when an army of Easterlings from Rhûn crossed the Carnen and besieged Dale and Erebor while Sauron's main strength assailed Gondor. King Brand of Dale and King Dáin II Ironfoot both fell defending the gates, but their sons won the field after three days, driving the Easterlings back east.",
+      "d": "In March T.A. 3019, Easterlings crossed the Carnen and drove Brand back to Dale. After days of fighting, Brand and Dáin II fell on 17 March; the survivors took refuge in Erebor. On 27 March, after Sauron's fall, Bard II and Thorin III broke the siege.",
       "ev": [
         {
           "y": 3019,
           "a": "TA",
           "yr": 3019,
-          "t": "Brand and Dáin II Ironfoot fall; their sons win the battle after three days"
+          "t": "17 March: Brand and Dáin II fall. On 27 March, Bard II and Thorin III break the siege."
         }
       ],
       "f": 3019,
@@ -7770,10 +7756,10 @@ window.ATLAS_DATA = {
       "alt": [],
       "t": "house",
       "r": "Fangorn",
-      "x": 1335,
-      "y": 1330,
+      "x": 1235,
+      "y": 1360,
       "k": 3,
-      "d": "Treebeard's home in eastern Fangorn, an open, roofless dwelling of living trees around a bubbling stone spring, with stores of drink and food-like liquids. Merry and Pippin stayed here as Treebeard's guests in T.A. 3019 before the great Entmoot was called at Derndingle.",
+      "d": "One of Treebeard's homes, set in the flanks of Methedras near the springs of the Entwash. Evergreen trees flank a roofless outer hall, and a stream falls across the entrance of an inner cave. Merry and Pippin stayed here with Treebeard before the Entmoot in T.A. 3019.",
       "ev": [
         {
           "y": 3019,
@@ -7789,7 +7775,7 @@ window.ATLAS_DATA = {
       ],
       "c": "LotR",
       "s": "tg:Wellinghall",
-      "ap": false,
+      "ap": true,
       "fi": true
     },
     {
@@ -10120,10 +10106,10 @@ window.ATLAS_DATA = {
       "alt": [],
       "t": "wood",
       "r": "Gondor",
-      "x": 1450,
-      "y": 1595,
+      "x": 1492,
+      "y": 1626,
       "k": 4,
-      "d": "A grey wood of ancient trees in Anórien near the Halifirien and the Drúadan Forest, passed by the Rohirrim on their secret ride to the Pelennor Fields under cover of an unnatural darkness sent from Mordor in T.A. 3019.",
+      "d": "A wood in Anórien between Mindolluin and Amon Dîn, passed by the Rohirrim on their approach to the Pelennor Fields in T.A. 3019. Its boundaries and precise position are reconstructed.",
       "ev": [],
       "f": null,
       "to": null,
@@ -11133,9 +11119,16 @@ window.ATLAS_DATA = {
       "y": 1590,
       "k": 2,
       "d": "The northern half of Ithilien, forested and hilly, holding Henneth Annûn and the Forbidden Pool, where Faramir's rangers lay hidden and where Frodo and Sam were taken captive before being freed to continue toward Mordor in T.A. 3019.",
-      "ev": [],
+      "ev": [
+        {
+          "y": 3019,
+          "a": "TA",
+          "yr": 3019,
+          "t": "Faramir's rangers ambush a Haradrim column, witnessed by Frodo and Sam."
+        }
+      ],
       "f": -121,
-      "to": 2901,
+      "to": null,
       "pp": [
         "Dúnedain"
       ],
@@ -11153,17 +11146,10 @@ window.ATLAS_DATA = {
       "x": 1570,
       "y": 1740,
       "k": 2,
-      "d": "The southern half of Ithilien, bordering Mordor's Morgul Vale and the Poros, more exposed to Sauron's forces and the Southrons of Harad marching north along the Harad Road. Sam and Frodo witnessed a skirmish between Faramir's men and a Haradrim column here.",
-      "ev": [
-        {
-          "y": 3019,
-          "a": "TA",
-          "yr": 3019,
-          "t": "Faramir's rangers ambush a Haradrim column marching north, in view of Frodo and Sam."
-        }
-      ],
+      "d": "The southern half of Ithilien, extending south from the Morgul Vale toward the Poros. The Harad Road carried Southron armies north through this contested region. After the War of the Ring, Ithilien became Faramir's princedom.",
+      "ev": [],
       "f": -121,
-      "to": 2901,
+      "to": null,
       "pp": [
         "Dúnedain"
       ],
@@ -13528,23 +13514,17 @@ window.ATLAS_DATA = {
       "x": 1458,
       "y": 2108,
       "k": 4,
-      "d": "A great white pillar crowned with a globe of crystal, raised by the followers of Elendil on the highest hill of the headland above the Haven of Umbar in memory of Ar-Pharazôn's landing in S.A. 3261 and the humbling of Sauron before him. In clear weather it shone like a star, seen from the coasts of Gondor and far out on the western sea. After Sauron's second arising, when Umbar fell under his servants, the memorial was thrown down.",
+      "d": "A white pillar with a crystal globe, built by Gondor after its capture of Umbar in T.A. 933 to commemorate Ar-Pharazôn's landing in S.A. 3261 and Sauron's submission. It was thrown down after Sauron's renewed ascendancy. The exact years of construction and destruction are not recorded.",
       "ev": [
         {
           "y": -180,
           "a": "SA",
           "yr": 3261,
-          "t": "Ar-Pharazôn lands at Umbar and Sauron submits to him."
-        },
-        {
-          "y": 2951,
-          "a": "TA",
-          "yr": 2951,
-          "t": "c. After Sauron's return, the Corsairs under his sway cast down the pillar."
+          "t": "The later monument commemorates Ar-Pharazôn's landing and Sauron's submission."
         }
       ],
-      "f": 933,
-      "to": 2951,
+      "f": null,
+      "to": null,
       "pp": [],
       "c": "LotR",
       "s": "tg:Umbar",
@@ -14413,7 +14393,7 @@ window.ATLAS_DATA = {
       "x": 819,
       "y": 786,
       "k": 2,
-      "d": "The Witch-king's capture of Fornost Erain in T.A. 1974, ending Arthedain as an independent realm. King Arvedui was driven north into the North Downs and, fleeing toward Forochel, drowned in the Ice-bay the following spring. The city lay deserted for a year until Gondor's fleet helped retake and burn it in the Battle of Fornost.",
+      "d": "The Witch-king captured Fornost in T.A. 1974, ending Arthedain. Arvedui fled north and drowned the following spring. The Witch-king occupied Fornost until Eärnur's allied host defeated his army on the plain west of the city in 1975.",
       "ev": [
         {
           "y": 1974,
@@ -14466,20 +14446,20 @@ window.ATLAS_DATA = {
       "alt": [],
       "t": "battle",
       "r": "Enedwaith",
-      "x": 828,
-      "y": 1270,
+      "x": 905,
+      "y": 1090,
       "k": 2,
-      "d": "A decisive battle of the War of the Elves and Sauron, fought in S.A. 1700 near the mouth of the Gwathló. A Númenórean fleet under Admiral Ciryatur landed at Lond Daer and struck Sauron's besieging army from the rear while Gil-galad's forces held the line of the Lhûn, utterly routing Sauron and breaking his conquest of Eriador.",
+      "d": "In the final campaign of the War of the Elves and Sauron, c. S.A. 1700–1701, the allies defeated Sauron's army near Tharbad on the Gwathló. Ciryatur sent troops ashore at Lond Daer to attack from the south-west while Elves and other Númenóreans advanced from the north. The fleet arrived in 1700; Eriador was cleared in 1701.",
       "ev": [
         {
-          "y": -1741,
+          "y": -1740,
           "a": "SA",
-          "yr": 1700,
-          "t": "Númenórean forces land at Lond Daer and rout Sauron's army from the rear, ending his conquest of Eriador."
+          "yr": 1701,
+          "t": "By 1701, victory near Tharbad and the ensuing pursuit clear Eriador of Sauron's forces."
         }
       ],
       "f": -1741,
-      "to": null,
+      "to": -1740,
       "pp": [
         "Men",
         "Dúnedain"
@@ -14661,8 +14641,8 @@ window.ATLAS_DATA = {
           "t": "Gandalf finds the dying Thráin here and receives the map and key to Erebor."
         }
       ],
-      "f": 2063,
-      "to": 2941,
+      "f": null,
+      "to": 3019,
       "pp": [
         "Nazgûl",
         "Orcs"
@@ -14682,9 +14662,16 @@ window.ATLAS_DATA = {
       "y": 622,
       "k": 4,
       "d": "A great chamber within Erebor near the Front Gate, used by King Thrór for feasts and councils of the Dwarves of Durin's Folk before the coming of Smaug in T.A. 2770. It stood among the upper halls of the Lonely Mountain, close to the great forges and treasuries.",
-      "ev": [],
+      "ev": [
+        {
+          "y": 2941,
+          "a": "TA",
+          "yr": 2941,
+          "t": "Thorin and Company pass through the ruined chamber toward the Front Gate."
+        }
+      ],
       "f": 1999,
-      "to": 2770,
+      "to": null,
       "pp": [
         "Dwarves"
       ],
@@ -14762,7 +14749,7 @@ window.ATLAS_DATA = {
       "x": 1622,
       "y": 646,
       "k": 4,
-      "d": "A stone bridge over the River Running just before its great eastward loop, at the point where the road from Lake-town divides toward the gates of Dale and toward Ravenhill. Bard's company crossed it in T.A. 2941 on their way to challenge the awakened Smaug and later to treat with Thorin's company.",
+      "d": "A bridge over the River Running on the approach to Dale and Erebor. After Smaug's death in T.A. 2941, the Men of Lake-town and the Wood-elves approached the Mountain to seek a share of its treasure. Its precise position on this map is reconstructed.",
       "ev": [],
       "f": null,
       "to": null,
@@ -14836,7 +14823,7 @@ window.ATLAS_DATA = {
       "x": 1647,
       "y": 705,
       "k": 4,
-      "d": "The largest and finest house of Lake-town, standing among the greatest dwellings by the market-place, home to the elected Master of Esgaroth. Here Thorin's company was feasted as guests in T.A. 2941, and here the cowardly Master who succeeded Bard later fled with stolen gold, to die of starvation in the Waste.",
+      "d": "The Master's dwelling beside Lake-town's market-place. The Master welcomed Thorin's company in T.A. 2941. After Smaug destroyed the town, that same Master stole gold Bard had given for relief and fled into the wild, where he died of hunger. Bard became King of Dale, never Master of Lake-town.",
       "ev": [],
       "f": null,
       "to": null,
@@ -14886,7 +14873,7 @@ window.ATLAS_DATA = {
       "x": 1480,
       "y": 1050,
       "k": 2,
-      "d": "Fought in T.A. 1856 on the open plains south of Mirkwood, where the Wainriders of Rhûn overwhelmed the army of Gondor under King Narmacil II, who was slain in the rout. Though Gondorian forces under Minohtar managed to check the invaders from advancing further, the eastern lands beyond the Anduin, save Ithilien, were abandoned by Gondor in the aftermath.",
+      "d": "Fought in T.A. 1856 on the plains south of Mirkwood, where the Wainriders defeated Gondor and its Northmen allies. Narmacil II was slain; Marhari died defending the retreat. The survivors withdrew through Dagorlad into Ithilien. Gondor abandoned its other lands east of the Anduin.",
       "ev": [
         {
           "y": 1856,
@@ -15497,7 +15484,7 @@ window.ATLAS_DATA = {
       "x": 1505,
       "y": 1566,
       "k": 3,
-      "d": "On 10 March T.A. 3019, more than six thousand Orcs and Men sent from the Morannon overwhelmed the small Gondorian garrison of Cair Andros and used the island to cross the Anduin into Anórien. Éomer's Riders of Rohan cleared the crossing days later, and by 23 March Aragorn had sent men to fully retake the island.",
+      "d": "On 10 March T.A. 3019, Sauron's forces captured Cair Andros and crossed into Anórien. After the Pelennor battle, Elfhelm's riders drove the invaders out of Anórien toward the island. On the march to the Morannon, Aragorn separately sent men back to retake and hold Cair Andros.",
       "ev": [
         {
           "y": 3019,
@@ -15556,7 +15543,7 @@ window.ATLAS_DATA = {
       "x": 1506,
       "y": 1636,
       "k": 1,
-      "d": "On 13–14 March T.A. 3019 the Witch-king's host, having broken the Rammas Echor, encircled Minas Tirith and battered its Great Gate with the ram Grond, breaching it as Denethor's will to resist failed on hearing of Faramir's wounding. The siege was broken only by the arrival of the Rohirrim, opening the Battle of the Pelennor Fields.",
+      "d": "After overrunning the Pelennor on 13 March T.A. 3019, the Witch-king's host besieged Minas Tirith on 14 March. Grond broke the Great Gate at dawn on 15 March, as the Rohirrim arrived. The allied victory at the Pelennor that day relieved the city.",
       "ev": [
         {
           "y": 3019,
@@ -15586,13 +15573,13 @@ window.ATLAS_DATA = {
       "x": 1519,
       "y": 1789,
       "k": 2,
-      "d": "On the night of 20 March T.A. 3019, Aragorn and the Grey Company, riding with the Oathbreaker Army of the Dead, fell upon the Corsairs of Umbar besieging Pelargir and routed them in terror. At the river's edge Aragorn released the Dead from their ancient oath, then sailed the captured black ships up the Anduin to relieve Minas Tirith.",
+      "d": "On 13 March T.A. 3019, Aragorn and the Grey Company reached Pelargir with the Army of the Dead and captured the Corsairs' fleet. Aragorn released the Dead, gathered living reinforcements and sailed the captured ships up the Anduin, reaching Minas Tirith on 15 March.",
       "ev": [
         {
           "y": 3019,
           "a": "TA",
           "yr": 3019,
-          "t": "Aragorn and the Army of the Dead destroy the Corsair fleet at Pelargir"
+          "t": "13 March: Aragorn captures the Corsair fleet with the Army of the Dead."
         }
       ],
       "f": 3019,
@@ -15630,7 +15617,7 @@ window.ATLAS_DATA = {
         }
       ],
       "f": 2758,
-      "to": 2758,
+      "to": 2759,
       "pp": [
         "Rohirrim",
         "Dunlendings"
@@ -15665,7 +15652,7 @@ window.ATLAS_DATA = {
         }
       ],
       "f": 2758,
-      "to": 2758,
+      "to": 2759,
       "pp": [
         "Rohirrim",
         "Dunlendings"
@@ -15743,213 +15730,250 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Hobbiton (Bag End)",
-          "x": 700,
-          "y": 900,
+          "x": 698,
+          "y": 898,
           "date": "23 Sep T.A. 3018",
-          "note": "Frodo, Sam and Pippin leave Bag End at dusk as a Black Rider comes to Hobbiton"
+          "note": "Frodo, Sam and Pippin leave Bag End at dusk as a Black Rider comes to Hobbiton",
+          "placeId": "bag-end"
         },
         {
           "place": "Green Hill Country",
-          "x": 716,
-          "y": 917,
+          "x": 695,
+          "y": 938,
           "date": "24 Sep T.A. 3018",
-          "note": "The hobbits cut across country south-east; a Black Rider sniffs along the road"
+          "note": "The hobbits cut across country south-east; a Black Rider sniffs along the road",
+          "placeId": "green-hill-country",
+          "approximate": true
         },
         {
           "place": "Woody End",
           "x": 738,
           "y": 922,
           "date": "24 Sep T.A. 3018",
-          "note": "Meeting with Gildor Inglorion and the High Elves; night in the elves' hall"
+          "note": "Meeting with Gildor Inglorion and the High Elves; night in the elves' hall",
+          "approximate": true
         },
         {
           "place": "Bamfurlong (Farmer Maggot's farm)",
-          "x": 750,
-          "y": 923,
+          "x": 744,
+          "y": 942,
           "date": "25 Sep T.A. 3018",
-          "note": "Farmer Maggot gives supper and drives them in his waggon to the Ferry"
+          "note": "Farmer Maggot gives supper and drives them in his waggon to the Ferry",
+          "placeId": "bamfurlong",
+          "approximate": true
         },
         {
           "place": "Bucklebury Ferry",
-          "x": 757,
-          "y": 917,
+          "x": 758,
+          "y": 916,
           "date": "25 Sep T.A. 3018",
-          "note": "Merry meets them; a Black Rider watches from the far bank"
+          "note": "Merry meets them; a Black Rider watches from the far bank",
+          "placeId": "bucklebury-ferry"
         },
         {
           "place": "Crickhollow",
-          "x": 765,
-          "y": 910,
+          "x": 770,
+          "y": 905,
           "date": "25 Sep T.A. 3018",
-          "note": "Frodo's new house in Buckland; the conspiracy is unmasked"
+          "note": "Frodo's new house in Buckland; the conspiracy is unmasked",
+          "placeId": "crickhollow",
+          "approximate": true
         },
         {
           "place": "Old Forest (gate in the High Hay)",
-          "x": 769,
-          "y": 913,
+          "x": 773,
+          "y": 914,
           "date": "26 Sep T.A. 3018",
-          "note": "The four hobbits enter the Old Forest at dawn"
+          "note": "The four hobbits enter the Old Forest at dawn",
+          "placeId": "hay-gate",
+          "approximate": true
         },
         {
           "place": "Withywindle / Old Man Willow",
-          "x": 775,
-          "y": 915,
+          "x": 786,
+          "y": 925,
           "date": "26 Sep T.A. 3018",
-          "note": "Merry and Pippin swallowed by Old Man Willow; Tom Bombadil rescues them"
+          "note": "Merry and Pippin swallowed by Old Man Willow; Tom Bombadil rescues them",
+          "placeId": "old-man-willow",
+          "approximate": true
         },
         {
           "place": "Tom Bombadil's house",
-          "x": 778,
-          "y": 908,
+          "x": 799,
+          "y": 910,
           "date": "26–28 Sep T.A. 3018",
-          "note": "Two nights with Tom Bombadil and Goldberry"
+          "note": "Two nights with Tom Bombadil and Goldberry",
+          "placeId": "tom-bombadils-house"
         },
         {
           "place": "Barrow-downs",
-          "x": 790,
-          "y": 915,
+          "x": 814,
+          "y": 905,
           "date": "28 Sep T.A. 3018",
-          "note": "Captured by a Barrow-wight; Bombadil breaks the barrow and the hobbits take the blades of Westernesse"
+          "note": "Captured by a Barrow-wight; Bombadil breaks the barrow and the hobbits take the blades of Westernesse",
+          "placeId": "great-barrow",
+          "approximate": true
         },
         {
           "place": "Bree (The Prancing Pony)",
-          "x": 820,
+          "x": 819,
           "y": 895,
           "date": "29–30 Sep T.A. 3018",
-          "note": "Frodo vanishes at the Pony; they meet Strider; the inn is raided in the early hours of 30 Sep"
+          "note": "Frodo vanishes at the Pony; they meet Strider; the inn is raided in the early hours of 30 Sep",
+          "placeId": "prancing-pony"
         },
         {
           "place": "Midgewater Marshes",
           "x": 860,
           "y": 892,
           "date": "1–2 Oct T.A. 3018",
-          "note": "Strider leads them off the Road through the marshes"
+          "note": "Strider leads them off the Road through the marshes",
+          "placeId": "midgewater-marshes"
         },
         {
           "place": "Weathertop (Amon Sûl)",
           "x": 905,
           "y": 890,
           "date": "6 Oct T.A. 3018",
-          "note": "Attack of the five Nazgûl at night; Frodo is stabbed with the Morgul-knife"
+          "note": "Attack of the five Nazgûl at night; Frodo is stabbed with the Morgul-knife",
+          "placeId": "weathertop"
         },
         {
           "place": "Last Bridge (Bridge of Mitheithel)",
           "x": 1010,
           "y": 885,
           "date": "13 Oct T.A. 3018",
-          "note": "Frodo crosses the Hoarwell; Glorfindel's beryl is found on the bridge"
+          "note": "Frodo crosses the Hoarwell; Glorfindel's beryl is found on the bridge",
+          "placeId": "last-bridge"
         },
         {
           "place": "Trollshaws",
           "x": 1050,
           "y": 865,
           "date": "17–18 Oct T.A. 3018",
-          "note": "The company passes Bilbo's stone trolls; Glorfindel finds them at dusk on 18 Oct"
+          "note": "The company passes Bilbo's stone trolls; Glorfindel finds them at dusk on 18 Oct",
+          "placeId": "trollshaws"
         },
         {
           "place": "Ford of Bruinen",
           "x": 1095,
           "y": 875,
           "date": "20 Oct T.A. 3018",
-          "note": "Flight to the Ford; the Nine Riders are swept away by the flood"
+          "note": "Flight to the Ford; the Nine Riders are swept away by the flood",
+          "placeId": "ford-of-bruinen"
         },
         {
           "place": "Rivendell (Imladris)",
           "x": 1110,
           "y": 868,
           "date": "20 Oct – 25 Dec T.A. 3018",
-          "note": "Frodo healed; Council of Elrond on 25 Oct; the Company of the Ring departs at dusk on 25 Dec"
+          "note": "Frodo healed; Council of Elrond on 25 Oct; the Company of the Ring departs at dusk on 25 Dec",
+          "placeId": "rivendell"
         },
         {
           "place": "Hollin (Eregion)",
           "x": 1150,
           "y": 1050,
           "date": "8 Jan T.A. 3019",
-          "note": "The Company reaches Hollin; crebain from Dunland spy on them"
+          "note": "The Company reaches Hollin; crebain from Dunland spy on them",
+          "approximate": true
         },
         {
           "place": "Caradhras (Redhorn Pass attempt)",
-          "x": 1205,
-          "y": 1078,
+          "x": 1218,
+          "y": 1085,
           "date": "11–12 Jan T.A. 3019",
-          "note": "Snow and rockfall on the Redhorn; the Company is forced back down"
+          "note": "Snow and rockfall on the Redhorn; the Company is forced back down",
+          "placeId": "redhorn-pass"
         },
         {
           "place": "Moria West-gate (Doors of Durin)",
           "x": 1195,
           "y": 1092,
           "date": "13 Jan T.A. 3019",
-          "note": "Wolves attack in the early hours; at nightfall the Watcher in the Water seizes Frodo and the Company enters Moria"
+          "note": "Wolves attack in the early hours; at nightfall the Watcher in the Water seizes Frodo and the Company enters Moria",
+          "placeId": "doors-of-durin"
         },
         {
           "place": "Chamber of Mazarbul",
-          "x": 1226,
-          "y": 1096,
+          "x": 1200,
+          "y": 1090,
           "date": "15 Jan T.A. 3019",
-          "note": "Balin's tomb; orcs and a cave-troll attack"
+          "note": "Balin's tomb; orcs and a cave-troll attack",
+          "placeId": "chamber-of-mazarbul"
         },
         {
           "place": "Bridge of Khazad-dûm",
-          "x": 1234,
-          "y": 1097,
+          "x": 1225,
+          "y": 1093,
           "date": "15 Jan T.A. 3019",
-          "note": "Gandalf confronts the Balrog and falls into the abyss"
+          "note": "Gandalf confronts the Balrog and falls into the abyss",
+          "placeId": "bridge-of-khazad-dum"
         },
         {
           "place": "Dimrill Dale (Azanulbizar)",
           "x": 1238,
           "y": 1098,
           "date": "15 Jan T.A. 3019",
-          "note": "The Company emerges by the East-gate and passes Mirrormere"
+          "note": "The Company emerges by the East-gate and passes Mirrormere",
+          "placeId": "dimrill-dale"
         },
         {
           "place": "Nimrodel",
           "x": 1268,
           "y": 1130,
           "date": "15 Jan T.A. 3019",
-          "note": "They reach the stream Nimrodel late at night and meet Haldir's elves"
+          "note": "They reach the stream Nimrodel late at night and meet Haldir's elves",
+          "approximate": true
         },
         {
           "place": "Cerin Amroth",
           "x": 1290,
           "y": 1145,
           "date": "16 Jan T.A. 3019",
-          "note": "The heart of the elven-realm; Aragorn remembers Arwen"
+          "note": "The heart of the elven-realm; Aragorn remembers Arwen",
+          "placeId": "cerin-amroth"
         },
         {
           "place": "Caras Galadhon",
           "x": 1305,
           "y": 1160,
           "date": "17 Jan – 16 Feb T.A. 3019",
-          "note": "Guests of Celeborn and Galadriel; the Mirror of Galadriel on 14 Feb"
+          "note": "Guests of Celeborn and Galadriel; the Mirror of Galadriel on 14 Feb",
+          "placeId": "caras-galadhon"
         },
         {
           "place": "The Tongue (Egladil), departure by boat",
-          "x": 1342,
-          "y": 1168,
+          "x": 1345,
+          "y": 1170,
           "date": "16 Feb T.A. 3019",
-          "note": "Farewell to Lórien; the Company sets out down Anduin in three boats"
+          "note": "Farewell to Lórien; the Company sets out down Anduin in three boats",
+          "placeId": "the-tongue",
+          "approximate": true
         },
         {
           "place": "Sarn Gebir",
           "x": 1420,
           "y": 1375,
           "date": "23 Feb T.A. 3019",
-          "note": "Orc archers attack from the east bank at night; Legolas shoots the winged Nazgûl"
+          "note": "Orc archers attack from the east bank at night; Legolas shoots the winged Nazgûl",
+          "placeId": "sarn-gebir"
         },
         {
           "place": "Argonath (Gates of the Kings)",
           "x": 1425,
           "y": 1392,
           "date": "25 Feb T.A. 3019",
-          "note": "The boats pass between the pillars of Isildur and Anárion"
+          "note": "The boats pass between the pillars of Isildur and Anárion",
+          "placeId": "argonath"
         },
         {
           "place": "Parth Galen",
-          "x": 1428,
-          "y": 1440,
+          "x": 1420,
+          "y": 1445,
           "date": "25–26 Feb T.A. 3019",
-          "note": "Camp below Amon Hen; Boromir tries to take the Ring; the Fellowship breaks on 26 Feb"
+          "note": "Camp below Amon Hen; Boromir tries to take the Ring; the Fellowship breaks on 26 Feb",
+          "placeId": "parth-galen"
         }
       ]
     },
@@ -15961,171 +15985,197 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Parth Galen",
-          "x": 1428,
-          "y": 1440,
+          "x": 1420,
+          "y": 1445,
           "date": "26 Feb T.A. 3019",
-          "note": "Frodo puts on the Ring and flees; Sam catches him at the boats"
+          "note": "Frodo puts on the Ring and flees; Sam catches him at the boats",
+          "placeId": "parth-galen"
         },
         {
           "place": "Eastern shore of Nen Hithoel",
           "x": 1462,
           "y": 1447,
           "date": "26 Feb T.A. 3019",
-          "note": "They cross the lake by boat and land below Amon Lhaw"
+          "note": "They cross the lake by boat and land below Amon Lhaw",
+          "approximate": true
         },
         {
           "place": "Emyn Muil (eastern)",
-          "x": 1480,
-          "y": 1445,
+          "x": 1470,
+          "y": 1385,
           "date": "27–29 Feb T.A. 3019",
-          "note": "Three days lost among the crags of the Emyn Muil"
+          "note": "Three days lost among the crags of the Emyn Muil",
+          "placeId": "emyn-muil"
         },
         {
           "place": "Descent from the Emyn Muil",
           "x": 1500,
           "y": 1458,
           "date": "29 Feb T.A. 3019",
-          "note": "Sam's elven rope; Gollum is captured and swears on the Precious"
+          "note": "Sam's elven rope; Gollum is captured and swears on the Precious",
+          "approximate": true
         },
         {
           "place": "Dead Marshes",
           "x": 1560,
           "y": 1475,
           "date": "1–2 Mar T.A. 3019",
-          "note": "Gollum guides them past the Mere of Dead Faces; a Nazgûl passes overhead"
+          "note": "Gollum guides them past the Mere of Dead Faces; a Nazgûl passes overhead",
+          "placeId": "dead-marshes"
         },
         {
           "place": "Desolation of the Morannon (slag-mounds)",
-          "x": 1622,
+          "x": 1636,
           "y": 1502,
           "date": "4 Mar T.A. 3019",
-          "note": "Frodo reaches the slag-mounds on the edge of the Desolation"
+          "note": "Frodo reaches the slag-mounds on the edge of the Desolation",
+          "placeId": "desolation-of-the-morannon",
+          "approximate": true
         },
         {
           "place": "The Morannon (Black Gate)",
           "x": 1650,
           "y": 1525,
           "date": "5 Mar T.A. 3019",
-          "note": "Hidden in sight of the Gate; they turn south at dusk on Gollum's counsel"
+          "note": "Hidden in sight of the Gate; they turn south at dusk on Gollum's counsel",
+          "placeId": "morannon"
         },
         {
           "place": "North Ithilien",
           "x": 1592,
           "y": 1560,
           "date": "6 Mar T.A. 3019",
-          "note": "The land of herbs; Sam's stewed rabbit; Faramir's rangers ambush the Southrons"
+          "note": "The land of herbs; Sam's stewed rabbit; Faramir's rangers ambush the Southrons",
+          "approximate": true
         },
         {
           "place": "Henneth Annûn",
           "x": 1570,
           "y": 1600,
           "date": "7–8 Mar T.A. 3019",
-          "note": "Taken by Faramir to the Window of the Sunset; they leave on 8 Mar"
+          "note": "Taken by Faramir to the Window of the Sunset; they leave on 8 Mar",
+          "placeId": "henneth-annun"
         },
         {
           "place": "Morgul-road",
           "x": 1580,
           "y": 1640,
           "date": "9 Mar T.A. 3019",
-          "note": "Frodo reaches the Morgul-road at dusk"
+          "note": "Frodo reaches the Morgul-road at dusk",
+          "approximate": true
         },
         {
           "place": "Cross-roads",
           "x": 1578,
           "y": 1652,
           "date": "10 Mar T.A. 3019",
-          "note": "The fallen king's head crowned with flowers; the Dawnless Day"
+          "note": "The fallen king's head crowned with flowers; the Dawnless Day",
+          "approximate": true
         },
         {
           "place": "Morgul Vale (Minas Morgul)",
           "x": 1602,
           "y": 1655,
           "date": "10 Mar T.A. 3019",
-          "note": "They watch the Morgul-host march out to war"
+          "note": "They watch the Morgul-host march out to war",
+          "placeId": "morgul-vale"
         },
         {
           "place": "Stairs of Cirith Ungol",
-          "x": 1616,
+          "x": 1620,
           "y": 1655,
           "date": "10–11 Mar T.A. 3019",
-          "note": "The Straight Stair and the Winding Stair; Gollum nearly repents"
+          "note": "The Straight Stair and the Winding Stair; Gollum nearly repents",
+          "placeId": "stairs-of-cirith-ungol"
         },
         {
           "place": "Shelob's Lair (Torech Ungol)",
           "x": 1628,
           "y": 1653,
-          "date": "12 Mar T.A. 3019",
-          "note": "Gollum betrays them; Frodo stung; Sam wounds Shelob with Sting"
+          "date": "13 Mar T.A. 3019",
+          "note": "Gollum betrays them; Frodo stung; Sam wounds Shelob with Sting",
+          "placeId": "torech-ungol"
         },
         {
           "place": "Tower of Cirith Ungol",
           "x": 1635,
           "y": 1650,
           "date": "13–14 Mar T.A. 3019",
-          "note": "Frodo captured by orcs; Sam rescues him in the Tower on 14 Mar"
+          "note": "Frodo captured by orcs; Sam rescues him in the Tower on 14 Mar",
+          "placeId": "tower-of-cirith-ungol"
         },
         {
           "place": "Morgai",
           "x": 1640,
           "y": 1620,
           "date": "15–17 Mar T.A. 3019",
-          "note": "Escape into the valley behind the Morgai; northward along the trench"
+          "note": "Escape into the valley behind the Morgai; northward along the trench",
+          "placeId": "morgai"
         },
         {
           "place": "Durthang road",
           "x": 1660,
           "y": 1572,
           "date": "18 Mar T.A. 3019",
-          "note": "Overtaken by an orc-company on the road from Durthang and driven towards Udûn"
+          "note": "Overtaken by an orc-company on the road from Durthang and driven towards Udûn",
+          "approximate": true
         },
         {
           "place": "Isenmouthe (Carach Angren)",
           "x": 1685,
           "y": 1568,
           "date": "18–19 Mar T.A. 3019",
-          "note": "They escape the orc column in the press before the Isenmouthe"
+          "note": "They escape the orc column in the press before the Isenmouthe",
+          "placeId": "isenmouthe"
         },
         {
           "place": "Road across Gorgoroth",
           "x": 1712,
           "y": 1585,
           "date": "19–22 Mar T.A. 3019",
-          "note": "Along the Barad-dûr road; on 22 Mar they turn south towards the Mountain"
+          "note": "Along the Barad-dûr road; on 22 Mar they turn south towards the Mountain",
+          "approximate": true
         },
         {
           "place": "Plateau of Gorgoroth",
-          "x": 1706,
-          "y": 1608,
+          "x": 1720,
+          "y": 1640,
           "date": "23 Mar T.A. 3019",
-          "note": "Frodo and Sam cast away their arms and gear"
+          "note": "Frodo and Sam cast away their arms and gear",
+          "placeId": "gorgoroth"
         },
         {
           "place": "Feet of Mount Doom",
           "x": 1703,
           "y": 1600,
           "date": "24 Mar T.A. 3019",
-          "note": "Their last journey; Sam carries Frodo up the Mountain"
+          "note": "Their last journey; Sam carries Frodo up the Mountain",
+          "approximate": true
         },
         {
           "place": "Sammath Naur (Cracks of Doom)",
           "x": 1700,
           "y": 1593,
           "date": "25 Mar T.A. 3019",
-          "note": "Gollum seizes the Ring and falls into the Fire; Barad-dûr falls"
+          "note": "Gollum seizes the Ring and falls into the Fire; Barad-dûr falls",
+          "placeId": "sammath-naur"
         },
         {
           "place": "Rescue by the Eagles",
           "x": 1700,
           "y": 1596,
           "date": "25 Mar T.A. 3019",
-          "note": "Gwaihir, Landroval and Meneldor bear them from the slopes as the Mountain erupts"
+          "note": "Gwaihir, Landroval and Meneldor bear them from the slopes as the Mountain erupts",
+          "approximate": true
         },
         {
           "place": "Field of Cormallen",
-          "x": 1540,
+          "x": 1520,
           "y": 1580,
           "date": "8 Apr T.A. 3019",
-          "note": "The Ring-bearers wake in Ithilien and are honoured by the Host of the West"
+          "note": "The Ring-bearers wake in Ithilien and are honoured by the Host of the West",
+          "placeId": "field-of-cormallen",
+          "approximate": true
         }
       ]
     },
@@ -16137,199 +16187,236 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Parth Galen",
-          "x": 1428,
-          "y": 1440,
+          "x": 1420,
+          "y": 1445,
           "date": "26 Feb T.A. 3019",
-          "note": "Boromir's funeral boat; the Three Hunters set out after the orcs at evening"
+          "note": "Boromir's funeral boat; the Three Hunters set out after the orcs at evening",
+          "placeId": "parth-galen"
         },
         {
           "place": "West cliff of the Emyn Muil",
           "x": 1418,
           "y": 1402,
           "date": "27 Feb T.A. 3019",
-          "note": "They reach the west-cliff at sunrise and descend to the plains"
+          "note": "They reach the west-cliff at sunrise and descend to the plains",
+          "approximate": true
         },
         {
           "place": "The Wold / Eastemnet",
           "x": 1398,
           "y": 1400,
           "date": "28 Feb T.A. 3019",
-          "note": "Running over the grasslands of Rohan on the orcs' trail"
+          "note": "Running over the grasslands of Rohan on the orcs' trail",
+          "approximate": true
         },
         {
           "place": "Meeting with Éomer",
           "x": 1378,
           "y": 1400,
           "date": "30 Feb T.A. 3019",
-          "note": "Éomer's éored, returning from the battle at Fangorn's eaves, meets them; horses are lent"
+          "note": "Éomer's éored, returning from the battle at Fangorn's eaves, meets them; horses are lent",
+          "approximate": true
         },
         {
           "place": "Eaves of Fangorn (battlefield)",
           "x": 1365,
           "y": 1385,
           "date": "30 Feb T.A. 3019",
-          "note": "Camp beside the burned orc-pile; an old man is glimpsed in the night"
+          "note": "Camp beside the burned orc-pile; an old man is glimpsed in the night",
+          "approximate": true
         },
         {
           "place": "Treebeard's Hill, Fangorn",
           "x": 1355,
           "y": 1345,
           "date": "1 Mar T.A. 3019",
-          "note": "Gandalf the White returns; Shadowfax comes"
+          "note": "Gandalf the White returns; Shadowfax comes",
+          "placeId": "treebeards-hill",
+          "approximate": true
         },
         {
           "place": "Edoras (Meduseld)",
           "x": 1300,
-          "y": 1540,
+          "y": 1539,
           "date": "2 Mar T.A. 3019",
-          "note": "Gandalf heals Théoden; Wormtongue is cast out; the Rohirrim ride west"
+          "note": "Gandalf heals Théoden; Wormtongue is cast out; the Rohirrim ride west",
+          "placeId": "meduseld",
+          "approximate": true
         },
         {
           "place": "Helm's Deep (the Hornburg)",
           "x": 1250,
-          "y": 1445,
+          "y": 1444,
           "date": "3–4 Mar T.A. 3019",
-          "note": "Battle of the Hornburg; the Huorns destroy Saruman's army"
+          "note": "Battle of the Hornburg; the Huorns destroy Saruman's army",
+          "placeId": "hornburg",
+          "approximate": true
         },
         {
           "place": "Isengard (Orthanc)",
           "x": 1230,
           "y": 1390,
           "date": "5 Mar T.A. 3019",
-          "note": "Parley with Saruman; Wormtongue throws down the palantír"
+          "note": "Parley with Saruman; Wormtongue throws down the palantír",
+          "placeId": "isengard"
         },
         {
           "place": "Dol Baran",
-          "x": 1215,
-          "y": 1418,
+          "x": 1195,
+          "y": 1400,
           "date": "5–6 Mar T.A. 3019",
-          "note": "Camp under Dol Baran; Pippin looks in the palantír; the Grey Company overtakes Aragorn in the early hours"
+          "note": "Camp under Dol Baran; Pippin looks in the palantír; the Grey Company overtakes Aragorn in the early hours",
+          "placeId": "dol-baran",
+          "approximate": true
         },
         {
           "place": "The Hornburg (again)",
           "x": 1250,
-          "y": 1445,
+          "y": 1444,
           "date": "6 Mar T.A. 3019",
-          "note": "Aragorn shows himself to Sauron in the Orthanc-stone; Halbarad brings Arwen's standard"
+          "note": "Aragorn shows himself to Sauron in the Orthanc-stone; Halbarad brings Arwen's standard",
+          "placeId": "hornburg",
+          "approximate": true
         },
         {
           "place": "Dunharrow (Harrowdale)",
           "x": 1310,
           "y": 1565,
           "date": "7 Mar T.A. 3019",
-          "note": "Aragorn comes to Dunharrow at nightfall; farewell to Éowyn"
+          "note": "Aragorn comes to Dunharrow at nightfall; farewell to Éowyn",
+          "placeId": "dunharrow"
         },
         {
           "place": "Paths of the Dead (Dwimorberg)",
-          "x": 1320,
-          "y": 1585,
+          "x": 1319,
+          "y": 1583,
           "date": "8 Mar T.A. 3019",
-          "note": "The Grey Company enters the Dark Door at daybreak; the Dead follow"
+          "note": "The Grey Company enters the Dark Door at daybreak; the Dead follow",
+          "placeId": "paths-of-the-dead",
+          "approximate": true
         },
         {
           "place": "Stone of Erech",
           "x": 1300,
           "y": 1680,
           "date": "8 Mar T.A. 3019",
-          "note": "At midnight Aragorn summons the Oathbreakers at the Stone"
+          "note": "At midnight Aragorn summons the Oathbreakers at the Stone",
+          "placeId": "stone-of-erech"
         },
         {
           "place": "Calembel on Ciril",
           "x": 1360,
           "y": 1712,
           "date": "9 Mar T.A. 3019",
-          "note": "The Grey Company rides through Lamedon; the townsfolk flee the Dead"
+          "note": "The Grey Company rides through Lamedon; the townsfolk flee the Dead",
+          "placeId": "calembel"
         },
         {
           "place": "Crossing of the Ringló",
           "x": 1386,
           "y": 1745,
           "date": "10 Mar T.A. 3019",
-          "note": "Aragorn crosses the Ringló on the Dawnless Day"
+          "note": "Aragorn crosses the Ringló on the Dawnless Day",
+          "approximate": true
         },
         {
           "place": "Linhir",
           "x": 1420,
           "y": 1810,
           "date": "11 Mar T.A. 3019",
-          "note": "The men of Lamedon fighting the Haradrim flee before the Dead; Angbor of Lamedon stays"
+          "note": "The men of Lamedon fighting the Haradrim flee before the Dead; Angbor of Lamedon stays",
+          "placeId": "linhir"
         },
         {
           "place": "Lebennin",
           "x": 1460,
           "y": 1770,
           "date": "12 Mar T.A. 3019",
-          "note": "The enemy is driven towards Pelargir"
+          "note": "The enemy is driven towards Pelargir",
+          "approximate": true
         },
         {
           "place": "Pelargir",
           "x": 1520,
           "y": 1790,
           "date": "13 Mar T.A. 3019",
-          "note": "The Corsair fleet of Umbar is captured; the Dead are released"
+          "note": "The Corsair fleet of Umbar is captured; the Dead are released",
+          "placeId": "pelargir"
         },
         {
           "place": "Harlond (Anduin)",
           "x": 1516,
           "y": 1652,
           "date": "15 Mar T.A. 3019",
-          "note": "The black ships come up Anduin; the standard of Arwen is unfurled"
+          "note": "The black ships come up Anduin; the standard of Arwen is unfurled",
+          "placeId": "harlond-gondor"
         },
         {
           "place": "Pelennor Fields",
           "x": 1514,
           "y": 1640,
           "date": "15 Mar T.A. 3019",
-          "note": "Battle of the Pelennor Fields; Théoden falls; the Witch-king is destroyed"
+          "note": "Battle of the Pelennor Fields; Théoden falls; the Witch-king is destroyed",
+          "placeId": "pelennor-fields"
         },
         {
           "place": "Minas Tirith",
           "x": 1505,
           "y": 1635,
           "date": "15–18 Mar T.A. 3019",
-          "note": "The Houses of Healing; the Last Debate; the Host of the West marches out on 18 Mar"
+          "note": "The Houses of Healing; the Last Debate; the Host of the West marches out on 18 Mar",
+          "placeId": "minas-tirith"
         },
         {
           "place": "Osgiliath",
           "x": 1527,
           "y": 1638,
           "date": "18 Mar T.A. 3019",
-          "note": "The Host crosses Anduin by the repaired bridge"
+          "note": "The Host crosses Anduin by the repaired bridge",
+          "placeId": "osgiliath"
         },
         {
           "place": "Cross-roads / Morgul Vale",
           "x": 1578,
           "y": 1652,
           "date": "19 Mar T.A. 3019",
-          "note": "The Host comes to the Morgul-vale and turns north at the Cross-roads"
+          "note": "The Host comes to the Morgul-vale and turns north at the Cross-roads",
+          "approximate": true
         },
         {
           "place": "North Ithilien",
           "x": 1585,
           "y": 1560,
           "date": "20–23 Mar T.A. 3019",
-          "note": "Aragorn dismisses the faint-hearted to retake Cair Andros"
+          "note": "Aragorn dismisses the faint-hearted to retake Cair Andros",
+          "approximate": true
         },
         {
           "place": "Desolation of the Morannon",
-          "x": 1628,
-          "y": 1508,
+          "x": 1636,
+          "y": 1502,
           "date": "24 Mar T.A. 3019",
-          "note": "The Host camps in the Desolation before the Gate"
+          "note": "The Host camps in the Desolation before the Gate",
+          "placeId": "desolation-of-the-morannon",
+          "approximate": true
         },
         {
           "place": "The Morannon (Slag-hills)",
-          "x": 1650,
-          "y": 1525,
+          "x": 1642,
+          "y": 1513,
           "date": "25 Mar T.A. 3019",
-          "note": "Battle of the Morannon; the Mouth of Sauron; the Ring is destroyed"
+          "note": "Battle of the Morannon; the Mouth of Sauron; the Ring is destroyed",
+          "placeId": "slag-hills",
+          "approximate": true
         },
         {
           "place": "Field of Cormallen",
-          "x": 1540,
+          "x": 1520,
           "y": 1580,
           "date": "8 Apr T.A. 3019",
-          "note": "Praise of the Ring-bearers; the Host returns to Minas Tirith for the crowning on 1 May"
+          "note": "Praise of the Ring-bearers; the Host returns to Minas Tirith for the crowning on 1 May",
+          "placeId": "field-of-cormallen",
+          "approximate": true
         }
       ]
     },
@@ -16341,87 +16428,103 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Parth Galen",
-          "x": 1428,
-          "y": 1440,
+          "x": 1420,
+          "y": 1445,
           "date": "26 Feb T.A. 3019",
-          "note": "Captured by the Uruk-hai of Isengard; Boromir falls defending them"
+          "note": "Captured by the Uruk-hai of Isengard; Boromir falls defending them",
+          "placeId": "parth-galen"
         },
         {
           "place": "Emyn Muil descent",
           "x": 1420,
           "y": 1408,
           "date": "26–27 Feb T.A. 3019",
-          "note": "Carried down from the hills; Pippin drops his elven brooch as a token"
+          "note": "Carried down from the hills; Pippin drops his elven brooch as a token",
+          "approximate": true
         },
         {
           "place": "Eastemnet (the Wold)",
           "x": 1405,
           "y": 1405,
           "date": "27–28 Feb T.A. 3019",
-          "note": "The orcs run west across the plains of Rohan; Grishnákh's orcs join them"
+          "note": "The orcs run west across the plains of Rohan; Grishnákh's orcs join them",
+          "approximate": true
         },
         {
           "place": "Overtaken by Éomer's éored",
           "x": 1385,
           "y": 1393,
           "date": "28 Feb T.A. 3019",
-          "note": "The Riders surround the orc-band at nightfall near the forest"
+          "note": "The Riders surround the orc-band at nightfall near the forest",
+          "approximate": true
         },
         {
           "place": "Eaves of Fangorn (battle)",
           "x": 1365,
           "y": 1385,
           "date": "29 Feb T.A. 3019",
-          "note": "The Rohirrim destroy the orcs at sunrise; the hobbits escape into the forest"
+          "note": "The Rohirrim destroy the orcs at sunrise; the hobbits escape into the forest",
+          "approximate": true
         },
         {
           "place": "Treebeard's Hill",
           "x": 1355,
           "y": 1345,
           "date": "29 Feb T.A. 3019",
-          "note": "Meeting with Treebeard the Ent"
+          "note": "Meeting with Treebeard the Ent",
+          "placeId": "treebeards-hill",
+          "approximate": true
         },
         {
           "place": "Wellinghall",
-          "x": 1335,
-          "y": 1330,
+          "x": 1235,
+          "y": 1360,
           "date": "29 Feb T.A. 3019",
-          "note": "Night at Treebeard's ent-house; ent-draughts"
+          "note": "Night at Treebeard's ent-house; ent-draughts",
+          "placeId": "wellinghall",
+          "approximate": true
         },
         {
           "place": "Derndingle (Entmoot)",
           "x": 1290,
           "y": 1360,
           "date": "30 Feb – 2 Mar T.A. 3019",
-          "note": "The Entmoot decides for war; the Ents march at afternoon on 2 Mar"
+          "note": "The Entmoot decides for war; the Ents march at afternoon on 2 Mar",
+          "placeId": "derndingle"
         },
         {
           "place": "Southern Fangorn",
           "x": 1255,
           "y": 1385,
           "date": "2 Mar T.A. 3019",
-          "note": "The Ents and Huorns move down the western marches of the forest"
+          "note": "The Ents and Huorns move down the western marches of the forest",
+          "approximate": true
         },
         {
           "place": "Nan Curunír (Wizard's Vale)",
           "x": 1230,
           "y": 1375,
           "date": "2 Mar T.A. 3019",
-          "note": "The Ents reach Isengard at night as Saruman's army marches out"
+          "note": "The Ents reach Isengard at night as Saruman's army marches out",
+          "placeId": "nan-curunir",
+          "approximate": true
         },
         {
           "place": "Isengard",
           "x": 1230,
           "y": 1390,
           "date": "3 Mar T.A. 3019",
-          "note": "The Ents break the walls and flood the ring of Isengard"
+          "note": "The Ents break the walls and flood the ring of Isengard",
+          "placeId": "isengard"
         },
         {
           "place": "Gates of Isengard",
-          "x": 1230,
-          "y": 1394,
+          "x": 1229,
+          "y": 1391,
           "date": "5 Mar T.A. 3019",
-          "note": "Merry and Pippin greet Théoden and Gandalf among the wreckage at noon"
+          "note": "Merry and Pippin greet Théoden and Gandalf among the wreckage at noon",
+          "placeId": "gate-of-isengard",
+          "approximate": true
         }
       ]
     },
@@ -16433,87 +16536,100 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Dol Baran",
-          "x": 1215,
-          "y": 1418,
+          "x": 1195,
+          "y": 1400,
           "date": "5 Mar T.A. 3019",
-          "note": "After the palantír, Gandalf takes Pippin and rides for Minas Tirith in the night"
+          "note": "After the palantír, Gandalf takes Pippin and rides for Minas Tirith in the night",
+          "placeId": "dol-baran",
+          "approximate": true
         },
         {
           "place": "Gap of Rohan",
           "x": 1205,
           "y": 1415,
           "date": "6 Mar T.A. 3019",
-          "note": "Shadowfax runs east through the Gap and across the Westemnet"
+          "note": "Shadowfax runs east through the Gap and across the Westemnet",
+          "placeId": "gap-of-rohan"
         },
         {
           "place": "Westemnet",
           "x": 1290,
           "y": 1470,
           "date": "6 Mar T.A. 3019",
-          "note": "Rest hidden in a fold of the plains by day"
+          "note": "Rest hidden in a fold of the plains by day",
+          "approximate": true
         },
         {
           "place": "Edoras (passed)",
           "x": 1300,
           "y": 1540,
           "date": "6 Mar T.A. 3019",
-          "note": "They ride past Edoras in the night without stopping"
+          "note": "They ride past Edoras in the night without stopping",
+          "approximate": true
         },
         {
           "place": "The Folde",
           "x": 1320,
           "y": 1555,
           "date": "7 Mar T.A. 3019",
-          "note": "Through the Folde and Eastfold; the beacons of Gondor are lit"
+          "note": "Through the Folde and Eastfold; the beacons of Gondor are lit",
+          "approximate": true
         },
         {
           "place": "Eastfold",
           "x": 1350,
           "y": 1575,
           "date": "7 Mar T.A. 3019",
-          "note": "Riders of Rohan are met on the road bringing the Red Arrow"
+          "note": "Riders of Rohan are met on the road bringing the Red Arrow",
+          "approximate": true
         },
         {
           "place": "Mering Stream / Firien Wood",
           "x": 1420,
           "y": 1590,
           "date": "7–8 Mar T.A. 3019",
-          "note": "Crossing into Anórien beneath the Halifirien"
+          "note": "Crossing into Anórien beneath the Halifirien",
+          "approximate": true
         },
         {
           "place": "Anórien (the beacon-hills)",
           "x": 1445,
           "y": 1608,
           "date": "8 Mar T.A. 3019",
-          "note": "Under Min-Rimmon and Nardol; the errand-riders of Gondor pass them"
+          "note": "Under Min-Rimmon and Nardol; the errand-riders of Gondor pass them",
+          "approximate": true
         },
         {
           "place": "Eilenach / Drúadan Forest road",
           "x": 1478,
           "y": 1618,
           "date": "8 Mar T.A. 3019",
-          "note": "The road skirts the Drúadan Forest beneath the beacon of Eilenach"
+          "note": "The road skirts the Drúadan Forest beneath the beacon of Eilenach",
+          "approximate": true
         },
         {
           "place": "Amon Dîn",
           "x": 1490,
           "y": 1622,
           "date": "8 Mar T.A. 3019",
-          "note": "Last beacon before the City; the Rammas Echor lies ahead"
+          "note": "Last beacon before the City; the Rammas Echor lies ahead",
+          "placeId": "amon-din"
         },
         {
           "place": "Pelennor (Rammas Echor gate)",
-          "x": 1500,
-          "y": 1628,
+          "x": 1514,
+          "y": 1640,
           "date": "9 Mar T.A. 3019",
-          "note": "They pass the gate of the outer wall before dawn"
+          "note": "They pass the gate of the outer wall before dawn",
+          "placeId": "pelennor-fields"
         },
         {
           "place": "Minas Tirith",
           "x": 1505,
           "y": 1635,
           "date": "9 Mar T.A. 3019",
-          "note": "Gandalf reaches Minas Tirith at dawn; Pippin swears service to Denethor"
+          "note": "Gandalf reaches Minas Tirith at dawn; Pippin swears service to Denethor",
+          "placeId": "minas-tirith"
         }
       ]
     },
@@ -16528,84 +16644,99 @@ window.ATLAS_DATA = {
           "x": 1310,
           "y": 1565,
           "date": "9–10 Mar T.A. 3019",
-          "note": "The Muster of Rohan; Hirgon brings the Red Arrow; the host rides at dawn on 10 Mar"
+          "note": "The Muster of Rohan; Hirgon brings the Red Arrow; the host rides at dawn on 10 Mar",
+          "placeId": "dunharrow"
         },
         {
           "place": "Edoras",
           "x": 1300,
           "y": 1540,
           "date": "10 Mar T.A. 3019",
-          "note": "Théoden takes leave of Meduseld on the Dawnless Day"
+          "note": "Théoden takes leave of Meduseld on the Dawnless Day",
+          "placeId": "edoras"
         },
         {
           "place": "The Folde",
           "x": 1320,
           "y": 1555,
           "date": "10 Mar T.A. 3019",
-          "note": "The host rides east along the Great West Road"
+          "note": "The host rides east along the Great West Road",
+          "approximate": true
         },
         {
           "place": "Eastfold",
           "x": 1350,
           "y": 1575,
           "date": "11 Mar T.A. 3019",
-          "note": "Riders from Eastfold join the muster"
+          "note": "Riders from Eastfold join the muster",
+          "approximate": true
         },
         {
           "place": "Halifirien / Firien Wood",
           "x": 1410,
           "y": 1600,
           "date": "11 Mar T.A. 3019",
-          "note": "Crossing the Mering Stream into Anórien"
+          "note": "Crossing the Mering Stream into Anórien",
+          "approximate": true
         },
         {
           "place": "Min-Rimmon",
           "x": 1445,
           "y": 1608,
           "date": "12 Mar T.A. 3019",
-          "note": "Théoden camps under Min-Rimmon"
+          "note": "Théoden camps under Min-Rimmon",
+          "placeId": "min-rimmon"
         },
         {
           "place": "Drúadan Forest",
           "x": 1470,
           "y": 1615,
           "date": "13 Mar T.A. 3019",
-          "note": "Ghân-buri-Ghân offers to guide the host past the enemy in Anórien"
+          "note": "Ghân-buri-Ghân offers to guide the host past the enemy in Anórien",
+          "approximate": true
         },
         {
           "place": "Stonewain Valley",
-          "x": 1480,
-          "y": 1624,
+          "x": 1487,
+          "y": 1611,
           "date": "14 Mar T.A. 3019",
-          "note": "The Wild Men lead the Rohirrim through the hidden valley"
+          "note": "The Wild Men lead the Rohirrim through the hidden valley",
+          "placeId": "stonewain-valley",
+          "approximate": true
         },
         {
           "place": "Grey Wood under Amon Dîn",
           "x": 1492,
           "y": 1626,
           "date": "14 Mar T.A. 3019",
-          "note": "The host halts in the Grey Wood; Widfara smells a change in the wind"
+          "note": "The host halts in the Grey Wood; Widfara smells a change in the wind",
+          "placeId": "grey-wood",
+          "approximate": true
         },
         {
           "place": "Rammas Echor (north wall)",
-          "x": 1503,
-          "y": 1626,
+          "x": 1518,
+          "y": 1610,
           "date": "15 Mar T.A. 3019",
-          "note": "The Riders pass the broken outer wall before dawn"
+          "note": "The Riders pass the broken outer wall before dawn",
+          "placeId": "rammas-echor",
+          "approximate": true
         },
         {
           "place": "Pelennor Fields",
           "x": 1514,
           "y": 1640,
           "date": "15 Mar T.A. 3019",
-          "note": "The horns of Rohan at cockcrow; Théoden's charge; Éowyn and Merry slay the Witch-king"
+          "note": "The horns of Rohan at cockcrow; Théoden's charge; Éowyn and Merry slay the Witch-king",
+          "placeId": "pelennor-fields"
         },
         {
           "place": "Minas Tirith",
           "x": 1505,
           "y": 1635,
           "date": "15 Mar T.A. 3019",
-          "note": "Théoden's body is borne to the City; Éomer becomes King"
+          "note": "Théoden's body is borne to the City; Éomer becomes King",
+          "placeId": "minas-tirith"
         }
       ]
     },
@@ -16617,213 +16748,275 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Bag End",
-          "x": 700,
-          "y": 900,
+          "x": 698,
+          "y": 898,
           "date": "27 Apr T.A. 2941",
-          "note": "The morning after the Unexpected Party, Bilbo runs out without a pocket-handkerchief"
+          "note": "The morning after the Unexpected Party, Bilbo runs out without a pocket-handkerchief",
+          "placeId": "bag-end"
         },
         {
           "place": "The Green Dragon, Bywater",
-          "x": 707,
-          "y": 905,
+          "x": 708,
+          "y": 906,
           "date": "27 Apr T.A. 2941",
-          "note": "Bilbo joins the dwarves at the inn and they ride east"
+          "note": "Bilbo joins the dwarves at the inn and they ride east",
+          "placeId": "green-dragon-inn",
+          "approximate": true
         },
         {
           "place": "Brandywine Bridge",
           "x": 752,
           "y": 893,
           "date": "29 Apr T.A. 2941",
-          "note": "Out of the Shire and into the wild lands"
+          "note": "Out of the Shire and into the wild lands",
+          "placeId": "brandywine-bridge"
         },
         {
           "place": "Bree",
           "x": 820,
           "y": 895,
           "date": "c. 1 May T.A. 2941",
-          "note": "Past Bree; the Lone-lands begin"
+          "note": "Past Bree; the Lone-lands begin",
+          "placeId": "bree"
         },
         {
           "place": "Weathertop (passed)",
           "x": 905,
           "y": 890,
           "date": "c. mid-May T.A. 2941",
-          "note": "Dreary hills and ruined castles of the Lone-lands"
+          "note": "Dreary hills and ruined castles of the Lone-lands",
+          "approximate": true
         },
         {
           "place": "Last Bridge",
           "x": 1010,
           "y": 885,
           "date": "c. 27 May T.A. 2941",
-          "note": "Crossing the Hoarwell in the rain; Gandalf has vanished"
+          "note": "Crossing the Hoarwell in the rain; Gandalf has vanished",
+          "placeId": "last-bridge"
         },
         {
           "place": "The Trolls' clearing (Trollshaws)",
           "x": 1050,
           "y": 865,
           "date": "c. 29 May T.A. 2941",
-          "note": "Bilbo tries to pick William's pocket; Gandalf tricks the trolls into stone; the troll-hoard"
+          "note": "Bilbo tries to pick William's pocket; Gandalf tricks the trolls into stone; the troll-hoard",
+          "approximate": true
         },
         {
           "place": "Rivendell (The Last Homely House)",
           "x": 1110,
           "y": 868,
           "date": "c. 7 Jun – Midsummer T.A. 2941",
-          "note": "Elrond reads the moon-letters on Thrór's map; departure on Midsummer morning"
+          "note": "Elrond reads the moon-letters on Thrór's map; departure on Midsummer morning",
+          "placeId": "rivendell"
         },
         {
           "place": "High Pass (thunder-battle)",
           "x": 1150,
           "y": 855,
           "date": "c. 1–3 Jul T.A. 2941",
-          "note": "Stone-giants in the storm; shelter in the goblins' front porch"
+          "note": "Stone-giants in the storm; shelter in the goblins' front porch",
+          "placeId": "high-pass"
         },
         {
           "place": "Goblin-town",
           "x": 1152,
           "y": 850,
           "date": "c. 3–5 Jul T.A. 2941",
-          "note": "Captured by goblins; Gandalf slays the Great Goblin; Bilbo finds the Ring and plays riddles with Gollum"
+          "note": "Captured by goblins; Gandalf slays the Great Goblin; Bilbo finds the Ring and plays riddles with Gollum",
+          "placeId": "goblin-town"
         },
         {
           "place": "Eagles' Eyrie",
           "x": 1180,
           "y": 830,
           "date": "c. 6 Jul T.A. 2941",
-          "note": "Out of the frying-pan: rescued from the Wargs by the Eagles"
+          "note": "Out of the frying-pan: rescued from the Wargs by the Eagles",
+          "placeId": "eagles-eyrie",
+          "approximate": true
         },
         {
           "place": "The Carrock",
           "x": 1215,
           "y": 835,
           "date": "c. 7 Jul T.A. 2941",
-          "note": "The Eagles set them down on the great rock in Anduin"
+          "note": "The Eagles set them down on the great rock in Anduin",
+          "placeId": "carrock"
         },
         {
           "place": "Beorn's House",
           "x": 1235,
           "y": 850,
           "date": "c. 7–10 Jul T.A. 2941",
-          "note": "Guests of the skin-changer; ponies lent for the road to the forest"
+          "note": "Guests of the skin-changer; ponies lent for the road to the forest",
+          "placeId": "beorns-house"
         },
         {
           "place": "Forest Gate",
-          "x": 1305,
-          "y": 855,
+          "x": 1306,
+          "y": 826,
           "date": "c. 14 Jul T.A. 2941",
-          "note": "Gandalf leaves them; the company enters Mirkwood on the Elf-path"
+          "note": "Gandalf leaves them; the company enters Mirkwood on the Elf-path",
+          "placeId": "forest-gate",
+          "approximate": true
         },
         {
           "place": "Elf-path, Mirkwood",
-          "x": 1390,
-          "y": 830,
+          "x": 1400,
+          "y": 740,
           "date": "late Jul T.A. 2941",
-          "note": "Days of darkness under the trees; Bombur's night-eyes"
+          "note": "Days of darkness under the trees; Bombur's night-eyes",
+          "approximate": true,
+          "via": [
+            {
+              "x": 1350,
+              "y": 780
+            }
+          ]
         },
         {
           "place": "Enchanted River",
-          "x": 1472,
-          "y": 775,
+          "x": 1495,
+          "y": 701,
           "date": "c. early Aug T.A. 2941",
-          "note": "Bombur falls into the black stream and sleeps for days"
+          "note": "Bombur falls into the black stream and sleeps for days",
+          "approximate": true,
+          "via": [
+            {
+              "x": 1450,
+              "y": 715
+            }
+          ]
         },
         {
           "place": "Spiders' glade",
-          "x": 1500,
-          "y": 765,
+          "x": 1510,
+          "y": 725,
           "date": "c. early Sep T.A. 2941",
-          "note": "Attercop: Bilbo names Sting and frees the dwarves from the spiders; the Wood-elves take the dwarves"
+          "note": "Attercop: Bilbo names Sting and frees the dwarves from the spiders; the Wood-elves take the dwarves",
+          "placeId": "spiders-colony",
+          "approximate": true
         },
         {
           "place": "Thranduil's Halls",
           "x": 1545,
           "y": 690,
           "date": "c. Sep T.A. 2941",
-          "note": "The dwarves imprisoned; Bilbo lurks invisible in the Elvenking's caves"
+          "note": "The dwarves imprisoned; Bilbo lurks invisible in the Elvenking's caves",
+          "placeId": "thranduils-halls"
         },
         {
           "place": "Forest River (barrels)",
           "x": 1590,
           "y": 695,
           "date": "c. 21 Sep T.A. 2941",
-          "note": "Escape in barrels down the Forest River to the Long Lake"
+          "note": "Escape in barrels down the Forest River to the Long Lake",
+          "approximate": true
         },
         {
           "place": "Lake-town (Esgaroth)",
-          "x": 1645,
-          "y": 705,
+          "x": 1642,
+          "y": 708,
           "date": "22 Sep – c. 10 Oct T.A. 2941",
-          "note": "Welcomed by the Master; Bilbo's birthday; the company is feasted and re-equipped"
+          "note": "Welcomed by the Master; Bilbo's birthday; the company is feasted and re-equipped",
+          "placeId": "esgaroth"
         },
         {
           "place": "Long Lake (by boat)",
           "x": 1632,
           "y": 690,
           "date": "c. 11 Oct T.A. 2941",
-          "note": "Rowed up the lake to the River Running and the Desolation of Smaug"
+          "note": "Rowed up the lake to the River Running and the Desolation of Smaug",
+          "approximate": true
         },
         {
           "place": "Erebor (the Lonely Mountain)",
-          "x": 1610,
-          "y": 620,
+          "x": 1600,
+          "y": 615,
           "date": "19 Oct T.A. 2941",
-          "note": "Durin's Day: the thrush knocks and the secret door opens; Bilbo steals the cup; Smaug flies to burn Lake-town"
+          "note": "Durin's Day: the thrush knocks and the secret door opens; Bilbo steals the cup; Smaug flies to burn Lake-town",
+          "placeId": "secret-door-erebor",
+          "approximate": true
         },
         {
           "place": "Ravenhill",
-          "x": 1598,
-          "y": 640,
+          "x": 1612,
+          "y": 628,
           "date": "Nov T.A. 2941",
-          "note": "Roäc the raven brings news of Smaug's death; the siege of the Mountain"
+          "note": "Roäc the raven brings news of Smaug's death; the siege of the Mountain",
+          "placeId": "ravenhill"
         },
         {
           "place": "Dale (Battle of Five Armies)",
-          "x": 1615,
-          "y": 642,
+          "x": 1605,
+          "y": 635,
           "date": "late Nov T.A. 2941",
-          "note": "Battle of Five Armies in the last week of autumn; Thorin dies; Dáin becomes King under the Mountain"
+          "note": "Battle of Five Armies in the last week of autumn; Thorin dies; Dáin becomes King under the Mountain",
+          "placeId": "battle-of-five-armies",
+          "approximate": true
         },
         {
           "place": "Northern eaves of Mirkwood",
           "x": 1450,
           "y": 592,
           "date": "Dec T.A. 2941",
-          "note": "Homeward with Gandalf and Beorn, round the north of the forest"
+          "note": "Homeward with Gandalf and Beorn, round the north of the forest",
+          "approximate": true
         },
         {
           "place": "Beorn's House (Yule)",
           "x": 1235,
           "y": 850,
           "date": "Yule T.A. 2941",
-          "note": "Midwinter feast at Beorn's hall"
+          "note": "Midwinter feast at Beorn's hall",
+          "placeId": "beorns-house",
+          "via": [
+            {
+              "x": 1320,
+              "y": 592
+            },
+            {
+              "x": 1260,
+              "y": 660
+            },
+            {
+              "x": 1250,
+              "y": 755
+            }
+          ]
         },
         {
           "place": "High Pass",
           "x": 1150,
           "y": 855,
           "date": "spring T.A. 2942",
-          "note": "Back over the Misty Mountains by the High Pass"
+          "note": "Back over the Misty Mountains by the High Pass",
+          "placeId": "high-pass"
         },
         {
           "place": "Rivendell",
           "x": 1110,
           "y": 868,
           "date": "1 May T.A. 2942",
-          "note": "Elrond's house again; a week of rest and tales"
+          "note": "Elrond's house again; a week of rest and tales",
+          "placeId": "rivendell"
         },
         {
           "place": "Trollshaws (troll-hoard)",
           "x": 1050,
           "y": 865,
           "date": "May T.A. 2942",
-          "note": "Bilbo and Gandalf dig up the trolls' gold"
+          "note": "Bilbo and Gandalf dig up the trolls' gold",
+          "placeId": "trollshaws"
         },
         {
           "place": "Bag End",
-          "x": 700,
-          "y": 900,
+          "x": 698,
+          "y": 898,
           "date": "22 Jun T.A. 2942",
-          "note": "Home to find his goods being auctioned by the Sackville-Bagginses"
+          "note": "Home to find his goods being auctioned by the Sackville-Bagginses",
+          "placeId": "bag-end"
         }
       ]
     },
@@ -16838,140 +17031,161 @@ window.ATLAS_DATA = {
           "x": 1505,
           "y": 1635,
           "date": "19 Jul T.A. 3019",
-          "note": "The funeral escort of King Théoden sets out from the City"
+          "note": "The funeral escort of King Théoden sets out from the City",
+          "placeId": "minas-tirith"
         },
         {
           "place": "Anórien (Great West Road)",
           "x": 1490,
           "y": 1622,
           "date": "late Jul T.A. 3019",
-          "note": "The slow procession passes beneath the beacon-hills"
+          "note": "The slow procession passes beneath the beacon-hills",
+          "approximate": true
         },
         {
           "place": "Edoras (Meduseld)",
           "x": 1300,
-          "y": 1540,
+          "y": 1539,
           "date": "7–14 Aug T.A. 3019",
-          "note": "Théoden buried on 10 Aug; Éomer betroths Éowyn to Faramir; the guests leave on 14 Aug"
+          "note": "Théoden buried on 10 Aug; Éomer betroths Éowyn to Faramir; the guests leave on 14 Aug",
+          "placeId": "meduseld",
+          "approximate": true
         },
         {
           "place": "Helm's Deep",
           "x": 1250,
           "y": 1445,
           "date": "18 Aug T.A. 3019",
-          "note": "Legolas is shown the Glittering Caves of Aglarond"
+          "note": "Legolas is shown the Glittering Caves of Aglarond",
+          "placeId": "helms-deep"
         },
         {
           "place": "Isengard",
           "x": 1230,
           "y": 1390,
           "date": "22 Aug T.A. 3019",
-          "note": "Treebeard's Treegarth; Saruman has been let go; Aragorn takes leave at sunset"
+          "note": "Treebeard's Treegarth; Saruman has been let go; Aragorn takes leave at sunset",
+          "placeId": "isengard"
         },
         {
           "place": "Dunland",
           "x": 1140,
           "y": 1230,
           "date": "28 Aug T.A. 3019",
-          "note": "They overtake Saruman and Wormtongue on the road; Saruman turns towards the Shire"
+          "note": "They overtake Saruman and Wormtongue on the road; Saruman turns towards the Shire",
+          "approximate": true
         },
         {
           "place": "Ford of the Swanfleet (Glanduin)",
           "x": 1128,
           "y": 1102,
           "date": "c. 3 Sep T.A. 3019",
-          "note": "The old ford east of the falls; into Eregion"
+          "note": "The old ford east of the falls; into Eregion",
+          "approximate": true
         },
         {
           "place": "Hollin, in sight of the Mountains of Moria",
           "x": 1162,
           "y": 1078,
           "date": "6–13 Sep T.A. 3019",
-          "note": "A week's halt; Galadriel and Celeborn depart over the Redhorn on 13 Sep"
+          "note": "A week's halt; Galadriel and Celeborn depart over the Redhorn on 13 Sep",
+          "approximate": true
         },
         {
           "place": "Northern Hollin",
           "x": 1150,
           "y": 1050,
           "date": "mid-Sep T.A. 3019",
-          "note": "Northward along the mountains' feet"
+          "note": "Northward along the mountains' feet",
+          "approximate": true
         },
         {
           "place": "Ford of Bruinen",
           "x": 1095,
           "y": 875,
           "date": "21 Sep T.A. 3019",
-          "note": "Across the Loudwater into the valley of Rivendell"
+          "note": "Across the Loudwater into the valley of Rivendell",
+          "placeId": "ford-of-bruinen"
         },
         {
           "place": "Rivendell",
           "x": 1110,
           "y": 868,
           "date": "21 Sep – 5 Oct T.A. 3019",
-          "note": "Bilbo's 129th birthday; Bilbo gives Frodo the Red Book"
+          "note": "Bilbo's 129th birthday; Bilbo gives Frodo the Red Book",
+          "placeId": "rivendell"
         },
         {
           "place": "Ford of Bruinen (again)",
           "x": 1095,
           "y": 875,
           "date": "6 Oct T.A. 3019",
-          "note": "Frodo feels the first return of the Morgul-wound's pain"
+          "note": "Frodo feels the first return of the Morgul-wound's pain",
+          "placeId": "ford-of-bruinen"
         },
         {
           "place": "Trollshaws",
           "x": 1050,
           "y": 865,
           "date": "c. 10 Oct T.A. 3019",
-          "note": "Past the stone trolls on the way west"
+          "note": "Past the stone trolls on the way west",
+          "placeId": "trollshaws"
         },
         {
           "place": "Last Bridge",
           "x": 1010,
           "y": 885,
           "date": "c. 14 Oct T.A. 3019",
-          "note": "Over the Hoarwell into the Lone-lands"
+          "note": "Over the Hoarwell into the Lone-lands",
+          "placeId": "last-bridge"
         },
         {
           "place": "Weathertop",
           "x": 905,
           "y": 890,
           "date": "c. 24 Oct T.A. 3019",
-          "note": "Frodo will not look at the hill as they pass it"
+          "note": "Frodo will not look at the hill as they pass it",
+          "placeId": "weathertop"
         },
         {
           "place": "Bree (The Prancing Pony)",
-          "x": 820,
+          "x": 819,
           "y": 895,
           "date": "28–30 Oct T.A. 3019",
-          "note": "Barliman's troubles; news of ruffians in the Shire"
+          "note": "Barliman's troubles; news of ruffians in the Shire",
+          "placeId": "prancing-pony"
         },
         {
           "place": "Brandywine Bridge",
           "x": 752,
           "y": 893,
           "date": "30 Oct T.A. 3019",
-          "note": "The Travellers find the Bridge gated and guarded by Shirriffs at dark"
+          "note": "The Travellers find the Bridge gated and guarded by Shirriffs at dark",
+          "placeId": "brandywine-bridge"
         },
         {
           "place": "Frogmorton",
           "x": 725,
           "y": 900,
           "date": "1 Nov T.A. 3019",
-          "note": "Arrested by the Shirriffs at the Shirriff-house"
+          "note": "Arrested by the Shirriffs at the Shirriff-house",
+          "placeId": "frogmorton"
         },
         {
           "place": "Bywater",
           "x": 707,
           "y": 905,
           "date": "2–3 Nov T.A. 3019",
-          "note": "The Shire is roused; Battle of Bywater on 3 Nov ends the War of the Ring"
+          "note": "The Shire is roused; Battle of Bywater on 3 Nov ends the War of the Ring",
+          "placeId": "bywater"
         },
         {
           "place": "Bag End",
-          "x": 700,
-          "y": 900,
+          "x": 698,
+          "y": 898,
           "date": "3 Nov T.A. 3019",
-          "note": "Saruman slain by Wormtongue at the door of Bag End; the Scouring of the Shire"
+          "note": "Saruman slain by Wormtongue at the door of Bag End; the Scouring of the Shire",
+          "placeId": "bag-end"
         }
       ]
     },
@@ -16983,87 +17197,100 @@ window.ATLAS_DATA = {
       "legs": [
         {
           "place": "Bag End",
-          "x": 700,
-          "y": 900,
+          "x": 698,
+          "y": 898,
           "date": "21 Sep T.A. 3021",
-          "note": "Frodo and Sam set out from Hobbiton; the Red Book is given to Sam"
+          "note": "Frodo and Sam set out from Hobbiton; the Red Book is given to Sam",
+          "placeId": "bag-end"
         },
         {
           "place": "Green Hill Country",
-          "x": 716,
-          "y": 917,
+          "x": 695,
+          "y": 938,
           "date": "21 Sep T.A. 3021",
-          "note": "Over the Green Hills towards Stock, as three years before"
+          "note": "Over the Green Hills towards Stock, as three years before",
+          "placeId": "green-hill-country",
+          "approximate": true
         },
         {
           "place": "Woody End",
           "x": 738,
           "y": 922,
           "date": "22 Sep T.A. 3021",
-          "note": "Meeting with the Last Riding of the Keepers of the Rings: Elrond, Galadriel and Bilbo"
+          "note": "Meeting with the Last Riding of the Keepers of the Rings: Elrond, Galadriel and Bilbo",
+          "approximate": true
         },
         {
           "place": "Tuckborough (passed)",
           "x": 700,
           "y": 922,
           "date": "c. 23 Sep T.A. 3021",
-          "note": "Riding quietly west through the Green Hill Country"
+          "note": "Riding quietly west through the Green Hill Country",
+          "approximate": true
         },
         {
           "place": "Michel Delving (passed)",
           "x": 672,
           "y": 905,
           "date": "c. 25 Sep T.A. 3021",
-          "note": "Across the Westfarthing, unseen by the Shire-folk"
+          "note": "Across the Westfarthing, unseen by the Shire-folk",
+          "approximate": true
         },
         {
           "place": "White Downs",
           "x": 672,
           "y": 893,
           "date": "c. 25 Sep T.A. 3021",
-          "note": "Over the downs; the elves go by night and are not seen"
+          "note": "Over the downs; the elves go by night and are not seen",
+          "placeId": "white-downs"
         },
         {
           "place": "Far Downs",
           "x": 650,
           "y": 900,
           "date": "c. 26 Sep T.A. 3021",
-          "note": "The western bounds of the Shire"
+          "note": "The western bounds of the Shire",
+          "placeId": "far-downs"
         },
         {
           "place": "Tower Hills (Emyn Beraid)",
           "x": 612,
           "y": 895,
           "date": "c. 27 Sep T.A. 3021",
-          "note": "The White Towers on the downs; a far glimpse of the Sea"
+          "note": "The White Towers on the downs; a far glimpse of the Sea",
+          "placeId": "tower-hills"
         },
         {
           "place": "Descent to the Lune",
           "x": 585,
           "y": 902,
           "date": "c. 28 Sep T.A. 3021",
-          "note": "Down the long slope towards the Gulf of Lune"
+          "note": "Down the long slope towards the Gulf of Lune",
+          "approximate": true
         },
         {
           "place": "Grey Havens (Mithlond)",
           "x": 540,
           "y": 905,
           "date": "29 Sep T.A. 3021",
-          "note": "Círdan's white ship; Frodo, Bilbo, Gandalf and the Ring-bearers sail into the West; end of the Third Age"
+          "note": "Círdan's white ship; Frodo, Bilbo, Gandalf and the Ring-bearers sail into the West; end of the Third Age",
+          "placeId": "mithlond"
         },
         {
           "place": "Road home",
           "x": 650,
           "y": 900,
           "date": "early Oct T.A. 3021",
-          "note": "Sam, Merry and Pippin ride back in silence"
+          "note": "Sam, Merry and Pippin ride back in silence",
+          "approximate": true
         },
         {
           "place": "Bag End",
-          "x": 700,
-          "y": 900,
+          "x": 698,
+          "y": 898,
           "date": "6 Oct T.A. 3021",
-          "note": "'Well, I'm back,' Sam said"
+          "note": "'Well, I'm back,' Sam said",
+          "placeId": "bag-end"
         }
       ]
     }
@@ -17076,9 +17303,11 @@ window.ATLAS_DATA = {
       "title": "Durin the Deathless awakes",
       "place": "Mount Gundabad",
       "x": 1090,
-      "y": -7981,
+      "y": 650,
       "text": "Durin, eldest of the Seven Fathers of the Dwarves, wakes beneath Mount Gundabad, ever after a holy place to his people. He wanders south to Azanulbizar and sees the crown of stars in Mirrormere.",
-      "src": "tg:Durin"
+      "src": "tg:Durin",
+      "absoluteYear": -7981,
+      "placeId": "mount-gundabad"
     },
     {
       "age": "YT",
@@ -17087,9 +17316,11 @@ window.ATLAS_DATA = {
       "title": "Khazad-dûm founded",
       "place": "Dimrill Dale (Azanulbizar)",
       "x": 1238,
-      "y": -7981,
+      "y": 1098,
       "text": "Durin founds the mansions of Khazad-dûm beneath the Misty Mountains above Mirrormere. It becomes the greatest of all Dwarf-kingdoms.",
-      "src": "tg:Khazad-dûm"
+      "src": "tg:Khazad-dûm",
+      "absoluteYear": -7981,
+      "placeId": "dimrill-dale"
     },
     {
       "age": "YT",
@@ -17097,10 +17328,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "The Nandor turn aside at the Misty Mountains",
       "place": "Vales of Anduin",
-      "x": 1240,
-      "y": -7916,
+      "x": 1260,
+      "y": 900,
       "text": "On the Great Journey westward, Lenwë's people refuse to cross the Hithaeglir and settle in the Vales of Anduin; from them come the Silvan Elves of Lórien and Greenwood.",
-      "src": "tg:Nandor"
+      "src": "tg:Nandor",
+      "absoluteYear": -7916,
+      "placeId": "vales-of-anduin",
+      "approximate": true
     },
     {
       "age": "FA",
@@ -17108,10 +17342,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Dwarves of Nogrod and Belegost",
       "place": "Ered Luin (Blue Mountains)",
-      "x": 565,
-      "y": -4030,
+      "x": 560,
+      "y": 800,
       "text": "The Dwarf-cities of Nogrod and Belegost flourish in the Blue Mountains and trade with the Elves of Beleriand throughout the First Age.",
-      "src": "tg:Belegost"
+      "src": "tg:Belegost",
+      "absoluteYear": -4030,
+      "placeId": "blue-mountains"
     },
     {
       "age": "FA",
@@ -17120,9 +17356,12 @@ window.ATLAS_DATA = {
       "title": "War of Wrath begins",
       "place": "Lindon",
       "x": 560,
-      "y": -3486,
+      "y": 850,
       "text": "The host of the Valar comes against Morgoth. In the cataclysm that follows, Beleriand is drowned and only Lindon, east of the Blue Mountains, remains; Nogrod and Belegost are ruined.",
-      "src": "tg:War_of_Wrath"
+      "src": "tg:War_of_Wrath",
+      "absoluteYear": -3486,
+      "placeId": "lindon",
+      "approximate": true
     },
     {
       "age": "FA",
@@ -17131,9 +17370,12 @@ window.ATLAS_DATA = {
       "title": "Morgoth overthrown; end of the First Age",
       "place": "Lindon",
       "x": 560,
-      "y": -3444,
+      "y": 850,
       "text": "Morgoth is cast into the Void. Gil-galad gathers the remaining Eldar in Lindon, the last remnant of Ossiriand.",
-      "src": "tg:First_Age"
+      "src": "tg:First_Age",
+      "absoluteYear": -3444,
+      "placeId": "lindon",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17142,9 +17384,11 @@ window.ATLAS_DATA = {
       "title": "Foundation of Lindon and the Grey Havens",
       "place": "Mithlond",
       "x": 540,
-      "y": -3440,
+      "y": 905,
       "text": "Gil-galad establishes the realm of Lindon around the Gulf of Lune; Círdan builds the havens of Mithlond, whence the Elves may sail to the West.",
-      "src": "tg:Grey_Havens"
+      "src": "tg:Grey_Havens",
+      "absoluteYear": -3440,
+      "placeId": "mithlond"
     },
     {
       "age": "SA",
@@ -17153,9 +17397,11 @@ window.ATLAS_DATA = {
       "title": "Dwarves of the Blue Mountains come to Khazad-dûm",
       "place": "Khazad-dûm",
       "x": 1215,
-      "y": -3401,
+      "y": 1095,
       "text": "Many Dwarves of ruined Belegost and Nogrod migrate east to Khazad-dûm, swelling its wealth and power.",
-      "src": "tg:Khazad-dûm"
+      "src": "tg:Khazad-dûm",
+      "absoluteYear": -3401,
+      "placeId": "moria"
     },
     {
       "age": "SA",
@@ -17164,9 +17410,11 @@ window.ATLAS_DATA = {
       "title": "First Númenórean ship reaches Middle-earth",
       "place": "Mithlond",
       "x": 540,
-      "y": -2841,
+      "y": 905,
       "text": "Vëantur captains the first ship of Númenor back to Middle-earth, landing at the Grey Havens; Men of the West begin to visit the coasts.",
-      "src": "tg:Vëantur"
+      "src": "tg:Vëantur",
+      "absoluteYear": -2841,
+      "placeId": "mithlond"
     },
     {
       "age": "SA",
@@ -17175,9 +17423,11 @@ window.ATLAS_DATA = {
       "title": "Eregion founded",
       "place": "Ost-in-Edhil",
       "x": 1140,
-      "y": -2691,
+      "y": 1075,
       "text": "Noldor led by Galadriel and Celeborn, and later Celebrimbor, found the realm of Eregion (Hollin) near the West-gate of Moria, in friendship with the Dwarves.",
-      "src": "tg:Eregion"
+      "src": "tg:Eregion",
+      "absoluteYear": -2691,
+      "placeId": "ost-in-edhil"
     },
     {
       "age": "SA",
@@ -17186,9 +17436,12 @@ window.ATLAS_DATA = {
       "title": "Vinyalondë (Lond Daer) established",
       "place": "Lond Daer",
       "x": 820,
-      "y": -2641,
+      "y": 1275,
       "text": "Aldarion the Mariner builds the haven of Vinyalondë at the mouth of the Gwathló, the first Númenórean foothold in Middle-earth; it later grows into Lond Daer.",
-      "src": "tg:Lond_Daer"
+      "src": "tg:Lond_Daer",
+      "absoluteYear": -2641,
+      "placeId": "lond-daer",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17197,9 +17450,11 @@ window.ATLAS_DATA = {
       "title": "Sauron begins Barad-dûr",
       "place": "Barad-dûr",
       "x": 1745,
-      "y": -2441,
+      "y": 1560,
       "text": "Alarmed by the Númenóreans, Sauron chooses Mordor as his stronghold and begins the building of the Dark Tower.",
-      "src": "tg:Barad-dûr"
+      "src": "tg:Barad-dûr",
+      "absoluteYear": -2441,
+      "placeId": "barad-dur"
     },
     {
       "age": "SA",
@@ -17208,9 +17463,11 @@ window.ATLAS_DATA = {
       "title": "Annatar comes to Eregion",
       "place": "Ost-in-Edhil",
       "x": 1140,
-      "y": -2241,
+      "y": 1075,
       "text": "Sauron, disguised as Annatar 'Lord of Gifts', is rejected by Gil-galad in Lindon but welcomed by Celebrimbor's smiths in Eregion.",
-      "src": "tg:Annatar"
+      "src": "tg:Annatar",
+      "absoluteYear": -2241,
+      "placeId": "ost-in-edhil"
     },
     {
       "age": "SA",
@@ -17219,9 +17476,11 @@ window.ATLAS_DATA = {
       "title": "The Rings of Power are forged",
       "place": "Ost-in-Edhil",
       "x": 1140,
-      "y": -1941,
+      "y": 1075,
       "text": "Under Annatar's guidance the Gwaith-i-Mírdain begin forging the Rings of Power; the Seven and the Nine are made in these years.",
-      "src": "tg:Rings_of_Power"
+      "src": "tg:Rings_of_Power",
+      "absoluteYear": -1941,
+      "placeId": "ost-in-edhil"
     },
     {
       "age": "SA",
@@ -17230,9 +17489,11 @@ window.ATLAS_DATA = {
       "title": "The Three Rings completed",
       "place": "Ost-in-Edhil",
       "x": 1140,
-      "y": -1851,
+      "y": 1075,
       "text": "Celebrimbor alone forges Vilya, Nenya and Narya, the Three Rings of the Elves, untouched by Sauron's hand.",
-      "src": "tg:Three_Rings"
+      "src": "tg:Three_Rings",
+      "absoluteYear": -1851,
+      "placeId": "ost-in-edhil"
     },
     {
       "age": "SA",
@@ -17241,9 +17502,11 @@ window.ATLAS_DATA = {
       "title": "The One Ring forged",
       "place": "Mount Doom (Orodruin)",
       "x": 1700,
-      "y": -1841,
+      "y": 1595,
       "text": "Sauron forges the One Ring in the fires of Orodruin and completes Barad-dûr; the Elves perceive him and hide the Three.",
-      "src": "tg:The_One_Ring"
+      "src": "tg:The_One_Ring",
+      "absoluteYear": -1841,
+      "placeId": "mount-doom"
     },
     {
       "age": "SA",
@@ -17252,9 +17515,12 @@ window.ATLAS_DATA = {
       "title": "Sauron invades Eriador",
       "place": "Eregion",
       "x": 1150,
-      "y": -1746,
+      "y": 1050,
       "text": "The War of the Elves and Sauron: Sauron's armies pour into Eriador; Elrond is sent from Lindon with a force to aid Eregion.",
-      "src": "tg:War_of_the_Elves_and_Sauron"
+      "src": "tg:War_of_the_Elves_and_Sauron",
+      "absoluteYear": -1746,
+      "placeId": "eregion",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17263,9 +17529,11 @@ window.ATLAS_DATA = {
       "title": "Sack of Eregion",
       "place": "Ost-in-Edhil",
       "x": 1140,
-      "y": -1744,
+      "y": 1075,
       "text": "Eregion is laid waste and Celebrimbor slain; the Gates of Moria are shut. Sauron takes the Nine and the Seven, but not the Three.",
-      "src": "tg:Sack_of_Eregion"
+      "src": "tg:Sack_of_Eregion",
+      "absoluteYear": -1744,
+      "placeId": "ost-in-edhil"
     },
     {
       "age": "SA",
@@ -17274,20 +17542,27 @@ window.ATLAS_DATA = {
       "title": "Rivendell founded",
       "place": "Imladris",
       "x": 1110,
-      "y": -1744,
+      "y": 868,
       "text": "Elrond, retreating north with the survivors of Eregion, founds the refuge of Imladris in a hidden valley beneath the Misty Mountains.",
-      "src": "tg:Rivendell"
+      "src": "tg:Rivendell",
+      "absoluteYear": -1744,
+      "placeId": "rivendell"
     },
     {
       "age": "SA",
-      "year": 1700,
+      "year": 1701,
       "date": "",
       "title": "Battle of the Gwathló",
-      "place": "Tharbad",
+      "timeLabel": "S.A. 1700–1701 (dating uncertain)",
+      "dateUncertain": true,
+      "place": "Near Tharbad",
       "x": 905,
-      "y": -1741,
+      "y": 1090,
       "text": "A great navy sent by Tar-Minastir of Númenor lands at Lindon and Vinyalondë; Sauron is defeated at the Gwathló and driven from Eriador.",
-      "src": "tg:Battle_of_the_Gwathló"
+      "src": "tg:Battle_of_the_Gwathló",
+      "absoluteYear": -1740,
+      "placeId": "battle-of-the-gwathlo",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17296,9 +17571,12 @@ window.ATLAS_DATA = {
       "title": "Númenórean dominions on the coasts",
       "place": "Lond Daer",
       "x": 820,
-      "y": -1641,
+      "y": 1275,
       "text": "The Númenóreans establish permanent havens and dominions along the coasts of Middle-earth; the forests of Minhiriath and Enedwaith are felled for their ships.",
-      "src": "tg:Lond_Daer"
+      "src": "tg:Lond_Daer",
+      "absoluteYear": -1641,
+      "placeId": "lond-daer",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17306,10 +17584,13 @@ window.ATLAS_DATA = {
       "date": "c.",
       "title": "The Nazgûl first appear",
       "place": "Mordor",
-      "x": 1780,
-      "y": -1190,
+      "x": 1800,
+      "y": 1660,
       "text": "The Ringwraiths, Sauron's Nine slaves of the Nine Rings, first appear in Middle-earth.",
-      "src": "tg:Nazgûl"
+      "src": "tg:Nazgûl",
+      "absoluteYear": -1190,
+      "placeId": "mordor",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17317,10 +17598,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Umbar fortified",
       "place": "Umbar",
-      "x": 1440,
-      "y": -1161,
+      "x": 1510,
+      "y": 2172,
       "text": "The great natural harbour of Umbar is made into a mighty fortress of Númenor, later the stronghold of the King's Men.",
-      "src": "tg:Umbar"
+      "src": "tg:Umbar",
+      "absoluteYear": -1161,
+      "placeId": "umbar",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17329,9 +17613,11 @@ window.ATLAS_DATA = {
       "title": "Pelargir built",
       "place": "Pelargir",
       "x": 1520,
-      "y": -1091,
+      "y": 1790,
       "text": "The haven of Pelargir is built on the Anduin and becomes the chief harbour of the Faithful Númenóreans.",
-      "src": "tg:Pelargir"
+      "src": "tg:Pelargir",
+      "absoluteYear": -1091,
+      "placeId": "pelargir"
     },
     {
       "age": "SA",
@@ -17339,10 +17625,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Ar-Pharazôn lands at Umbar",
       "place": "Umbar",
-      "x": 1440,
-      "y": -180,
+      "x": 1510,
+      "y": 2172,
       "text": "Ar-Pharazôn the Golden lands with a vast armament at Umbar; Sauron humbles himself and is taken to Númenor as a prisoner (S.A. 3262).",
-      "src": "tg:Ar-Pharazôn"
+      "src": "tg:Ar-Pharazôn",
+      "absoluteYear": -180,
+      "placeId": "umbar",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17350,10 +17639,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Downfall of Númenor",
       "place": "Belfalas coast (Elendil's landing)",
-      "x": 1200,
-      "y": -122,
+      "x": 1340,
+      "y": 1790,
       "text": "Númenor is destroyed; Elendil and his sons escape in nine ships and are cast upon the shores of Middle-earth.",
-      "src": "tg:Downfall_of_Númenor"
+      "src": "tg:Downfall_of_Númenor",
+      "absoluteYear": -122,
+      "placeId": "belfalas",
+      "approximate": true
     },
     {
       "age": "SA",
@@ -17362,9 +17654,11 @@ window.ATLAS_DATA = {
       "title": "Arnor founded",
       "place": "Annúminas",
       "x": 705,
-      "y": -121,
+      "y": 816,
       "text": "Elendil founds the North-kingdom of Arnor, with his capital at Annúminas on Lake Evendim, and holds the palantíri of the North.",
-      "src": "tg:Arnor"
+      "src": "tg:Arnor",
+      "absoluteYear": -121,
+      "placeId": "annuminas"
     },
     {
       "age": "SA",
@@ -17373,9 +17667,11 @@ window.ATLAS_DATA = {
       "title": "Gondor founded",
       "place": "Osgiliath",
       "x": 1527,
-      "y": -121,
+      "y": 1638,
       "text": "Isildur and Anárion found the South-kingdom of Gondor; Osgiliath is their capital, with Minas Ithil and Minas Anor on either hand.",
-      "src": "tg:Gondor"
+      "src": "tg:Gondor",
+      "absoluteYear": -121,
+      "placeId": "osgiliath"
     },
     {
       "age": "SA",
@@ -17384,9 +17680,11 @@ window.ATLAS_DATA = {
       "title": "Sauron takes Minas Ithil",
       "place": "Minas Ithil",
       "x": 1595,
-      "y": -12,
+      "y": 1652,
       "text": "Sauron attacks Gondor, seizes Minas Ithil and burns the White Tree; Isildur flees down Anduin to Elendil while Anárion holds Osgiliath.",
-      "src": "tg:Minas_Ithil"
+      "src": "tg:Minas_Ithil",
+      "absoluteYear": -12,
+      "placeId": "minas-morgul"
     },
     {
       "age": "SA",
@@ -17395,9 +17693,11 @@ window.ATLAS_DATA = {
       "title": "Last Alliance of Elves and Men",
       "place": "Imladris",
       "x": 1110,
-      "y": -11,
+      "y": 868,
       "text": "Gil-galad and Elendil form the Last Alliance; in S.A. 3431 their host musters at Imladris.",
-      "src": "tg:Last_Alliance_of_Elves_and_Men"
+      "src": "tg:Last_Alliance_of_Elves_and_Men",
+      "absoluteYear": -11,
+      "placeId": "rivendell"
     },
     {
       "age": "SA",
@@ -17406,9 +17706,11 @@ window.ATLAS_DATA = {
       "title": "Battle of Dagorlad",
       "place": "Dagorlad",
       "x": 1630,
-      "y": -7,
+      "y": 1490,
       "text": "The host of the Last Alliance crosses the Misty Mountains and defeats Sauron's armies on the Battle Plain before the Morannon.",
-      "src": "tg:Battle_of_Dagorlad"
+      "src": "tg:Battle_of_Dagorlad",
+      "absoluteYear": -7,
+      "placeId": "dagorlad"
     },
     {
       "age": "SA",
@@ -17417,9 +17719,11 @@ window.ATLAS_DATA = {
       "title": "Siege of Barad-dûr begins",
       "place": "Barad-dûr",
       "x": 1745,
-      "y": -7,
+      "y": 1560,
       "text": "The Alliance lays siege to the Dark Tower for seven years; Anárion is slain in S.A. 3440.",
-      "src": "tg:Siege_of_Barad-dûr"
+      "src": "tg:Siege_of_Barad-dûr",
+      "absoluteYear": -7,
+      "placeId": "barad-dur"
     },
     {
       "age": "SA",
@@ -17428,9 +17732,11 @@ window.ATLAS_DATA = {
       "title": "Sauron overthrown; Isildur takes the Ring",
       "place": "Slopes of Mount Doom",
       "x": 1700,
-      "y": 0,
+      "y": 1595,
       "text": "Gil-galad and Elendil perish overthrowing Sauron; Isildur cuts the Ring from his hand with the hilt-shard of Narsil but refuses to destroy it. End of the Second Age.",
-      "src": "tg:Isildur"
+      "src": "tg:Isildur",
+      "absoluteYear": 0,
+      "placeId": "mount-doom"
     },
     {
       "age": "TA",
@@ -17439,9 +17745,12 @@ window.ATLAS_DATA = {
       "title": "Disaster of the Gladden Fields",
       "place": "Gladden Fields",
       "x": 1285,
-      "y": 2,
+      "y": 1005,
       "text": "Isildur and his three eldest sons are slain by Orcs; the One Ring slips from his finger in the Anduin and is lost.",
-      "src": "tg:Disaster_of_the_Gladden_Fields"
+      "src": "tg:Disaster_of_the_Gladden_Fields",
+      "absoluteYear": 2,
+      "placeId": "gladden-fields",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17450,9 +17759,11 @@ window.ATLAS_DATA = {
       "title": "Shards of Narsil brought to Rivendell",
       "place": "Imladris",
       "x": 1110,
-      "y": 3,
+      "y": 868,
       "text": "Ohtar, Isildur's esquire, brings the shards of Narsil to Imladris, where Valandil, Isildur's heir, is kept.",
-      "src": "tg:Ohtar"
+      "src": "tg:Ohtar",
+      "absoluteYear": 3,
+      "placeId": "rivendell"
     },
     {
       "age": "TA",
@@ -17461,9 +17772,11 @@ window.ATLAS_DATA = {
       "title": "Minas Anor rebuilt",
       "place": "Minas Anor",
       "x": 1505,
-      "y": 420,
+      "y": 1635,
       "text": "King Ostoher rebuilds Minas Anor, where the Kings of Gondor thereafter dwell in summer.",
-      "src": "tg:Ostoher"
+      "src": "tg:Ostoher",
+      "absoluteYear": 420,
+      "placeId": "minas-tirith"
     },
     {
       "age": "TA",
@@ -17471,10 +17784,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Rómendacil I defeats the Easterlings",
       "place": "Dagorlad / eastern marches",
-      "x": 1650,
-      "y": 500,
+      "x": 1630,
+      "y": 1490,
       "text": "Tarostar drives back the first invasion of Easterlings and takes the name Rómendacil, 'East-victor'; he is slain in a later battle in T.A. 541.",
-      "src": "tg:Rómendacil_I"
+      "src": "tg:Rómendacil_I",
+      "absoluteYear": 500,
+      "placeId": "dagorlad"
     },
     {
       "age": "TA",
@@ -17483,9 +17798,11 @@ window.ATLAS_DATA = {
       "title": "The Ship-kings of Gondor",
       "place": "Pelargir",
       "x": 1520,
-      "y": 830,
+      "y": 1790,
       "text": "Tarannon Falastur, first of the Ship-kings, extends Gondor's power along the coasts west and south of the Mouths of Anduin.",
-      "src": "tg:Tarannon_Falastur"
+      "src": "tg:Tarannon_Falastur",
+      "absoluteYear": 830,
+      "placeId": "pelargir"
     },
     {
       "age": "TA",
@@ -17494,9 +17811,11 @@ window.ATLAS_DATA = {
       "title": "Division of Arnor",
       "place": "Fornost Erain",
       "x": 820,
-      "y": 861,
+      "y": 785,
       "text": "On the death of Eärendur, Arnor is divided among his sons into Arthedain, Cardolan and Rhudaur; Fornost becomes the seat of Arthedain.",
-      "src": "tg:Arnor"
+      "src": "tg:Arnor",
+      "absoluteYear": 861,
+      "placeId": "fornost-erain"
     },
     {
       "age": "TA",
@@ -17504,10 +17823,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Eärnil I takes Umbar",
       "place": "Umbar",
-      "x": 1440,
-      "y": 933,
+      "x": 1510,
+      "y": 2172,
       "text": "Eärnil I captures Umbar by land and sea and makes it a great fortress of Gondor; he is lost at sea three years later.",
-      "src": "tg:Eärnil_I"
+      "src": "tg:Eärnil_I",
+      "absoluteYear": 933,
+      "placeId": "umbar",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17516,9 +17838,11 @@ window.ATLAS_DATA = {
       "title": "The Istari arrive",
       "place": "Mithlond",
       "x": 540,
-      "y": 1000,
+      "y": 905,
       "text": "The five Wizards, emissaries of the Valar, land at the Grey Havens; Círdan gives Narya to Gandalf.",
-      "src": "tg:Istari"
+      "src": "tg:Istari",
+      "absoluteYear": 1000,
+      "placeId": "mithlond"
     },
     {
       "age": "TA",
@@ -17527,9 +17851,12 @@ window.ATLAS_DATA = {
       "title": "Hyarmendacil I conquers Harad",
       "place": "Near Harad",
       "x": 1650,
-      "y": 1050,
+      "y": 2060,
       "text": "Ciryaher defeats the Haradrim and takes the name Hyarmendacil 'South-victor'; Gondor reaches the height of its power.",
-      "src": "tg:Hyarmendacil_I"
+      "src": "tg:Hyarmendacil_I",
+      "absoluteYear": 1050,
+      "placeId": "near-harad",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17538,9 +17865,11 @@ window.ATLAS_DATA = {
       "title": "Greenwood the Great becomes Mirkwood",
       "place": "Dol Guldur (Amon Lanc)",
       "x": 1440,
-      "y": 1050,
+      "y": 1085,
       "text": "A shadow falls upon the forest as Sauron, in secret, makes his stronghold at Amon Lanc; Men begin to call it Mirkwood.",
-      "src": "tg:Mirkwood"
+      "src": "tg:Mirkwood",
+      "absoluteYear": 1050,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -17548,10 +17877,13 @@ window.ATLAS_DATA = {
       "date": "c.",
       "title": "Harfoots enter Eriador",
       "place": "The Angle",
-      "x": 1040,
-      "y": 1050,
+      "x": 1075,
+      "y": 950,
       "text": "The Harfoots, first of the Hobbit-kinds to cross the Misty Mountains, come into Eriador; the Fallohides and Stoors follow c. T.A. 1150.",
-      "src": "tg:Harfoots"
+      "src": "tg:Harfoots",
+      "absoluteYear": 1050,
+      "placeId": "the-angle",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17560,9 +17892,11 @@ window.ATLAS_DATA = {
       "title": "The Wise discover Dol Guldur",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 1100,
+      "y": 1085,
       "text": "The Wise learn that an evil power has made a stronghold at Dol Guldur, and suppose it to be one of the Nazgûl.",
-      "src": "tg:Dol_Guldur"
+      "src": "tg:Dol_Guldur",
+      "absoluteYear": 1100,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -17571,9 +17905,11 @@ window.ATLAS_DATA = {
       "title": "Stoors cross the Redhorn Pass",
       "place": "Redhorn Pass",
       "x": 1218,
-      "y": 1150,
+      "y": 1085,
       "text": "The Stoors come over the Redhorn Pass and settle in the Angle and in Dunland; the Fallohides enter Eriador by way of Rivendell.",
-      "src": "tg:Stoors"
+      "src": "tg:Stoors",
+      "absoluteYear": 1150,
+      "placeId": "redhorn-pass"
     },
     {
       "age": "TA",
@@ -17581,10 +17917,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Rómendacil II defeats the Easterlings",
       "place": "Rhovanion",
-      "x": 1650,
-      "y": 1248,
+      "x": 1500,
+      "y": 1000,
       "text": "Minalcar destroys the Easterlings beyond the Sea of Rhûn, takes the name Rómendacil, and afterwards raises the Argonath at the northern border of Gondor.",
-      "src": "tg:Rómendacil_II"
+      "src": "tg:Rómendacil_II",
+      "absoluteYear": 1248,
+      "placeId": "rhovanion",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17593,9 +17932,11 @@ window.ATLAS_DATA = {
       "title": "The Argonath raised",
       "place": "Argonath",
       "x": 1425,
-      "y": 1250,
+      "y": 1392,
       "text": "Rómendacil II builds the Pillars of the Kings, giant likenesses of Isildur and Anárion, to mark Gondor's northern bound on Anduin.",
-      "src": "tg:Argonath"
+      "src": "tg:Argonath",
+      "absoluteYear": 1250,
+      "placeId": "argonath"
     },
     {
       "age": "TA",
@@ -17604,9 +17945,12 @@ window.ATLAS_DATA = {
       "title": "The Witch-king founds Angmar",
       "place": "Carn Dûm",
       "x": 1000,
-      "y": 1300,
+      "y": 640,
       "text": "The Nazgûl reappear; their chief establishes the realm of Angmar in the north with its capital at Carn Dûm, to destroy the Dúnedain of Arnor.",
-      "src": "tg:Angmar"
+      "src": "tg:Angmar",
+      "absoluteYear": 1300,
+      "placeId": "carn-dum",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17615,9 +17959,11 @@ window.ATLAS_DATA = {
       "title": "Hobbits settle in Bree",
       "place": "Bree",
       "x": 820,
-      "y": 1300,
+      "y": 895,
       "text": "Hobbits move westward from the Angle, fleeing the troubles of Rhudaur and Angmar, and some settle at Bree.",
-      "src": "tg:Bree"
+      "src": "tg:Bree",
+      "absoluteYear": 1300,
+      "placeId": "bree"
     },
     {
       "age": "TA",
@@ -17626,9 +17972,11 @@ window.ATLAS_DATA = {
       "title": "Argeleb I slain fighting Rhudaur",
       "place": "Weather Hills",
       "x": 905,
-      "y": 1356,
+      "y": 850,
       "text": "King Argeleb I of Arthedain is slain in battle against Rhudaur, now secretly allied with Angmar, on the Weather Hills.",
-      "src": "tg:Argeleb_I"
+      "src": "tg:Argeleb_I",
+      "absoluteYear": 1356,
+      "placeId": "weather-hills"
     },
     {
       "age": "TA",
@@ -17637,9 +17985,11 @@ window.ATLAS_DATA = {
       "title": "Fall of the Tower of Amon Sûl",
       "place": "Weathertop (Amon Sûl)",
       "x": 905,
-      "y": 1409,
+      "y": 890,
       "text": "The Witch-king invades Arnor: the tower of Amon Sûl is burned and razed, Rhudaur occupied and Cardolan ravaged; Arveleg I is slain.",
-      "src": "tg:Amon_Sûl"
+      "src": "tg:Amon_Sûl",
+      "absoluteYear": 1409,
+      "placeId": "weathertop"
     },
     {
       "age": "TA",
@@ -17648,9 +17998,11 @@ window.ATLAS_DATA = {
       "title": "The Kin-strife begins",
       "place": "Osgiliath",
       "x": 1527,
-      "y": 1432,
+      "y": 1638,
       "text": "Civil war breaks out in Gondor over the succession of Eldacar, whose mother was a Northman; in 1437 Osgiliath is burned and the palantír lost.",
-      "src": "tg:Kin-strife"
+      "src": "tg:Kin-strife",
+      "absoluteYear": 1432,
+      "placeId": "osgiliath"
     },
     {
       "age": "TA",
@@ -17658,10 +18010,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Battle of the Crossings of Erui",
       "place": "Crossings of Erui",
-      "x": 1475,
-      "y": 1447,
+      "x": 1465,
+      "y": 1680,
       "text": "Eldacar returns from Rhovanion and slays the usurper Castamir at the Crossings of Erui; Castamir's sons hold Pelargir under siege before fleeing to Umbar.",
-      "src": "tg:Battle_of_the_Crossings_of_Erui"
+      "src": "tg:Battle_of_the_Crossings_of_Erui",
+      "absoluteYear": 1447,
+      "placeId": "crossings-of-erui",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17669,10 +18024,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Rebels seize Umbar",
       "place": "Umbar",
-      "x": 1440,
-      "y": 1448,
+      "x": 1510,
+      "y": 2172,
       "text": "The defeated followers of Castamir take Umbar and make it a refuge of Gondor's enemies: the Corsairs of Umbar.",
-      "src": "tg:Corsairs_of_Umbar"
+      "src": "tg:Corsairs_of_Umbar",
+      "absoluteYear": 1448,
+      "placeId": "umbar",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17681,9 +18039,11 @@ window.ATLAS_DATA = {
       "title": "Founding of the Shire",
       "place": "Brandywine Bridge",
       "x": 752,
-      "y": 1601,
+      "y": 893,
       "text": "Marcho and Blanco lead hobbits across the Bridge of Stonebows with leave of King Argeleb II; the Shire Reckoning begins.",
-      "src": "tg:Shire"
+      "src": "tg:Shire",
+      "absoluteYear": 1601,
+      "placeId": "brandywine-bridge"
     },
     {
       "age": "TA",
@@ -17692,9 +18052,11 @@ window.ATLAS_DATA = {
       "title": "Corsairs slay King Minardil at Pelargir",
       "place": "Pelargir",
       "x": 1520,
-      "y": 1634,
+      "y": 1790,
       "text": "The Corsairs of Umbar ravage Pelargir and slay Minardil, King of Gondor.",
-      "src": "tg:Minardil"
+      "src": "tg:Minardil",
+      "absoluteYear": 1634,
+      "placeId": "pelargir"
     },
     {
       "age": "TA",
@@ -17703,9 +18065,11 @@ window.ATLAS_DATA = {
       "title": "The Great Plague",
       "place": "Osgiliath",
       "x": 1527,
-      "y": 1636,
+      "y": 1638,
       "text": "The Plague sweeps from Rhovanion into Gondor: King Telemnar and his children die, the White Tree withers and Osgiliath is largely deserted. It reaches the Shire in 1637.",
-      "src": "tg:Great_Plague"
+      "src": "tg:Great_Plague",
+      "absoluteYear": 1636,
+      "placeId": "osgiliath"
     },
     {
       "age": "TA",
@@ -17713,10 +18077,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Barrow-wights enter the Barrow-downs",
       "place": "Tyrn Gorthad",
-      "x": 790,
-      "y": 1636,
+      "x": 810,
+      "y": 920,
       "text": "The last Dúnedain of Cardolan perish in the Plague; evil spirits out of Angmar and Rhudaur enter the deserted mounds of Tyrn Gorthad.",
-      "src": "tg:Barrow-wights"
+      "src": "tg:Barrow-wights",
+      "absoluteYear": 1636,
+      "placeId": "barrow-downs"
     },
     {
       "age": "TA",
@@ -17725,9 +18091,11 @@ window.ATLAS_DATA = {
       "title": "The King's seat moved to Minas Anor",
       "place": "Minas Anor",
       "x": 1505,
-      "y": 1640,
+      "y": 1635,
       "text": "Tarondor moves the King's house from Osgiliath to Minas Anor and plants a seedling of the White Tree; the watch on Mordor is abandoned.",
-      "src": "tg:Tarondor"
+      "src": "tg:Tarondor",
+      "absoluteYear": 1640,
+      "placeId": "minas-tirith"
     },
     {
       "age": "TA",
@@ -17735,10 +18103,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Umbar retaken",
       "place": "Umbar",
-      "x": 1440,
-      "y": 1810,
+      "x": 1510,
+      "y": 2172,
       "text": "King Telumehtar storms Umbar, drives out the Corsairs and takes the name Umbardacil.",
-      "src": "tg:Telumehtar"
+      "src": "tg:Telumehtar",
+      "absoluteYear": 1810,
+      "placeId": "umbar",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17746,10 +18117,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Battle of the Plains",
       "place": "Plains south of Mirkwood",
-      "x": 1640,
-      "y": 1856,
+      "x": 1480,
+      "y": 1050,
       "text": "The Wainriders defeat Gondor and the Northmen; King Narmacil II is slain and Gondor's eastern territories lost. Marhwini leads the Northmen who become the Éothéod to the Vales of Anduin.",
-      "src": "tg:Battle_of_the_Plains"
+      "src": "tg:Battle_of_the_Plains",
+      "absoluteYear": 1856,
+      "placeId": "battle-of-the-plains",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17758,9 +18132,11 @@ window.ATLAS_DATA = {
       "title": "Calimehtar defeats the Wainriders",
       "place": "Dagorlad",
       "x": 1630,
-      "y": 1899,
+      "y": 1490,
       "text": "King Calimehtar wins a great victory over the Wainriders on Dagorlad, aided by a revolt of the Northmen in Rhovanion.",
-      "src": "tg:Calimehtar"
+      "src": "tg:Calimehtar",
+      "absoluteYear": 1899,
+      "placeId": "dagorlad"
     },
     {
       "age": "TA",
@@ -17769,9 +18145,12 @@ window.ATLAS_DATA = {
       "title": "Battle of the Camp",
       "place": "South Ithilien",
       "x": 1570,
-      "y": 1944,
+      "y": 1740,
       "text": "King Ondoher and his sons fall before the Morannon; Eärnil, captain of the Southern Army, destroys the Wainriders at the Battle of the Camp and becomes king (1945).",
-      "src": "tg:Battle_of_the_Camp"
+      "src": "tg:Battle_of_the_Camp",
+      "absoluteYear": 1944,
+      "placeId": "south-ithilien",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17780,9 +18159,11 @@ window.ATLAS_DATA = {
       "title": "Fall of Fornost",
       "place": "Fornost Erain",
       "x": 820,
-      "y": 1974,
+      "y": 785,
       "text": "The Witch-king overruns Arthedain and takes Fornost; King Arvedui flees to the Lossoth of Forochel. End of the North-kingdom.",
-      "src": "tg:Fornost"
+      "src": "tg:Fornost",
+      "absoluteYear": 1974,
+      "placeId": "fornost-erain"
     },
     {
       "age": "TA",
@@ -17791,9 +18172,11 @@ window.ATLAS_DATA = {
       "title": "Arvedui drowns in the Icebay of Forochel",
       "place": "Icebay of Forochel",
       "x": 760,
-      "y": 1975,
+      "y": 480,
       "text": "Círdan's ship sent to rescue Arvedui founders in the ice; the last King of Arthedain and the palantíri of Annúminas and Amon Sûl are lost.",
-      "src": "tg:Arvedui"
+      "src": "tg:Arvedui",
+      "absoluteYear": 1975,
+      "placeId": "icebay-of-forochel"
     },
     {
       "age": "TA",
@@ -17801,10 +18184,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Battle of Fornost",
       "place": "Plain west of Fornost",
-      "x": 785,
-      "y": 1975,
+      "x": 795,
+      "y": 780,
       "text": "Eärnur's host from Gondor, with Círdan and Glorfindel, destroys the army of Angmar; the Witch-king flees. Glorfindel foretells that 'not by the hand of man will he fall'.",
-      "src": "tg:Battle_of_Fornost"
+      "src": "tg:Battle_of_Fornost",
+      "absoluteYear": 1975,
+      "placeId": "battle-of-fornost",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17813,9 +18199,12 @@ window.ATLAS_DATA = {
       "title": "Angmar destroyed",
       "place": "Carn Dûm",
       "x": 1000,
-      "y": 1975,
+      "y": 640,
       "text": "The realm of Angmar west of the Mountains is ended; its capital Carn Dûm is emptied.",
-      "src": "tg:Angmar"
+      "src": "tg:Angmar",
+      "absoluteYear": 1975,
+      "placeId": "carn-dum",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17823,10 +18212,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Frumgar leads the Éothéod north",
       "place": "Éothéod",
-      "x": 1250,
-      "y": 1977,
+      "x": 1200,
+      "y": 570,
       "text": "The Éothéod migrate to the lands between the Grey Mountains and the sources of Anduin, driving out the remnant of Angmar's folk.",
-      "src": "tg:Éothéod"
+      "src": "tg:Éothéod",
+      "absoluteYear": 1977,
+      "placeId": "eotheod",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17834,10 +18226,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Bucca of the Marish, first Thain",
       "place": "The Marish",
-      "x": 755,
-      "y": 1979,
+      "x": 748,
+      "y": 940,
       "text": "With no king in the North, the hobbits choose Bucca of the Marish as the first Thain of the Shire.",
-      "src": "tg:Bucca_of_the_Marish"
+      "src": "tg:Bucca_of_the_Marish",
+      "absoluteYear": 1979,
+      "placeId": "the-marish",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17846,9 +18241,11 @@ window.ATLAS_DATA = {
       "title": "Durin's Bane awakes",
       "place": "Khazad-dûm",
       "x": 1215,
-      "y": 1980,
+      "y": 1095,
       "text": "Delving for mithril, the Dwarves release a Balrog of Morgoth beneath Caradhras; Durin VI is slain, and Náin I the next year.",
-      "src": "tg:Durin's_Bane"
+      "src": "tg:Durin's_Bane",
+      "absoluteYear": 1980,
+      "placeId": "moria"
     },
     {
       "age": "TA",
@@ -17857,9 +18254,11 @@ window.ATLAS_DATA = {
       "title": "The Dwarves flee Moria",
       "place": "Dimrill Dale",
       "x": 1238,
-      "y": 1981,
+      "y": 1098,
       "text": "Durin's folk abandon Khazad-dûm. Fear drives many Silvan Elves from Lórien; Amroth and Nimrodel are lost.",
-      "src": "tg:Moria"
+      "src": "tg:Moria",
+      "absoluteYear": 1981,
+      "placeId": "dimrill-dale"
     },
     {
       "age": "TA",
@@ -17868,9 +18267,12 @@ window.ATLAS_DATA = {
       "title": "Amroth lost at sea",
       "place": "Edhellond",
       "x": 1370,
-      "y": 1981,
+      "y": 1800,
       "text": "Waiting for Nimrodel at the haven of Edhellond, King Amroth of Lórien leaps from his ship in a storm and is drowned in the Bay of Belfalas.",
-      "src": "tg:Amroth"
+      "src": "tg:Amroth",
+      "absoluteYear": 1981,
+      "placeId": "edhellond",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17878,10 +18280,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Erebor founded",
       "place": "Erebor",
-      "x": 1610,
-      "y": 1999,
+      "x": 1628,
+      "y": 606,
       "text": "Thráin I comes to the Lonely Mountain, founds the Kingdom under the Mountain and finds the Arkenstone.",
-      "src": "tg:Erebor"
+      "src": "tg:Erebor",
+      "absoluteYear": 1999,
+      "placeId": "erebor"
     },
     {
       "age": "TA",
@@ -17890,9 +18294,11 @@ window.ATLAS_DATA = {
       "title": "Minas Ithil becomes Minas Morgul",
       "place": "Minas Morgul",
       "x": 1595,
-      "y": 2002,
+      "y": 1652,
       "text": "After a two-year siege the Nazgûl take Minas Ithil and its palantír; it becomes the Tower of Sorcery, and Minas Anor is renamed Minas Tirith.",
-      "src": "tg:Minas_Morgul"
+      "src": "tg:Minas_Morgul",
+      "absoluteYear": 2002,
+      "placeId": "minas-morgul"
     },
     {
       "age": "TA",
@@ -17901,9 +18307,11 @@ window.ATLAS_DATA = {
       "title": "Eärnur rides to Minas Morgul; the Stewards rule",
       "place": "Minas Morgul",
       "x": 1595,
-      "y": 2050,
+      "y": 1652,
       "text": "Answering the Witch-king's challenge, King Eärnur rides alone to the gate of Minas Morgul and is never seen again. Mardil becomes the first Ruling Steward.",
-      "src": "tg:Eärnur"
+      "src": "tg:Eärnur",
+      "absoluteYear": 2050,
+      "placeId": "minas-morgul"
     },
     {
       "age": "TA",
@@ -17912,9 +18320,11 @@ window.ATLAS_DATA = {
       "title": "The Watchful Peace begins",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 2063,
+      "y": 1085,
       "text": "Gandalf goes to Dol Guldur; Sauron retreats into the East and hides for four centuries.",
-      "src": "tg:Watchful_Peace"
+      "src": "tg:Watchful_Peace",
+      "absoluteYear": 2063,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -17922,10 +18332,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Thorin I removes to the Grey Mountains",
       "place": "Ered Mithrin",
-      "x": 1520,
-      "y": 2210,
+      "x": 1300,
+      "y": 555,
       "text": "Thorin I leaves Erebor and goes north to the Grey Mountains, where most of Durin's folk are gathering.",
-      "src": "tg:Thorin_I"
+      "src": "tg:Thorin_I",
+      "absoluteYear": 2210,
+      "placeId": "grey-mountains"
     },
     {
       "age": "TA",
@@ -17934,9 +18346,11 @@ window.ATLAS_DATA = {
       "title": "Buckland settled",
       "place": "Bucklebury",
       "x": 760,
-      "y": 2340,
+      "y": 915,
       "text": "The Oldbucks cross the Brandywine and settle Buckland; Isumbras I becomes the first Took Thain.",
-      "src": "tg:Buckland"
+      "src": "tg:Buckland",
+      "absoluteYear": 2340,
+      "placeId": "bucklebury"
     },
     {
       "age": "TA",
@@ -17945,9 +18359,11 @@ window.ATLAS_DATA = {
       "title": "Sauron returns to Dol Guldur",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 2460,
+      "y": 1085,
       "text": "The Watchful Peace ends; Sauron returns with increased strength. The White Council is formed in 2463.",
-      "src": "tg:Dol_Guldur"
+      "src": "tg:Dol_Guldur",
+      "absoluteYear": 2460,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -17956,9 +18372,12 @@ window.ATLAS_DATA = {
       "title": "Déagol finds the Ring",
       "place": "Gladden Fields",
       "x": 1285,
-      "y": 2463,
+      "y": 1005,
       "text": "Fishing in Anduin, the Stoor Déagol finds the One Ring; Sméagol murders him for it and is driven out.",
-      "src": "tg:Déagol"
+      "src": "tg:Déagol",
+      "absoluteYear": 2463,
+      "placeId": "gladden-fields",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -17967,9 +18386,11 @@ window.ATLAS_DATA = {
       "title": "Sméagol hides in the Misty Mountains",
       "place": "Goblin-town",
       "x": 1152,
-      "y": 2470,
+      "y": 850,
       "text": "Gollum creeps under the mountains and dwells by his lake for nearly five hundred years.",
-      "src": "tg:Gollum"
+      "src": "tg:Gollum",
+      "absoluteYear": 2470,
+      "placeId": "goblin-town"
     },
     {
       "age": "TA",
@@ -17978,9 +18399,11 @@ window.ATLAS_DATA = {
       "title": "Osgiliath finally ruined",
       "place": "Osgiliath",
       "x": 1527,
-      "y": 2475,
+      "y": 1638,
       "text": "The Uruks of Mordor first appear; Osgiliath is finally deserted and its great stone bridge broken.",
-      "src": "tg:Osgiliath"
+      "src": "tg:Osgiliath",
+      "absoluteYear": 2475,
+      "placeId": "osgiliath"
     },
     {
       "age": "TA",
@@ -17989,9 +18412,11 @@ window.ATLAS_DATA = {
       "title": "Celebrían waylaid in the Redhorn Pass",
       "place": "Redhorn Pass",
       "x": 1218,
-      "y": 2509,
+      "y": 1085,
       "text": "Elrond's wife is captured and tormented by Orcs; though rescued, she leaves Middle-earth the next year.",
-      "src": "tg:Celebrían"
+      "src": "tg:Celebrían",
+      "absoluteYear": 2509,
+      "placeId": "redhorn-pass"
     },
     {
       "age": "TA",
@@ -18000,9 +18425,11 @@ window.ATLAS_DATA = {
       "title": "Battle of the Field of Celebrant",
       "place": "Field of Celebrant",
       "x": 1355,
-      "y": 2510,
+      "y": 1235,
       "text": "Eorl the Young and the Éothéod ride to Gondor's aid and destroy the Balchoth and Orcs on the Field of Celebrant.",
-      "src": "tg:Battle_of_the_Field_of_Celebrant"
+      "src": "tg:Battle_of_the_Field_of_Celebrant",
+      "absoluteYear": 2510,
+      "placeId": "field-of-celebrant"
     },
     {
       "age": "TA",
@@ -18010,10 +18437,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Oath of Eorl",
       "place": "Halifirien",
-      "x": 1410,
-      "y": 2510,
+      "x": 1411,
+      "y": 1602,
       "text": "Cirion the Steward gives Calenardhon to Eorl at the tomb of Elendil on the Halifirien; the Riddermark of Rohan is founded.",
-      "src": "tg:Oath_of_Eorl"
+      "src": "tg:Oath_of_Eorl",
+      "absoluteYear": 2510,
+      "placeId": "halifirien"
     },
     {
       "age": "TA",
@@ -18022,9 +18451,12 @@ window.ATLAS_DATA = {
       "title": "Eorl falls in the Wold",
       "place": "The Wold",
       "x": 1400,
-      "y": 2545,
+      "y": 1330,
       "text": "Eorl the Young is slain fighting Easterlings in the Wold; his son Brego completes Meduseld in 2569.",
-      "src": "tg:Eorl"
+      "src": "tg:Eorl",
+      "absoluteYear": 2545,
+      "placeId": "the-wold",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18033,9 +18465,11 @@ window.ATLAS_DATA = {
       "title": "Baldor enters the Paths of the Dead",
       "place": "Dwimorberg",
       "x": 1320,
-      "y": 2570,
+      "y": 1585,
       "text": "At the feast for Meduseld, Baldor son of Brego vows to tread the Paths of the Dead; he never returns.",
-      "src": "tg:Baldor"
+      "src": "tg:Baldor",
+      "absoluteYear": 2570,
+      "placeId": "dwimorberg"
     },
     {
       "age": "TA",
@@ -18043,10 +18477,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Dáin I slain by a cold-drake",
       "place": "Grey Mountains",
-      "x": 1520,
-      "y": 2589,
+      "x": 1300,
+      "y": 555,
       "text": "Dragons multiply in the Grey Mountains; Dáin I and his son Frór are killed at the doors of their hall. Thrór returns to Erebor in 2590.",
-      "src": "tg:Dáin_I"
+      "src": "tg:Dáin_I",
+      "absoluteYear": 2589,
+      "placeId": "grey-mountains"
     },
     {
       "age": "TA",
@@ -18055,9 +18491,11 @@ window.ATLAS_DATA = {
       "title": "Great Smials begun",
       "place": "Tuckborough",
       "x": 700,
-      "y": 2683,
+      "y": 922,
       "text": "Isengrim II begins excavating the Great Smials, the ancestral home of the Tooks.",
-      "src": "tg:Great_Smials"
+      "src": "tg:Great_Smials",
+      "absoluteYear": 2683,
+      "placeId": "tuckborough"
     },
     {
       "age": "TA",
@@ -18065,10 +18503,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Battle of Greenfields",
       "place": "Greenfields (Northfarthing)",
-      "x": 705,
-      "y": 2747,
+      "x": 715,
+      "y": 830,
       "text": "Bandobras 'Bullroarer' Took routs an Orc-band under Golfimbul in the Northfarthing, the only battle fought in the Shire before 3019.",
-      "src": "tg:Battle_of_Greenfields"
+      "src": "tg:Battle_of_Greenfields",
+      "absoluteYear": 2747,
+      "placeId": "greenfields",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18077,9 +18518,11 @@ window.ATLAS_DATA = {
       "title": "Wulf seizes Edoras",
       "place": "Edoras",
       "x": 1300,
-      "y": 2758,
+      "y": 1540,
       "text": "Rohan is invaded from west and east; the Dunlending Wulf takes Meduseld while Helm Hammerhand holds out in the Hornburg.",
-      "src": "tg:Wulf"
+      "src": "tg:Wulf",
+      "absoluteYear": 2758,
+      "placeId": "edoras"
     },
     {
       "age": "TA",
@@ -18088,9 +18531,11 @@ window.ATLAS_DATA = {
       "title": "The Long Winter",
       "place": "Helm's Deep (Hornburg)",
       "x": 1250,
-      "y": 2758,
+      "y": 1445,
       "text": "Five months of snow bring famine to Rohan and Eriador; Helm dies in the snow and Fréaláf drives out Wulf in 2759. Gandalf aids the starving Shire.",
-      "src": "tg:Long_Winter"
+      "src": "tg:Long_Winter",
+      "absoluteYear": 2758,
+      "placeId": "helms-deep"
     },
     {
       "age": "TA",
@@ -18099,9 +18544,11 @@ window.ATLAS_DATA = {
       "title": "Saruman takes up his abode in Isengard",
       "place": "Isengard",
       "x": 1230,
-      "y": 2759,
+      "y": 1390,
       "text": "Steward Beren gives Saruman the keys of Orthanc; the Wizard settles in Isengard as a warden for Gondor.",
-      "src": "tg:Isengard"
+      "src": "tg:Isengard",
+      "absoluteYear": 2759,
+      "placeId": "isengard"
     },
     {
       "age": "TA",
@@ -18109,10 +18556,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Smaug descends upon Erebor",
       "place": "Erebor",
-      "x": 1610,
-      "y": 2770,
+      "x": 1628,
+      "y": 606,
       "text": "The dragon Smaug destroys Dale and drives the Dwarves from the Lonely Mountain; Thrór escapes with Thráin II and Thorin II.",
-      "src": "tg:Smaug"
+      "src": "tg:Smaug",
+      "absoluteYear": 2770,
+      "placeId": "erebor"
     },
     {
       "age": "TA",
@@ -18120,10 +18569,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Thrór slain by Azog",
       "place": "East-gate of Moria",
-      "x": 1238,
-      "y": 2790,
+      "x": 1235,
+      "y": 1096,
       "text": "Thrór is murdered and mutilated by the Orc Azog at the gate of Moria; the Dwarves muster for the War of the Dwarves and Orcs (2793–2799).",
-      "src": "tg:Thrór"
+      "src": "tg:Thrór",
+      "absoluteYear": 2790,
+      "placeId": "dimrill-gate",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18132,9 +18584,11 @@ window.ATLAS_DATA = {
       "title": "Battle of Azanulbizar",
       "place": "Dimrill Dale",
       "x": 1238,
-      "y": 2799,
+      "y": 1098,
       "text": "The Dwarves win a bitter victory before the East-gate of Moria; Azog is slain by Dáin Ironfoot, but Moria remains shut.",
-      "src": "tg:Battle_of_Azanulbizar"
+      "src": "tg:Battle_of_Azanulbizar",
+      "absoluteYear": 2799,
+      "placeId": "dimrill-dale"
     },
     {
       "age": "TA",
@@ -18142,10 +18596,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Thráin II settles in the Blue Mountains",
       "place": "Ered Luin (Thorin's halls)",
-      "x": 555,
-      "y": 2802,
+      "x": 572,
+      "y": 760,
       "text": "Thráin II and Thorin wander westward and establish halls in the southern Ered Luin beyond the Shire.",
-      "src": "tg:Thráin_II"
+      "src": "tg:Thráin_II",
+      "absoluteYear": 2802,
+      "placeId": "thorins-halls",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18154,9 +18611,11 @@ window.ATLAS_DATA = {
       "title": "Thráin II imprisoned in Dol Guldur",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 2845,
+      "y": 1085,
       "text": "Seeking Erebor, Thráin is captured by Sauron's servants and the last of the Seven Rings is taken from him.",
-      "src": "tg:Thráin_II"
+      "src": "tg:Thráin_II",
+      "absoluteYear": 2845,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -18165,9 +18624,11 @@ window.ATLAS_DATA = {
       "title": "Gandalf enters Dol Guldur",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 2850,
+      "y": 1085,
       "text": "Gandalf discovers that the Necromancer is indeed Sauron; he finds the dying Thráin and receives the map and key of Erebor.",
-      "src": "tg:Dol_Guldur"
+      "src": "tg:Dol_Guldur",
+      "absoluteYear": 2850,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -18176,9 +18637,11 @@ window.ATLAS_DATA = {
       "title": "Battle of the Crossings of Poros",
       "place": "Crossings of Poros",
       "x": 1590,
-      "y": 2885,
+      "y": 1805,
       "text": "The Haradrim cross the Poros; Túrin II of Gondor, aided by Rohan, defeats them, though Folcwine's twin sons fall.",
-      "src": "tg:Battle_of_the_Crossings_of_Poros"
+      "src": "tg:Battle_of_the_Crossings_of_Poros",
+      "absoluteYear": 2885,
+      "placeId": "crossings-of-poros"
     },
     {
       "age": "TA",
@@ -18187,9 +18650,11 @@ window.ATLAS_DATA = {
       "title": "Bilbo Baggins born",
       "place": "Hobbiton",
       "x": 700,
-      "y": 2890,
+      "y": 900,
       "text": "Bilbo, son of Bungo Baggins and Belladonna Took, is born at Bag End.",
-      "src": "tg:Bilbo_Baggins"
+      "src": "tg:Bilbo_Baggins",
+      "absoluteYear": 2890,
+      "placeId": "hobbiton"
     },
     {
       "age": "TA",
@@ -18198,9 +18663,11 @@ window.ATLAS_DATA = {
       "title": "Henneth Annûn built",
       "place": "Henneth Annûn",
       "x": 1570,
-      "y": 2901,
+      "y": 1600,
       "text": "Most of Ithilien's remaining people flee the Uruks of Mordor; the Rangers of Ithilien make the hidden refuge of Henneth Annûn.",
-      "src": "tg:Henneth_Annûn"
+      "src": "tg:Henneth_Annûn",
+      "absoluteYear": 2901,
+      "placeId": "henneth-annun"
     },
     {
       "age": "TA",
@@ -18209,9 +18676,11 @@ window.ATLAS_DATA = {
       "title": "The Fell Winter",
       "place": "Brandywine Bridge",
       "x": 752,
-      "y": 2911,
+      "y": 893,
       "text": "The Baranduin freezes; White Wolves invade Eriador and the Shire. Floods the next year ruin Tharbad.",
-      "src": "tg:Fell_Winter"
+      "src": "tg:Fell_Winter",
+      "absoluteYear": 2911,
+      "placeId": "brandywine-bridge"
     },
     {
       "age": "TA",
@@ -18220,9 +18689,11 @@ window.ATLAS_DATA = {
       "title": "Tharbad ruined",
       "place": "Tharbad",
       "x": 905,
-      "y": 2912,
+      "y": 1090,
       "text": "Great floods devastate Enedwaith and Minhiriath; Tharbad is ruined and deserted.",
-      "src": "tg:Tharbad"
+      "src": "tg:Tharbad",
+      "absoluteYear": 2912,
+      "placeId": "tharbad"
     },
     {
       "age": "TA",
@@ -18231,9 +18702,12 @@ window.ATLAS_DATA = {
       "title": "Arador slain by Trolls",
       "place": "Coldfells",
       "x": 1060,
-      "y": 2930,
+      "y": 800,
       "text": "Arador, Chieftain of the Dúnedain, is taken by hill-trolls in the Coldfells; Arathorn II becomes Chieftain.",
-      "src": "tg:Arador"
+      "src": "tg:Arador",
+      "absoluteYear": 2930,
+      "placeId": "coldfells",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18241,10 +18715,13 @@ window.ATLAS_DATA = {
       "date": "1 Mar",
       "title": "Aragorn born",
       "place": "Eriador (Dúnedain)",
-      "x": 1000,
-      "y": 2931,
+      "x": 950,
+      "y": 950,
       "text": "Aragorn son of Arathorn is born; after his father's death in 2933 he is raised in Rivendell as 'Estel'.",
-      "src": "tg:Aragorn_II"
+      "src": "tg:Aragorn_II",
+      "absoluteYear": 2931,
+      "placeId": "eriador",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18252,10 +18729,12 @@ window.ATLAS_DATA = {
       "date": "27 Apr",
       "title": "Bilbo leaves Bag End",
       "place": "Bag End",
-      "x": 700,
-      "y": 2941,
+      "x": 698,
+      "y": 898,
       "text": "The Quest of Erebor begins: Bilbo runs to the Green Dragon at Bywater to join Thorin and Company.",
-      "src": "tg:Quest_of_Erebor"
+      "src": "tg:Quest_of_Erebor",
+      "absoluteYear": 2941,
+      "placeId": "bag-end"
     },
     {
       "age": "TA",
@@ -18264,9 +18743,11 @@ window.ATLAS_DATA = {
       "title": "Bilbo finds the One Ring",
       "place": "Goblin-town",
       "x": 1152,
-      "y": 2941,
+      "y": 850,
       "text": "Lost in the goblin-tunnels, Bilbo finds the Ring and wins the riddle-game with Gollum.",
-      "src": "tg:Riddles_in_the_Dark"
+      "src": "tg:Riddles_in_the_Dark",
+      "absoluteYear": 2941,
+      "placeId": "goblin-town"
     },
     {
       "age": "TA",
@@ -18275,9 +18756,11 @@ window.ATLAS_DATA = {
       "title": "The White Council attacks Dol Guldur",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 2941,
+      "y": 1085,
       "text": "Saruman at last agrees to an attack; Sauron, having prepared his plans, abandons Dol Guldur.",
-      "src": "tg:Dol_Guldur"
+      "src": "tg:Dol_Guldur",
+      "absoluteYear": 2941,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -18285,10 +18768,12 @@ window.ATLAS_DATA = {
       "date": "19 Oct",
       "title": "Durin's Day: the secret door opens",
       "place": "Erebor",
-      "x": 1610,
-      "y": 2941,
+      "x": 1628,
+      "y": 606,
       "text": "The thrush knocks and the last light of Durin's Day reveals the keyhole; Bilbo enters the Mountain and wakes Smaug.",
-      "src": "tg:Durin's_Day"
+      "src": "tg:Durin's_Day",
+      "absoluteYear": 2941,
+      "placeId": "erebor"
     },
     {
       "age": "TA",
@@ -18296,10 +18781,12 @@ window.ATLAS_DATA = {
       "date": "late Oct",
       "title": "Death of Smaug",
       "place": "Esgaroth (Lake-town)",
-      "x": 1645,
-      "y": 2941,
+      "x": 1642,
+      "y": 708,
       "text": "Smaug burns Lake-town and is slain by Bard the Bowman with the Black Arrow.",
-      "src": "tg:Smaug"
+      "src": "tg:Smaug",
+      "absoluteYear": 2941,
+      "placeId": "esgaroth"
     },
     {
       "age": "TA",
@@ -18307,10 +18794,12 @@ window.ATLAS_DATA = {
       "date": "late Nov",
       "title": "Battle of Five Armies",
       "place": "Dale",
-      "x": 1615,
-      "y": 2941,
+      "x": 1634,
+      "y": 648,
       "text": "Elves, Men and Dwarves, with the Eagles and Beorn, defeat the Goblins and Wargs of the Misty Mountains in the last week of autumn; Thorin dies and Dáin becomes King under the Mountain.",
-      "src": "tg:Battle_of_Five_Armies"
+      "src": "tg:Battle_of_Five_Armies",
+      "absoluteYear": 2941,
+      "placeId": "dale"
     },
     {
       "age": "TA",
@@ -18319,9 +18808,11 @@ window.ATLAS_DATA = {
       "title": "Sauron returns to Mordor",
       "place": "Barad-dûr",
       "x": 1745,
-      "y": 2942,
+      "y": 1560,
       "text": "Sauron returns in secret to Mordor; in 2951 he declares himself openly and begins rebuilding Barad-dûr.",
-      "src": "tg:Sauron"
+      "src": "tg:Sauron",
+      "absoluteYear": 2942,
+      "placeId": "barad-dur"
     },
     {
       "age": "TA",
@@ -18329,10 +18820,12 @@ window.ATLAS_DATA = {
       "date": "22 Jun",
       "title": "Bilbo returns to Bag End",
       "place": "Bag End",
-      "x": 700,
-      "y": 2942,
+      "x": 698,
+      "y": 898,
       "text": "Bilbo comes home with the Ring and his share of the troll-hoard, to find his goods being auctioned.",
-      "src": "tg:Bilbo_Baggins"
+      "src": "tg:Bilbo_Baggins",
+      "absoluteYear": 2942,
+      "placeId": "bag-end"
     },
     {
       "age": "TA",
@@ -18340,10 +18833,12 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Dale rebuilt",
       "place": "Dale",
-      "x": 1615,
-      "y": 2944,
+      "x": 1634,
+      "y": 648,
       "text": "Bard rebuilds Dale and becomes its King; Gollum leaves the mountains to hunt the thief of his Precious.",
-      "src": "tg:Dale"
+      "src": "tg:Dale",
+      "absoluteYear": 2944,
+      "placeId": "dale"
     },
     {
       "age": "TA",
@@ -18352,9 +18847,11 @@ window.ATLAS_DATA = {
       "title": "Nazgûl reoccupy Dol Guldur",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 2951,
+      "y": 1085,
       "text": "Sauron sends three of the Nazgûl to hold Dol Guldur; Elrond reveals to Aragorn his lineage and Aragorn goes into the Wild.",
-      "src": "tg:Dol_Guldur"
+      "src": "tg:Dol_Guldur",
+      "absoluteYear": 2951,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -18363,9 +18860,11 @@ window.ATLAS_DATA = {
       "title": "Saruman takes Isengard for his own",
       "place": "Isengard",
       "x": 1230,
-      "y": 2953,
+      "y": 1390,
       "text": "After the last meeting of the White Council, Saruman withdraws to Isengard, fortifies it and sets spies in Bree and the Southfarthing.",
-      "src": "tg:Saruman"
+      "src": "tg:Saruman",
+      "absoluteYear": 2953,
+      "placeId": "isengard"
     },
     {
       "age": "TA",
@@ -18374,9 +18873,11 @@ window.ATLAS_DATA = {
       "title": "Mount Doom bursts into flame",
       "place": "Mount Doom",
       "x": 1700,
-      "y": 2954,
+      "y": 1595,
       "text": "Orodruin erupts again; the last inhabitants of Ithilien flee over Anduin.",
-      "src": "tg:Mount_Doom"
+      "src": "tg:Mount_Doom",
+      "absoluteYear": 2954,
+      "placeId": "mount-doom"
     },
     {
       "age": "TA",
@@ -18384,10 +18885,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Thorongil's raid on Umbar",
       "place": "Umbar",
-      "x": 1440,
-      "y": 2980,
+      "x": 1510,
+      "y": 2172,
       "text": "Aragorn, serving Ecthelion II as 'Thorongil', leads a fleet to Umbar and burns the Corsairs' ships, slaying their Captain.",
-      "src": "tg:Thorongil"
+      "src": "tg:Thorongil",
+      "absoluteYear": 2980,
+      "placeId": "umbar",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18396,9 +18900,11 @@ window.ATLAS_DATA = {
       "title": "Aragorn and Arwen plight their troth",
       "place": "Cerin Amroth",
       "x": 1290,
-      "y": 2980,
+      "y": 1145,
       "text": "On the hill of Cerin Amroth Aragorn and Arwen pledge themselves to one another. In the same year Théoden becomes King of Rohan.",
-      "src": "tg:Cerin_Amroth"
+      "src": "tg:Cerin_Amroth",
+      "absoluteYear": 2980,
+      "placeId": "cerin-amroth"
     },
     {
       "age": "TA",
@@ -18407,9 +18913,11 @@ window.ATLAS_DATA = {
       "title": "Balin's expedition to Moria",
       "place": "Khazad-dûm",
       "x": 1215,
-      "y": 2989,
+      "y": 1095,
       "text": "Balin leaves Erebor with Ori, Óin and many Dwarves to recolonise Moria. He is slain in Dimrill Dale in 2994 and the colony destroyed.",
-      "src": "tg:Balin"
+      "src": "tg:Balin",
+      "absoluteYear": 2989,
+      "placeId": "moria"
     },
     {
       "age": "TA",
@@ -18418,9 +18926,11 @@ window.ATLAS_DATA = {
       "title": "Bilbo's Farewell Party",
       "place": "Hobbiton",
       "x": 700,
-      "y": 3001,
+      "y": 900,
       "text": "Bilbo's eleventy-first birthday: he vanishes with the Ring, leaves it to Frodo and departs for Rivendell. Gandalf's suspicions grow.",
-      "src": "tg:Bilbo's_Farewell_Party"
+      "src": "tg:Bilbo's_Farewell_Party",
+      "absoluteYear": 3001,
+      "placeId": "hobbiton"
     },
     {
       "age": "TA",
@@ -18429,9 +18939,11 @@ window.ATLAS_DATA = {
       "title": "Gollum captured in the Dead Marshes",
       "place": "Dead Marshes",
       "x": 1560,
-      "y": 3017,
+      "y": 1475,
       "text": "Released from Mordor, Gollum is taken by Aragorn in the Dead Marshes and brought to Thranduil in Mirkwood. Gandalf reads Isildur's scroll in Minas Tirith.",
-      "src": "tg:Gollum"
+      "src": "tg:Gollum",
+      "absoluteYear": 3017,
+      "placeId": "dead-marshes"
     },
     {
       "age": "TA",
@@ -18439,10 +18951,12 @@ window.ATLAS_DATA = {
       "date": "12 Apr",
       "title": "Gandalf reveals the Ring's nature",
       "place": "Bag End",
-      "x": 700,
-      "y": 3018,
+      "x": 698,
+      "y": 898,
       "text": "Gandalf reaches Hobbiton and tells Frodo the history of the One Ring; Frodo resolves to leave the Shire.",
-      "src": "tg:The_Shadow_of_the_Past"
+      "src": "tg:The_Shadow_of_the_Past",
+      "absoluteYear": 3018,
+      "placeId": "bag-end"
     },
     {
       "age": "TA",
@@ -18451,9 +18965,11 @@ window.ATLAS_DATA = {
       "title": "Sauron attacks Osgiliath",
       "place": "Osgiliath",
       "x": 1527,
-      "y": 3018,
+      "y": 1638,
       "text": "The War of the Ring opens: Sauron assails Osgiliath; Boromir and Faramir hold the western shore. About the same time Thranduil is attacked and Gollum escapes.",
-      "src": "tg:Sauron's_attack_on_Osgiliath"
+      "src": "tg:Sauron's_attack_on_Osgiliath",
+      "absoluteYear": 3018,
+      "placeId": "osgiliath"
     },
     {
       "age": "TA",
@@ -18462,9 +18978,11 @@ window.ATLAS_DATA = {
       "title": "Gandalf imprisoned in Orthanc",
       "place": "Isengard",
       "x": 1230,
-      "y": 3018,
+      "y": 1390,
       "text": "Saruman reveals his treachery and holds Gandalf on the pinnacle of Orthanc until Gwaihir bears him away on 18 Sep.",
-      "src": "tg:Orthanc"
+      "src": "tg:Orthanc",
+      "absoluteYear": 3018,
+      "placeId": "isengard"
     },
     {
       "age": "TA",
@@ -18473,9 +18991,11 @@ window.ATLAS_DATA = {
       "title": "The Black Riders at Sarn Ford",
       "place": "Sarn Ford",
       "x": 790,
-      "y": 3018,
+      "y": 1000,
       "text": "The Nazgûl drive off the Rangers guarding Sarn Ford and enter the Shire the next day.",
-      "src": "tg:Sarn_Ford"
+      "src": "tg:Sarn_Ford",
+      "absoluteYear": 3018,
+      "placeId": "sarn-ford"
     },
     {
       "age": "TA",
@@ -18483,10 +19003,12 @@ window.ATLAS_DATA = {
       "date": "23 Sep",
       "title": "Frodo leaves Bag End",
       "place": "Bag End",
-      "x": 700,
-      "y": 3018,
+      "x": 698,
+      "y": 898,
       "text": "Frodo, Sam and Pippin set out on foot as a Black Rider comes to Hobbiton at nightfall.",
-      "src": "tg:Frodo_Baggins"
+      "src": "tg:Frodo_Baggins",
+      "absoluteYear": 3018,
+      "placeId": "bag-end"
     },
     {
       "age": "TA",
@@ -18494,10 +19016,13 @@ window.ATLAS_DATA = {
       "date": "26 Sep",
       "title": "The Old Forest",
       "place": "Old Man Willow",
-      "x": 775,
-      "y": 3018,
+      "x": 786,
+      "y": 925,
       "text": "The hobbits are trapped by Old Man Willow and rescued by Tom Bombadil; on 28 Sep they are captured by a Barrow-wight.",
-      "src": "tg:Old_Forest"
+      "src": "tg:Old_Forest",
+      "absoluteYear": 3018,
+      "placeId": "old-man-willow",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18506,9 +19031,11 @@ window.ATLAS_DATA = {
       "title": "The Prancing Pony",
       "place": "Bree",
       "x": 820,
-      "y": 3018,
+      "y": 895,
       "text": "Frodo vanishes at the inn and meets Strider; the inn and Crickhollow are raided by the Nazgûl in the early hours of 30 Sep.",
-      "src": "tg:The_Prancing_Pony"
+      "src": "tg:The_Prancing_Pony",
+      "absoluteYear": 3018,
+      "placeId": "bree"
     },
     {
       "age": "TA",
@@ -18517,9 +19044,11 @@ window.ATLAS_DATA = {
       "title": "Attack on Weathertop",
       "place": "Weathertop",
       "x": 905,
-      "y": 3018,
+      "y": 890,
       "text": "Five Nazgûl attack the camp beneath Amon Sûl; the Witch-king stabs Frodo with a Morgul-knife.",
-      "src": "tg:Weathertop"
+      "src": "tg:Weathertop",
+      "absoluteYear": 3018,
+      "placeId": "weathertop"
     },
     {
       "age": "TA",
@@ -18528,9 +19057,11 @@ window.ATLAS_DATA = {
       "title": "Flight to the Ford of Bruinen",
       "place": "Ford of Bruinen",
       "x": 1095,
-      "y": 3018,
+      "y": 875,
       "text": "Glorfindel's horse bears Frodo over the Ford; Elrond's flood sweeps the Nine Riders away.",
-      "src": "tg:Ford_of_Bruinen"
+      "src": "tg:Ford_of_Bruinen",
+      "absoluteYear": 3018,
+      "placeId": "ford-of-bruinen"
     },
     {
       "age": "TA",
@@ -18539,9 +19070,11 @@ window.ATLAS_DATA = {
       "title": "Council of Elrond",
       "place": "Rivendell",
       "x": 1110,
-      "y": 3018,
+      "y": 868,
       "text": "The Council resolves that the Ring must be destroyed in Mount Doom; Frodo takes the burden.",
-      "src": "tg:Council_of_Elrond"
+      "src": "tg:Council_of_Elrond",
+      "absoluteYear": 3018,
+      "placeId": "rivendell"
     },
     {
       "age": "TA",
@@ -18550,9 +19083,11 @@ window.ATLAS_DATA = {
       "title": "The Fellowship departs",
       "place": "Rivendell",
       "x": 1110,
-      "y": 3018,
+      "y": 868,
       "text": "The Company of the Ring leaves Rivendell at dusk, heading south.",
-      "src": "tg:Fellowship_of_the_Ring"
+      "src": "tg:Fellowship_of_the_Ring",
+      "absoluteYear": 3018,
+      "placeId": "rivendell"
     },
     {
       "age": "TA",
@@ -18561,9 +19096,11 @@ window.ATLAS_DATA = {
       "title": "Defeat on Caradhras",
       "place": "Caradhras",
       "x": 1210,
-      "y": 3019,
+      "y": 1075,
       "text": "Snow and stones drive the Fellowship back from the Redhorn Pass.",
-      "src": "tg:Caradhras"
+      "src": "tg:Caradhras",
+      "absoluteYear": 3019,
+      "placeId": "caradhras"
     },
     {
       "age": "TA",
@@ -18571,10 +19108,12 @@ window.ATLAS_DATA = {
       "date": "13–15 Jan",
       "title": "The passage of Moria",
       "place": "Bridge of Khazad-dûm",
-      "x": 1234,
-      "y": 3019,
+      "x": 1225,
+      "y": 1093,
       "text": "The Fellowship enters the West-gate on 13 Jan, finds Balin's tomb, and on 15 Jan Gandalf falls with the Balrog from the Bridge.",
-      "src": "tg:Bridge_of_Khazad-dûm"
+      "src": "tg:Bridge_of_Khazad-dûm",
+      "absoluteYear": 3019,
+      "placeId": "bridge-of-khazad-dum"
     },
     {
       "age": "TA",
@@ -18583,9 +19122,11 @@ window.ATLAS_DATA = {
       "title": "The Fellowship in Lothlórien",
       "place": "Caras Galadhon",
       "x": 1305,
-      "y": 3019,
+      "y": 1160,
       "text": "Received by Celeborn and Galadriel; the Mirror of Galadriel on 14 Feb; departure by boat on 16 Feb.",
-      "src": "tg:Lothlórien"
+      "src": "tg:Lothlórien",
+      "absoluteYear": 3019,
+      "placeId": "caras-galadhon"
     },
     {
       "age": "TA",
@@ -18594,9 +19135,11 @@ window.ATLAS_DATA = {
       "title": "Gandalf casts down the Balrog",
       "place": "Zirakzigil (Celebdil)",
       "x": 1222,
-      "y": 3019,
+      "y": 1092,
       "text": "After the Endless Stair, Gandalf slays the Balrog on the peak of Zirakzigil and passes away, to be sent back as Gandalf the White.",
-      "src": "tg:Battle_of_the_Peak"
+      "src": "tg:Battle_of_the_Peak",
+      "absoluteYear": 3019,
+      "placeId": "celebdil"
     },
     {
       "age": "TA",
@@ -18605,9 +19148,11 @@ window.ATLAS_DATA = {
       "title": "First Battle of the Fords of Isen",
       "place": "Fords of Isen",
       "x": 1200,
-      "y": 3019,
+      "y": 1430,
       "text": "Saruman's forces attack the Fords; Théodred, the King's son, is slain.",
-      "src": "tg:Battles_of_the_Fords_of_Isen"
+      "src": "tg:Battles_of_the_Fords_of_Isen",
+      "absoluteYear": 3019,
+      "placeId": "fords-of-isen"
     },
     {
       "age": "TA",
@@ -18615,10 +19160,12 @@ window.ATLAS_DATA = {
       "date": "26 Feb",
       "title": "Breaking of the Fellowship",
       "place": "Parth Galen",
-      "x": 1428,
-      "y": 3019,
+      "x": 1420,
+      "y": 1445,
       "text": "Boromir falls defending Merry and Pippin, who are taken by the Uruk-hai; Frodo and Sam go east alone; the Three Hunters pursue the orcs.",
-      "src": "tg:Breaking_of_the_Fellowship"
+      "src": "tg:Breaking_of_the_Fellowship",
+      "absoluteYear": 3019,
+      "placeId": "parth-galen"
     },
     {
       "age": "TA",
@@ -18626,10 +19173,13 @@ window.ATLAS_DATA = {
       "date": "29 Feb",
       "title": "Éomer destroys the Uruk-hai at Fangorn",
       "place": "Eaves of Fangorn",
-      "x": 1365,
-      "y": 3019,
+      "x": 1305,
+      "y": 1345,
       "text": "The Rohirrim wipe out Uglúk's orc-band at sunrise; Merry and Pippin escape into the forest and meet Treebeard.",
-      "src": "tg:Éomer"
+      "src": "tg:Éomer",
+      "absoluteYear": 3019,
+      "placeId": "fangorn-forest",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18638,9 +19188,11 @@ window.ATLAS_DATA = {
       "title": "Second Battle of the Fords of Isen",
       "place": "Fords of Isen",
       "x": 1200,
-      "y": 3019,
+      "y": 1430,
       "text": "Erkenbrand's Westfold forces are defeated; the same day Gandalf heals Théoden at Edoras and the Ents march on Isengard.",
-      "src": "tg:Battles_of_the_Fords_of_Isen"
+      "src": "tg:Battles_of_the_Fords_of_Isen",
+      "absoluteYear": 3019,
+      "placeId": "fords-of-isen"
     },
     {
       "age": "TA",
@@ -18649,9 +19201,11 @@ window.ATLAS_DATA = {
       "title": "Destruction of Isengard",
       "place": "Isengard",
       "x": 1230,
-      "y": 3019,
+      "y": 1390,
       "text": "The Ents break the walls of Isengard and flood the ring; Saruman is trapped in Orthanc.",
-      "src": "tg:Isengard"
+      "src": "tg:Isengard",
+      "absoluteYear": 3019,
+      "placeId": "isengard"
     },
     {
       "age": "TA",
@@ -18660,9 +19214,11 @@ window.ATLAS_DATA = {
       "title": "Battle of the Hornburg",
       "place": "Helm's Deep",
       "x": 1250,
-      "y": 3019,
+      "y": 1445,
       "text": "Saruman's host assails Helm's Deep through the night; at dawn Théoden rides out and the Huorns destroy the fleeing orcs.",
-      "src": "tg:Battle_of_the_Hornburg"
+      "src": "tg:Battle_of_the_Hornburg",
+      "absoluteYear": 3019,
+      "placeId": "helms-deep"
     },
     {
       "age": "TA",
@@ -18670,10 +19226,13 @@ window.ATLAS_DATA = {
       "date": "5 Mar",
       "title": "The Voice of Saruman; Pippin and the palantír",
       "place": "Orthanc / Dol Baran",
-      "x": 1230,
-      "y": 3019,
+      "x": 1195,
+      "y": 1400,
       "text": "Gandalf breaks Saruman's staff; that night at Dol Baran Pippin looks into the palantír and Gandalf rides for Minas Tirith.",
-      "src": "tg:Palantír_of_Orthanc"
+      "src": "tg:Palantír_of_Orthanc",
+      "absoluteYear": 3019,
+      "placeId": "dol-baran",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18682,9 +19241,11 @@ window.ATLAS_DATA = {
       "title": "Frodo at Henneth Annûn",
       "place": "Henneth Annûn",
       "x": 1570,
-      "y": 3019,
+      "y": 1600,
       "text": "Faramir takes Frodo and Sam to the Window of the Sunset, and lets them go on 8 Mar.",
-      "src": "tg:Henneth_Annûn"
+      "src": "tg:Henneth_Annûn",
+      "absoluteYear": 3019,
+      "placeId": "henneth-annun"
     },
     {
       "age": "TA",
@@ -18693,9 +19254,11 @@ window.ATLAS_DATA = {
       "title": "The Paths of the Dead",
       "place": "Stone of Erech",
       "x": 1300,
-      "y": 3019,
+      "y": 1680,
       "text": "Aragorn passes the Dark Door at daybreak and at midnight summons the Dead at the Stone of Erech.",
-      "src": "tg:Paths_of_the_Dead"
+      "src": "tg:Paths_of_the_Dead",
+      "absoluteYear": 3019,
+      "placeId": "stone-of-erech"
     },
     {
       "age": "TA",
@@ -18704,9 +19267,11 @@ window.ATLAS_DATA = {
       "title": "Gandalf reaches Minas Tirith",
       "place": "Minas Tirith",
       "x": 1505,
-      "y": 3019,
+      "y": 1635,
       "text": "Gandalf and Pippin arrive at dawn; Darkness begins to flow out of Mordor. The Dawnless Day is 10 Mar.",
-      "src": "tg:Minas_Tirith"
+      "src": "tg:Minas_Tirith",
+      "absoluteYear": 3019,
+      "placeId": "minas-tirith"
     },
     {
       "age": "TA",
@@ -18715,9 +19280,11 @@ window.ATLAS_DATA = {
       "title": "Muster of Rohan",
       "place": "Dunharrow",
       "x": 1310,
-      "y": 3019,
+      "y": 1565,
       "text": "The Rohirrim ride from Harrowdale; Merry rides hidden with 'Dernhelm'. Cair Andros falls to an army from the Morannon.",
-      "src": "tg:The_Ride_of_the_Rohirrim"
+      "src": "tg:The_Ride_of_the_Rohirrim",
+      "absoluteYear": 3019,
+      "placeId": "dunharrow"
     },
     {
       "age": "TA",
@@ -18726,20 +19293,12 @@ window.ATLAS_DATA = {
       "title": "First assault on Lórien",
       "place": "Lothlórien",
       "x": 1300,
-      "y": 3019,
+      "y": 1150,
       "text": "Forces of Dol Guldur attack Lórien; further assaults follow on 15 and 22 Mar, all repelled by the power of Galadriel. Eastern Rohan is invaded.",
-      "src": "tg:Celeborn"
-    },
-    {
-      "age": "TA",
-      "year": 3019,
-      "date": "12 Mar",
-      "title": "Shelob's Lair",
-      "place": "Shelob's Lair",
-      "x": 1628,
-      "y": 3019,
-      "text": "Gollum leads Frodo into Torech Ungol; Frodo is stung and Sam takes the Ring. Frodo is captured by the orcs of Cirith Ungol on 13 Mar.",
-      "src": "tg:Shelob's_Lair"
+      "src": "tg:Celeborn",
+      "absoluteYear": 3019,
+      "placeId": "lothlorien",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18748,9 +19307,25 @@ window.ATLAS_DATA = {
       "title": "The Ents defeat the invaders of Rohan",
       "place": "The Wold",
       "x": 1400,
-      "y": 3019,
+      "y": 1330,
       "text": "Ents and Huorns destroy the orcs of Dol Guldur who had invaded eastern Rohan from the north.",
-      "src": "tg:Ents"
+      "src": "tg:Ents",
+      "absoluteYear": 3019,
+      "placeId": "the-wold",
+      "approximate": true
+    },
+    {
+      "age": "TA",
+      "year": 3019,
+      "date": "13 Mar",
+      "title": "Shelob's Lair",
+      "place": "Shelob's Lair",
+      "x": 1628,
+      "y": 1653,
+      "text": "Gollum leads Frodo into Torech Ungol; Frodo is stung and Sam takes the Ring. Frodo is captured by the orcs of Cirith Ungol on 13 Mar.",
+      "src": "tg:Shelob's_Lair",
+      "absoluteYear": 3019,
+      "placeId": "torech-ungol"
     },
     {
       "age": "TA",
@@ -18759,9 +19334,11 @@ window.ATLAS_DATA = {
       "title": "Aragorn captures the fleet at Pelargir",
       "place": "Pelargir",
       "x": 1520,
-      "y": 3019,
+      "y": 1790,
       "text": "The Grey Company and the Dead seize the ships of the Corsairs of Umbar; the Dead are released.",
-      "src": "tg:Battle_of_Pelargir"
+      "src": "tg:Battle_of_Pelargir",
+      "absoluteYear": 3019,
+      "placeId": "pelargir"
     },
     {
       "age": "TA",
@@ -18770,9 +19347,11 @@ window.ATLAS_DATA = {
       "title": "The Pelennor overrun",
       "place": "Pelennor Fields",
       "x": 1514,
-      "y": 3019,
+      "y": 1640,
       "text": "Faramir is wounded on the retreat from the Causeway Forts; the siege of Minas Tirith begins on 14 Mar.",
-      "src": "tg:Siege_of_Minas_Tirith"
+      "src": "tg:Siege_of_Minas_Tirith",
+      "absoluteYear": 3019,
+      "placeId": "pelennor-fields"
     },
     {
       "age": "TA",
@@ -18781,9 +19360,11 @@ window.ATLAS_DATA = {
       "title": "Sam rescues Frodo from the Tower",
       "place": "Tower of Cirith Ungol",
       "x": 1635,
-      "y": 3019,
+      "y": 1650,
       "text": "Sam finds Frodo in the topmost chamber and they escape into Mordor on 15 Mar.",
-      "src": "tg:Tower_of_Cirith_Ungol"
+      "src": "tg:Tower_of_Cirith_Ungol",
+      "absoluteYear": 3019,
+      "placeId": "tower-of-cirith-ungol"
     },
     {
       "age": "TA",
@@ -18792,9 +19373,11 @@ window.ATLAS_DATA = {
       "title": "Battle of the Pelennor Fields",
       "place": "Pelennor Fields",
       "x": 1514,
-      "y": 3019,
+      "y": 1640,
       "text": "The Witch-king breaks the Gate; the Rohirrim arrive at cockcrow. Théoden falls; Éowyn and Merry slay the Witch-king; Aragorn comes up Anduin and the field is won.",
-      "src": "tg:Battle_of_the_Pelennor_Fields"
+      "src": "tg:Battle_of_the_Pelennor_Fields",
+      "absoluteYear": 3019,
+      "placeId": "pelennor-fields"
     },
     {
       "age": "TA",
@@ -18802,10 +19385,13 @@ window.ATLAS_DATA = {
       "date": "15 Mar",
       "title": "Battle under the Trees",
       "place": "Woodland Realm (Mirkwood)",
-      "x": 1545,
-      "y": 3019,
+      "x": 1500,
+      "y": 750,
       "text": "Thranduil repels the forces of Dol Guldur in northern Mirkwood; much of the forest burns.",
-      "src": "tg:Battle_under_the_trees"
+      "src": "tg:Battle_under_the_trees",
+      "absoluteYear": 3019,
+      "placeId": "woodland-realm",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18813,10 +19399,12 @@ window.ATLAS_DATA = {
       "date": "17 Mar",
       "title": "Battle of Dale",
       "place": "Dale",
-      "x": 1615,
-      "y": 3019,
+      "x": 1634,
+      "y": 648,
       "text": "Easterlings storm Dale; King Brand and Dáin Ironfoot fall, and Men and Dwarves are besieged in Erebor.",
-      "src": "tg:Battle_of_Dale"
+      "src": "tg:Battle_of_Dale",
+      "absoluteYear": 3019,
+      "placeId": "dale"
     },
     {
       "age": "TA",
@@ -18825,9 +19413,11 @@ window.ATLAS_DATA = {
       "title": "The Host of the West marches",
       "place": "Minas Tirith",
       "x": 1505,
-      "y": 3019,
+      "y": 1635,
       "text": "Aragorn leads 7,000 men from Minas Tirith towards the Black Gate; Frodo is overtaken by orcs on the Durthang road.",
-      "src": "tg:Host_of_the_West"
+      "src": "tg:Host_of_the_West",
+      "absoluteYear": 3019,
+      "placeId": "minas-tirith"
     },
     {
       "age": "TA",
@@ -18836,9 +19426,11 @@ window.ATLAS_DATA = {
       "title": "Battle of the Morannon",
       "place": "Morannon",
       "x": 1650,
-      "y": 3019,
+      "y": 1525,
       "text": "The Host is surrounded on the Slag-hills; the Mouth of Sauron parleys; the Eagles come.",
-      "src": "tg:Battle_of_the_Morannon"
+      "src": "tg:Battle_of_the_Morannon",
+      "absoluteYear": 3019,
+      "placeId": "morannon"
     },
     {
       "age": "TA",
@@ -18847,9 +19439,11 @@ window.ATLAS_DATA = {
       "title": "The Ring is destroyed",
       "place": "Sammath Naur",
       "x": 1700,
-      "y": 3019,
+      "y": 1593,
       "text": "Gollum bites the Ring from Frodo's hand and falls into the Cracks of Doom; Barad-dûr collapses and Sauron passes away. In Gondor this becomes the first day of the New Year.",
-      "src": "tg:Cracks_of_Doom"
+      "src": "tg:Cracks_of_Doom",
+      "absoluteYear": 3019,
+      "placeId": "sammath-naur"
     },
     {
       "age": "TA",
@@ -18857,10 +19451,12 @@ window.ATLAS_DATA = {
       "date": "27 Mar",
       "title": "Siege of Erebor broken",
       "place": "Erebor",
-      "x": 1610,
-      "y": 3019,
+      "x": 1628,
+      "y": 606,
       "text": "Bard II and Thorin III Stonehelm sally out and drive the Easterlings from Dale.",
-      "src": "tg:Battle_of_Dale"
+      "src": "tg:Battle_of_Dale",
+      "absoluteYear": 3019,
+      "placeId": "erebor"
     },
     {
       "age": "TA",
@@ -18869,9 +19465,11 @@ window.ATLAS_DATA = {
       "title": "Dol Guldur destroyed",
       "place": "Dol Guldur",
       "x": 1440,
-      "y": 3019,
+      "y": 1085,
       "text": "Celeborn crosses Anduin and takes Dol Guldur; Galadriel throws down its walls and lays bare its pits.",
-      "src": "tg:Dol_Guldur"
+      "src": "tg:Dol_Guldur",
+      "absoluteYear": 3019,
+      "placeId": "dol-guldur"
     },
     {
       "age": "TA",
@@ -18879,10 +19477,13 @@ window.ATLAS_DATA = {
       "date": "6 Apr",
       "title": "Meeting of Celeborn and Thranduil",
       "place": "Mirkwood (Eryn Lasgalen)",
-      "x": 1450,
-      "y": 3019,
+      "x": 1460,
+      "y": 820,
       "text": "The two Elven-lords meet in the forest and rename it Eryn Lasgalen, the Wood of Greenleaves, dividing it between them and the Beornings.",
-      "src": "tg:Eryn_Lasgalen"
+      "src": "tg:Eryn_Lasgalen",
+      "absoluteYear": 3019,
+      "placeId": "mirkwood",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18890,10 +19491,13 @@ window.ATLAS_DATA = {
       "date": "8 Apr",
       "title": "Field of Cormallen",
       "place": "Field of Cormallen",
-      "x": 1540,
-      "y": 3019,
+      "x": 1520,
+      "y": 1580,
       "text": "Frodo and Sam are honoured by the Host of the West in Ithilien; 'Praise them with great praise!'",
-      "src": "tg:Field_of_Cormallen"
+      "src": "tg:Field_of_Cormallen",
+      "absoluteYear": 3019,
+      "placeId": "field-of-cormallen",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18902,9 +19506,11 @@ window.ATLAS_DATA = {
       "title": "Crowning of King Elessar",
       "place": "Minas Tirith",
       "x": 1505,
-      "y": 3019,
+      "y": 1635,
       "text": "Aragorn is crowned before the Gate of Minas Tirith, the crown set on his head by Gandalf. Elrond and Arwen set out from Rivendell.",
-      "src": "tg:Aragorn_II"
+      "src": "tg:Aragorn_II",
+      "absoluteYear": 3019,
+      "placeId": "minas-tirith"
     },
     {
       "age": "TA",
@@ -18913,9 +19519,11 @@ window.ATLAS_DATA = {
       "title": "Wedding of Aragorn and Arwen",
       "place": "Minas Tirith",
       "x": 1505,
-      "y": 3019,
+      "y": 1635,
       "text": "Arwen comes to the City and weds King Elessar; Aragorn has found the sapling of the White Tree on Mindolluin on 25 Jun.",
-      "src": "tg:Arwen"
+      "src": "tg:Arwen",
+      "absoluteYear": 3019,
+      "placeId": "minas-tirith"
     },
     {
       "age": "TA",
@@ -18924,9 +19532,11 @@ window.ATLAS_DATA = {
       "title": "Funeral of Théoden",
       "place": "Edoras",
       "x": 1300,
-      "y": 3019,
+      "y": 1540,
       "text": "Théoden is laid in the ninth mound at Edoras; Éomer betroths Éowyn to Faramir.",
-      "src": "tg:Théoden"
+      "src": "tg:Théoden",
+      "absoluteYear": 3019,
+      "placeId": "edoras"
     },
     {
       "age": "TA",
@@ -18935,9 +19545,12 @@ window.ATLAS_DATA = {
       "title": "Saruman met in Dunland",
       "place": "Dunland",
       "x": 1140,
-      "y": 3019,
+      "y": 1230,
       "text": "The travellers overtake Saruman and Wormtongue on the road; Saruman turns towards the Shire.",
-      "src": "tg:Saruman"
+      "src": "tg:Saruman",
+      "absoluteYear": 3019,
+      "placeId": "dunland",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18946,9 +19559,11 @@ window.ATLAS_DATA = {
       "title": "Battle of Bywater",
       "place": "Bywater",
       "x": 707,
-      "y": 3019,
+      "y": 905,
       "text": "The hobbits rout Sharkey's ruffians; Saruman is slain by Wormtongue at Bag End. Last battle of the War of the Ring.",
-      "src": "tg:Battle_of_Bywater"
+      "src": "tg:Battle_of_Bywater",
+      "absoluteYear": 3019,
+      "placeId": "bywater"
     },
     {
       "age": "TA",
@@ -18957,9 +19572,11 @@ window.ATLAS_DATA = {
       "title": "The mallorn flowers in the Party Field",
       "place": "Hobbiton",
       "x": 700,
-      "y": 3020,
+      "y": 900,
       "text": "The mallorn planted by Sam from Galadriel's gift blossoms; 1420 becomes the Shire's year of marvellous plenty. Sam weds Rose Cotton on 1 May.",
-      "src": "tg:Party_Tree"
+      "src": "tg:Party_Tree",
+      "absoluteYear": 3020,
+      "placeId": "hobbiton"
     },
     {
       "age": "TA",
@@ -18967,10 +19584,13 @@ window.ATLAS_DATA = {
       "date": "22 Sep",
       "title": "The Last Riding of the Keepers of the Rings",
       "place": "Woody End",
-      "x": 738,
-      "y": 3021,
+      "x": 735,
+      "y": 945,
       "text": "Frodo and Sam meet Elrond, Galadriel and Bilbo in the Woody End on the way to the Sea.",
-      "src": "tg:Woody_End"
+      "src": "tg:Woody_End",
+      "absoluteYear": 3021,
+      "placeId": "woody-end",
+      "approximate": true
     },
     {
       "age": "TA",
@@ -18979,9 +19599,11 @@ window.ATLAS_DATA = {
       "title": "Departure from the Grey Havens",
       "place": "Grey Havens",
       "x": 540,
-      "y": 3021,
+      "y": 905,
       "text": "Frodo, Bilbo, Gandalf, Elrond and Galadriel sail into the West on Círdan's ship. End of the Third Age.",
-      "src": "tg:Grey_Havens"
+      "src": "tg:Grey_Havens",
+      "absoluteYear": 3021,
+      "placeId": "mithlond"
     },
     {
       "age": "FoA",
@@ -18990,9 +19612,11 @@ window.ATLAS_DATA = {
       "title": "The Fourth Age begins",
       "place": "Minas Tirith",
       "x": 1505,
-      "y": 3022,
+      "y": 1635,
       "text": "In Gondor the Fourth Age is reckoned from 25 Mar T.A. 3021; the Dominion of Men begins under King Elessar.",
-      "src": "tg:Fourth_Age"
+      "src": "tg:Fourth_Age",
+      "absoluteYear": 3022,
+      "placeId": "minas-tirith"
     },
     {
       "age": "FoA",
@@ -19001,9 +19625,11 @@ window.ATLAS_DATA = {
       "title": "Elessar's edict: the Shire a Free Land",
       "place": "Brandywine Bridge",
       "x": 752,
-      "y": 3027,
+      "y": 893,
       "text": "The King forbids Men to enter the Shire, making it a Free Land under his protection; Sam is elected Mayor. The Drúadan Forest is likewise given to the Woses.",
-      "src": "tg:Shire"
+      "src": "tg:Shire",
+      "absoluteYear": 3027,
+      "placeId": "brandywine-bridge"
     },
     {
       "age": "FoA",
@@ -19012,9 +19638,11 @@ window.ATLAS_DATA = {
       "title": "King Elessar comes north to Annúminas",
       "place": "Annúminas",
       "x": 705,
-      "y": 3036,
+      "y": 816,
       "text": "Aragorn dwells for a while by Lake Evendim in the restored city of Annúminas and meets his friends at the Brandywine Bridge; Sam receives the Star of the Dúnedain.",
-      "src": "tg:Annúminas"
+      "src": "tg:Annúminas",
+      "absoluteYear": 3036,
+      "placeId": "annuminas"
     },
     {
       "age": "FoA",
@@ -19023,9 +19651,11 @@ window.ATLAS_DATA = {
       "title": "The Westmarch added to the Shire",
       "place": "Tower Hills",
       "x": 612,
-      "y": 3052,
+      "y": 895,
       "text": "The King grants the lands from the Far Downs to the Tower Hills to the Shire; Elanor and Fastred settle at Undertowers.",
-      "src": "tg:Westmarch"
+      "src": "tg:Westmarch",
+      "absoluteYear": 3052,
+      "placeId": "tower-hills"
     },
     {
       "age": "FoA",
@@ -19034,9 +19664,11 @@ window.ATLAS_DATA = {
       "title": "Sam passes over the Sea",
       "place": "Grey Havens",
       "x": 540,
-      "y": 3082,
+      "y": 905,
       "text": "After Rose's death Sam gives the Red Book to Elanor at the Tower Hills and, last of the Ring-bearers, sails from the Grey Havens.",
-      "src": "tg:Samwise_Gamgee"
+      "src": "tg:Samwise_Gamgee",
+      "absoluteYear": 3082,
+      "placeId": "mithlond"
     },
     {
       "age": "FoA",
@@ -19045,9 +19677,11 @@ window.ATLAS_DATA = {
       "title": "Merry and Pippin ride to Rohan and Gondor",
       "place": "Edoras",
       "x": 1300,
-      "y": 3084,
+      "y": 1540,
       "text": "The two old hobbits leave the Shire, see King Éomer before his death, and die in Gondor, laid to rest in Rath Dínen.",
-      "src": "tg:Meriadoc_Brandybuck"
+      "src": "tg:Meriadoc_Brandybuck",
+      "absoluteYear": 3084,
+      "placeId": "edoras"
     },
     {
       "age": "FoA",
@@ -19056,9 +19690,11 @@ window.ATLAS_DATA = {
       "title": "Death of Faramir",
       "place": "Emyn Arnen",
       "x": 1555,
-      "y": 3103,
+      "y": 1700,
       "text": "Faramir, Prince of Ithilien and Steward of Gondor, dies; Elboron succeeds him in Ithilien.",
-      "src": "tg:Faramir"
+      "src": "tg:Faramir",
+      "absoluteYear": 3103,
+      "placeId": "emyn-arnen"
     },
     {
       "age": "FoA",
@@ -19067,9 +19703,11 @@ window.ATLAS_DATA = {
       "title": "Death of King Elessar",
       "place": "Minas Tirith",
       "x": 1505,
-      "y": 3141,
+      "y": 1635,
       "text": "Aragorn lays down his life in the House of the Kings; Eldarion succeeds him. Arwen dies on Cerin Amroth the following year.",
-      "src": "tg:Aragorn_II"
+      "src": "tg:Aragorn_II",
+      "absoluteYear": 3141,
+      "placeId": "minas-tirith"
     },
     {
       "age": "FoA",
@@ -19077,10 +19715,13 @@ window.ATLAS_DATA = {
       "date": "",
       "title": "Legolas and Gimli sail into the West",
       "place": "Ithilien (Anduin)",
-      "x": 1560,
-      "y": 3141,
+      "x": 1565,
+      "y": 1640,
       "text": "Legolas builds a grey ship in Ithilien and sails down Anduin and over Sea, taking Gimli the Dwarf with him.",
-      "src": "tg:Legolas"
+      "src": "tg:Legolas",
+      "absoluteYear": 3141,
+      "placeId": "ithilien",
+      "approximate": true
     },
     {
       "age": "FoA",
@@ -19089,20 +19730,26 @@ window.ATLAS_DATA = {
       "title": "Death of Arwen",
       "place": "Cerin Amroth",
       "x": 1290,
-      "y": 3142,
+      "y": 1145,
       "text": "Arwen Undómiel goes alone to fading Lórien and lays herself to rest on Cerin Amroth.",
-      "src": "tg:Arwen"
+      "src": "tg:Arwen",
+      "absoluteYear": 3142,
+      "placeId": "cerin-amroth"
     },
     {
       "age": "FoA",
-      "year": 175,
-      "date": "c.",
+      "year": 171,
+      "date": "after (inferred)",
       "title": "Durin VII retakes Khazad-dûm",
+      "timeLabel": "After Fo.A. 171 (inferred; year unknown)",
       "place": "Khazad-dûm",
       "x": 1215,
-      "y": 3196,
-      "text": "Durin the Last, descendant of Thorin III Stonehelm, leads Durin's folk back to Moria some time after Fo.A. 171 and restores its glory 'until the world grew old'. (Exact year not recorded.)",
-      "src": "tg:Durin_VII"
+      "y": 1095,
+      "text": "Durin the Last eventually leads Durin's folk back to Khazad-dûm. No year is recorded. A date after Fo.A. 171 is an inference from the Red Book's copying date, not an explicit date in Tolkien's chronology.",
+      "src": "tg:Durin_VII",
+      "absoluteYear": 3192,
+      "placeId": "moria",
+      "dateUncertain": true
     }
   ]
 };
