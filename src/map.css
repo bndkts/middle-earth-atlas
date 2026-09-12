@@ -107,9 +107,11 @@
 .compass .cr-t{font-family:'Cinzel',serif;font-size:18px;fill:var(--ink);font-weight:700}
 .ct-bg{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
 .ct-in{fill:none;stroke:var(--ink);stroke-width:.6;opacity:.6}
-.ct-t1{font-family:'Cinzel',serif;font-size:15px;letter-spacing:.3em;fill:var(--ink);opacity:.8}
-.ct-t2{font-family:'Cinzel',serif;font-size:30px;font-weight:700;letter-spacing:.14em;fill:var(--ink)}
-.ct-orn{fill:none;stroke:var(--accent);stroke-width:1;opacity:.7}
+.ct-t1{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.26em;fill:var(--ink);opacity:.8}
+.ct-t2{font-family:'Cinzel',serif;font-size:28px;font-weight:700;letter-spacing:.06em;fill:var(--ink)}
+.ct-pretitle{font-size:23px;letter-spacing:.1em}
+.ct-subtitle{font-size:10px;letter-spacing:.12em}
+.ct-orn{fill:none;stroke:var(--accent);stroke-width:.7;stroke-linecap:round;opacity:.65}
 .sb-w{fill:var(--paper)}.sb-b{fill:var(--ink)}.sb-o{fill:none;stroke:var(--ink);stroke-width:1}
 .sb-t{font-family:'Cinzel',serif;font-size:11px;fill:var(--ink);letter-spacing:.1em}
 .neat .nl-out{fill:none;stroke:var(--ink);stroke-width:3;opacity:.8}
