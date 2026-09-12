@@ -667,7 +667,13 @@ function renderExplore(){
       <button class="row" id="ex-layers"><span class="ic">${ico('layers')}</span><span class="tx"><b>Layers</b><small>Realms, roads, journeys, labels</small></span></button>
     </div>
     <div class="orn"><span>Sources</span></div>
-    <p class="src">Descriptions and dates follow Tolkien's texts (The Hobbit, The Lord of the Rings and its Appendices, Unfinished Tales); each place links to its <a href="https://tolkiengateway.net" target="_blank" rel="noopener">Tolkien Gateway</a> article. The map is an original drawing at roughly one unit per mile; positions of minor places marked “approximate” are best estimates from the text.</p>`;
+    <p class="src">Descriptions and dates follow Tolkien's texts (The Hobbit, The Lord of the Rings and its Appendices, Unfinished Tales); each place links to its <a href="https://tolkiengateway.net" target="_blank" rel="noopener">Tolkien Gateway</a> article. The map is an original drawing at roughly one unit per mile; positions of minor places marked “approximate” are best estimates from the text.</p>
+    <div class="oss-links" aria-label="Open-source project links">
+      <a href="https://github.com/bndkts/middle-earth-atlas" target="_blank" rel="noopener">GitHub repository ↗</a>
+      <a href="https://github.com/bndkts/middle-earth-atlas/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute ↗</a>
+      <a href="https://github.com/bndkts/middle-earth-atlas/blob/main/LICENSE" target="_blank" rel="noopener">MIT License ↗</a>
+    </div>
+    <p class="src">The MIT License covers the source code and documentation. Copyrighted artwork is explicitly excluded.</p>`;
   el.addEventListener('click', e => {
     const go = e.target.closest('[data-go]'); if (go) return selectPlace(byId[go.dataset.go], { fly: true });
     const j = e.target.closest('[data-j]'); if (j) return openJourney(j.dataset.j);

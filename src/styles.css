@@ -172,6 +172,8 @@ a{color:var(--accent)}
 .evl li::before{content:'';position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
 .evl b{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.08em;color:var(--accent);display:block;font-weight:600}
 .src{font-size:13px;color:var(--muted)}
+.oss-links{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 8px}
+.oss-links a{padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper-2);font-size:12px;text-decoration:none}
 .back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;margin-bottom:8px;font-style:italic}
 .back svg{width:14px;height:14px}
 /* layers */
