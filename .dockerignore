@@ -1,2 +1,5 @@
 .git
 .DS_Store
+.playwright-cli
+node_modules
+npm-debug.log*

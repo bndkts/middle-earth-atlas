@@ -1,0 +1,159 @@
+/* ---------- Map terrain styling (SVG classes) ---------- */
+.paper{fill:var(--paper)}
+.sea{fill:var(--sea)}
+.waves .wvl{fill:none;stroke:var(--wave);stroke-width:.9;stroke-linecap:round;opacity:.5}
+.sh1{fill:none;stroke:var(--coast-halo);stroke-width:40;opacity:.05;stroke-linejoin:round}
+.fl{fill:none;stroke:var(--coast-halo);stroke-linejoin:round;stroke-linecap:round}
+.land{fill:var(--land);stroke:var(--ink);stroke-width:1.5;stroke-linejoin:round}
+.tone{stroke:none}
+.lake{fill:var(--sea);stroke:var(--ink);stroke-width:.8;stroke-opacity:.85}
+.lfl{fill:none;stroke:var(--coast-halo);stroke-width:.6}
+.realm{fill:var(--rc);stroke:var(--rcs);stroke-width:1.2;stroke-dasharray:6 4;opacity:0;transition:opacity .3s}
+.realms-on .realm.on{opacity:.17}
+.r-green{--rc:#4f8a3a;--rcs:#2e5a1f}.r-brown{--rc:#9a6b3a;--rcs:#5d3b18}.r-blue{--rc:#3a6ea5;--rcs:#1f3f66}.r-blue2{--rc:#5f86b0;--rcs:#1f3f66}
+.r-gold{--rc:#c2952a;--rcs:#7b5a12}.r-black{--rc:#4a3d3d;--rcs:#1c1212}.r-teal{--rc:#3d8f8a;--rcs:#1e5350}.r-purple{--rc:#7b5ea8;--rcs:#44306a}
+.r-violet{--rc:#9d78c2;--rcs:#44306a}.r-rust{--rc:#b1552e;--rcs:#6b2c12}.r-sand{--rc:#c9a86a;--rcs:#7d6030}
+/* textures */
+.stp{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-linecap:round;opacity:.28}
+.dnl{fill:none;stroke:var(--ink);stroke-width:.6;stroke-linecap:round;opacity:.38}
+.icl{fill:none;stroke:var(--river-ink);stroke-width:.7;stroke-linecap:round;opacity:.42}
+.asl{fill:none;stroke:var(--ink);stroke-width:.7;stroke-linecap:round;opacity:.5}.asc{fill:var(--doom);opacity:.55}
+.scl{fill:none;stroke:var(--forest-ink);stroke-width:.6;stroke-linecap:round;opacity:.42}
+.z-lo .textures{opacity:.6}
+/* fields */
+.fwash-field{fill:var(--field);opacity:.35;stroke:none}
+.fcell{fill:none;stroke:var(--ink-warm);stroke-width:.45;opacity:.28;stroke-linejoin:round}
+.fhatch{fill:none;stroke:var(--ink-warm);stroke-width:.4;opacity:.3;stroke-linecap:round}
+.z-lo .fcell,.z-lo .fhatch{display:none}
+/* marshes */
+.marshwash{fill:var(--marsh);opacity:.42;stroke:none}
+.msw{fill:none;stroke:var(--river);stroke-width:.6;opacity:.5;stroke-linecap:round}
+.msl{fill:none;stroke:var(--ink);stroke-width:.7;opacity:.6;stroke-linecap:round}
+.z-lo .mreed{display:none}
+/* forests */
+.fwash{stroke:none}
+.fwash.f-std{fill:var(--forest)}.fwash.f-dark{fill:var(--forest-dark)}.fwash.f-deep{fill:var(--forest-deep)}
+.fwash.f-gold{fill:var(--forest-gold)}.fwash.f-sparse{fill:var(--forest);fill-opacity:.5}
+.fcanopy{fill:none;stroke:var(--forest-ink);stroke-width:.7;stroke-linejoin:round;opacity:.7}
+.fcanopy2{fill:none;stroke:var(--land-hi);stroke-width:.6;stroke-linejoin:round;opacity:.6}
+.fshadow{fill:var(--ink);opacity:.12}
+.fwash2{fill:var(--forest-ink);opacity:.055}
+.z-hi .fcanopy{opacity:.35}
+.trt{stroke:var(--ink);stroke-width:.8;fill:none}
+.trc{fill:var(--tc,var(--tree));stroke:var(--ink);stroke-width:.5}
+.z-lo .trees{display:none}
+/* hills & mountains */
+.hll{fill:var(--land-hi);stroke:var(--ink);stroke-width:.75;stroke-linecap:round;stroke-linejoin:round}
+.hlh{fill:none;stroke:var(--ink);stroke-width:.45;opacity:.5;stroke-linecap:round}
+.menv{fill:var(--peak-shade);opacity:.08;stroke:none}
+.z-mid .menv{opacity:.05}.z-hi .menv{display:none}
+.pkf{fill:var(--peak)}.pks{fill:var(--peak-shade);opacity:.5}
+.pkl{fill:none;stroke:var(--ink);stroke-width:.9;stroke-linejoin:round;stroke-linecap:round}
+.pkh{fill:none;stroke:var(--ink);stroke-width:.42;opacity:.6;stroke-linecap:round}
+.pkk{fill:none;stroke:var(--ink);stroke-width:.5;opacity:.55;stroke-linecap:round}
+.pksnow{fill:var(--snow);stroke:none}
+.doomf{fill:var(--doom)}.lava{fill:#d8471f}.smoke{fill:none;stroke:var(--ink);stroke-width:1.4;opacity:.55;stroke-linecap:round}
+/* rivers, roads */
+.rv{fill:var(--river);stroke:var(--land);stroke-width:1.7;paint-order:stroke;stroke-linejoin:round}
+.road{fill:none;stroke:var(--road);stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+.road-main{stroke-width:2;stroke-dasharray:6 2.5}
+.road-old{stroke-width:1.4;stroke-dasharray:3.5 3}
+.road-path{stroke-width:1;stroke-dasharray:1.5 2.5}
+.road-dark{stroke-width:1.2;stroke-dasharray:4 2;stroke:var(--ink)}
+.roads-off .roads{display:none}
+.twf{fill:var(--land-hi)}.twl{fill:none;stroke:var(--ink);stroke-width:.7}
+.shp{fill:var(--land-hi)}.shl{fill:none;stroke:var(--ink);stroke-width:.9;stroke-linecap:round;stroke-linejoin:round}.shs{fill:var(--paper);stroke:var(--ink);stroke-width:.7}
+.fade{stroke:none;pointer-events:none}
+.fs{stop-color:var(--land)}
+/* lettering on the sheet */
+.lblpath{fill:none;stroke:none}
+.ml{font-family:'Cinzel',Georgia,serif;fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:.17em;stroke-linejoin:round;pointer-events:none;letter-spacing:.22em;transition:opacity .25s}
+.ml-reg{font-weight:700;opacity:.62;letter-spacing:.26em}
+.ml-sub{font-weight:600;opacity:.84}
+.ml-forest{font-weight:600;fill:var(--forest-ink);opacity:.85}
+.ml-mtn{font-weight:600;fill:var(--ink);opacity:.86;letter-spacing:.25em}
+.ml-water,.ml-sea,.ml-seasub{font-family:'IM Fell English',Georgia,serif;font-style:italic;fill:var(--river-ink);letter-spacing:.12em;stroke:var(--land);font-weight:400}
+.ml-sea,.ml-seasub{stroke:var(--sea)}
+.ml-sea{opacity:.6;letter-spacing:.4em}.ml-seasub{opacity:.5}
+.ml-water{opacity:.85}
+.ml-hist{font-weight:700;opacity:0;fill:var(--accent);letter-spacing:.3em}
+.ml-cap{font-family:'IM Fell English',Georgia,serif;font-style:italic;font-weight:400;fill:var(--ink);opacity:.62;letter-spacing:.3em;stroke:none}
+.ml.hid{opacity:0}
+.tlabels-off .mlabels{display:none}
+/* sheet furniture */
+.compass .cr-ring{fill:none;stroke:var(--ink);stroke-width:1.2;opacity:.7}.compass .cr-ring2{fill:none;stroke:var(--ink);stroke-width:.6;opacity:.5;stroke-dasharray:2 3}
+.compass .cr-n{fill:var(--accent);stroke:var(--ink);stroke-width:.8}.compass .cr-s{fill:var(--land);stroke:var(--ink);stroke-width:.8}.compass .cr-d{fill:var(--ink);opacity:.5}
+.compass .cr-t{font-family:'Cinzel',serif;font-size:18px;fill:var(--ink);font-weight:700}
+.ct-bg{fill:var(--paper-2);stroke:var(--ink);stroke-width:1.4;stroke-linejoin:round}
+.ct-in{fill:none;stroke:var(--ink);stroke-width:.6;opacity:.6}
+.ct-t1{font-family:'Cinzel',serif;font-size:15px;letter-spacing:.3em;fill:var(--ink);opacity:.8}
+.ct-t2{font-family:'Cinzel',serif;font-size:30px;font-weight:700;letter-spacing:.14em;fill:var(--ink)}
+.ct-orn{fill:none;stroke:var(--accent);stroke-width:1;opacity:.7}
+.sb-w{fill:var(--paper)}.sb-b{fill:var(--ink)}.sb-o{fill:none;stroke:var(--ink);stroke-width:1}
+.sb-t{font-family:'Cinzel',serif;font-size:11px;fill:var(--ink);letter-spacing:.1em}
+.neat .nl-out{fill:none;stroke:var(--ink);stroke-width:3;opacity:.8}
+.neat .nl-in{fill:none;stroke:var(--ink);stroke-width:1;opacity:.6}
+.neat .nl-tick{fill:var(--ink);opacity:.75}
+
+/* ---------- zoom LOD ----------
+   Glyphs are tagged d2/d3 by their rendered size; below ~2 CSS px they are dropped,
+   and glyph sub-detail (hatching, skirts, hachures) goes with them. */
+.z-vlo .d2,.z-vlo .d3{display:none}
+.z-vlo .pkh,.z-vlo .pkk,.z-vlo .hlh,.z-vlo .mwater,.z-vlo .mreed,.z-vlo .fcell,.z-vlo .fhatch{display:none}
+.z-lo .pkk{display:none}
+.z-vlo .menv{opacity:.13}
+
+/* copses, ground cover, tree shadows */
+.trs{fill:var(--ink);opacity:.13}
+.cw{opacity:.55}
+.gc-grass,.gc-heath{opacity:.9}.gc-hummock{opacity:.8}
+.z-vlo .ground{display:none}
+
+/* ground cover & easter eggs */
+.grl{fill:none;stroke:var(--ink-warm);stroke-width:.95;stroke-linecap:round;opacity:.72}
+.htd{fill:var(--ink-warm);opacity:.55}
+.hml{fill:var(--land-hi);stroke:var(--ink);stroke-width:.75;opacity:.65;stroke-linecap:round}
+.hmh{fill:none;stroke:var(--ink);stroke-width:.4;opacity:.4;stroke-linecap:round}
+.drgb{fill:none;stroke:#a8462a;stroke-width:4.6;stroke-linecap:round;stroke-linejoin:round}
+.drgw{fill:#7a2a14;stroke:var(--ink);stroke-width:.8;stroke-linejoin:round;opacity:.9}
+.drgh{fill:#a8462a;stroke:var(--ink);stroke-width:.8;stroke-linejoin:round}
+.srpo{fill:none;stroke:var(--ink);stroke-width:4;stroke-linecap:round}
+.srpb{fill:none;stroke:#6f9a8a;stroke-width:2.6;stroke-linecap:round}
+.srph{fill:#6f9a8a}
+.drgo{fill:none;stroke:var(--ink);stroke-width:6.2;stroke-linecap:round;stroke-linejoin:round}
+.drgs{fill:none;stroke:var(--ink);stroke-width:.7;stroke-linecap:round}
+.drge{fill:#f2c14e}
+.drgf{fill:none;stroke:#d8471f;stroke-width:1.1;stroke-linecap:round}
+.webl{fill:none;stroke:var(--ink);stroke-width:.35;opacity:.55}
+.spd{fill:var(--ink);stroke:var(--ink);stroke-width:.5;opacity:.85}
+.eyef{fill:#c8351c;stroke:var(--ink);stroke-width:.6}
+.eyep{fill:#1a0c0a}
+.eyeg{fill:none;stroke:#d8471f;stroke-width:.6;opacity:.7}
+.tnt{fill:none;stroke:#3a5a4a;stroke-width:1.6;stroke-linecap:round}
+.tns{fill:none;stroke:#1f3a2c;stroke-width:1;stroke-linecap:round}
+.gll{fill:none;stroke:var(--ink);stroke-width:.6;stroke-linecap:round;opacity:.7}
+.egl{fill:var(--ink);opacity:.8}
+.fwm{fill:#6e5f52;opacity:.55}
+.fwl{fill:none;stroke:var(--ink);stroke-width:.7;stroke-linecap:round;stroke-linejoin:round}
+.fbd{fill:#8a7a66;stroke:var(--ink);stroke-width:.7}
+.fhx{fill:none;stroke:var(--ink);stroke-width:.4;opacity:.6}
+.frd{fill:#2a2220;stroke:var(--ink);stroke-width:.5}
+.egf{fill:#6e5f52;opacity:.5}
+.spb{fill:#2b2220}
+.spl{fill:none;stroke:#2b2220;stroke-width:.6;stroke-linecap:round;stroke-linejoin:round}
+.spe{fill:#f2c14e}
+.whb{fill:#7f8f93;opacity:.6}
+.etb{fill:#8a6a4a;opacity:.7}
+.dkf{fill:#3b3230;stroke:none}
+.dkh{fill:none;stroke:#f5ecd6;stroke-width:.4;opacity:.35}
+.ddl{fill:none;stroke:#8ab0c8;stroke-width:.5;opacity:.9}
+.mmb{fill:#8a7a66;stroke:none}
+.mml{fill:none;stroke:var(--ink);stroke-width:.7;stroke-linejoin:round;stroke-linecap:round}
+.entf{fill:none;stroke:var(--ink);stroke-width:.6;stroke-linecap:round}
+.wlw{fill:none;stroke:var(--tree-sparse);stroke-width:1.1;stroke-linecap:round}
+.brw{fill:var(--land-hi)}.brwl{fill:none;stroke:var(--ink);stroke-width:.6;stroke-linecap:round;opacity:.8}
+.clf{fill:#e8d36a;stroke:#b8892e;stroke-width:.3;opacity:.9}.clh{fill:none;stroke:var(--ink);stroke-width:.5;opacity:.6}
+.hdr{fill:#3f7a3a;stroke:none}
+.beel{fill:none;stroke:var(--ink);stroke-width:.45;stroke-linecap:round;opacity:.7}
+.mlw{fill:none;stroke:var(--ink);stroke-width:.6}
+.deco{transition:opacity .3s}.deco.hid{opacity:0}
