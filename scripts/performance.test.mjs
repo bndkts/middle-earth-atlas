@@ -33,6 +33,7 @@ function harness() {
     setTimeout: fn => { timers.set(++id, fn); return id; },
     clearTimeout: key => timers.delete(key),
     performance: { now: () => 100 },
+    rasterCache: null, tileLayer: element(), worldLab: element(), drawSnap() {}, markRasterParts() {},
   });
   const run = code => vm.runInContext(code, context);
   const tick = queue => { const jobs = [...queue.values()]; queue.clear(); jobs.forEach(fn => fn(100)); };
@@ -78,6 +79,8 @@ test('moving the bitmap only changes its compositor transform', () => {
   // No canvas context is supplied: this must not draw/scale/copy pixels per frame.
   h.run('drawSnap()');
   assert.equal(h.context.snapCv.style.transform, 'translate3d(20.00px,-30.00px,0) scale(2)');
+  assert.equal(h.context.tileLayer.style.transform,h.context.snapCv.style.transform);
+  assert.equal(h.context.worldLab.style.transform,undefined,'hidden SVG lettering stays frozen until gesture-end restoration');
 });
 
 test('raster restoration fades after paint and a new gesture cancels stale cleanup', () => {
@@ -127,7 +130,7 @@ test('gestures transform the marker layer without per-marker layout or collision
   h.run('gesturing = false; apply()');
   assert.equal(h.context.mkLayer.style.transform, 'translate3d(20.00px,-30.00px,0)');
   h.settle();
-  assert.deepEqual(calls.slice(2), ['markers', 'base', 'labels', 'collisions']);
+  assert.deepEqual(calls.slice(2), ['markers', 'base', 'bitmap', 'labels', 'collisions']);
 });
 
 test('collision passes from other UI callbacks also defer until the gesture ends', () => {
@@ -256,4 +259,42 @@ test('timeline batches the latest year and cancels stale panels on commit or clo
   h.settle(); assert.deepEqual(panels.slice(-1), [3019]);
   tl.listeners.input(); h.run('setTimeline(false)');
   h.frame(); h.settle(); assert.equal(panels.length, 3);
+});
+
+test('geometry indexing measures zoom-hidden artwork once and restores culling styles', () => {
+  const h=harness(), map=h.element();
+  map.classList.add('z-lo');
+  let reads=0;
+  const base={getCTM:()=>({inverse:()=>({multiply:m=>m})})};
+  const bucket={classList:{contains:()=>true},dataset:{b:'1,2'},style:{display:'none'},parentNode:base,getBBox(){}};
+  const part={classList:{contains:()=>false},parentNode:base,
+    getBBox(){reads++;assert.equal(map.classList.contains('z-lo'),false);assert.equal(bucket.style.display,'');return{x:100,y:200,width:20,height:30};},
+    getCTM:()=>({a:1,b:0,c:0,d:1,e:10,f:20}),
+  };
+  base.querySelectorAll=selector=>selector==='.bk'?[bucket]:[bucket,part];
+  const values=[];
+  const clone={querySelectorAll:()=>[0,1].map(i=>({setAttribute:(name,value)=>values[i]=value}))};
+  Object.assign(h.context,{baseEl:base,mapEl:map,clone});
+  h.run(section('const rasterBounds =', 'function buildSnapshot(){'));
+  h.run('markRasterParts(clone)');
+  assert.equal(values[0],'236,536,428,428');
+  assert.equal(values[1],'106,216,28,38');
+  assert.ok(map.classList.contains('z-lo'));
+  assert.equal(bucket.style.display,'none');
+  h.run('markRasterParts(clone)');
+  assert.equal(reads,1,'layer changes must reuse bounds even while SVG is hidden');
+});
+
+test('persistent terrain skips vector restoration and keeps cached movement aligned', () => {
+  const h=harness(), map=h.element();map.classList.add('cached');
+  Object.assign(h.context, {
+    mapEl:map,snapReady:true,V:{s:4,tx:10,ty:20},lastLodS:0,lastLodRun:0,
+    lodTimer:null,lastPosS:4,mkLayer:h.element(),
+    applyBase(){},svgLabelLOD(){},lodPass(){},reduceMotion:false,
+  });
+  h.run(section('let gestureT =', 'let lodTimer ='));
+  h.run('startGesture(); rastering=true; endGesture()');h.settle();
+  assert.equal(map.classList.contains('restoring'),false);
+  assert.equal(map.classList.contains('fading'),false);
+  assert.equal(h.frames.size,0,'no paint/fade cycle between successive gestures');
 });

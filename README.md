@@ -31,6 +31,7 @@ No `npm install` is required.
 ```text
 index.html              Document shell and inline interactive map SVG
 src/app.js              Application and interaction logic
+src/raster-cache.js     Incremental nearby-terrain cache with a fixed pixel budget
 src/data.js             Places, journeys, and timeline data
 src/images.js           Image metadata and asset paths
 src/details.mjs         Lazy-loaded close-up miniatures and viewport culling
@@ -42,13 +43,25 @@ nginx.conf              UTF-8 static-server configuration
 scripts/                Repository validation
 ```
 
-The large SVG intentionally remains inline: the application manipulates its
-elements directly and rasterizes parts of it while the map is moving.
+The large SVG intentionally remains inline as the source artwork and fallback.
+Once the overview bitmap is ready, the renderer keeps it visible and prepares
+sharper 512-pixel terrain tiles in idle time, starting with the viewport and then
+one surrounding ring. Geometry outside each tile is omitted. Only one tile is
+prepared at a time, with longer pauses after expensive draws; gestures and hidden
+tabs pause the queue. Panning and zooming
+move existing bitmaps without restoring the full vector terrain after each gesture.
+
+The cache retains at most 20 tiles on mobile/touch devices (about 21 MB of RGBA
+pixels), or 32 on desktop (about 34 MB), in addition to the existing 16/50 MB
+overview bitmap. A pending decode and browser bookkeeping add transient overhead.
+Eviction releases canvas storage; timeline and artwork-layer changes invalidate
+both caches. Labels, journeys and interactive miniatures remain separate.
+Unvisited areas initially use the overview and sharpen as idle time is available.
 
 Zoom in closely to find **Little discoveries**: original SVG miniatures with
 short stories, available by touch or keyboard and switchable in Layers. Their
-module loads after a settled zoom of 3.2 or greater; finer discoveries appear
-at 4.4. Only nearby artwork is mounted, its screen size is capped, and the layer
+small module is warmed during idle time (unless Data Saver is enabled); artwork
+appears at zoom 3.2, with finer discoveries at 4.4. Only nearby artwork is mounted, its screen size is capped, and the layer
 is hidden during gestures without changing the movement bitmap's memory budget.
 With the timeline enabled, dated miniatures follow the selected year. The
 miniatures are illustrative references, not precise geographical records.

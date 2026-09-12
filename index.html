@@ -30,6 +30,7 @@
   <script defer src="/src/publication.js"></script>
   <script defer src="/src/url-state.js"></script>
   <script defer src="src/images.js"></script>
+  <script defer src="/src/raster-cache.js"></script>
   <script defer src="/src/app.js?v=atlas-3"></script>
 <noscript><style>#top,#ctrls,#scalebar,#grab{display:none}#sheet{inset:20px;height:auto!important;max-height:none!important;transform:none!important}#sheetbody{overflow:auto!important}.panel{height:100%}</style></noscript>
 </head>
@@ -1054,6 +1055,7 @@
       </svg>
     </div>
     <canvas id="snap"></canvas>
+    <div id="maptiles" aria-hidden="true"></div>
     <div id="world">
       <svg id="terrain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 2300" width="2600" height="2300">
 <defs><clipPath id="sheetclip2"><rect x="64" y="64" width="2472" height="2172"/></clipPath></defs>
