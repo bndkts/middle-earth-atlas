@@ -72,7 +72,10 @@
 .smoke-faint{opacity:.07}
 .smoke{fill:none;stroke:var(--ink);stroke-width:.35;opacity:.2;stroke-linecap:round}
 /* rivers, roads */
-.rv{fill:var(--river);stroke:var(--land);stroke-width:1.7;paint-order:stroke;stroke-linejoin:round}
+/* Draw every bank first, then all connected water above it. */
+.river-banks{--river-bank:var(--land)}
+.rv{fill:var(--river);stroke:var(--river-bank,none);stroke-width:1.7;paint-order:stroke;stroke-linejoin:round}
+.river-mouth{stroke:none}
 .road{fill:none;stroke:var(--road);stroke-linecap:round;stroke-linejoin:round;opacity:.92}
 .road-main{stroke-width:2;stroke-dasharray:6 2.5}
 .road-old{stroke-width:1.4;stroke-dasharray:3.5 3}
