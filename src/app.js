@@ -28,6 +28,7 @@ const mapEl = $('#map'), world = $('#world'), mkLayer = $('#markers'), dyn = $('
 const viewport = {};
 function measureViewport(){
   viewport.width = window.innerWidth; viewport.height = window.innerHeight;
+  viewport.chromeTop = $('#top').getBoundingClientRect().bottom;
 }
 measureViewport();
 const isDesktop = () => viewport.width >= 900;
@@ -379,11 +380,17 @@ function zoomAnim(f, ax, ay, dur){ // eased version of zoomAt for taps and butto
   }
   zanim = requestAnimationFrame(step);
 }
-function visibleCenter(){ // centre of the map area not covered by the sheet
-  const vw = viewport.width, vh = viewport.height;
-  if (isDesktop()) return [ (vw + 432) / 2, vh / 2 ];
-  const st = sheet.classList.contains('full') ? vh * 0.5 : (sheet.classList.contains('half') ? vh * 0.5 : 150);
-  return [ vw / 2, (vh - st) / 2 + 60 ];
+function visibleBounds(){
+  const {width,height,chromeTop=100}=viewport;
+  const left=isDesktop()?432:16, right=Math.max(left+48,width-76);
+  const top=isDesktop()?24:chromeTop+16;
+  const sheetTop=sheetState==='peek'?height-150:sheetState==='half'?height*.5:Math.max(56,height*.08);
+  const bottom=Math.max(top+48,isDesktop()?height-40:sheetTop-16);
+  return {left,right,top,bottom};
+}
+function visibleCenter(){
+  const b=visibleBounds();
+  return [(b.left+b.right)/2,(b.top+b.bottom)/2];
 }
 let anim = null;
 function flyTo(mx, my, ts, dur){ // map coords -> centre, target scale
@@ -728,11 +735,17 @@ $('#zin').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1.6, cx, 
 $('#zout').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1/1.6, cx, cy); };
 $('#home').onclick = () => { const h = homeView(); flyTo((viewport.width/2 - h.tx)/h.s, (viewport.height/2 - h.ty)/h.s, h.s, 900); setTimeout(() => { Object.assign(V, h); clamp(); apply(); }, reduceMotion ? 0 : 950); };
 window.addEventListener('resize', () => {
+  const [cx,cy]=visibleCenter(), anchor={x:(cx-V.tx)/V.s,y:(cy-V.ty)/V.s};
   if (!gesturing) finishRaster();
   measureViewport();
   const budget = snapshotBudget();
   if (budget !== snapBudget) { snapBudget = budget; scheduleSnapshot(); }
   clamp(); apply();
+  requestAnimationFrame(()=>{
+    if(activeChapter) fitChapter(activeChapter);
+    else if(selected) flyTo(selected.x,selected.y,V.s);
+    else { const [nx,ny]=visibleCenter(); V.tx=nx-anchor.x*V.s; V.ty=ny-anchor.y*V.s; clamp(); apply(); }
+  });
 });
 
 // ---------- sheet ----------
@@ -910,11 +923,12 @@ function setChapterPins(chapter){
   mkLayer.appendChild(frag); $('#chapbtn').classList.add('on'); placeMarkers(true);
 }
 function fitChapter(chapter){
+  if(!isDesktop() && sheetState==='full') setSheet('half',true);
   const points = chapter.locations.map(chapterPlace);
   const xs = points.map(p=>p.x), ys = points.map(p=>p.y);
   const x0=Math.min(...xs), x1=Math.max(...xs), y0=Math.min(...ys), y1=Math.max(...ys);
-  const aw=viewport.width-(isDesktop()?460:24), ah=isDesktop()?viewport.height-80:viewport.height*.45;
-  const scale=points.length===1 ? 2 : Math.min(2.2,Math.max(V.min,Math.min(aw/(x1-x0+220),ah/(y1-y0+220))));
+  const b=visibleBounds(), aw=b.right-b.left-48, ah=b.bottom-b.top-48;
+  const scale=Math.min(2.2,Math.max(V.min,Math.min(aw/Math.max(80,x1-x0),ah/Math.max(80,y1-y0))));
   flyTo((x0+x1)/2,(y0+y1)/2,scale);
 }
 function focusChapterLocation(index){
@@ -937,6 +951,7 @@ function openChapter(id=activeChapter?.id||CHAPTERS[0].id){
     <h1>${esc(chapter.title)}</h1>
     <label class="chapter-picker" for="chapter-select"><span>Choose a chapter</span><select id="chapter-select">${chapterOptions()}</select></label>
     <div class="chapter-nav"><button class="pill" data-chapter-step="-1" ${index===0?'disabled':''}>${ico('back')} Previous</button><span>${index+1} of ${CHAPTERS.length}</span><button class="pill" data-chapter-step="1" ${index===CHAPTERS.length-1?'disabled':''}>Next ${ico('back','next-icon')}</button></div>
+    <button class="pill chapter-fit" data-chapter-fit>${ico('center')} Show all chapter places</button>
     <p class="src">Pins show where tracked characters appear during this chapter, not a single simultaneous moment. Off-page characters are not inferred.</p>
     <div class="orn"><span>Characters on the map</span></div>
     <div class="list">${chapter.locations.map((location,locationIndex)=>{const p=chapterPlace(location);return `<button class="row chapter-row" data-chapter-location="${locationIndex}"><span class="chapter-number">${locationIndex+1}</span><span class="tx"><b>${esc(p.n)}</b><small>${esc(chapterCharacters(location))}</small>${location.note?`<span class="chapter-note">${esc(location.note)}</span>`:''}</span></button>`;}).join('')}</div>`;
@@ -946,6 +961,7 @@ function openChapter(id=activeChapter?.id||CHAPTERS[0].id){
 }
 $('#m-chapter').addEventListener('change',event=>{if(event.target.id==='chapter-select') openChapter(event.target.value);});
 $('#m-chapter').addEventListener('click',event=>{
+  if(event.target.closest('[data-chapter-fit]')) return fitChapter(activeChapter);
   if(event.target.closest('[data-back]')) return mode('explore');
   const step=event.target.closest('[data-chapter-step]');
   if(step){const index=CHAPTERS.indexOf(activeChapter)+Number(step.dataset.chapterStep);if(CHAPTERS[index])openChapter(CHAPTERS[index].id);return;}
