@@ -24,6 +24,7 @@ function harness() {
     },
     addEventListener(name, fn) { this.listeners[name] = fn; },
     setAttribute() {}, setPointerCapture() {}, closest() { return null; },
+    getBoundingClientRect() { return {bottom:100}; },
     };
   };
   const context = vm.createContext({
