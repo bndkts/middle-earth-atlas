@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://atlas.bag-end.eu/</loc></url>
+  <url><loc>https://atlas.bag-end.eu/maps/moria/</loc></url>
   <url><loc>https://atlas.bag-end.eu/places/</loc></url>
   <url><loc>https://atlas.bag-end.eu/places/bag-end/</loc></url>
   <url><loc>https://atlas.bag-end.eu/places/barad-dur/</loc></url>

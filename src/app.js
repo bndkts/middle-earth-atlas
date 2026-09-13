@@ -1063,6 +1063,7 @@ function selectPlace(p, opt={}){
   if(activeChapter && reading.guard){toast('Leave reading mode to open the full place story.');return;}
   clearTimeout(qTimer);
   if (dirPick) { setDirSlot(dirPick, p); return; }
+  if (p.id === 'moria' && !restoringURL) { saveView(); location.assign('/maps/moria/'); return; }
   if (selected) { const m = MK.find(m => m.p === selected); if (m) m.el.classList.remove('sel'); }
   selected = p; const m = MK.find(m => m.p === p); if (m) { m.el.classList.add('sel'); }
   ringEl.classList.add('on');
@@ -1098,6 +1099,7 @@ function renderPlace(p){
     <button class="back" data-back>${ico('back')} Back</button>
     <div class="ph"><div class="big" style="--c:var(--${TYPE_GROUP[p.t]||'set'})">${pIcon(p)}</div><div class="t"><h1>${esc(p.n)}</h1>${alts}<div class="pills"><span class="pill acc">${esc(TYPE_LABEL[p.t]||p.t)}</span><span class="pill">${esc(p.r)}</span>${p.ap ? '<span class="pill" title="Position estimated from the text">≈ approx. position</span>' : ''}</div></div></div>
     <p class="desc">${esc(p.d)}</p>
+    ${p.id === 'moria' ? '<a class="place-guide" href="/maps/moria/">Explore the halls of Moria →</a>' : ''}
     ${readingLink('places',p.id,'Read the place guide','place-guide')}
     ${fig}
     <div class="actions place-actions">

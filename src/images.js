@@ -2556,3 +2556,15 @@ window.IMG = {
     "sourceHeight": 480
   }
 };
+
+// Original atlas plates; kept separate from the third-party place illustrations.
+window.ATLAS_MAP_IMAGES = {
+  moria: {
+    d: 'assets/moria-section.svg',
+    w: 3000, h: 2000,
+    creator: 'Middle-earth Atlas contributors',
+    source: 'scripts/draw-moria.mjs',
+    rights: 'Original SVG artwork, MIT licensed; no rights in Tolkien works are granted.',
+    attribution: 'Middle-earth Atlas — an imagined dwarven survey of Khazad-dûm'
+  }
+};

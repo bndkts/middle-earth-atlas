@@ -9,6 +9,7 @@ COPY assets /usr/share/nginx/html/assets
 
 EXPOSE 80
 
+COPY maps /usr/share/nginx/html/maps
 COPY places /usr/share/nginx/html/places
 COPY journeys /usr/share/nginx/html/journeys
 COPY methodology /usr/share/nginx/html/methodology
