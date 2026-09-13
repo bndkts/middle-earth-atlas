@@ -21,6 +21,20 @@ test('Eryn Vorn is mapped on the Minhiriath side of the Brandywine mouth',()=>{
   assert.ok(label,'Eryn Vorn map label is required');
   assert.equal(Number(label[1]),forest.x);
   assert.equal(Number(label[2]),forest.y);
+  const artwork=html.match(/<g id="eryn-vorn-trees"[^>]*>(.*?)<\/g><\/g>/s);
+  assert.ok(artwork,'The forest artwork needs an identifiable tree group');
+  const trees=[...artwork[1].matchAll(/translate\(([\d.]+) ([\d.]+)\)/g)];
+  assert.ok(trees.length>50,'Preserve the full woodland, not just its marker');
+  for(const [,x,y] of trees){
+    assert.ok(+x>mouth.x && +x<830,'Trees must lie between the Baranduin and Greyflood');
+    assert.ok(Math.abs(+x-forest.x)<50 && Math.abs(+y-forest.y)<50,'Trees must surround the place marker');
+  }
+  for(const layer of ['shadow','wash','wash-inner','wash-middle','wash-core','canopy','canopy-detail']){
+    const element=html.match(new RegExp(`<path id="eryn-vorn-${layer}"[^>]* d="([^"]+)"`));
+    assert.ok(element,`Missing relocated forest layer: ${layer}`);
+    const coords=element[1].match(/-?\d+(?:\.\d+)?/g).map(Number);
+    for(let i=0;i<coords.length;i+=2) assert.ok(coords[i]>mouth.x && coords[i]<830,`${layer} must move with the trees`);
+  }
 });
 
 test('all 62 Lord of the Rings chapters have validated character locations',()=>{
@@ -50,7 +64,7 @@ test('chapter geography follows the books rather than film shortcuts',()=>{
 
   const flight=locations('lotr-b1-c12');
   assert.ok(!flight.has('rivendell'),'Flight to the Ford ends at the Ford, before Frodo wakes in Rivendell');
-  assert.deepEqual(flight.get('ford-of-bruinen').characters,['frodo','sam','merry','pippin','aragorn']);
+  assert.deepEqual(Array.from(flight.get('ford-of-bruinen').characters),['frodo','sam','merry','pippin','aragorn']);
 
   const helmsDeep=locations('lotr-b3-c07');
   assert.ok(helmsDeep.get('helms-deep').characters.includes('eomer'),'Book Éomer fights at Helm’s Deep');
