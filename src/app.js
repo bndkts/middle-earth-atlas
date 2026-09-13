@@ -357,6 +357,12 @@ function clamp(){
   V.min = Math.min(aw / MAPW, vh / MAPH) * 0.9;
   V.s = Math.min(V.max, Math.max(V.min, V.s));
   const mw = MAPW * V.s, mh = MAPH * V.s;
+  if(activeChapter){
+    const b=visibleBounds(),bw=b.right-b.left,bh=b.bottom-b.top;
+    V.tx=mw>=bw?Math.min(b.left,Math.max(b.right-mw,V.tx)):b.left+(bw-mw)/2;
+    V.ty=mh>=bh?Math.min(b.top,Math.max(b.bottom-mh,V.ty)):b.top+(bh-mh)/2;
+    return;
+  }
   if (mw >= aw) V.tx = Math.min(left, Math.max(vw - mw, V.tx)); else V.tx = left + (aw - mw) / 2;
   if (mh >= vh) V.ty = Math.min(0, Math.max(vh - mh, V.ty)); else V.ty = (vh - mh) / 2;
 }
