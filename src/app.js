@@ -1117,8 +1117,8 @@ function openJourney(id){
     <div class="ph"><div class="big" style="background:${j.color};color:#fff;border-color:transparent">${ico('route')}</div><div class="t"><h1>${esc(j.name)}</h1><div class="alts">${esc(j.who || '')}</div></div></div>
     <div class="stat"><div><b>${estimateLabel(total)} mi</b><small>schematic route estimate</small></div><div><b>${j.legs.length}</b><small>waypoints · ${esc(j.legs[0].date.replace(/^\d+ \w+ /,''))}</small></div></div>
     <p class="src">The line joins the recorded waypoints and any mapped detours. Its estimated length uses the map's uneven scale; unrecorded bends and terrain are not represented.</p>
+    ${readingLink('journeys',j.id,'Read the journey guide','journey-guide')}
     <div class="actions" style="grid-template-columns:1fr 1fr"><button class="abtn primary" data-play>${ico('play')}Follow the road</button><button class="abtn" data-hidej>${ico('x')}Hide route</button></div>
-    ${readingLink('journeys',j.id,'Read the journey guide')}
     <ul class="evl" id="jlegs">${j.legs.map((l, i) => `<li><button class="waypoint-button" data-leg="${i}"><b>${esc(l.date)}</b>${esc(l.place)}${l.note ? `<span class="sub"> — ${esc(l.note)}</span>` : ''}</button></li>`).join('')}</ul>`;
   el.dataset.j = id; mode('journey'); syncURL({place:null,journey:id,event:null}); focusPanel('journey'); if (sheetState === 'peek') setSheet('half');
   stopPlay(); clearWaypoint();
