@@ -867,7 +867,7 @@ function renderExplore(){
     <div class="list">${JOURNEYS.map(j => `<button class="row j" data-j="${j.id}" style="--jc:${j.color}"><span class="ic">${ico('route')}</span><span class="tx"><b>${esc(j.name)}</b><small>${esc(j.legs[0].date)} → ${esc(j.legs[j.legs.length-1].date)} · ${j.legs.length} waypoints</small></span></button>`).join('')}</div>
     <a class="journey-guide" href="/journeys/">Browse the journey guides</a></details>
     <button class="entry-reader" id="ex-chapter">${ico('book')} Read alongside the book</button>
-    <details class="atlas-help"><summary>Help &amp; about this atlas</summary>
+    <details class="atlas-help" open><summary>Help &amp; about this atlas</summary>
     <div class="hints f-only"><span><span class="kbd">/</span> search</span><span><span class="kbd">← ↑ ↓ →</span> pan</span><span><span class="kbd">+ −</span> zoom</span><span><span class="kbd">H</span> home</span><span><span class="kbd">R</span> wander</span><span><span class="kbd">Esc</span> back</span></div>
     <nav class="reading-nav" aria-label="Read the atlas"><a href="/methodology/">Sources &amp; method</a><a href="/data/">Open data</a></nav>
     <p class="sub discovery-hint">Look a little closer: zoom into the countryside to find tiny drawings. Tap a gold sparkle to discover their stories.</p>
