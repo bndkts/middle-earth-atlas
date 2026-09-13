@@ -15,7 +15,7 @@ test('the atlas registers a root-scoped service worker',()=>{
 
 test('the service worker precaches the complete interactive shell',()=>{
   const worker=fs.readFileSync(path.join(root,'service-worker.js'),'utf8');
-  for(const asset of ['/', '/offline.html', '/src/data.js?v=atlas-3', '/src/chapters.js', '/src/app.js?v=atlas-3', '/src/details.mjs', '/src/styles.css', '/src/map.css', '/src/images.js', '/assets/texture.png']){
+  for(const asset of ['/', '/offline.html', '/src/data.js?v=atlas-3', '/src/chapters.js', '/src/reading.js', '/src/app.js?v=atlas-3', '/src/details.mjs', '/src/styles.css', '/src/map.css', '/src/images.js', '/assets/texture.png']){
     assert.ok(worker.includes(JSON.stringify(asset)),asset);
   }
   assert.match(worker,/request\.method !== 'GET'/);
