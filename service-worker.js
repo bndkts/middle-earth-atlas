@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-expanded-help';
+const CACHE=CACHE_PREFIX+'2026-09-safari-tint';
 const CORE=[
   "/",
   "/offline.html",
