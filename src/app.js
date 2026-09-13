@@ -470,7 +470,7 @@ function lodPass(quick){
     const cx0 = Math.floor(b.x0 / cell), cx1 = Math.floor(b.x1 / cell), cy0 = Math.floor(b.y0 / cell), cy1 = Math.floor(b.y1 / cell);
     for (let cx = cx0; cx <= cx1; cx++) for (let cy = cy0; cy <= cy1; cy++) {
       const arr = g.get(cx + ',' + cy); if (!arr) continue;
-      for (const o of arr) if (b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0) return o;
+      for (const o of arr) if (!o.L?.hidden && b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0) return o;
     }
     return null;
   }
@@ -522,6 +522,9 @@ function lodPass(quick){
     m.flip = flip;
     m.el.classList.remove('off'); put(b); m.shown = true;
     b.k = k; b.selected = isSel;
+    // Release the entire label now, before lower-priority places are considered.
+    let lettering;
+    while ((lettering = hits(ogrid,b)) && labelYieldsToMarker(lettering.L,b)) lettering.L.hidden = true;
   }
   // 3. Even major lettering gives way to selected places and important cities.
   if (!quick && LBL_MEASURED) {
