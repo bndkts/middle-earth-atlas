@@ -260,6 +260,8 @@ function startGesture(){
   if (!gesturing) {
     gestureScale = lastPosS > 0 ? lastPosS : V.s;
     gesturing = true;
+    // Hide the static SVG in the same style update that promotes moving layers.
+    if (snapReady) { drawSnap(); rastering = true; mapEl.classList.add('rastered'); }
     mapEl.classList.add('gesture', 'moving');
     mapEl.classList.toggle('fallback', !snapReady);
   }
@@ -273,7 +275,7 @@ function endGesture(delay){
     mkLayer.style.transform = `translate3d(${V.tx.toFixed(2)}px,${V.ty.toFixed(2)}px,0)`;
     applyBase(true);
     lastLodS = V.s; svgLabelLOD();
-    lastLodRun = performance.now(); lodPass();
+    lastLodRun = performance.now(); lodPass(); updateScale();
     if (rastering) {
       mapEl.classList.add('restoring');
       swapT = requestAnimationFrame(() => { swapT = requestAnimationFrame(() => {
@@ -281,10 +283,10 @@ function endGesture(delay){
         if (gesturing) return;
         if (reduceMotion) return finishRaster();
         mapEl.classList.add('fading');
-        fadeT = setTimeout(finishRaster, 160);
+        fadeT = setTimeout(finishRaster, 80);
       }); });
     }
-  }, Math.max(120, delay ?? 120));
+  }, Math.max(0, delay ?? 40));
 }
 
 let lodTimer = null, lastLodS = 0, lastLodRun = 0, zoomClass = '', zoomVlo = false;
@@ -614,7 +616,7 @@ function svgLabelLOD(){
 const scaleBar = $('#scalebar .bar'), scaleText = $('#scalebar .txt');
 let scaleZoom = null;
 function updateScale(){
-  if (V.s === scaleZoom) return;
+  if (gesturing || V.s === scaleZoom) return;
   scaleZoom = V.s;
   const target = 90; // px
   const miles = target / V.s; const nice = [5,10,20,25,50,100,200,250,500,1000];
@@ -643,7 +645,8 @@ function updateScale(){
     pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pts.size === 1) { start = { x: e.clientX, y: e.clientY, tx: V.tx, ty: V.ty, s: V.s }; moved = false; lastMove = { x: e.clientX, y: e.clientY, t: performance.now() }; vel = [0,0]; }
     else if (pts.size === 2) { const [a, b] = [...pts.values()]; start = { d: Math.hypot(a.x-b.x, a.y-b.y), mx: (a.x+b.x)/2, my: (a.y+b.y)/2, tx: V.tx, ty: V.ty, s: V.s }; moved = true; }
-    mapEl.classList.add('dragging'); startGesture();
+    mapEl.classList.add('dragging');
+    if (gesturing || rastering) startGesture();
   });
   mapEl.addEventListener('pointermove', e => {
     if (!pts.has(e.pointerId)) return;
@@ -652,12 +655,14 @@ function updateScale(){
       const dx = e.clientX - start.x, dy = e.clientY - start.y;
       if (!moved && Math.hypot(dx, dy) > 4) moved = true;
       if (moved) {
+        startGesture();
         V.tx = start.tx + dx; V.ty = start.ty + dy; clamp(); queuePointerApply();
         const now = performance.now(); const dt = now - lastMove.t;
         if (dt > 0) vel = [ (e.clientX - lastMove.x) / dt, (e.clientY - lastMove.y) / dt ];
         lastMove = { x: e.clientX, y: e.clientY, t: now };
       }
     } else if (pts.size === 2 && start && start.d) {
+      startGesture();
       const [a, b] = [...pts.values()]; const d = Math.hypot(a.x-b.x, a.y-b.y), mx = (a.x+b.x)/2, my = (a.y+b.y)/2;
       const ns = Math.min(V.max, Math.max(V.min, start.s * d / start.d));
       // keep the initial midpoint's map position under the current midpoint
@@ -669,10 +674,10 @@ function updateScale(){
     if (!pts.has(e.pointerId)) return;
     // Commit the final movement before a pinch becomes a drag or inertia starts.
     flushPointerApply();
-    const cancelled = e.type === 'pointercancel';
+    const cancelled = e.type !== 'pointerup';
     pts.delete(e.pointerId);
     if (pts.size === 0) {
-      mapEl.classList.remove('dragging'); endGesture();
+      mapEl.classList.remove('dragging'); if (gesturing) endGesture();
       if (!moved && !cancelled) {
         const tgt = downTarget || e.target;
         const t = tgt.closest('.mk'); const ev = tgt.closest('.ev'); const ml = tgt.closest('.ml'); const cp = tgt.closest('.chapter-pin');
@@ -685,7 +690,7 @@ function updateScale(){
         else if (discovery && detailLayer) { detailLayer.open(discovery.dataset.discovery); }
         else if (now - lastTap < 320 && e.pointerType !== 'mouse') { zoomAnim(2, e.clientX, e.clientY); lastTap = 0; }
         else { lastTap = now; if (sheet.classList.contains('full') || sheet.classList.contains('half')) setSheet('peek'); }
-      } else if (!cancelled && Math.hypot(vel[0], vel[1]) > 0.25 && !reduceMotion) {
+      } else if (!cancelled && lastMove && performance.now() - lastMove.t < 100 && Math.hypot(vel[0], vel[1]) > 0.25 && !reduceMotion) {
         let v = [vel[0], vel[1]]; let last = performance.now();
         startGesture();
         const step = now => { const dt = now - last; last = now; V.tx += v[0] * dt; V.ty += v[1] * dt; v[0] *= Math.pow(0.992, dt); v[1] *= Math.pow(0.992, dt); clamp(); apply(); if (Math.hypot(v[0], v[1]) > 0.02) inertia = requestAnimationFrame(step); else { inertia = null; endGesture(40); lodPass(); } };
@@ -694,7 +699,7 @@ function updateScale(){
       start = null;
     } else if (pts.size === 1) { const [a] = [...pts.values()]; start = { x: a.x, y: a.y, tx: V.tx, ty: V.ty, s: V.s }; lastMove = { x: a.x, y: a.y, t: performance.now() }; vel = [0,0]; }
   }
-  mapEl.addEventListener('pointerup', up); mapEl.addEventListener('pointercancel', up);
+  mapEl.addEventListener('pointerup', up); mapEl.addEventListener('pointercancel', up); mapEl.addEventListener('lostpointercapture', up);
   // Wheel / trackpad: accumulate into a target scale and ease towards it each frame, so a
   // mouse notch glides instead of jumping and a trackpad pinch (ctrlKey) feels continuous.
   let wTarget = null, wAnchor = [0, 0], wRaf = null;

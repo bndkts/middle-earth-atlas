@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-mobile-sheet';
+const CACHE=CACHE_PREFIX+'2026-09-mobile-map';
 const CORE=[
   "/",
   "/offline.html",

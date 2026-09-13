@@ -27,14 +27,18 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 .sheet-preview #snap{display:block}
 .sheet-preview #worldBase,.sheet-preview #terrain :is(#realms,.roads,.decor,.neat){visibility:hidden}
 .rastered:not(.restoring) #worldBase,.rastered:not(.restoring) #worldLab{visibility:hidden}
+/* Skip the heavy subtrees without propagating inherited visibility through every SVG node. */
+@supports(content-visibility:hidden){
+  .sheet-preview #worldBase,.rastered:not(.restoring) #worldBase,.rastered:not(.restoring) #worldLab{visibility:visible;content-visibility:hidden}
+}
 .rastered:not(.restoring) #terrain :is(#realms,.roads,.decor,.neat){visibility:hidden}
 .rastered #terrain :is(#realms,.roads,.decor,.neat){opacity:0}
-.fading #terrain :is(#realms,.roads,.decor,.neat){opacity:1;transition:opacity 140ms ease-out}
+.fading #terrain :is(#realms,.roads,.decor,.neat){opacity:1;transition:opacity 70ms ease-out}
 .moving #world{will-change:transform}
 .moving #markers{will-change:transform}
 .rastered #worldLab{opacity:0}
-.fading #snap{opacity:0;transition:opacity 140ms ease-out}
-.fading #worldLab{opacity:1;transition:opacity 140ms ease-out}
+.fading #snap{opacity:0;transition:opacity 70ms ease-out}
+.fading #worldLab{opacity:1;transition:opacity 70ms ease-out}
 .moving.fallback #tlab{display:none}
 
 #markers{position:absolute;left:0;top:0;width:0;height:0;z-index:3;contain:layout style;transform-origin:0 0}

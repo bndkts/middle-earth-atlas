@@ -27,10 +27,27 @@ reduced-motion settings. The bitmap must remain aligned with the vector map.
 Keep viewport measurements in `measureViewport()` and avoid layout reads after
 map style writes. Touch rendering is frame-batched; release flushes the final
 position. The movement bitmap uses a 4 MP budget on narrow/touch screens and
-12.5 MP on desktop; the stationary map remains vector-sharp.
+6 MP on desktop; the stationary map remains vector-sharp.
 Move the bitmap via CSS transforms, not per-frame canvas drawing. Keep the static
 SVG layers hidden during movement and the visible overlay composited. On release,
 restore the vector map before fading out the bitmap; new input cancels that fade.
+
+With an optional `playwright-cli` installation, run the repeatable mobile touch
+benchmark in a dedicated local browser session:
+
+```sh
+playwright-cli -s=atlas-perf open http://localhost:8000 --browser chrome
+playwright-cli -s=atlas-perf run-code "$(cat scripts/measure-mobile.js)" --raw
+```
+
+The script resets storage and offline caches for the local test origin. It uses
+390×844, DPR 2, 4× CPU slowdown, a fixed map view, and trusted CDP touch input for
+sheet dragging, native scrolling, pan, pinch, and cancellation. Compare against
+an unchanged checkout served on localhost:8001 with the same browser and fonts.
+It reports frame intervals and browser layout/style/task counters, including a
+600 ms settling window. Input delivery waits for browser acknowledgement, so
+slow runs take longer; these are work/latency comparisons, not a fixed-duration
+FPS test. Screenshots are written to ignored `output/playwright/`.
 
 ## Data changes
 

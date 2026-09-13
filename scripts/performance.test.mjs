@@ -11,7 +11,7 @@ function section(from, to) {
   return source.slice(start, end);
 }
 function harness() {
-  const frames = new Map(), timers = new Map(), elements = new Map();
+  const frames = new Map(), timers = new Map(), elements = new Map(), delays = [];
   let id = 0;
   const element = () => {
     const classes = new Set();
@@ -31,14 +31,14 @@ function harness() {
     $: selector => { if (!elements.has(selector)) elements.set(selector, element()); return elements.get(selector); },
     requestAnimationFrame: fn => { frames.set(++id, fn); return id; },
     cancelAnimationFrame: key => frames.delete(key),
-    setTimeout: fn => { timers.set(++id, fn); return id; },
+    setTimeout: (fn, delay) => { delays.push(delay); timers.set(++id, fn); return id; },
     clearTimeout: key => timers.delete(key),
     performance: { now: () => 100 },
-    worldLab: element(), drawSnap() {}, saveView() {}, releaseSnapshotJob() {},
+    worldLab: element(), drawSnap() {}, saveView() {}, releaseSnapshotJob() {}, gesturing: false, rastering: false, updateScale() {},
   });
   const run = code => vm.runInContext(code, context);
   const tick = queue => { const jobs = [...queue.values()]; queue.clear(); jobs.forEach(fn => fn(100)); };
-  return { context, run, element, frames, timers, frame: () => tick(frames), settle: () => tick(timers) };
+  return { context, run, element, frames, timers, delays, frame: () => tick(frames), settle: () => tick(timers) };
 }
 
 test('viewport dimensions are cached until explicitly refreshed', () => {
@@ -71,6 +71,15 @@ test('panning does not rewrite the scale indicator', () => {
   h.run('V.s = 2; updateScale()');
   assert.equal(writes, 2);
 });
+test('pinch defers scale-bar layout until the final zoom is restored', () => {
+  const h = harness();h.context.V = {s:1};
+  h.run(section('const scaleBar =', '// ---------- pointer handling'));
+  let writes=0;
+  Object.defineProperty(h.run('scaleText'),'textContent',{set(){writes++;}});
+  h.run('updateScale(); gesturing=true; V.s=2; updateScale(); V.s=3; updateScale()');
+  assert.equal(writes,1,'zoom frames do not resize the scale bar');
+  h.run('gesturing=false; updateScale()');assert.equal(writes,2);
+});
 
 test('moving the bitmap only changes its compositor transform', () => {
   const h = harness();
@@ -91,7 +100,8 @@ test('raster restoration fades after paint and a new gesture cancels stale clean
     applyBase() {}, svgLabelLOD() {}, lodPass() {}, reduceMotion: false,
   });
   h.run(section('let gestureT =', 'let lodTimer ='));
-  h.run('startGesture(); rastering = true; mapEl.classList.add("rastered"); endGesture()');
+  h.run('startGesture(); rastering = true; mapEl.classList.add("rastered"); endGesture(40)');
+  assert.equal(h.delays.at(-1),40,'explicit release delays are not inflated to 120 ms');
   h.settle();
   assert.ok(map.classList.contains('restoring'));
   assert.ok(!map.classList.contains('fading'));
@@ -110,6 +120,15 @@ test('raster restoration fades after paint and a new gesture cancels stale clean
   h.settle(); h.frame(); h.frame();
   assert.ok(!map.classList.contains('rastered'));
   assert.equal(h.timers.size, 0, 'reduced motion skips the fade timer');
+});
+test('gesture pickup displays the aligned cache before promoting the moving layers', () => {
+  const h=harness(),map=h.element();let draws=0;
+  Object.assign(h.context,{mapEl:map,snapReady:true,V:{s:2,tx:10,ty:20},lastPosS:2,lodTimer:null,drawSnap:()=>draws++});
+  h.run(section('let gestureT =','let lodTimer ='));
+  h.run('startGesture()');
+  assert.ok(map.classList.contains('rastered'));
+  assert.equal(draws,1);
+  h.run('startGesture()');assert.equal(draws,1,'already moving input reuses the same cache');
 });
 
 test('gestures transform the marker layer without per-marker layout or collision work', () => {
@@ -221,10 +240,10 @@ test('timeline and layer changes invalidate the snapshot only when artwork chang
 
 test('touch moves batch, pinch transitions flush, and cancellation does not tap', () => {
   const h = harness(), map = h.element();
-  let renders = 0, taps = 0;
+  let renders = 0, taps = 0, starts = 0;
   Object.assign(h.context, {
     mapEl: map, V: { s: 1, tx: 0, ty: 0, min: 0.1, max: 9 }, anim: null,
-    apply: () => renders++, clamp() {}, startGesture() {}, endGesture() {}, lodPass() {},
+    apply: () => renders++, clamp() {}, startGesture() { starts++; }, endGesture() {}, lodPass() {},
     reduceMotion: true, sheet: h.element(), selectPlace: () => taps++, MK: [{ p: {} }],
   });
   h.run(section('(function pointer(){', '  // Wheel / trackpad:') + '\n})();');
@@ -232,6 +251,7 @@ test('touch moves batch, pinch transitions flush, and cancellation does not tap'
     type, pointerId, clientX, clientY, pointerType: 'touch', target: map,
   });
   emit('pointerdown', 1, 100);
+  assert.equal(starts,0,'touching the map without moving must not switch to the bitmap');
   emit('pointermove', 1, 110); emit('pointermove', 1, 130);
   assert.equal(renders, 0);
   assert.equal(h.frames.size, 1);
@@ -249,6 +269,19 @@ test('touch moves batch, pinch transitions flush, and cancellation does not tap'
   map.closest = selector => selector === '.mk' ? { dataset: { i: 0 } } : null;
   emit('pointerdown', 3, 100); emit('pointercancel', 3, 100);
   assert.equal(taps, 0);
+});
+test('paused drags and lost pointer capture cannot start stale inertia or activate places', () => {
+  const h=harness(),map=h.element();let now=100,taps=0;
+  Object.assign(h.context,{mapEl:map,V:{s:1,tx:0,ty:0,min:.1,max:9},anim:null,
+    apply(){},clamp(){},startGesture(){},endGesture(){},lodPass(){},reduceMotion:false,
+    sheet:h.element(),selectPlace:()=>taps++,MK:[{p:{}}],performance:{now:()=>now}});
+  h.run(section('(function pointer(){','  // Wheel / trackpad:')+'\n})();');
+  const emit=(type,x)=>map.listeners[type]({type,pointerId:1,clientX:x,clientY:100,pointerType:'touch',target:map});
+  emit('pointerdown',100);now=110;emit('pointermove',140);now=500;emit('pointerup',140);
+  assert.equal(h.frames.size,0,'a finger held still before release must not fling');
+  map.closest=selector=>selector==='.mk'?{dataset:{i:0}}:null;
+  emit('pointerdown',100);emit('lostpointercapture',100);emit('pointerup',100);
+  assert.equal(taps,0);
 });
 
 test('timeline batches the latest year and cancels stale panels on commit or close', () => {
