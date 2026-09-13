@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-journey-guide';
+const CACHE=CACHE_PREFIX+'2026-09-quiet-entry';
 const CORE=[
   "/",
   "/offline.html",
