@@ -60,6 +60,37 @@ test('viewport dimensions are cached until explicitly refreshed', () => {
   assert.equal(h.run('snapshotBudget()'), 4e6);
 });
 
+test('mobile camera refreshes the provisional toolbar bounds after UI setup and toolbar resize', () => {
+  const h = harness();
+  let bottom = 9558, resized;
+  h.context.$('#top').getBoundingClientRect = () => ({bottom});
+  h.context.window = {innerWidth:393,innerHeight:659,addEventListener(){},ResizeObserver:true};
+  h.context.ResizeObserver = class { constructor(callback){resized=callback;} observe(){} };
+  h.run(section('const viewport =', 'const reduceMotion ='));
+  assert.equal(h.run('viewport.chromeTop'),100,'Ignore provisional off-screen WebKit bounds');
+  bottom = 96;
+  h.run(section("  const top = $('#top');", '})();'));
+  assert.equal(h.run('viewport.chromeTop'),96,'Refresh after the controls have been populated, before restoring a place URL');
+  bottom = 124;
+  resized();
+  assert.equal(h.run('viewport.chromeTop'),124,'Font/layout changes must refresh the mobile cache too');
+});
+
+test('redundant mobile resize does not retarget an in-flight place selection', () => {
+  const h=harness(); let resize, reads=0;
+  Object.assign(h.context,{
+    window:{innerWidth:393,innerHeight:659,addEventListener(name,callback){resize=callback;}},
+    viewport:{width:393,height:659},V:{s:.24,tx:-90,ty:50},
+    visibleCenter:()=>[166,214],measureToolbar(){reads++;},
+    finishRaster(){},measureViewport(){},snapshotBudget:()=>4e6,snapBudget:4e6,
+    clamp(){},apply(){},
+  });
+  h.run(section("window.addEventListener('resize', () => {", '// ---------- sheet ----------'));
+  resize();
+  assert.equal(h.frames.size,0,'A startup resize with unchanged dimensions must not replace the pending flight with an intermediate zoom');
+  assert.equal(reads,1,'Still refresh toolbar layout');
+});
+
 test('panning does not rewrite the scale indicator', () => {
   const h = harness();
   h.context.V = { s: 1 };

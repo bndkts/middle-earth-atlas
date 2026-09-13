@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-river-transitions';
+const CACHE=CACHE_PREFIX+'2026-09-mobile-place-camera';
 const CORE=[
   "/",
   "/offline.html",
