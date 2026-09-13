@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-regional-woods';
+const CACHE=CACHE_PREFIX+'2026-09-geography-notes';
 const CORE=[
   "/",
   "/offline.html",

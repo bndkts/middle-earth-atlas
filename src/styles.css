@@ -182,6 +182,9 @@ a{color:var(--accent)}
 .artwork-expand>span{position:absolute;bottom:7px;right:7px;font-size:12px;background:var(--paper);padding:4px 7px;border-radius:5px}
 .place-actions .abtn{min-height:54px;padding:9px 4px;gap:5px;font-size:14px}
 .place-actions .abtn svg{width:18px;height:18px}
+.position-note{margin:14px 0;font-size:13px;color:var(--muted)}
+.position-note summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.position-note .src{margin:8px 0}
 .pimg figcaption{font-size:11px;line-height:1.35;color:var(--muted);font-style:italic;padding:6px 10px 7px}
 .pimg figcaption a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--line)}
 .pimg figcaption a:hover{color:var(--accent)}

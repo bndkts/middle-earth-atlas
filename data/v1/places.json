@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "25764c804c930bff1e608c6e3f448222098334370e32004cae712a9446fb10d4",
+  "revision": "79ff75295bcd9cef9402158554d026241230a023613e2dcbe40274cad65bdba0",
   "documentation": "https://atlas.bag-end.eu/data/",
   "coordinateSystem": {
     "name": "atlas-schematic",
@@ -569,6 +569,10 @@
         "y": 898,
         "approximate": false
       },
+      "position": {
+        "kind": "display-offset",
+        "note": "Small Hobbiton locations are separated on this schematic map for readability; this is not a measured plan of the Hill."
+      },
       "recordedPeriod": {
         "fromAbsoluteYear": 2880,
         "toAbsoluteYear": null,
@@ -869,6 +873,10 @@
         "x": 700,
         "y": 899,
         "approximate": true
+      },
+      "position": {
+        "kind": "display-offset",
+        "note": "The field is shown separately from Bag End for readability. Its map spacing is illustrative, not a measured distance."
       },
       "recordedPeriod": {
         "fromAbsoluteYear": 3001,
@@ -4288,6 +4296,10 @@
         "y": 940,
         "approximate": true
       },
+      "position": {
+        "kind": "historical-reconstruction",
+        "note": "A First Age location projected onto the changed Third Age coastline. Its relationship to Dolmed is retained, not an exact surviving site."
+      },
       "recordedPeriod": {
         "fromAbsoluteYear": -4030,
         "toAbsoluteYear": -3444,
@@ -4324,6 +4336,10 @@
         "x": 566,
         "y": 830,
         "approximate": true
+      },
+      "position": {
+        "kind": "historical-reconstruction",
+        "note": "A First Age location projected onto the changed Third Age coastline. Its relationship to Dolmed is retained, not an exact surviving site."
       },
       "recordedPeriod": {
         "fromAbsoluteYear": -4030,
@@ -4695,6 +4711,10 @@
         "x": 668,
         "y": 1210,
         "approximate": true
+      },
+      "position": {
+        "kind": "area-anchor",
+        "note": "The marker names the wooded cape south of the Baranduin mouth. It is an area label, not a surveyed point; the woodland and estuary were checked together."
       },
       "recordedPeriod": {
         "fromAbsoluteYear": null,
@@ -9572,6 +9592,10 @@
         "y": 1360,
         "approximate": true
       },
+      "position": {
+        "kind": "text-reconstruction",
+        "note": "The text places the hall in the flanks of Methedras. The atlas uses that mountain as its anchor; the exact site within the slopes is not established."
+      },
       "recordedPeriod": {
         "fromAbsoluteYear": -4030,
         "toAbsoluteYear": null,
@@ -12461,6 +12485,10 @@
         "x": 1492,
         "y": 1626,
         "approximate": true
+      },
+      "position": {
+        "kind": "area-anchor",
+        "note": "The wood lies between Amon Din and Mindolluin. The marker identifies the wooded area, not a precisely located boundary or a measured entrance."
       },
       "recordedPeriod": {
         "fromAbsoluteYear": null,

@@ -1066,6 +1066,7 @@ function renderPlace(p){
       <button class="abtn" data-center>${ico('center')}Centre</button>
       ${src ? `<a class="abtn" href="${esc(src)}" target="_blank" rel="noopener">${ico('book')}Lore</a>` : `<button class="abtn" disabled>${ico('book')}Lore</button>`}
     </div>
+    <details class="position-note"><summary>About this map position</summary><p class="src">${esc(p.position?.note || (p.ap ? 'This position is approximate. Its specific uncertainty has not yet been classified in the regional audit.' : 'This is a schematic placement, not a surveyed coordinate. Scale varies across the map.'))}</p><a href="/methodology/#position-types">Position types &amp; method</a></details>
     <dl class="kv">${when}${pp}<dt>Attested in</dt><dd>${esc({Hobbit:'The Hobbit',LotR:'The Lord of the Rings',Silm:'The Silmarillion',UT:'Unfinished Tales',HoME:'The History of Middle-earth',Letters:'Letters of J.R.R. Tolkien'}[p.c] || p.c || '—')}</dd></dl>
     ${ev}${jr}
     <div class="orn"><span>Nearby</span></div>
