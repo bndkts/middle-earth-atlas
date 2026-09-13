@@ -357,6 +357,12 @@ function clamp(){
   V.min = Math.min(aw / MAPW, vh / MAPH) * 0.9;
   V.s = Math.min(V.max, Math.max(V.min, V.s));
   const mw = MAPW * V.s, mh = MAPH * V.s;
+  if(activeChapter){
+    const b=visibleBounds(),bw=b.right-b.left,bh=b.bottom-b.top;
+    V.tx=mw>=bw?Math.min(b.left,Math.max(b.right-mw,V.tx)):b.left+(bw-mw)/2;
+    V.ty=mh>=bh?Math.min(b.top,Math.max(b.bottom-mh,V.ty)):b.top+(bh-mh)/2;
+    return;
+  }
   if (mw >= aw) V.tx = Math.min(left, Math.max(vw - mw, V.tx)); else V.tx = left + (aw - mw) / 2;
   if (mh >= vh) V.ty = Math.min(0, Math.max(vh - mh, V.ty)); else V.ty = (vh - mh) / 2;
 }
@@ -477,7 +483,7 @@ function lodPass(quick){
     const cx0 = Math.floor(b.x0 / cell), cx1 = Math.floor(b.x1 / cell), cy0 = Math.floor(b.y0 / cell), cy1 = Math.floor(b.y1 / cell);
     for (let cx = cx0; cx <= cx1; cx++) for (let cy = cy0; cy <= cy1; cy++) {
       const arr = g.get(cx + ',' + cy); if (!arr) continue;
-      for (const o of arr) if (b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0) return o;
+      for (const o of arr) if (!o.L?.hidden && b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0) return o;
     }
     return null;
   }
@@ -529,6 +535,9 @@ function lodPass(quick){
     m.flip = flip;
     m.el.classList.remove('off'); put(b); m.shown = true;
     b.k = k; b.selected = isSel;
+    // Release the entire label now, before lower-priority places are considered.
+    let lettering;
+    while ((lettering = hits(ogrid,b)) && labelYieldsToMarker(lettering.L,b)) lettering.L.hidden = true;
   }
   // 3. Even major lettering gives way to selected places and important cities.
   if (!quick && LBL_MEASURED) {

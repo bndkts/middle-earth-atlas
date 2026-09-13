@@ -28,3 +28,10 @@ test('peek gives more map space; full and short screens never produce negative b
     assert.ok(b.bottom>b.top);assert.ok(b.right>b.left);
   }
 });
+test('wide chapter views clamp to the free map area, not underneath a mobile sheet',()=>{
+  const V={s:.33,tx:-100,ty:-150,min:.1,max:9};
+  const context=vm.createContext({V,MAPW:2600,MAPH:2300,viewport:{width:390,height:844},isDesktop:()=>false,activeChapter:{id:'lotr-b6-c06'},visibleBounds:()=>({left:16,right:314,top:116,bottom:406})});
+  vm.runInContext(source.slice(source.indexOf('function clamp(){'),source.indexOf('function zoomAt(')),context);
+  vm.runInContext('clamp()',context);
+  assert.equal(V.ty,-150,'Keep the chapter centred above the sheet even when the whole map is shorter than the screen');
+});

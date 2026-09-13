@@ -4,3 +4,9 @@ node_modules/
 npm-debug.log*
 
 output/
+
+# Local AI assistant instructions
+/AGENTS.md
+/Agents.md
+/CLAUDE.md
+/Claude.md
