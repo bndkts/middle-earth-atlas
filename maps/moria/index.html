@@ -8,8 +8,8 @@
   <title>Moria · The halls of Khazad-dûm — Middle-earth Atlas</title>
   <link rel="canonical" href="https://atlas.bag-end.eu/maps/moria/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/src/submap.css">
-  <script type="module" src="/src/submap.mjs"></script>
+  <link rel="stylesheet" href="/src/submap.css?v=moria-2">
+  <script type="module" src="/src/submap.mjs?v=moria-2"></script>
   <script src="/src/offline.js" defer></script>
 </head>
 <body>
@@ -36,12 +36,12 @@
       <div class="map-caption"><span>W <i>To Eregion</i></span><span class="section-caption">A SECTION THROUGH THE MISTY MOUNTAINS</span><span><i>To Dimrill Dale</i> E</span></div>
       <div id="map-viewport" tabindex="0" role="region" aria-label="Moria map. Use arrow keys to pan, plus and minus to zoom, and zero to fit the map." aria-describedby="map-help">
         <div id="map-plate">
-          <img src="/assets/moria-section.svg" width="3000" height="2000" alt="An antique ink cutaway of Moria beneath the Misty Mountains. West-gate on the left, tiers of pillared halls and winding stairs within the rock, a narrow bridge across the eastern chasm, and mines above a subterranean lake. The Endless Stair rises from the depths to a summit tower." fetchpriority="high" draggable="false">
-          <div id="map-pins"></div>
+          <img src="/assets/moria-section.svg?v=moria-2" width="3000" height="2000" alt="An antique ink cutaway of Moria beneath the Misty Mountains. West-gate on the left, tiers of pillared halls and winding stairs within the rock, a narrow bridge across the eastern chasm, and mines above a subterranean lake. The Endless Stair rises from the depths to a summit tower." fetchpriority="high" draggable="false">
         </div>
+        <div id="map-pins"></div>
       </div>
       <div class="map-controls" hidden>
-        <button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-level" aria-label="Map zoom">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><span class="control-divider"></span><button id="fit-map" aria-label="Fit the whole map">⛶ <span>Whole map</span></button><span class="control-divider"></span><button id="toggle-labels" aria-pressed="true">Labels</button>
+        <button id="expand-map" aria-label="Expand map" aria-expanded="false">⛶</button><span class="control-divider"></span><button id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-level" aria-label="Map zoom">100%</output><button id="zoom-in" aria-label="Zoom in">+</button><span class="control-divider"></span><button id="fit-map" aria-label="Fit the whole map"><span>Whole map</span></button><span class="control-divider"></span><button id="toggle-labels" aria-pressed="true">Labels</button>
       </div>
       <div class="map-footer"><p id="map-help">Explore the halls using the numbered index.</p><span>ILLUSTRATIVE · NOT TO SCALE</span></div>
     </section>
@@ -58,6 +58,8 @@
         <a href="#endless-stair"><span>08</span> The Endless Stair <i>↗</i></a>
         <a href="#deep-water"><span>09</span> The Deep Places <i>↗</i></a>
       </nav>
+      <label class="place-picker" hidden>Explore a place<select id="place-picker"><option value="">Whole map</option></select></label>
+      <div id="map-overview"><p class="eyebrow">A KINGDOM CARVED IN STONE</p><h3>From gate to deepest hall</h3><p>Trace the western passages, wander the pillared halls, and descend beneath the roots of the mountains.</p><p class="overview-hint">Select a numbered place to look closer.</p></div>
       <div class="place-notes">
         <article id="west-gate" data-x="10" data-y="51" data-label="Doors of Durin">
           <p class="eyebrow">01 &nbsp; / &nbsp; THE WESTERN THRESHOLD</p><h3>The Doors of Durin</h3><p>The western entrance opens toward Eregion. Narvi made the doors; Celebrimbor traced their signs in ithildin. Beyond this quiet threshold, the passages climb into the mountain.</p><a href="https://tolkiengateway.net/wiki/Doors_of_Durin">Read the lore ↗</a>

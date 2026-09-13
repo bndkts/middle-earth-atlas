@@ -1,15 +1,15 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-moria-review-v2';
+const CACHE=CACHE_PREFIX+'2026-09-moria-review-v3';
 const CORE=[
   "/",
   "/offline.html",
   "/maps/moria/",
-  "/src/submap.mjs",
-  "/src/submap-camera.mjs",
-  "/src/submap.css",
-  "/assets/moria-section.svg",
+  "/src/submap.mjs?v=moria-2",
+  "/src/submap-camera.mjs?v=moria-2",
+  "/src/submap.css?v=moria-2",
+  "/assets/moria-section.svg?v=moria-2",
   "/site.webmanifest",
   "/favicon.ico",
   "/src/data.js?v=atlas-3",

@@ -80,10 +80,54 @@ test('the original SVG has provenance and the offline shell includes its depende
   for(const key of ['creator','source','rights','attribution']) assert.ok(plate[key]);
   assert.ok(readFileSync(new URL('../'+plate.d,import.meta.url),'utf8').startsWith('<svg'));
   const worker=readFileSync(new URL('../service-worker.js',import.meta.url),'utf8');
-  for(const file of ['/maps/moria/','/src/submap.mjs','/src/submap-camera.mjs','/src/submap.css','/'+plate.d]) assert.ok(worker.includes(JSON.stringify(file)),file);
+  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-2','/src/submap-camera.mjs?v=moria-2','/src/submap.css?v=moria-2','/'+plate.d+'?v=moria-2']) assert.ok(worker.includes(JSON.stringify(file)),file);
 });
 
 test('the Moria reading page offers a direct link to the regional map', async () => {
   const {buildOutputs}=await import('./generate-content.mjs');
   assert.ok(buildOutputs().get('places/moria/index.html').includes('href="/maps/moria/"'));
+});
+
+test('history restores the viewed place, centre and zoom after visiting another hall', async () => {
+  const {captureView,restoreView,fitCamera,zoomCamera,panCamera}=await import('../src/submap-camera.mjs');
+  const camera=panCamera(zoomCamera(fitCamera(900,600),3,650,300,900,600),-100,-80,900,600);
+  const saved=captureView(camera,{width:900,height:600},'mazarbul');
+  assert.equal(saved.place,'mazarbul');
+  const restored=restoreView(saved,900,600);
+  for(const key of ["x","y","scale"]) assert.ok(Math.abs(restored[key]-camera[key])<1e-9);
+  const phone=restoreView(saved,390,500);
+  assert.ok(Math.abs(phone.scale/fitCamera(390,500).scale-3)<1e-9);
+  assert.equal(restoreView({zoom:NaN},900,600),null);
+});
+
+test('map names stay within the viewport and do not cover each other or neighbouring pins', async () => {
+  const {layoutLabels}=await import('../src/submap-camera.mjs');
+  const points=[{id:'gate',x:15,y:100,width:100,height:20},{id:'hall',x:200,y:200,width:100,height:20},{id:'bridge',x:238,y:206,width:95,height:20},{id:'east',x:382,y:130,width:70,height:20}];
+  const labels=layoutLabels(points,390,300,'bridge');
+  assert.ok(labels.find(l=>l.id==='bridge'));
+  const overlaps=(a,b)=>a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;
+  for(const a of labels){
+    assert.ok(a.x>=4&&a.y>=4&&a.x+a.width<=386&&a.y+a.height<=296);
+    for(const b of labels)if(a!==b)assert.ok(!overlaps(a,b),a.id+' / '+b.id);
+    for(const p of points)assert.ok(!overlaps(a,{x:p.x-13,y:p.y-13,width:26,height:26}),a.id+' covers '+p.id);
+  }
+});
+
+test('a zoom command cancels an in-progress drag before changing the camera', async () => {
+  const source=readFileSync(new URL('../src/submap.mjs',import.meta.url),'utf8');
+  const {fitCamera,zoomCamera}=await import('../src/submap-camera.mjs');
+  const calls=[];
+  const c=vm.createContext({size:{width:900,height:600},camera:fitCamera(900,600),zoomCamera,
+    resetGesture(){calls.push('cancel');},saveHistory(){calls.push('save');},paint(){calls.push('paint');}});
+  vm.runInContext(source.slice(source.indexOf('function zoom('),source.indexOf("document.querySelector('#zoom-in').onclick")),c);
+  c.zoom(2);
+  assert.deepEqual(calls,['cancel','save','paint']);
+  assert.equal(c.camera.scale,1.2);
+});
+
+test('new Moria pages cannot pair new markup with the previous cached viewer or artwork', () => {
+  const html=readFileSync(new URL('../maps/moria/index.html',import.meta.url),'utf8');
+  for(const asset of ['submap.css','submap.mjs','moria-section.svg'])assert.ok(html.includes(asset+'?v='),asset);
+  const source=readFileSync(new URL('../src/submap.mjs',import.meta.url),'utf8');
+  assert.match(source,/submap-camera\.mjs\?v=/);
 });

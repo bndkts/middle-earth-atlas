@@ -14,12 +14,12 @@ export function drawMoria() {
 <title id="title">Khazad-dûm — an imagined dwarven survey</title>
 <desc id="desc">A detailed pen-and-ink west–east cutaway of Moria, with seven terraces of halls, branching mines, a great chasm and an underground lake. Architectural forms and passage positions are artistic reconstructions.</desc>
 <defs>
- <pattern id="rock" width="17" height="19" patternUnits="userSpaceOnUse"><path d="M-4 8L5-1M0 18L17 1M11 24L21 14" stroke="#8b7756" stroke-width=".45" opacity=".38"/><path d="M2 8l3 2m8 3 2-1" stroke="#8b7756" stroke-width=".5" opacity=".3"/></pattern>
+ <pattern id="rock" width="17" height="19" patternUnits="userSpaceOnUse"><path d="M-4 8L5-1M0 18L17 1M11 24L21 14" stroke="#8b7756" stroke-width=".4" opacity=".24"/><path d="M2 8l3 2m8 3 2-1" stroke="#8b7756" stroke-width=".5" opacity=".3"/></pattern>
  <pattern id="masonry" width="22" height="12" patternUnits="userSpaceOnUse"><path d="M0 0H22M0 6H22M0 12H22M11 0V6M3 6V12" fill="none" stroke="#69543a" stroke-width=".5" opacity=".45"/></pattern>
  <pattern id="dark" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 0L5 5M5 0L0 5" stroke="#171d1b" stroke-width=".5" opacity=".28"/></pattern>
  <pattern id="water" width="48" height="12" patternUnits="userSpaceOnUse"><path d="M0 3h18m7 0h14M9 8h25m4 0h10" stroke="#647d78" stroke-width=".65" opacity=".7"/></pattern>
- <linearGradient id="stone" x2="0" y2="1"><stop stop-color="#cfc2a1"/><stop offset="1" stop-color="#b7a382"/></linearGradient>
- <linearGradient id="hall-light" x2="0" y2="1"><stop stop-color="#514b3e"/><stop offset=".42" stop-color="#a39373"/><stop offset="1" stop-color="#dfcfaa"/></linearGradient>
+ <linearGradient id="stone" x2="0" y2="1"><stop stop-color="#ded0ae"/><stop offset="1" stop-color="#c3ad86"/></linearGradient>
+ <linearGradient id="hall-light" x2="0" y2="1"><stop stop-color="#4f4939"/><stop offset=".55" stop-color="#b2a07b"/><stop offset="1" stop-color="#e0cfaa"/></linearGradient>
  <linearGradient id="abyss" x2="0" y2="1"><stop stop-color="#4e4b3d"/><stop offset="1" stop-color="#252d2a"/></linearGradient>
  <clipPath id="mountain"><path d="${mountain}"/></clipPath>
  <g id="lamp"><path d="M0-5v5m-3 0h6l-1 4h-4z" fill="#987b42" stroke="#4d422e" stroke-width=".7"/><path d="M0 0v3" stroke="#f5e2aa"/></g>
@@ -49,6 +49,13 @@ export function drawMoria() {
     const d=points.map(([x,y],i)=>`${i?'L':'M'}${x} ${y}`).join('');path(d,'fill="none" stroke="#675840" stroke-width="1.3"');
     let h='';for(let i=1;i<points.length;i++){const [ax,ay]=points[i-1],[bx,by]=points[i];for(let t=.09;t<1;t+=.075){const x=ax+(bx-ax)*t,y=ay+(by-ay)*t;const len=7+random()*27;h+=`M${n(x+2)} ${n(y+1)}l${n(len*.7)} ${n(len)}M${n(x-3)} ${n(y+3)}l${n(-len*.35)} ${n(len*.8)}`;}}path(h,'fill="none" stroke="#776245" stroke-width=".65" opacity=".72"');
   }
+  // Slender rock faces and broken contour hatching give the peaks volume.
+  for(const [x,y,spread,rise]of [[454,162,65,141],[813,103,77,174],[1083,184,59,150]]){
+    for(let j=0;j<40;j++){
+      const t=j/40,len=rise*(.35+.65*t),sx=x+spread*t*.8,sy=y+rise*t*.74;
+      path(`M${n(sx)} ${n(sy)}l${n(7+random()*5)} ${n(len*.22)}-${n(2+random()*5)} ${n(len*.11)} ${n(5+random()*10)} ${n(len*.22)}`,'fill="none" stroke="#796442" stroke-width=".7" opacity=".6"');
+    }
+  }
   // Irregular strata, fractures and mineral seams continue behind the masonry.
   s.push('<g clip-path="url(#mountain)" fill="none">');
   for(let i=0;i<39;i++){
@@ -62,12 +69,17 @@ export function drawMoria() {
   }
   s.push('</g>');
   // The long natural chasm is cut before the halls, so the bridge sits above it.
-  const chasm='M1180 496L1195 516 1191 549 1210 574 1202 613 1220 637 1208 670 1224 708 1211 737 1232 770 1211 801 1229 839 1200 870 1141 879 1128 858 1167 824 1170 799 1153 772 1180 741 1165 712 1175 678 1158 650 1168 615 1158 579 1174 550 1161 520Z';
+  const chasm='M1180 496Q1200 507 1195 531L1189 550Q1197 568 1209 575L1204 604Q1195 627 1214 650L1206 678Q1228 700 1221 721L1210 744Q1220 760 1238 774L1223 803Q1215 819 1228 838L1214 851Q1201 882 1178 889L1130 902 1101 888Q1131 868 1135 853L1161 830Q1177 811 1166 795L1157 777Q1164 755 1180 741L1168 719Q1162 700 1175 681L1164 653Q1151 633 1167 611L1160 582Q1157 563 1174 547L1165 523Z';
   path(chasm,'fill="url(#abyss)" stroke="#443e2f" stroke-width="2"');
   path(chasm,'fill="url(#dark)"');
   path('M1190 538l-7 18 15 28-6 23 16 31-12 24 14 47-10 30 14 34-9 31M1172 615l8 30-7 25 10 28-7 20','fill="none" stroke="#a59770" stroke-width=".8" opacity=".5"');
   // Passages have stone shoulders, a shadowed roof and a pale walking surface.
-  function tunnel(d,width=15){path(d,`fill="none" stroke="#584a33" stroke-width="${width+7}" stroke-linejoin="round"`);path(d,`fill="none" stroke="#d7c49c" stroke-width="${width+4}" stroke-linejoin="round"`);path(d,`fill="none" stroke="#625840" stroke-width="${width}" stroke-linejoin="round"`);path(d,`fill="none" stroke="#b6a27c" stroke-width="${Math.max(2,width-5)}" stroke-linejoin="round"`);}
+  function tunnel(d,width=15){
+    path(d,`fill="none" stroke="#796446" stroke-width="${width+5}" stroke-linejoin="bevel"`);
+    path(d,`fill="none" stroke="#d4bd91" stroke-width="${width+3}" stroke-linejoin="bevel"`);
+    path(d,`fill="none" stroke="#766447" stroke-width="${width}" stroke-linejoin="bevel"`);
+    path(d,`fill="none" stroke="#b6a17a" stroke-width="${width-3}" stroke-linejoin="bevel"`);
+  }
   function stairs(x,y,w,rise,steps=16){
     const dx=w/steps,dy=rise/steps;let d=`M${x} ${y}`;
     for(let i=0;i<steps;i++)d+=`h${n(dx)}v${n(dy)}`;
@@ -79,7 +91,7 @@ export function drawMoria() {
     ['M356 449V492H574L643 453H1129',12],
     ['M507 383V343H646',10],
     ['M923 382H967V333H1010',12],
-    ['M1060 337H1119V430L1063 472V527',12],
+    ['M1060 337H1119V430L1063 472V550',12],
     ['M445 459V557H575V622H950',13],
     ['M262 521H340V561H440',11],
     ['M579 484V548H761L806 505H998',12],
@@ -92,41 +104,74 @@ export function drawMoria() {
   ];
   for(const [d,w]of passages)tunnel(d,w);
   stairs(239,525,101,-69,23);stairs(445,455,65,-66,18);stairs(576,498,65,-40,17);stairs(968,384,38,-46,16);stairs(1120,440,-58,40,18);stairs(1265,608,53,-74,22);stairs(762,555,43,-47,14);
-  // Main endless shaft: a succession of carved spiral flights, not a lift.
-  tunnel('M813 112V145L808 166',7);
-  stairs(810,119,0,45,16);
-  const shaftX=808;
-  rect(shaftX-17,166,34,679,'fill="#514f3f" stroke="#4d432f" stroke-width="1.2"');
-  rect(shaftX-21,170,4,677,'fill="#c3af85" stroke="#726044" stroke-width=".7"');
-  rect(shaftX+17,170,4,677,'fill="#c3af85" stroke="#726044" stroke-width=".7"');
-  for(let y=179,i=0;y<838;y+=23,i++){
-    const left=i%2===0;stairs(left?shaftX-15:shaftX+15,y,left?30:-30,19,9);
-    line(shaftX-16,y+20,shaftX+16,y+20,'stroke="#d8c69d" stroke-width="1"');
+  // A winding carved stair wraps a stone core. Broken rock margins replace
+  // the former straight shaft; rear flights recede into hatched shadow.
+  const stairCentre=y=>y<180?813+(Math.sin(y/76)*12-3)*Math.max(0,(y-117)/63):810+Math.sin(y/76)*12;
+  let left='',right='';
+  for(let y=117;y<=848;y+=13){
+    const cx=stairCentre(y),r=14+(y%39===0?3:0);
+    left+=`${left?'L':'M'}${n(cx-r)} ${y}`;
+    right=`L${n(cx+r)} ${y}`+right;
+  }
+  const shaft=left+right+'Z';
+  path(shaft,'fill="#655d45" stroke="#715a39" stroke-width="1.3"');
+  path(shaft,'fill="url(#dark)"');
+  for(let y=123;y<839;y+=26){
+    const cx=stairCentre(y);
+    path(`M${n(cx-13)} ${y}Q${n(cx)} ${y+10} ${n(cx+13)} ${y+4}L${n(cx+13)} ${y+8}Q${n(cx)} ${y+14} ${n(cx-13)} ${y+4}Z`,'fill="#97815a" stroke="#3e3e2e" stroke-width=".5"');
+    path(`M${n(cx+13)} ${y+7}Q${n(cx)} ${y+14} ${n(cx-13)} ${y+22}v4Q${n(cx)} ${y+18} ${n(cx+13)} ${y+11}Z`,'fill="#dbc69b" stroke="#58482e" stroke-width=".7"');
+    for(let k=1;k<10;k++){
+      const t=k/10,x=cx+13-26*t,sy=y+7+15*t;
+      line(x,sy,x,sy+4,'stroke="#79613c" stroke-width=".65"');
+    }
+    path(`M${n(cx-2)} ${y-1}v26h4v-26`,'fill="#b39a6d" stroke="#695538" stroke-width=".5"');
   }
   // Reusable orthographic chambers; outlines and block courses remain fine at 6×.
+  let hallNumber=0;
   function hall(x,y,w,h,bays=5,grand=false){
-    s.push('<g>');
-    rect(x-5,y-6,w+10,h+13,'fill="#d0bb92" stroke="#5d4b32" stroke-width="1.2"');
-    rect(x-5,y-6,w+10,h+13,'fill="url(#masonry)"');
-    const d=`M${x} ${y+h}V${y+15}L${x+15} ${y}H${x+w-15}L${x+w} ${y+15}V${y+h}Z`;
-    path(d,'fill="url(#hall-light)" stroke="#4c422f" stroke-width="1.3"');
+    const id='hall-'+hallNumber++,arched=!grand&&hallNumber%3===0;
+    const roof=arched?`M${x} ${y+h}V${y+18}Q${x+w/2} ${y-13} ${x+w} ${y+18}V${y+h}Z`:`M${x} ${y+h}V${y+15}L${x+15} ${y}H${x+w-15}L${x+w} ${y+15}V${y+h}Z`;
+    path(roof,'fill="#d5bf95" stroke="#806644" stroke-width="9" stroke-linejoin="round"');
+    path(roof,'fill="url(#hall-light)" stroke="#53442e" stroke-width="1.1"');
+    s.push(`<clipPath id="${id}"><path d="${roof}"/></clipPath><g clip-path="url(#${id})">`);
+    // The back wall is ink-hatched, with recessed arcades rather than a row of doors.
+    let shade='';for(let bx=x-25;bx<x+w+30;bx+=3.5)shade+=`M${n(bx)} ${y}l${n(h*.33)} ${n(h*.55)}`;
+    path(shade,'fill="none" stroke="#4a402c" stroke-width=".45" opacity=".33"');
     const cell=w/bays;
     for(let i=0;i<bays;i++){
-      const bx=x+i*cell;
-      path(`M${n(bx+3)} ${y+h-3}V${y+23}L${n(bx+cell*.24)} ${y+10}H${n(bx+cell*.76)}L${n(bx+cell-3)} ${y+23}V${y+h-3}`,'fill="none" stroke="#d0bc95" stroke-width=".9" opacity=".65"');
-      line(bx+cell/2,y+11,bx+cell/2,y+24,'stroke="#443c2c" stroke-width=".6"');
-      if(grand)s.push(`<use href="#lamp" x="${n(bx+cell/2)}" y="${y+29}"/>`);
-      if(h<65)s.push(`<use href="#door" transform="translate(${n(bx+cell/2)} ${y+h}) scale(.65)"/>`);
+      const bx=x+i*cell,mid=bx+cell/2;
+      if(grand){
+        path(`M${n(bx+5)} ${y+h}V${y+23}L${n(bx+cell*.27)} ${y+9}H${n(bx+cell*.73)}L${n(bx+cell-5)} ${y+23}V${y+h}`,'fill="none" stroke="#d6c097" stroke-width="1" opacity=".7"');
+        s.push(`<use href="#lamp" x="${n(mid)}" y="${y+33}"/>`);
+        for(let k=0;k<3;k++)line(mid-5+k*5,y+7,mid-5+k*5,y+13,'stroke="#ba9f6e" stroke-width=".7"');
+      } else if(hallNumber%3===0){
+        path(`M${n(mid-cell*.28)} ${y+h-2}V${y+17}Q${n(mid)} ${y+5} ${n(mid+cell*.28)} ${y+17}V${y+h-2}`,'fill="#73654b" stroke="#c5ae80" stroke-width=".8"');
+        line(mid-cell*.25,y+h-8,mid+cell*.25,y+h-8,'stroke="#b29a6f" stroke-width="1"');
+      } else if(hallNumber%3===1){
+        rect(mid-cell*.27,y+h-15,cell*.54,12,'fill="#ab926a" stroke="#725a37" stroke-width=".65"');
+        path(`M${n(mid-cell*.27)} ${y+h-15}l4-4h${n(cell*.54-8)}l4 4`,'fill="#ccb58b" stroke="#725a37" stroke-width=".65"');
+        line(mid,y+h-15,mid,y+h-3,'stroke="#806644" stroke-width=".65"');
+      } else {
+        rect(mid-cell*.25,y+10,cell*.5,h-15,'fill="#847352" stroke="#b59b70" stroke-width=".7"');
+        for(let shelf=y+15;shelf<y+h-6;shelf+=6){
+          line(mid-cell*.25,shelf,mid+cell*.25,shelf,'stroke="#d5bc8f" stroke-width=".8"');
+          for(let k=0;k<4;k++)line(mid-cell*.18+k*cell*.12,shelf-4,mid-cell*.18+k*cell*.12,shelf,'stroke="#c0a373" stroke-width=".8"');
+        }
+      }
     }
-    for(let i=1;i<bays;i++)s.push(`<use href="#pillar" transform="translate(${n(x+i*cell)} ${y+4}) scale(${grand?'.86':'.55'} ${n((h-4)/82)})"/>`);
-    rect(x-7,y+h,w+14,6,'fill="#dac8a0" stroke="#57472f" stroke-width="1"');
-    line(x-6,y+h+3,x+w+6,y+h+3,'stroke="#8c714b" stroke-width=".6"');
-    for(let bx=x+4;bx<x+w;bx+=12)line(bx,y+h+1,bx+4,y+h+5,'stroke="#a38a61" stroke-width=".45"');
-    if(grand){
-      path(`M${x-4} ${y-10}H${x+w+4}M${x-4} ${y-15}H${x+w+4}`,'stroke="#6e5838" stroke-width=".8"');
-      for(let bx=x+5;bx<x+w-5;bx+=14)path(`M${bx} ${y-10}l5-5 5 5`,'fill="none" stroke="#876e46" stroke-width=".7"');
+    if(grand){for(let i=1;i<bays;i++)s.push(`<use href="#pillar" transform="translate(${n(x+i*cell)} ${y+4}) scale(.86 ${n((h-4)/82)})"/>`);}
+    else for(let i=1;i<bays;i++){
+      const px=x+i*cell;
+      path(`M${n(px-4)} ${y+4}h8l-2 4v${h-11}h3v3h-10v-3h3V${y+8}Z`,'fill="#c8af82" stroke="#655033" stroke-width=".7"');
     }
+    // Floor jointing creates depth without switching to an isometric viewpoint.
+    for(let bx=x;bx<x+w;bx+=11)line(bx,y+h-4,bx+4,y+h,'stroke="#9a7d50" stroke-width=".55"');
     s.push('</g>');
+    path(`M${x-4} ${y+h+1}h${w+8}m-${w+8} 4h${w+8}`,'fill="none" stroke="#6b5434" stroke-width=".8"');
+    if(grand){
+      path(`M${x-3} ${y-7}H${x+w+3}M${x-3} ${y-12}H${x+w+3}`,'stroke="#806641" stroke-width=".8"');
+      for(let bx=x+5;bx<x+w-5;bx+=14)path(`M${bx} ${y-7}l5-5 5 5`,'fill="none" stroke="#876e46" stroke-width=".7"');
+    }
   }
   // Upper dwellings, galleries and the great North-end hall.
   hall(548,304,174,28,7);hall(881,283,91,28,4);
@@ -137,7 +182,7 @@ export function drawMoria() {
     path(`M${x-1} ${top}v${338-top}`,'stroke="#f8eccd" stroke-width="1.4"');
   }
   // Mazarbul: a small distinct room with the tomb and shelves of records.
-  hall(1000,303,87,49,1);
+  hall(1000,303,87,49,1,true);
   rect(1018,343,35,5,'fill="#dbcfb0" stroke="#51422f" stroke-width=".8"');
   path('M1021 341l4-5h25l3 5z','fill="#e4d9bd" stroke="#51422f" stroke-width=".9"');
   line(1027,338,1048,338,'stroke="#8b7652" stroke-width=".5"');
@@ -153,6 +198,17 @@ export function drawMoria() {
   hall(1311,502,79,34,3,true);
   hall(312,607,188,32,7);hall(573,612,183,39,6);hall(859,624,83,31,3);
   hall(384,673,111,29,4);hall(598,687,94,28,4);hall(889,727,111,31,4);
+  // Open thresholds interrupt the cut walls where the traversal meets a hall.
+  function opening(x,y,width=14){
+    rect(x-width/2,y-15,width,15,'fill="#b4a078"');
+    path(`M${x-width/2} ${y-15}h${width}m-${width} 15h${width}`,'fill="none" stroke="#635033" stroke-width=".75"');
+    path(`M${x-width/2} ${y-13}h${width}`,'stroke="#d3bd92" stroke-width="1"');
+  }
+  for(const [x,y]of [[634,393],[961,393],[1000,341],[1087,346],[1166,604],[1311,536],[1389,536],[467,458],[1030,455],[511,525],[394,567],[575,629],[756,640],[859,645]])opening(x,y);
+  // Small winding stairs and landings make the vertical connections readable.
+  for(const [x,y,height]of [[1119,356,68],[1063,477,57],[445,482,56],[575,580,37],[528,649,43],[823,663,37]]){
+    for(let sy=y;sy<y+height;sy+=14){stairs(x-4,sy,8,6,5);stairs(x+4,sy+7,-8,6,5);}
+  }
   // Western workshops: anvils, cisterns, grain jars and racks suggest lived-in craft.
   for(const [x,y] of [[335,632],[389,632],[446,632]]){
     path(`M${x-8} ${y-9}h17l-5 4h-3v5h-6v-5l-3-1z`,'fill="#716149" stroke="#4d412f" stroke-width=".7"');
@@ -179,6 +235,10 @@ export function drawMoria() {
   for(const d of minePaths)tunnel(d,7);
   for(const [x,y]of [[234,717],[273,794],[311,794],[436,746],[477,746],[433,861],[538,815],[647,762],[1029,812],[1082,776],[188,829]]){
     path(`M${x-4} ${y+4}v-10h8v10M${x-6} ${y-6}h12M${x-4} ${y-3}l3-3m5 3-3-3`,'fill="none" stroke="#4b3e29" stroke-width="1"');
+  }
+  for(const [x,y]of [[158,750],[615,777],[493,765],[475,861],[658,838],[431,842],[734,813],[1114,841],[212,859],[793,776],[1143,741],[989,697]]){
+    path(`M${x-2} ${y-5}l4 2-2 3 3 3-5 3`,'fill="none" stroke="#5e4d33" stroke-width="1.1"');
+    for(let i=0;i<5;i++)line(x+4+i*2,y-6+random()*12,x+7+i*2,y-3+random()*10,'stroke="#8a7049" stroke-width=".65"');
   }
   // Ore veins distinguish the deep workings from orderly dressed-stone halls.
   for(const [x,y]of [[335,752],[487,798],[564,872],[211,873],[1040,873]]){
@@ -223,8 +283,8 @@ export function drawMoria() {
   s.push('</g>');
   // Survey annotations occupy empty rock and margins, separate from live pins.
   text(1092,293,'THE UPPER HALLS','font-family="Georgia,serif" font-size="9" letter-spacing="2.2" fill="#756343" transform="rotate(12 1092 293)"');
-  text(208,681,'WESTERN WORKINGS','font-family="Georgia,serif" font-size="8" letter-spacing="1.5" fill="#746043"');
-  text(1071,703,'THE LOWER DEEPS','font-family="Georgia,serif" font-size="8" letter-spacing="1.5" fill="#776447"');
+  text(175,681,'WESTERN WORKINGS','font-family="Georgia,serif" font-size="8" letter-spacing="1.5" fill="#746043"');
+  text(1045,716,'THE LOWER DEEPS','font-family="Georgia,serif" font-size="8" letter-spacing="1.5" fill="#776447"');
   text(860,957,'Beneath the roots of the mountains','font-family="Georgia,serif" font-size="10" font-style="italic" text-anchor="middle" fill="#776447"');
   text(71,935,'DRAWN IN THE MANNER OF','font-family="Georgia,serif" font-size="7" letter-spacing="1.5" fill="#8b7452"');
   text(71,950,'the stonewrights of Khazad-dûm','font-family="Georgia,serif" font-size="11" font-style="italic" fill="#6e5638"');

@@ -7,8 +7,10 @@ includes a link to the regional map. Choosing Moria as a directions endpoint
 continues to work. Reading-mode spoiler protection is preserved.
 
 The regional map supports pointer drag, two-finger pinch, keyboard panning,
-zoom buttons, fit-to-view, label visibility and nine addressable landmarks.
-Landmark selections use URL fragments and browser Back/Forward. Without
+zoom buttons, fit-to-view, an expanded map view, label visibility and nine
+addressable landmarks. Selections use URL fragments; browser Back/Forward
+restores each entry’s place, centre and zoom. Mobile devices keep a scrollable
+description panel and place picker immediately below the map. Without
 JavaScript, the illustration, index, all descriptions and return links remain
 available. A fresh offline cache includes the regional map and its assets.
 
@@ -23,10 +25,15 @@ metadata is in `window.ATLAS_MAP_IMAGES` in `src/images.js`.
 
 The SVG is self-contained: no raster images, scripts, filters or external fonts.
 Tests enforce deterministic generation and a 600 KB ceiling. Gesture frames
-only update the plate transform, inverse marker scaling and zoom controls.
+update the plate transform, nine screen-space markers, collision-checked names
+and zoom controls. Names start hidden on narrow views, with a working toggle.
 Viewport dimensions are measured at resize and gesture start, not after writes
 inside pointer-move handlers. Pointer cancellation, focus loss and resize clear
-active gestures.
+active gestures. Keyboard zoom and selection also cancel an unfinished drag.
+
+The page, ES module import and service-worker precache use a matching
+`v=moria-2` asset revision. Bump it together when changing the viewer or plate,
+so a waiting older service worker cannot combine new HTML with stale assets.
 
 ## Interpretation and sources
 
