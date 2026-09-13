@@ -35,6 +35,28 @@ function inside([x, y], polygon) {
   return result;
 }
 
+test('Anduin reaches its delta without a protruding overlay connector', () => {
+  const rivers = [...html.matchAll(/<path class="rv"[^>]* d="([^"]+)"/g)];
+  const upstream = outline(rivers.find(([, d]) => d.startsWith('M1440.4,1458.2'))[1]);
+  assert.ok(inside([1500, 1846], upstream), 'The main river must reach its delta branches');
+  assert.ok(!inside([1504.3, 1833.5], upstream), 'Keep the original upstream bank free of the protrusion');
+  assert.doesNotMatch(html, /data-join="anduin-delta"/, 'Do not layer a second, misaligned river over the junction');
+});
+
+test('river mouths retain channel-scale widths instead of triangular flares', () => {
+  const mouths = [...html.matchAll(/class="river-mouth" fill="url\(#([^)]*)\)" d="([^"]+)"/g)];
+  assert.equal(mouths.length, 12);
+  for (const [, id, d] of mouths) {
+    const v = d.match(/-?\d+(?:\.\d+)?/g).map(Number);
+    const inlet = Math.hypot(v[0] - v[16], v[1] - v[17]);
+    const outlet = Math.hypot(v[6] - v[10], v[7] - v[11]);
+    assert.ok(outlet <= inlet * 2, `Mouth at ${v.slice(0, 2)} flares from ${inlet} to ${outlet}`);
+    const [, x, y] = html.match(new RegExp(`id="${id}"[^>]*x2="([\\d.]+)" y2="([\\d.]+)"`));
+    assert.ok(Math.hypot((v[6] + v[10]) / 2 - x, (v[7] + v[11]) / 2 - y) < .02,
+      `${id}: narrowing the flare must retain the mapped outlet and gradient alignment`);
+  }
+});
+
 test('Eryn Vorn woodland and its shadow stay on the coastal landmass', () => {
   const coast = outline(html.match(/<path id="landp"[^>]* d="([^"]+)"/)[1]);
   const layers = [...html.matchAll(/<path id="eryn-vorn-[^"]+"[^>]*>/g)];
