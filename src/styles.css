@@ -24,15 +24,21 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 #tbase,#tlab,#terrain{position:absolute;left:0;top:0;display:block;width:2600px;height:2300px;overflow:visible}
 #snap{position:absolute;left:0;top:0;width:2600px;height:2300px;transform-origin:0 0;display:none;pointer-events:none;opacity:1}
 .rastered #snap{display:block;will-change:transform}
+.sheet-preview #snap{display:block}
+.sheet-preview #worldBase,.sheet-preview #terrain :is(#realms,.roads,.decor,.neat){visibility:hidden}
 .rastered:not(.restoring) #worldBase,.rastered:not(.restoring) #worldLab{visibility:hidden}
+/* Skip the heavy subtrees without propagating inherited visibility through every SVG node. */
+@supports(content-visibility:hidden){
+  .sheet-preview #worldBase,.rastered:not(.restoring) #worldBase,.rastered:not(.restoring) #worldLab{visibility:visible;content-visibility:hidden}
+}
 .rastered:not(.restoring) #terrain :is(#realms,.roads,.decor,.neat){visibility:hidden}
 .rastered #terrain :is(#realms,.roads,.decor,.neat){opacity:0}
-.fading #terrain :is(#realms,.roads,.decor,.neat){opacity:1;transition:opacity 140ms ease-out}
+.fading #terrain :is(#realms,.roads,.decor,.neat){opacity:1;transition:opacity 70ms ease-out}
 .moving #world{will-change:transform}
 .moving #markers{will-change:transform}
 .rastered #worldLab{opacity:0}
-.fading #snap{opacity:0;transition:opacity 140ms ease-out}
-.fading #worldLab{opacity:1;transition:opacity 140ms ease-out}
+.fading #snap{opacity:0;transition:opacity 70ms ease-out}
+.fading #worldLab{opacity:1;transition:opacity 70ms ease-out}
 .moving.fallback #tlab{display:none}
 
 #markers{position:absolute;left:0;top:0;width:0;height:0;z-index:3;contain:layout style;transform-origin:0 0}
@@ -131,14 +137,16 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 #attrib{position:absolute;right:10px;bottom:calc(var(--sheet-peek,150px) + 12px);z-index:15;font-size:10px;color:var(--muted);pointer-events:none;font-style:italic;transition:bottom .25s;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px 8px;opacity:.92}
 /* ---------- bottom sheet ---------- */
 #sheet{position:absolute;left:0;right:0;bottom:0;top:0;z-index:30;pointer-events:none;transform:translateY(calc(100% - var(--peek)));--peek:150px;transition:transform .32s cubic-bezier(.2,.8,.2,1);will-change:transform}
-#sheet.drag,#sheet.drag .panel{transition:none}
-#sheet .panel{pointer-events:auto;position:absolute;left:0;right:0;top:0;bottom:var(--sheet-offset,calc(100% - var(--peek)));transition:bottom .32s cubic-bezier(.2,.8,.2,1);background:var(--paper);border-radius:22px 22px 0 0;box-shadow:0 -8px 30px rgba(40,25,5,.28);display:flex;flex-direction:column;border-top:1px solid var(--line)}
+#sheet.drag{transition:none}
+/* Allocate reading space once on pickup; only the parent transform follows input. */
+#sheet.drag .panel{bottom:40px}
+#sheet .panel{pointer-events:auto;position:absolute;left:0;right:0;top:0;bottom:var(--sheet-offset,calc(100% - var(--peek)));contain:layout paint;isolation:isolate;background:var(--paper);border-radius:22px 22px 0 0;box-shadow:0 -8px 30px rgba(40,25,5,.28);display:flex;flex-direction:column;border-top:1px solid var(--line)}
 #sheet .panel::before{content:'';position:absolute;left:8px;right:8px;top:8px;bottom:0;border:1px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0;opacity:.55;pointer-events:none}
 #grab{height:26px;display:flex;align-items:center;justify-content:center;flex:none;cursor:grab;touch-action:none}
 #grab i{width:40px;height:5px;border-radius:3px;background:var(--line)}
 #sheetbody{flex:1;min-height:0;overflow:hidden;padding:0 18px calc(env(safe-area-inset-bottom,0px) + 18px);overscroll-behavior:contain}
 #sheet.full #sheetbody,#sheet.half #sheetbody{overflow-y:auto}
-#sheet.peek #sheetbody{overflow:hidden}
+#sheet.peek #sheetbody{overflow:hidden;touch-action:pan-x}
 .mode{display:none}.mode.on{display:block}
 h1,h2,h3{font-family:'Cinzel',Georgia,serif;margin:0;text-wrap:balance;color:var(--text)}
 h1{font-size:22px;font-weight:700;letter-spacing:.02em}
