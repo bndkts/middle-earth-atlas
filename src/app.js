@@ -152,6 +152,7 @@ function releaseSnapshotJob(){
 function suspendSnapshot(){
   cancelSnapshotSchedule(); releaseSnapshotJob();
   snapVersion++; snapReady = false; snapDirty = true;
+  mapEl.classList.remove('sheet-preview');
   finishRaster();
   snapCv.width = snapCv.height = 0;
   if (gesturing) mapEl.classList.add('fallback');
@@ -163,6 +164,7 @@ function invalidateSnapshot(){
   ].join('|');
   if (state === snapState) return;
   snapState = state; snapVersion++; snapReady = false;
+  mapEl.classList.remove('sheet-preview');
   releaseSnapshotJob();
   // Never show a cached realm or creature from a different timeline/layer state.
   applyBase(true);
@@ -182,7 +184,7 @@ function snapCss(){
 }
 function buildSnapshot(){
   if (snapBusy || !baseEl || document.hidden) return;
-  if (gesturing || rastering) { scheduleSnapshot(250); return; }
+  if (gesturing || rastering || mapEl.classList.contains('sheet-preview')) { scheduleSnapshot(250); return; }
   snapBusy = true; snapDirty = false;
   const version = snapVersion;
   const k = Math.min(1.6, Math.sqrt(snapBudget / (MAPW * MAPH)));
@@ -211,7 +213,7 @@ function buildSnapshot(){
   img.onload = () => {
     if (snapJob !== job) return;
     // A decode can finish after another year/layer was selected or a gesture began.
-    if (version !== snapVersion || gesturing || rastering || document.hidden) {
+    if (version !== snapVersion || gesturing || rastering || mapEl.classList.contains('sheet-preview') || document.hidden) {
       releaseSnapshotJob(); scheduleSnapshot(250); return;
     }
     try {
@@ -764,8 +766,10 @@ window.addEventListener('resize', () => {
 
 // ---------- sheet ----------
 let sheetState = 'peek';
+let cancelSheetDrag = () => {};
 window.addEventListener('resize', () => setSheet(sheetState, true));
 function setSheet(st, preserveScroll = false){
+  cancelSheetDrag();
   sheetState = st; sheet.classList.remove('peek','half','full'); sheet.classList.add(st);
   const vh = viewport.height;
   const y = st === 'peek' ? `calc(100% - var(--peek))` : (st === 'half' ? `${Math.round(vh*0.5)}px` : `${Math.max(56, Math.round(vh*0.08))}px`);
@@ -775,21 +779,39 @@ function setSheet(st, preserveScroll = false){
   document.documentElement.style.setProperty('--sheet-peek', st === 'peek' ? '150px' : (st === 'half' ? `${Math.round(vh*0.5)}px` : '150px'));
 }
 (function sheetDrag(){
-  const grab = $('#grab'); let sy = 0, y0 = 0, dragging = false, lastY = 0, lastT = 0, vy = 0;
-  function cur(){ const m = /translateY\(([-\d.]+)px\)/.exec(sheet.style.transform); if (m) return +m[1]; const r = sheet.getBoundingClientRect(); return r.top; }
-  function down(e){ if (isDesktop()) return; dragging = true; sy = e.clientY; y0 = sheet.getBoundingClientRect().top; sheet.classList.add('drag'); lastY = e.clientY; lastT = performance.now(); vy = 0; grab.setPointerCapture && e.pointerId != null && grab.setPointerCapture(e.pointerId); }
-  function move(e){ if (!dragging) return; const dy = e.clientY - sy; const ny = Math.max(40, y0 + dy); sheet.style.transform = `translateY(${ny}px)`; sheet.style.setProperty('--sheet-offset', `${ny}px`); const t = performance.now(); vy = (e.clientY - lastY) / Math.max(1, t - lastT); lastY = e.clientY; lastT = t; }
-  function up(){ if (!dragging) return; dragging = false; sheet.classList.remove('drag'); const vh = viewport.height; const top = sheet.getBoundingClientRect().top;
+  const grab = $('#grab'); let sy = 0, y0 = 0, top = 0, pointerId = null, frame = null, lastY = 0, lastT = 0, vy = 0;
+  cancelSheetDrag = () => {
+    if (frame != null) cancelAnimationFrame(frame);
+    frame = null; pointerId = null; sheet.classList.remove('drag');
+    mapEl.classList.remove('sheet-preview');
+  };
+  function down(e){
+    if (isDesktop() || pointerId != null) return;
+    y0 = top = sheet.getBoundingClientRect().top;
+    pointerId = e.pointerId; sy = lastY = e.clientY; lastT = performance.now(); vy = 0;
+    sheet.classList.add('drag');
+    // Reuse the bounded movement cache: a visible SVG makes Chrome rebuild its
+    // large paint-property tree even when only the sheet above it moves.
+    if (snapReady && !gesturing && !rastering) { drawSnap(); mapEl.classList.add('sheet-preview'); }
+    (e.currentTarget || grab).setPointerCapture(e.pointerId);
+  }
+  function move(e){
+    if (pointerId == null || e.pointerId !== pointerId) return;
+    top = Math.min(viewport.height - 150, Math.max(40, y0 + e.clientY - sy));
+    if (frame == null) frame = requestAnimationFrame(() => { frame = null; sheet.style.transform = `translateY(${top}px)`; });
+    const t = performance.now(); vy = (e.clientY - lastY) / Math.max(1, t - lastT); lastY = e.clientY; lastT = t;
+  }
+  function up(e){ if (pointerId == null || e.pointerId !== pointerId) return; const vh = viewport.height;
     const snaps = [ ['full', Math.max(56, vh*0.08)], ['half', vh*0.5], ['peek', vh - 150] ];
     let best = snaps[0]; let bd = 1e9; for (const s of snaps) { const d = Math.abs(s[1] - top); if (d < bd) { bd = d; best = s; } }
-    if (Math.abs(vy) > 0.5) { const i = snaps.findIndex(s => s[0] === best[0]); best = snaps[Math.min(2, Math.max(0, i + (vy > 0 ? 1 : -1)))]; }
-    setSheet(best[0]); }
-  grab.addEventListener('pointerdown', down); grab.addEventListener('pointermove', move); grab.addEventListener('pointerup', up); grab.addEventListener('pointercancel', up);
+    if (e.type === 'pointerup' && performance.now() - lastT < 100 && Math.abs(vy) > 0.5) { const i = snaps.findIndex(s => s[0] === best[0]); best = snaps[Math.min(2, Math.max(0, i + (vy > 0 ? 1 : -1)))]; }
+    setSheet(best[0], best[0] !== 'peek'); }
+  grab.addEventListener('pointerdown', down); grab.addEventListener('pointermove', move); grab.addEventListener('pointerup', up); grab.addEventListener('pointercancel', up); grab.addEventListener('lostpointercapture', up);
   // The collapsed preview can be pulled open. Expanded content scrolls natively;
   // its drag handle remains available to change the sheet height.
-  body.addEventListener('pointerdown', e => { if (isDesktop() || sheetState !== 'peek') return; if (e.target.closest('input, select, button, a, .presets, #chips')) return; down(e); body.setPointerCapture(e.pointerId); }, { passive: true });
-  body.addEventListener('pointermove', e => { if (!dragging) return; if (Math.abs(e.clientY - sy) > 6) { move(e); } });
-  body.addEventListener('pointerup', up); body.addEventListener('pointercancel', up);
+  body.addEventListener('pointerdown', e => { if (isDesktop() || sheetState !== 'peek') return; if (e.target.closest('input, select, button, a, .presets, #chips')) return; down(e); }, { passive: true });
+  body.addEventListener('pointermove', e => { if (Math.abs(e.clientY - sy) > 6) move(e); });
+  body.addEventListener('pointerup', up); body.addEventListener('pointercancel', up); body.addEventListener('lostpointercapture', up);
 })();
 function mode(id){
   if (id !== 'chapter' && activeChapter) { clearChapterPins(); syncURL({chapter:null}); }
