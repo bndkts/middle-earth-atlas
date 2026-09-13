@@ -89,7 +89,7 @@
 /* lettering on the sheet */
 .lblpath{fill:none;stroke:none}
 .ml{font-family:'Cinzel',Georgia,serif;fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:.17em;stroke-linejoin:round;pointer-events:none;letter-spacing:.22em;transition:opacity .25s}
-.ml-reg{font-weight:700;opacity:.62;letter-spacing:.26em}
+.ml-reg{font-weight:600;opacity:.48;letter-spacing:.26em}
 .ml-sub{font-weight:600;opacity:.84}
 .ml-forest{font-weight:600;fill:var(--forest-ink);opacity:.85}
 .ml-mtn{font-weight:600;fill:var(--ink);opacity:.86;letter-spacing:.25em}

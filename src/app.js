@@ -431,9 +431,17 @@ function homeView(){
 }
 
 // ---------- LOD & collision ----------
-const RANK_MIN = {1: 0, 2: 0.5, 3: 1.15, 4: 2.5};
+const RANK_MIN = {1: 0, 2: 0.65, 3: 1.4, 4: 2.8};
 let selected = null, activeCat = null, tlYear = 3019, tlOn = false;
 function placeVisibleInTime(p){ if (!tlOn) return true; if (p.f != null && p.f > tlYear) return false; if (p.to != null && p.to < tlYear) return false; return true; }
+function markerPriority(m, quick){
+  if (selected?.id === m.p.id) return -1000;
+  const weights = {city:0, fortress:1, town:1, hall:1, village:2, mountain:2, forest:3, realm:3, region:4};
+  return m.k * 10 + (m.p._area ? 5 : 0) + (weights[m.p.t] ?? 3) - (m.was ? (quick ? 100 : 2.5) : 0);
+}
+function labelYieldsToMarker(label, marker){
+  return !!marker && (marker.selected || marker.k <= (label.major || label.size >= 20 ? 1 : 2));
+}
 function lodPass(quick){
   if (gesturing) return;
   updateDetails();
@@ -456,15 +464,13 @@ function lodPass(quick){
     if (x < -260 || y < -120 || x > vw + 260 || y > vh + 120) { m.el.classList.add('off'); continue; }
     cand.push({ m, x, y });
   }
-  const TW = {city:0, fortress:1, town:1, hall:1, village:2, mountain:2, forest:3, realm:3, region:4};
-  const pri = m => m.k * 10 + (m.p._area ? 5 : 0) + (TW[m.p.t] ?? 3) - (m.was ? (quick ? 100 : 2.5) : 0);
-  cand.sort((a, b) => (pri(a.m) - pri(b.m)) || (a.m.w - b.m.w));
+  cand.sort((a, b) => (markerPriority(a.m,quick) - markerPriority(b.m,quick)) || (a.m.w - b.m.w));
   const cell = 80, grid = new Map(), ogrid = new Map(); // placed markers / sheet lettering
   function hits(g, b){
     const cx0 = Math.floor(b.x0 / cell), cx1 = Math.floor(b.x1 / cell), cy0 = Math.floor(b.y0 / cell), cy1 = Math.floor(b.y1 / cell);
     for (let cx = cx0; cx <= cx1; cx++) for (let cy = cy0; cy <= cy1; cy++) {
       const arr = g.get(cx + ',' + cy); if (!arr) continue;
-      for (const o of arr) if (b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0) return o;
+      for (const o of arr) if (!o.L?.hidden && b.x0 < o.x1 && b.x1 > o.x0 && b.y0 < o.y1 && b.y1 > o.y0) return o;
     }
     return null;
   }
@@ -481,7 +487,7 @@ function lodPass(quick){
       const big = L.major || L.size >= 20;
       const bx = L.boxes.map(b => ({ x0: b[0] * s + V.tx, y0: b[1] * s + V.ty, x1: b[2] * s + V.tx, y1: b[3] * s + V.ty, L, big }));
       if (!bx.some(b => b.x1 > 0 && b.x0 < vw && b.y1 > 0 && b.y0 < vh)) { L.vis = false; continue; }
-      L.vis = true; L.sb = bx;
+      L.vis = true; L.sb = bx; L.hidden = false;
       if (L.major) bx.forEach(b => putIn(ogrid, b)); else minors.push(L);
     }
     minors.sort((a, b) => b.size - a.size);
@@ -499,11 +505,11 @@ function lodPass(quick){
   //    prefer the side that avoids it; minor places yield to lettering entirely.
   for (const c of cand) {
     const m = c.m, area = m.p._area, k = m.k;
-    const b = area ? { x0: c.x - m.w / 2, x1: c.x + m.w / 2, y0: c.y - 9, y1: c.y + 9 } : { x0: c.x - 9, x1: c.x + m.w, y0: c.y - 10, y1: c.y + 10 };
+    const b = area ? { x0: c.x - m.w / 2 - 3, x1: c.x + m.w / 2 + 3, y0: c.y - 12, y1: c.y + 12 } : { x0: c.x - 12, x1: c.x + m.w + 3, y0: c.y - 13, y1: c.y + 13 };
     const isSel = selected && selected.id === m.p.id;
-    let flip = !!(m.was && m.flip);
+    let flip = !isSel && !!(m.was && m.flip);
     if (!isSel && !area) {
-      const bL = { x0: c.x - m.w, x1: c.x + 9, y0: c.y - 10, y1: c.y + 10 };
+      const bL = { x0: c.x - m.w - 3, x1: c.x + 12, y0: c.y - 13, y1: c.y + 13 };
       const first = flip ? bL : b, second = flip ? b : bL;
       const free = x => !hits(grid, x) && !hits(ogrid, x);
       if (free(first)) Object.assign(b, first);
@@ -515,12 +521,15 @@ function lodPass(quick){
     m.el.classList.toggle('flip', flip);
     m.flip = flip;
     m.el.classList.remove('off'); put(b); m.shown = true;
-    b.k = k;
+    b.k = k; b.selected = isSel;
+    // Release the entire label now, before lower-priority places are considered.
+    let lettering;
+    while ((lettering = hits(ogrid,b)) && labelYieldsToMarker(lettering.L,b)) lettering.L.hidden = true;
   }
-  // 3. small lettering under an important marker gives way
+  // 3. Even major lettering gives way to selected places and important cities.
   if (!quick && LBL_MEASURED) {
-    for (const L of minors) {
-      if (!L.hidden) { const lim = L.size >= 20 ? 1 : 2; const o = L.sb.map(b => hits(grid, b)).find(o => o && o.k <= lim); if (o) L.hidden = true; }
+    for (const L of LBL.filter(label => label.on && label.vis && label.sb)) {
+      if (!L.hidden && L.sb.some(b => labelYieldsToMarker(L,hits(grid,b)))) L.hidden = true;
       L.el.classList.toggle('hid', L.hidden);
     }
   }
