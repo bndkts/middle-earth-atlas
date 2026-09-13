@@ -1040,19 +1040,19 @@ function renderPlace(p){
     const on = im.o || im.f.replace(/\.[a-z]+$/i, '').replace(/_/g, ' ');
     const m = /^(.+?)\s+-\s+(.+)$/.exec(on); const artist = m ? m[1] : on, title = m ? m[2] : '';
     const lic = /permission/i.test(im.l || '') ? '© ' + esc(artist) + ', used with permission on Tolkien Gateway' : /fair/i.test(im.l || '') ? '© rights holder · fair use via Tolkien Gateway' : im.l ? esc(im.l) + ' · via Tolkien Gateway' : 'via Tolkien Gateway';
-    fig = `<figure class="pimg"><img src="${im.d}" alt="${esc(on)}" width="${im.w}" height="${im.h}" loading="lazy" decoding="async"><figcaption>Artwork: <a href="${TG}File:${encodeURIComponent(im.f)}" target="_blank" rel="noopener">${esc(artist)}${title ? ' — <i>' + esc(title) + '</i>' : ''}</a><br>${lic}</figcaption></figure>`;
+    fig = `<figure class="pimg"><a class="artwork-expand" href="${im.d}" target="_blank" rel="noopener" aria-label="View full artwork for ${esc(p.n)} (new tab)"><img src="${im.d}" alt="${esc(on)}" width="${im.w}" height="${im.h}" loading="lazy" decoding="async"><span>View full artwork ↗</span></a><figcaption>Artwork: <a href="${TG}File:${encodeURIComponent(im.f)}" target="_blank" rel="noopener">${esc(artist)}${title ? ' — <i>' + esc(title) + '</i>' : ''}</a><br>${lic}</figcaption></figure>`;
   }
   el.innerHTML = `
     <button class="back" data-back>${ico('back')} Back</button>
-    ${fig}
     <div class="ph"><div class="big" style="--c:var(--${TYPE_GROUP[p.t]||'set'})">${pIcon(p)}</div><div class="t"><h1>${esc(p.n)}</h1>${alts}<div class="pills"><span class="pill acc">${esc(TYPE_LABEL[p.t]||p.t)}</span><span class="pill">${esc(p.r)}</span>${p.ap ? '<span class="pill" title="Position estimated from the text">≈ approx. position</span>' : ''}</div></div></div>
-    <div class="actions">
-      <button class="abtn primary" data-dir>${ico('route')}Directions</button>
+    <p class="desc">${esc(p.d)}</p>
+    ${readingLink('places',p.id,'Read the place guide','place-guide')}
+    ${fig}
+    <div class="actions place-actions">
+      <button class="abtn" data-dir>${ico('route')}Directions</button>
       <button class="abtn" data-center>${ico('center')}Centre</button>
       ${src ? `<a class="abtn" href="${esc(src)}" target="_blank" rel="noopener">${ico('book')}Lore</a>` : `<button class="abtn" disabled>${ico('book')}Lore</button>`}
     </div>
-    <p class="desc">${esc(p.d)}</p>
-    ${readingLink('places',p.id,'Read the place guide','place-guide')}
     <dl class="kv">${when}${pp}<dt>Attested in</dt><dd>${esc({Hobbit:'The Hobbit',LotR:'The Lord of the Rings',Silm:'The Silmarillion',UT:'Unfinished Tales',HoME:'The History of Middle-earth',Letters:'Letters of J.R.R. Tolkien'}[p.c] || p.c || '—')}</dd></dl>
     ${ev}${jr}
     <div class="orn"><span>Nearby</span></div>

@@ -177,7 +177,11 @@ a{color:var(--accent)}
 .pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 /* place detail */
 .pimg{margin:0 0 12px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--paper-2)}
-.pimg img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.pimg img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+.artwork-expand{position:relative;display:block;color:var(--text)}
+.artwork-expand>span{position:absolute;bottom:7px;right:7px;font-size:12px;background:var(--paper);padding:4px 7px;border-radius:5px}
+.place-actions .abtn{min-height:54px;padding:9px 4px;gap:5px;font-size:14px}
+.place-actions .abtn svg{width:18px;height:18px}
 .pimg figcaption{font-size:11px;line-height:1.35;color:var(--muted);font-style:italic;padding:6px 10px 7px}
 .pimg figcaption a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--line)}
 .pimg figcaption a:hover{color:var(--accent)}
