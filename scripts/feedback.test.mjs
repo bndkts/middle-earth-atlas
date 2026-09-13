@@ -16,6 +16,8 @@ test('Eryn Vorn is mapped on the Minhiriath side of the Brandywine mouth',()=>{
   const forest=placeById.get('eryn-vorn');
   const mouth=placeById.get('mouths-of-baranduin');
   assert.ok(forest.x>mouth.x,'Eryn Vorn must be east of the Baranduin mouth on this map');
+  assert.ok(forest.y>mouth.y,'The wooded cape must extend south of the river mouth');
+  assert.ok(forest.x<720,'The woodland belongs on the existing coastal promontory');
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
   const label=html.match(/<text class="ml ml-forest" x="(\d+)" y="(\d+)"[^>]*>ERYN VORN<\/text>/);
   assert.ok(label,'Eryn Vorn map label is required');
@@ -35,6 +37,26 @@ test('Eryn Vorn is mapped on the Minhiriath side of the Brandywine mouth',()=>{
     const coords=element[1].match(/-?\d+(?:\.\d+)?/g).map(Number);
     for(let i=0;i<coords.length;i+=2) assert.ok(coords[i]>mouth.x && coords[i]<830,`${layer} must move with the trees`);
   }
+});
+
+test('the lower Brandywine reaches the northwestern side of the wooded cape',()=>{
+  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+  const mouth=placeById.get('mouths-of-baranduin');
+  const forest=placeById.get('eryn-vorn');
+  const labelPath=html.match(/id="rvl-brandywine"[^>]* d="([^"]+)"/)[1];
+  const coordinates=labelPath.match(/-?\d+(?:\.\d+)?/g).map(Number);
+  const [x,y]=coordinates.slice(-2);
+  assert.ok(Math.hypot(x-mouth.x,y-mouth.y)<12,'The mouth marker must match the drawn river endpoint');
+  assert.ok(x<forest.x && y<forest.y,'The river must empty northwest of Eryn Vorn');
+  const river=html.match(/id="river-baranduin"[^>]* d="([^"]+)"/);
+  assert.ok(river,'Identify the filled river geometry as well as its label');
+  const points=river[1].match(/-?\d+(?:\.\d+)?/g).map(Number);
+  for(let i=0;i<points.length;i+=2){
+    if(points[i+1]>mouth.y-15) assert.ok(points[i]<forest.x-30,'No old river branch may remain east of the cape');
+  }
+  const gradient=html.match(/id="river-mouth-6"[^>]*x2="([\d.]+)" y2="([\d.]+)"/);
+  assert.ok(gradient);
+  assert.ok(Math.hypot(+gradient[1]-mouth.x,+gradient[2]-mouth.y)<15,'The estuary shading must reach the same mouth');
 });
 
 test('all 62 Lord of the Rings chapters have validated character locations',()=>{

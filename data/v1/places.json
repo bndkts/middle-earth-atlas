@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "206a82827bc45e92d3e44ee43fd2bf76e76492c7896b044a25e272232ba2427d",
+  "revision": "25764c804c930bff1e608c6e3f448222098334370e32004cae712a9446fb10d4",
   "documentation": "https://atlas.bag-end.eu/data/",
   "coordinateSystem": {
     "name": "atlas-schematic",
@@ -4692,8 +4692,8 @@
       "region": "Minhiriath",
       "description": "The 'Black Wood', a dark and little-explored forest on a headland between the mouths of the Baranduin and the Greyflood, the last surviving remnant of the great primeval forest that once covered Minhiriath before the Númenóreans felled it. Shy woodland folk, distrustful of all outsiders, are said to linger there still.",
       "coordinates": {
-        "x": 780,
-        "y": 1190,
+        "x": 668,
+        "y": 1210,
         "approximate": true
       },
       "recordedPeriod": {
@@ -6867,8 +6867,8 @@
       "region": "Minhiriath",
       "description": "The marshy estuary where the River Baranduin (Brandywine) empties into the Great Sea beside the headland of Eryn Vorn, at the south-western edge of old Cardolan. A wild, seldom-visited coast far south of the Shire the river also waters, shadowed by the last remnant of Minhiriath's ancient forest.",
       "coordinates": {
-        "x": 700,
-        "y": 1200,
+        "x": 598.5,
+        "y": 1192.6,
         "approximate": true
       },
       "recordedPeriod": {

@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-eryn-vorn';
+const CACHE=CACHE_PREFIX+'2026-09-eryn-vorn-cape';
 const CORE=[
   "/",
   "/offline.html",
