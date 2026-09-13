@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX='middle-earth-atlas-';
-const CACHE=CACHE_PREFIX+'2026-09-geography-notes';
+const CACHE=CACHE_PREFIX+'2026-09-reading-companion';
 const CORE=[
   "/",
   "/offline.html",
@@ -9,6 +9,7 @@ const CORE=[
   "/favicon.ico",
   "/src/data.js?v=atlas-3",
   "/src/chapters.js",
+  "/src/reading.js",
   "/src/publication.js",
   "/src/url-state.js",
   "/src/images.js",

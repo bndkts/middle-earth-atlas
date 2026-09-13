@@ -231,6 +231,18 @@ a{color:var(--accent)}
   #sheet:has(#m-explore.on) #sheetbody{flex:0 1 auto}
 }
 /* chapter explorer */
+.reading-progress{font-size:12px;color:var(--muted);margin:8px 0}
+.reading-progress button{font:inherit;color:var(--accent);text-decoration:underline}
+.reader-option{display:flex;align-items:center;gap:8px;margin:10px 0;font-size:14px}
+.reader-option input{accent-color:var(--accent);width:17px;height:17px}
+.character-badges{display:flex;flex-wrap:wrap;gap:4px 8px;margin:6px 0}
+.character-badge{font-size:12px;color:var(--text);display:inline-flex;align-items:center;gap:4px}
+.character-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--character-color);flex:none}
+.chapter-tether{position:absolute;left:15px;top:15px;overflow:visible;pointer-events:none;z-index:-1}
+.chapter-tether path{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:3 2}
+.reader-guard #jlayer,.reader-guard #jprog,.reader-guard #dlayer,.reader-guard #details,.reader-guard .g-bat{display:none}
+.chapter-pin .character-badges{max-width:250px;white-space:normal}
+.reader-guard #top,.reader-guard #layersbtn,.reader-guard #tlbtn,.reader-guard #wander{opacity:.45}
 .chapter-picker{display:flex;flex-direction:column;gap:5px;margin:14px 0 8px;color:var(--muted);font-size:13px;font-style:italic}
 .chapter-picker select{width:100%;font:inherit;font-size:15px;color:var(--text);background:var(--paper-2);border:1px solid var(--line);border-radius:9px;padding:8px 10px}
 .chapter-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}

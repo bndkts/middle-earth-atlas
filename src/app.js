@@ -304,7 +304,12 @@ function placeMarkers(force){
   if (hovRef.wp) wpEl.style.transform = `translate3d(${(hovRef.wp.x * s).toFixed(1)}px,${(hovRef.wp.y * s).toFixed(1)}px,0)`;
   for (const m of shownMk) m.el.style.transform = `translate3d(${(m.p.x * s).toFixed(1)}px,${(m.p.y * s).toFixed(1)}px,0)` + (m.flip ? ' translateX(-100%)' : '');
   for (const v of shownEv) v.el.style.transform = `translate3d(${(v.e.x * s).toFixed(1)}px,${(v.e.y * s).toFixed(1)}px,0)`;
-  for (const pin of chapterPins) pin.el.style.transform = `translate3d(${(pin.p.x * s).toFixed(1)}px,${(pin.p.y * s).toFixed(1)}px,0)`;
+  const pinPositions=window.ATLAS_READING.spread(chapterPins.map(pin=>({x:pin.p.x*s,y:pin.p.y*s})));
+  chapterPins.forEach((pin,i)=>{
+    const pos=pinPositions[i],dx=pos.x-pin.p.x*s,dy=pos.y-pin.p.y*s;
+    pin.el.style.transform=`translate3d(${pos.x.toFixed(1)}px,${pos.y.toFixed(1)}px,0)`;
+    pin.tether.setAttribute('d',`M0 0 L${-dx} ${-dy}`);
+  });
   if (selected) ringEl.style.transform = `translate3d(${(selected.x * s).toFixed(1)}px,${(selected.y * s).toFixed(1)}px,0)`;
 }
 function cull(){
@@ -357,6 +362,12 @@ function clamp(){
   V.min = Math.min(aw / MAPW, vh / MAPH) * 0.9;
   V.s = Math.min(V.max, Math.max(V.min, V.s));
   const mw = MAPW * V.s, mh = MAPH * V.s;
+  if(activeChapter){
+    const b=visibleBounds(),bw=b.right-b.left,bh=b.bottom-b.top;
+    V.tx=mw>=bw?Math.min(b.left,Math.max(b.right-mw,V.tx)):b.left+(bw-mw)/2;
+    V.ty=mh>=bh?Math.min(b.top,Math.max(b.bottom-mh,V.ty)):b.top+(bh-mh)/2;
+    return;
+  }
   if (mw >= aw) V.tx = Math.min(left, Math.max(vw - mw, V.tx)); else V.tx = left + (aw - mw) / 2;
   if (mh >= vh) V.ty = Math.min(0, Math.max(vh - mh, V.ty)); else V.ty = (vh - mh) / 2;
 }
@@ -906,10 +917,21 @@ let activeChapter = null;
 function clearChapterPins(){
   chapterPins.forEach(pin => pin.el.remove());
   chapterPins = []; activeChapter = null;
+  applyReaderGuard();
   $('#chapbtn').classList.remove('on');
 }
 function chapterPlace(location){ return byId[location.placeId]; }
 function chapterCharacters(location){ return location.characters.map(id => characterById[id].name).join(', '); }
+const readerPolicy=window.ATLAS_READING;
+let reading=readerPolicy.restore(store.get('reading'),CHAPTERS);
+function characterBadges(location){
+  return location.characters.map(id=>`<span class="character-badge" style="--character-color:${readerPolicy.color(id)}">${esc(characterById[id].name)}</span>`).join('');
+}
+function applyReaderGuard(){
+  const guarded=!!activeChapter && reading.guard;
+  document.documentElement.classList.toggle('reader-guard',guarded);
+  $$('#q,#qclear,#chips button,#layersbtn,#tlbtn,#wander').forEach(el=>{el.disabled=guarded;});
+}
 function setChapterPins(chapter){
   clearChapterPins(); activeChapter = chapter;
   const frag = document.createDocumentFragment();
@@ -917,8 +939,8 @@ function setChapterPins(chapter){
     const p = chapterPlace(location), el = document.createElement('button');
     el.className = 'chapter-pin'; el.dataset.location = index;
     el.setAttribute('aria-label',`${p.n} — ${chapterCharacters(location)}`);
-    el.innerHTML = `<i>${index+1}</i><span><b>${esc(p.n)}</b><small>${esc(chapterCharacters(location))}</small></span>`;
-    frag.appendChild(el); chapterPins.push({p,el});
+    el.innerHTML = `<svg class="chapter-tether" width="1" height="1" aria-hidden="true"><path/></svg><i>${index+1}</i><span><b>${esc(p.n)}</b><span class="character-badges">${characterBadges(location)}</span></span>`;
+    frag.appendChild(el); chapterPins.push({p,el,tether:el.querySelector('path')});
   });
   mkLayer.appendChild(frag); $('#chapbtn').classList.add('on'); placeMarkers(true);
 }
@@ -927,7 +949,7 @@ function fitChapter(chapter){
   const points = chapter.locations.map(chapterPlace);
   const xs = points.map(p=>p.x), ys = points.map(p=>p.y);
   const x0=Math.min(...xs), x1=Math.max(...xs), y0=Math.min(...ys), y1=Math.max(...ys);
-  const b=visibleBounds(), aw=b.right-b.left-48, ah=b.bottom-b.top-48;
+  const b=visibleBounds(), aw=b.right-b.left-96, ah=b.bottom-b.top-96;
   const scale=Math.min(2.2,Math.max(V.min,Math.min(aw/Math.max(80,x1-x0),ah/Math.max(80,y1-y0))));
   flyTo((x0+x1)/2,(y0+y1)/2,scale);
 }
@@ -939,28 +961,41 @@ function focusChapterLocation(index){
   flyTo(p.x,p.y,Math.max(V.s,2));
 }
 function chapterOptions(){
-  return [1,2,3,4,5,6].map(book=>`<optgroup label="Book ${roman[book]}">${CHAPTERS.filter(chapter=>chapter.book===book).map(chapter=>`<option value="${chapter.id}">${chapter.chapter}. ${esc(chapter.title)}</option>`).join('')}</optgroup>`).join('');
+  return [1,2,3,4,5,6].map(book=>`<optgroup label="Book ${roman[book]}">${CHAPTERS.filter(chapter=>chapter.book===book).map(chapter=>`<option value="${chapter.id}">${chapter.chapter}. ${esc(readerPolicy.title(chapter,reading,CHAPTERS))}</option>`).join('')}</optgroup>`).join('');
 }
-function openChapter(id=activeChapter?.id||CHAPTERS[0].id){
+function openChapter(id=activeChapter?.id||reading.chapterId){
   const chapter=CHAPTERS.find(item=>item.id===id); if(!chapter) return;
+  reading.chapterId=chapter.id; store.set('reading',reading);
+  clearTimeout(qTimer); q.value=''; activeCat=null; dirPick=null;
+  $$('#chips .chip').forEach(el=>{el.classList.remove('on');el.setAttribute('aria-pressed','false');});
   if(tlOn) setTimeline(false);
   stopPlay(); clearWaypoint(); clearSelection(); setChapterPins(chapter);
   const index=CHAPTERS.indexOf(chapter), el=$('#m-chapter');
-  el.innerHTML=`<button class="back" data-back>${ico('back')} Back</button>
+  el.innerHTML=`<button class="back" data-back>${ico('back')} Leave reading mode</button>
     <div class="eyebrow">The Lord of the Rings · Book ${roman[chapter.book]}</div>
     <h1>${esc(chapter.title)}</h1>
+    <p class="reading-progress">Your chapter is remembered on this device. <button data-reset-reading>Forget progress</button></p>
     <label class="chapter-picker" for="chapter-select"><span>Choose a chapter</span><select id="chapter-select">${chapterOptions()}</select></label>
     <div class="chapter-nav"><button class="pill" data-chapter-step="-1" ${index===0?'disabled':''}>${ico('back')} Previous</button><span>${index+1} of ${CHAPTERS.length}</span><button class="pill" data-chapter-step="1" ${index===CHAPTERS.length-1?'disabled':''}>Next ${ico('back','next-icon')}</button></div>
     <button class="pill chapter-fit" data-chapter-fit>${ico('center')} Show all chapter places</button>
+    <label class="reader-option"><input type="checkbox" id="reader-guard" ${reading.guard?'checked':''}> Hide story details while reading</label>
+    ${reading.guard?'<p class="src">Chapter summaries and later chapter titles are hidden. Full stories, search, journeys and the timeline are paused here. Map geography and this chapter’s locations and characters remain visible. Leaving reading mode restores the full atlas.</p>':''}
     <p class="src">Pins show where tracked characters appear during this chapter, not a single simultaneous moment. Off-page characters are not inferred.</p>
     <div class="orn"><span>Characters on the map</span></div>
-    <div class="list">${chapter.locations.map((location,locationIndex)=>{const p=chapterPlace(location);return `<button class="row chapter-row" data-chapter-location="${locationIndex}"><span class="chapter-number">${locationIndex+1}</span><span class="tx"><b>${esc(p.n)}</b><small>${esc(chapterCharacters(location))}</small>${location.note?`<span class="chapter-note">${esc(location.note)}</span>`:''}</span></button>`;}).join('')}</div>`;
+    <div class="list">${chapter.locations.map((location,locationIndex)=>{const p=chapterPlace(location);return `<button class="row chapter-row" data-chapter-location="${locationIndex}"><span class="chapter-number">${locationIndex+1}</span><span class="tx"><b>${esc(p.n)}</b><span class="character-badges">${characterBadges(location)}</span>${location.note&&!reading.guard?`<span class="chapter-note">${esc(location.note)}</span>`:''}</span></button>`;}).join('')}</div>`;
   $('#chapter-select').value=chapter.id;
   mode('chapter'); syncURL({place:null,journey:null,event:null,chapter:chapter.id,year:null});
+  applyReaderGuard();
   focusPanel('chapter'); if(sheetState==='peek') setSheet('half'); fitChapter(chapter);
 }
-$('#m-chapter').addEventListener('change',event=>{if(event.target.id==='chapter-select') openChapter(event.target.value);});
+$('#m-chapter').addEventListener('change',event=>{
+  if(event.target.id==='chapter-select') openChapter(event.target.value);
+  if(event.target.id==='reader-guard'){reading.guard=event.target.checked;openChapter(activeChapter.id);$('#reader-guard').focus();}
+});
 $('#m-chapter').addEventListener('click',event=>{
+  if(event.target.closest('[data-reset-reading]')){
+    reading=readerPolicy.restore(null,CHAPTERS);store.set('reading',null);mode('explore');toast('Reading progress forgotten');return;
+  }
   if(event.target.closest('[data-chapter-fit]')) return fitChapter(activeChapter);
   if(event.target.closest('[data-back]')) return mode('explore');
   const step=event.target.closest('[data-chapter-step]');
@@ -1022,6 +1057,7 @@ qclear.onclick = () => { q.value = ''; qclear.classList.remove('on'); if (dirPic
 let ringEl = $('#ring');
 function selectPlace(p, opt={}){
   if (!p) return;
+  if(activeChapter && reading.guard){toast('Leave reading mode to open the full place story.');return;}
   clearTimeout(qTimer);
   if (dirPick) { setDirSlot(dirPick, p); return; }
   if (selected) { const m = MK.find(m => m.p === selected); if (m) m.el.classList.remove('sel'); }
