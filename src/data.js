@@ -433,6 +433,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "bag-end",
+      "position": {"kind":"display-offset","note":"Small Hobbiton locations are separated on this schematic map for readability; this is not a measured plan of the Hill."},
       "n": "Bag End",
       "alt": [],
       "t": "house",
@@ -672,6 +673,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "party-field",
+      "position": {"kind":"display-offset","note":"The field is shown separately from Bag End for readability. Its map spacing is illustrative, not a measured distance."},
       "n": "Party Field",
       "alt": [
         "The Party Tree"
@@ -3436,6 +3438,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "nogrod",
+      "position": {"kind":"historical-reconstruction","note":"A First Age location projected onto the changed Third Age coastline. Its relationship to Dolmed is retained, not an exact surviving site."},
       "n": "Nogrod",
       "alt": [
         "Tumunzahar"
@@ -3466,6 +3469,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "belegost",
+      "position": {"kind":"historical-reconstruction","note":"A First Age location projected onto the changed Third Age coastline. Its relationship to Dolmed is retained, not an exact surviving site."},
       "n": "Belegost",
       "alt": [
         "Mickleburg",
@@ -3772,6 +3776,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "eryn-vorn",
+      "position": {"kind":"area-anchor","note":"The marker names the wooded cape south of the Baranduin mouth. It is an area label, not a surveyed point; the woodland and estuary were checked together."},
       "n": "Eryn Vorn",
       "alt": [
         "Blackwood"
@@ -7752,6 +7757,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "wellinghall",
+      "position": {"kind":"text-reconstruction","note":"The text places the hall in the flanks of Methedras. The atlas uses that mountain as its anchor; the exact site within the slopes is not established."},
       "n": "Wellinghall",
       "alt": [],
       "t": "house",
@@ -10102,6 +10108,7 @@ window.ATLAS_DATA = {
     },
     {
       "id": "grey-wood",
+      "position": {"kind":"area-anchor","note":"The wood lies between Amon Din and Mindolluin. The marker identifies the wooded area, not a precisely located boundary or a measured entrance."},
       "n": "Grey Wood",
       "alt": [],
       "t": "wood",
