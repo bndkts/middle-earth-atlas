@@ -119,5 +119,23 @@ counterpart is `assets/atlas-social.png` (1200 × 630). It uses no third-party
 illustration. nginx serves stable assets with revalidation and compresses text
 responses. Deployment should include all directories copied by the Dockerfile.
 
+Place artwork is converted from the credited original files to WebP (quality 82),
+at most 1200 pixels wide and 1600 pixels tall, without upscaling smaller sources.
+The cards retain their 3:2 crop and load artwork lazily; the full collection is
+not downloaded or precached when opening the atlas. `src/images.js` records
+both the delivered and source dimensions.
+
+To audit the existing sources, run `bun scripts/refresh-images.mjs`. Add
+`--write` to refresh the local artwork and generated image metadata. This needs
+`curl` and `cwebp`, plus macOS `sips` for the two GIF sources. An optional
+`--cache-dir /absolute/path` reuses downloaded originals. All conversions are
+staged before publishing, and existing credits and rights labels are preserved.
+If an original cannot be downloaded, the script tries the source site's large
+preview, then retains the existing local asset and marks `sourceUnavailable` in
+its metadata. Such entries are reported explicitly rather than replaced with
+upscaled thumbnails.
+After refreshing artwork, bump the service-worker cache version and run the
+tests to verify decoded dimensions and the no-upscaling limit.
+
 See `docs/plan-seo-geo-agents.md` and `docs/verification-seo-geo-agents.md` for
 implementation scope, verification results, and remaining live measurements.

@@ -4,572 +4,912 @@ window.IMG = {
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - Green Hill Morning",
-    "d": "assets/images/the-shire.webp"
+    "d": "assets/images/the-shire.webp",
+    "w": 660,
+    "h": 433,
+    "sourceWidth": 660,
+    "sourceHeight": 433
   },
   "northfarthing": {
     "f": "Kay_Woollard_-_The_Pedlar_of_Medicines.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Denis Bridoux",
     "o": "Kay Woollard - The Pedlar of Medicines",
-    "d": "assets/images/northfarthing.webp"
+    "d": "assets/images/northfarthing.webp",
+    "w": 1081,
+    "h": 787,
+    "sourceWidth": 1081,
+    "sourceHeight": 787
   },
   "southfarthing": {
     "f": "Kay_Woollard_-_Valerie_Sutton's_It_Always_Rains_on_Washing_Day.jpg",
     "o": "Kay Woollard - Valerie Sutton's It Always Rains on Washing Day",
     "d": "assets/images/southfarthing.webp",
-    "l": "Copyrighted, fair-use"
+    "l": "Copyrighted, fair-use",
+    "w": 1142,
+    "h": 762,
+    "sourceWidth": 1142,
+    "sourceHeight": 762
   },
   "eastfarthing": {
     "f": "Christopher_Tolkien_-_A_Part_of_the_Shire.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Christopher Tolkien - A Part of the Shire",
-    "d": "assets/images/eastfarthing.webp"
+    "d": "assets/images/eastfarthing.webp",
+    "w": 1200,
+    "h": 728,
+    "sourceWidth": 1200,
+    "sourceHeight": 728
   },
   "westfarthing": {
     "f": "Jef_Murray_-_The_West_Farthing.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - The West Farthing",
-    "d": "assets/images/westfarthing.webp"
+    "d": "assets/images/westfarthing.webp",
+    "w": 800,
+    "h": 498,
+    "sourceWidth": 800,
+    "sourceHeight": 498
   },
   "westmarch": {
     "f": "Miriam_Ellis_-_The_Fairbairns_of_Westmarch.png",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Miriam Ellis",
     "o": "Miriam Ellis - The Fairbairns of Westmarch",
-    "d": "assets/images/westmarch.webp"
+    "d": "assets/images/westmarch.webp",
+    "w": 612,
+    "h": 733,
+    "sourceWidth": 612,
+    "sourceHeight": 733
   },
   "buckland": {
     "f": "Mark_Fisher_-_Buckland.png",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Mark Fisher",
     "o": "Mark Fisher - Buckland",
-    "d": "assets/images/buckland.webp"
+    "d": "assets/images/buckland.webp",
+    "w": 237,
+    "h": 460,
+    "sourceWidth": 237,
+    "sourceHeight": 460
   },
   "the-marish": {
     "f": "Kay_Woollard_-_A_Cottage_in_the_Marish_-_East_Farthing.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Denis Bridoux",
     "o": "Kay Woollard - A Cottage in the Marish - East Farthing",
-    "d": "assets/images/the-marish.webp"
+    "d": "assets/images/the-marish.webp",
+    "w": 1098,
+    "h": 787,
+    "sourceWidth": 1098,
+    "sourceHeight": 787
   },
   "green-hill-country": {
     "f": "Matěj_Čadil_-_Green_Hill_Country.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Green Hill Country",
-    "d": "assets/images/green-hill-country.webp"
+    "d": "assets/images/green-hill-country.webp",
+    "w": 1114,
+    "h": 1600,
+    "sourceWidth": 1624,
+    "sourceHeight": 2331
   },
   "tookland": {
     "f": "The_Lord_of_the_Rings_Online_-_Tookland.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Tookland",
-    "d": "assets/images/tookland.webp"
+    "d": "assets/images/tookland.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "woody-end": {
     "f": "Ted_Nasmith_-_Elves_in_the_Woody_End.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - Elves in the Woody End",
-    "d": "assets/images/woody-end.webp"
+    "d": "assets/images/woody-end.webp",
+    "w": 1200,
+    "h": 774,
+    "sourceWidth": 1280,
+    "sourceHeight": 826
   },
   "bree-land": {
     "f": "Matěj_Čadil_-_Bree-land.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Bree-land",
-    "d": "assets/images/bree-land.webp"
+    "d": "assets/images/bree-land.webp",
+    "w": 1200,
+    "h": 871,
+    "sourceWidth": 2800,
+    "sourceHeight": 2034
   },
   "hobbiton": {
     "f": "J.R.R._Tolkien_-_The_Hill_-_Hobbiton-across-the-Water_(Colored).jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - The Hill - Hobbiton-across-the-Water (Colored)",
-    "d": "assets/images/hobbiton.webp"
+    "d": "assets/images/hobbiton.webp",
+    "w": 1156,
+    "h": 1539,
+    "sourceWidth": 1156,
+    "sourceHeight": 1539
   },
   "bywater": {
     "f": "Ralph_Damiani_-_Across_Middle-earth_-_Bywater.png",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ralph Damiani",
     "o": "Ralph Damiani - Across Middle-earth - Bywater",
-    "d": "assets/images/bywater.webp"
+    "d": "assets/images/bywater.webp",
+    "w": 1200,
+    "h": 601,
+    "sourceWidth": 1350,
+    "sourceHeight": 677
   },
   "the-water": {
     "f": "The_Lord_of_the_Rings_Online_-_The_Water.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - The Water",
-    "d": "assets/images/the-water.webp"
+    "d": "assets/images/the-water.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "battle-of-bywater": {
     "f": "Ted_Nasmith_-_Storming_the_Bank.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - Storming the Bank",
-    "d": "assets/images/battle-of-bywater.webp"
+    "d": "assets/images/battle-of-bywater.webp",
+    "w": 1117,
+    "h": 812,
+    "sourceWidth": 1117,
+    "sourceHeight": 812
   },
   "greenfields": {
     "f": "The_Lord_of_the_Rings_Online_-_Greenfields.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Greenfields",
-    "d": "assets/images/greenfields.webp"
+    "d": "assets/images/greenfields.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "michel-delving": {
     "f": "Matěj_Čadil_-_Michel_Delving.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Michel Delving",
-    "d": "assets/images/michel-delving.webp"
+    "d": "assets/images/michel-delving.webp",
+    "w": 1099,
+    "h": 1600,
+    "sourceWidth": 3236,
+    "sourceHeight": 4708
   },
   "far-downs": {
     "f": "Rob_Alexander_-_Fair_Travels_in_Border-lands.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Fair Travels in Border-lands",
-    "d": "assets/images/far-downs.webp"
+    "d": "assets/images/far-downs.webp",
+    "w": 523,
+    "h": 435,
+    "sourceWidth": 523,
+    "sourceHeight": 435
   },
   "tower-hills": {
     "f": "Ted_Nasmith_-_The_White_Towers.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - The White Towers",
-    "d": "assets/images/tower-hills.webp"
+    "d": "assets/images/tower-hills.webp",
+    "w": 399,
+    "h": 335,
+    "sourceWidth": 399,
+    "sourceHeight": 335
   },
   "elostirion": {
     "f": "Ted_Nasmith_-_The_White_Towers.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - The White Towers",
-    "d": "assets/images/elostirion.webp"
+    "d": "assets/images/elostirion.webp",
+    "w": 399,
+    "h": 335,
+    "sourceWidth": 399,
+    "sourceHeight": 335
   },
   "tuckborough": {
     "f": "The_Lord_of_the_Rings_Online_-_Tuckborough.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Tuckborough",
-    "d": "assets/images/tuckborough.webp"
+    "d": "assets/images/tuckborough.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "brandywine-bridge": {
     "f": "Miriam_Ellis_-_Marcho_and_Blanco_cross_the_Brandywine.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Miriam Ellis",
     "o": "Miriam Ellis - Marcho and Blanco cross the Brandywine",
-    "d": "assets/images/brandywine-bridge.webp"
+    "d": "assets/images/brandywine-bridge.webp",
+    "w": 1000,
+    "h": 834,
+    "sourceWidth": 1000,
+    "sourceHeight": 834
   },
   "sarn-ford": {
     "f": "Alarie_-_Gandalf_Crosses_the_Sarn_Ford.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alarie",
     "o": "Alarie - Gandalf Crosses the Sarn Ford",
-    "d": "assets/images/sarn-ford.webp"
+    "d": "assets/images/sarn-ford.webp",
+    "w": 1200,
+    "h": 669,
+    "sourceWidth": 1600,
+    "sourceHeight": 892
   },
   "brandy-hall": {
     "f": "Matěj_Čadil_-_Brandy_Hall.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Brandy Hall",
-    "d": "assets/images/brandy-hall.webp"
+    "d": "assets/images/brandy-hall.webp",
+    "w": 1200,
+    "h": 819,
+    "sourceWidth": 2268,
+    "sourceHeight": 1548
   },
   "high-hay": {
     "f": "Matěj_Čadil_-_High_Hay.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - High Hay",
-    "d": "assets/images/high-hay.webp"
+    "d": "assets/images/high-hay.webp",
+    "w": 1200,
+    "h": 1534,
+    "sourceWidth": 1620,
+    "sourceHeight": 2072
   },
   "old-forest": {
     "f": "Kevin_Ward_-_Old_Forest.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Kevin Ward",
     "o": "Kevin Ward - Old Forest",
-    "d": "assets/images/old-forest.webp"
+    "d": "assets/images/old-forest.webp",
+    "w": 257,
+    "h": 215,
+    "sourceWidth": 257,
+    "sourceHeight": 215
   },
   "withywindle": {
     "f": "J.R.R._Tolkien_-_Old_Man_Willow.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Old Man Willow",
-    "d": "assets/images/withywindle.webp"
+    "d": "assets/images/withywindle.webp",
+    "w": 988,
+    "h": 691,
+    "sourceWidth": 988,
+    "sourceHeight": 691
   },
   "barrow-downs": {
     "f": "Paul_Raymond_Gregory_-_Fog_on_the_Barrow_Downs.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Paul Raymond Gregory",
     "o": "Paul Raymond Gregory - Fog on the Barrow Downs",
-    "d": "assets/images/barrow-downs.webp"
+    "d": "assets/images/barrow-downs.webp",
+    "w": 410,
+    "h": 525,
+    "sourceWidth": 410,
+    "sourceHeight": 525
   },
   "bree": {
     "f": "Darek_Zabrocki_-_Morning.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Darek Zabrocki",
     "o": "Darek Zabrocki - Morning",
-    "d": "assets/images/bree.webp"
+    "d": "assets/images/bree.webp",
+    "w": 1040,
+    "h": 768,
+    "sourceWidth": 1040,
+    "sourceHeight": 768
   },
   "prancing-pony": {
     "f": "Ted_Nasmith_-_At_the_Sign_of_the_Prancing_Pony.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - At the Sign of the Prancing Pony",
-    "d": "assets/images/prancing-pony.webp"
+    "d": "assets/images/prancing-pony.webp",
+    "w": 399,
+    "h": 450,
+    "sourceWidth": 399,
+    "sourceHeight": 450
   },
   "chetwood": {
     "f": "Matěj_Čadil_-_Chetwood.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Chetwood",
-    "d": "assets/images/chetwood.webp"
+    "d": "assets/images/chetwood.webp",
+    "w": 1200,
+    "h": 1518,
+    "sourceWidth": 1626,
+    "sourceHeight": 2058
   },
   "greenway": {
     "f": "Matěj_Čadil_-_Greenway.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Greenway",
-    "d": "assets/images/greenway.webp"
+    "d": "assets/images/greenway.webp",
+    "w": 1200,
+    "h": 1547,
+    "sourceWidth": 1241,
+    "sourceHeight": 1600
   },
   "east-road": {
     "f": "Matěj_Čadil_-_Great_East_Road.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Great East Road",
-    "d": "assets/images/east-road.webp"
+    "d": "assets/images/east-road.webp",
+    "w": 800,
+    "h": 577,
+    "sourceWidth": 800,
+    "sourceHeight": 577
   },
   "midgewater-marshes": {
     "f": "Anna_Kulisz_-_Midgewater_Marshes.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Anna Kulisz",
     "o": "Anna Kulisz - Midgewater Marshes",
-    "d": "assets/images/midgewater-marshes.webp"
+    "d": "assets/images/midgewater-marshes.webp",
+    "w": 900,
+    "h": 832,
+    "sourceWidth": 900,
+    "sourceHeight": 832
   },
   "weather-hills": {
     "f": "David_Monette_-_Weathertop.jpg",
     "l": "Copyrighted, fair-use",
     "a": "David Monette",
     "o": "David Monette - Weathertop",
-    "d": "assets/images/weather-hills.webp"
+    "d": "assets/images/weather-hills.webp",
+    "w": 289,
+    "h": 245,
+    "sourceWidth": 289,
+    "sourceHeight": 245
   },
   "weathertop": {
     "f": "Jef_Murray_-_Amon_Sûl.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - Amon Sûl",
-    "d": "assets/images/weathertop.webp"
+    "d": "assets/images/weathertop.webp",
+    "w": 800,
+    "h": 497,
+    "sourceWidth": 800,
+    "sourceHeight": 497
   },
   "brandywine-river": {
     "f": "Jef_Murray_-_Brandywine.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - Brandywine",
-    "d": "assets/images/brandywine-river.webp"
+    "d": "assets/images/brandywine-river.webp",
+    "w": 800,
+    "h": 495,
+    "sourceWidth": 800,
+    "sourceHeight": 495
   },
   "eriador": {
     "f": "Stephen_Raw_-_Middle-earth_map_(1_of_4).png",
     "l": "Copyrighted, fair-use",
     "o": "Stephen Raw - Middle-earth map (1 of 4)",
-    "d": "assets/images/eriador.webp"
+    "d": "assets/images/eriador.webp",
+    "w": 1200,
+    "h": 793,
+    "sourceWidth": 2000,
+    "sourceHeight": 1322
   },
   "arnor": {
     "f": "Stephen_Raw_-_Middle-earth_map_(1_of_4).png",
     "l": "Copyrighted, fair-use",
     "o": "Stephen Raw - Middle-earth map (1 of 4)",
-    "d": "assets/images/arnor.webp"
+    "d": "assets/images/arnor.webp",
+    "w": 1200,
+    "h": 793,
+    "sourceWidth": 2000,
+    "sourceHeight": 1322
   },
   "cardolan": {
     "f": "Cardolanrotwk.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Cardolanrotwk",
-    "d": "assets/images/cardolan.webp"
+    "d": "assets/images/cardolan.webp",
+    "w": 481,
+    "h": 362,
+    "sourceWidth": 481,
+    "sourceHeight": 362
   },
   "rhudaur": {
     "f": "Ted_Nasmith_-_View_of_Rhudaur.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - View of Rhudaur",
-    "d": "assets/images/rhudaur.webp"
+    "d": "assets/images/rhudaur.webp",
+    "w": 450,
+    "h": 305,
+    "sourceWidth": 450,
+    "sourceHeight": 305
   },
   "lindon": {
     "f": "Matěj_Čadil_-_Lindon.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Lindon",
-    "d": "assets/images/lindon.webp"
+    "d": "assets/images/lindon.webp",
+    "w": 1200,
+    "h": 883,
+    "sourceWidth": 1310,
+    "sourceHeight": 964
   },
   "angmar-realm": {
     "f": "Donato_Giancola_-_Ranging_in_Angmar.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Donato Giancola",
     "o": "Donato Giancola - Ranging in Angmar",
-    "d": "assets/images/angmar-realm.webp"
+    "d": "assets/images/angmar-realm.webp",
+    "w": 1060,
+    "h": 1400,
+    "sourceWidth": 1060,
+    "sourceHeight": 1400
   },
   "forochel": {
     "f": "Lída_Holubová_-_Forochel.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Lída Holubová",
     "o": "Lída Holubová - Forochel",
-    "d": "assets/images/forochel.webp"
+    "d": "assets/images/forochel.webp",
+    "w": 1024,
+    "h": 1511,
+    "sourceWidth": 1024,
+    "sourceHeight": 1511
   },
   "minhiriath": {
     "f": "The_Lord_of_the_Rings_(film_series)_-_Miniriath_map.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings (film series) - Miniriath map",
-    "d": "assets/images/minhiriath.webp"
+    "d": "assets/images/minhiriath.webp",
+    "w": 318,
+    "h": 287,
+    "sourceWidth": 318,
+    "sourceHeight": 287
   },
   "enedwaith": {
     "f": "Matěj_Čadil_-_Enedwaith.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Enedwaith",
-    "d": "assets/images/enedwaith.webp"
+    "d": "assets/images/enedwaith.webp",
+    "w": 1200,
+    "h": 904,
+    "sourceWidth": 2984,
+    "sourceHeight": 2248
   },
   "dunland": {
     "f": "The_Lord_of_the_Rings_Online_-_Dunland.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Dunland",
-    "d": "assets/images/dunland.webp"
+    "d": "assets/images/dunland.webp",
+    "w": 1200,
+    "h": 630,
+    "sourceWidth": 1904,
+    "sourceHeight": 1001
   },
   "eregion": {
     "f": "Donato_Giancola_-_The_Fellowship_in_Hollin.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Donato Giancola",
     "o": "Donato Giancola - The Fellowship in Hollin",
-    "d": "assets/images/eregion.webp"
+    "d": "assets/images/eregion.webp",
+    "w": 1200,
+    "h": 648,
+    "sourceWidth": 1500,
+    "sourceHeight": 811
   },
   "misty-mountains": {
     "f": "J.R.R._Tolkien_-_The_Misty_Mountains_looking_West_from_the_Eyrie_towards_Goblin_Gate_(Colored_by_H.E._Riddett).jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - The Misty Mountains looking West from the Eyrie towards Goblin Gate (Colored by H.E. Riddett)",
-    "d": "assets/images/misty-mountains.webp"
+    "d": "assets/images/misty-mountains.webp",
+    "w": 1200,
+    "h": 929,
+    "sourceWidth": 1311,
+    "sourceHeight": 1015
   },
   "blue-mountains": {
     "f": "Rob_Alexander_-_Blue_Mountain_Dwarf-hold.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Blue Mountain Dwarf-hold",
-    "d": "assets/images/blue-mountains.webp"
+    "d": "assets/images/blue-mountains.webp",
+    "w": 1200,
+    "h": 967,
+    "sourceWidth": 2048,
+    "sourceHeight": 1652
   },
   "mithlond": {
     "f": "Matt_Stewart_-_The_Grey_Havens.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matt Stewart",
     "o": "Matt Stewart - The Grey Havens",
-    "d": "assets/images/mithlond.webp"
+    "d": "assets/images/mithlond.webp",
+    "w": 1200,
+    "h": 597,
+    "sourceWidth": 1500,
+    "sourceHeight": 747
   },
   "river-lune": {
     "f": "Pauline_Baynes_-_Bilbo's_Last_Song.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Pauline Baynes - Bilbo's Last Song",
-    "d": "assets/images/river-lune.webp"
+    "d": "assets/images/river-lune.webp",
+    "w": 583,
+    "h": 840,
+    "sourceWidth": 583,
+    "sourceHeight": 840
   },
   "belegaer": {
     "f": "Ted_Nasmith_-_The_Sea.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The Sea",
-    "d": "assets/images/belegaer.webp"
+    "d": "assets/images/belegaer.webp",
+    "w": 798,
+    "h": 1200,
+    "sourceWidth": 798,
+    "sourceHeight": 1200
   },
   "thorins-halls": {
     "f": "The_Lord_of_the_Rings_Online_-_Thorin's_Halls.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Thorin's Halls",
-    "d": "assets/images/thorins-halls.webp"
+    "d": "assets/images/thorins-halls.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "mount-dolmed": {
     "f": "Peter_Xavier_Price_-_Mount_Dolmed.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Peter Xavier Price",
     "o": "Peter Xavier Price - Mount Dolmed",
-    "d": "assets/images/mount-dolmed.webp"
+    "d": "assets/images/mount-dolmed.webp",
+    "w": 720,
+    "h": 1000,
+    "sourceWidth": 720,
+    "sourceHeight": 1000
   },
   "annuminas": {
     "f": "Ted_Nasmith_-_Annúminas.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - Annúminas",
-    "d": "assets/images/annuminas.webp"
+    "d": "assets/images/annuminas.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "fornost-erain": {
     "f": "Fornost_rotwk.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Fornost rotwk",
-    "d": "assets/images/fornost-erain.webp"
+    "d": "assets/images/fornost-erain.webp",
+    "w": 450,
+    "h": 273,
+    "sourceWidth": 450,
+    "sourceHeight": 273
   },
   "lake-evendim": {
     "f": "Šárka_Škorpíková_-_Nenuial_(Lake_Evendim).jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Šárka Škorpíková",
     "o": "Šárka Škorpíková - Nenuial (Lake Evendim)",
-    "d": "assets/images/lake-evendim.webp"
+    "d": "assets/images/lake-evendim.webp",
+    "w": 1200,
+    "h": 949,
+    "sourceWidth": 1341,
+    "sourceHeight": 1061
   },
   "north-downs": {
     "f": "Matěj_Čadil_-_North_Downs.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - North Downs",
-    "d": "assets/images/north-downs.webp"
+    "d": "assets/images/north-downs.webp",
+    "w": 1200,
+    "h": 851,
+    "sourceWidth": 4891,
+    "sourceHeight": 3469
   },
   "lone-lands": {
     "f": "Alan_Lee_-_The_Lone-lands.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Lone-lands",
-    "d": "assets/images/lone-lands.webp"
+    "d": "assets/images/lone-lands.webp",
+    "w": 1000,
+    "h": 670,
+    "sourceWidth": 1000,
+    "sourceHeight": 670
   },
   "tharbad": {
     "f": "Rob_Alexander_-_The_Ruins_of_Tharbad.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - The Ruins of Tharbad",
-    "d": "assets/images/tharbad.webp"
+    "d": "assets/images/tharbad.webp",
+    "w": 1200,
+    "h": 980,
+    "sourceWidth": 2400,
+    "sourceHeight": 1961
   },
   "greyflood": {
     "f": "Anke_Eißmann_-_Journeying_up_Gwathlo.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Anke Eißmann",
     "o": "Anke Eißmann - Journeying up Gwathlo",
-    "d": "assets/images/greyflood.webp"
+    "d": "assets/images/greyflood.webp",
+    "w": 510,
+    "h": 716,
+    "sourceWidth": 510,
+    "sourceHeight": 716
   },
   "hoarwell": {
     "f": "Ralph_Damiani_-_Across_Middle-earth_-_The_Last_Bridge.png",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ralph Damiani",
     "o": "Ralph Damiani - Across Middle-earth - The Last Bridge",
-    "d": "assets/images/hoarwell.webp"
+    "d": "assets/images/hoarwell.webp",
+    "w": 1200,
+    "h": 601,
+    "sourceWidth": 1350,
+    "sourceHeight": 677
   },
   "loudwater": {
     "f": "Rob_Alexander_-_Wizard's_River-horses.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Wizard's River-horses",
-    "d": "assets/images/loudwater.webp"
+    "d": "assets/images/loudwater.webp",
+    "w": 1200,
+    "h": 970,
+    "sourceWidth": 2550,
+    "sourceHeight": 2062
   },
   "last-bridge": {
     "f": "Soni_Alcorn-Hender_-_Mitheithel_Bridge.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Soni Alcorn-Hender",
     "o": "Soni Alcorn-Hender - Mitheithel Bridge",
-    "d": "assets/images/last-bridge.webp"
+    "d": "assets/images/last-bridge.webp",
+    "w": 840,
+    "h": 570,
+    "sourceWidth": 840,
+    "sourceHeight": 570
   },
   "trollshaws": {
     "f": "Ted_Nasmith_-_A_Song_in_the_Trollshaws.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - A Song in the Trollshaws",
-    "d": "assets/images/trollshaws.webp"
+    "d": "assets/images/trollshaws.webp",
+    "w": 1200,
+    "h": 816,
+    "sourceWidth": 1600,
+    "sourceHeight": 1088
   },
   "ford-of-bruinen": {
     "f": "Rob_Alexander_-_Wizard's_River-horses.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Wizard's River-horses",
-    "d": "assets/images/ford-of-bruinen.webp"
+    "d": "assets/images/ford-of-bruinen.webp",
+    "w": 1200,
+    "h": 970,
+    "sourceWidth": 2550,
+    "sourceHeight": 2062
   },
   "rivendell": {
     "f": "J.R.R._Tolkien_-_Rivendell.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Rivendell",
-    "d": "assets/images/rivendell.webp"
+    "d": "assets/images/rivendell.webp",
+    "w": 1200,
+    "h": 1193,
+    "sourceWidth": 2297,
+    "sourceHeight": 2284
   },
   "ettenmoors": {
     "f": "Rob_Alexander_-_Ettenmoors.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Ettenmoors",
-    "d": "assets/images/ettenmoors.webp"
+    "d": "assets/images/ettenmoors.webp",
+    "w": 525,
+    "h": 435,
+    "sourceWidth": 525,
+    "sourceHeight": 435
   },
   "carn-dum": {
     "f": "Matěj_Čadil_-_Carn_dum.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Carn dum",
-    "d": "assets/images/carn-dum.webp"
+    "d": "assets/images/carn-dum.webp",
+    "w": 800,
+    "h": 574,
+    "sourceWidth": 800,
+    "sourceHeight": 574
   },
   "mount-gundabad": {
     "f": "Larry_Elmore_-_Mount_Gundabad.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Larry Elmore",
     "o": "Larry Elmore - Mount Gundabad",
-    "d": "assets/images/mount-gundabad.webp"
+    "d": "assets/images/mount-gundabad.webp",
+    "w": 288,
+    "h": 243,
+    "sourceWidth": 288,
+    "sourceHeight": 243
   },
   "mountains-of-angmar": {
     "f": "Donato_Giancola_-_Ranging_in_Angmar.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Donato Giancola",
     "o": "Donato Giancola - Ranging in Angmar",
-    "d": "assets/images/mountains-of-angmar.webp"
+    "d": "assets/images/mountains-of-angmar.webp",
+    "w": 1060,
+    "h": 1400,
+    "sourceWidth": 1060,
+    "sourceHeight": 1400
   },
   "icebay-of-forochel": {
     "f": "Christopher_Tolkien_-_Icebay_of_Forochel.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Christopher Tolkien - Icebay of Forochel",
-    "d": "assets/images/icebay-of-forochel.webp"
+    "d": "assets/images/icebay-of-forochel.webp",
+    "w": 410,
+    "h": 523,
+    "sourceWidth": 410,
+    "sourceHeight": 523
   },
   "cape-of-forochel": {
     "f": "Lída_Holubová_-_Forochel.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Lída Holubová",
     "o": "Lída Holubová - Forochel",
-    "d": "assets/images/cape-of-forochel.webp"
+    "d": "assets/images/cape-of-forochel.webp",
+    "w": 1024,
+    "h": 1511,
+    "sourceWidth": 1024,
+    "sourceHeight": 1511
   },
   "high-pass": {
     "f": "J.R.R._Tolkien_-_The_Mountain-path_(Colored_by_H.E._Riddett).png",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - The Mountain-path (Colored by H.E. Riddett)",
-    "d": "assets/images/high-pass.webp"
+    "d": "assets/images/high-pass.webp",
+    "w": 1119,
+    "h": 1600,
+    "sourceWidth": 1200,
+    "sourceHeight": 1715
   },
   "goblin-town": {
     "f": "Paul_Raymond_Gregory_-_Glamdring.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Paul Raymond Gregory",
     "o": "Paul Raymond Gregory - Glamdring",
-    "d": "assets/images/goblin-town.webp"
+    "d": "assets/images/goblin-town.webp",
+    "w": 480,
+    "h": 483,
+    "sourceWidth": 480,
+    "sourceHeight": 483
   },
   "caradhras": {
     "f": "Ted_Nasmith_-_The_Anger_of_the_Mountain.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The Anger of the Mountain",
-    "d": "assets/images/caradhras.webp"
+    "d": "assets/images/caradhras.webp",
+    "w": 900,
+    "h": 1426,
+    "sourceWidth": 900,
+    "sourceHeight": 1426
   },
   "celebdil": {
     "f": "John_Howe_-_Zirak-zigil.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/John Howe",
     "o": "John Howe - Zirak-zigil",
-    "d": "assets/images/celebdil.webp"
+    "d": "assets/images/celebdil.webp",
+    "w": 1200,
+    "h": 899,
+    "sourceWidth": 1696,
+    "sourceHeight": 1272
   },
   "redhorn-pass": {
     "f": "The_Lord_of_the_Rings_Online_-_Redhorn_Gate.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Redhorn Gate",
-    "d": "assets/images/redhorn-pass.webp"
+    "d": "assets/images/redhorn-pass.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "moria": {
     "f": "Alan_Lee_-_The_Eastern_Arches.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Eastern Arches",
-    "d": "assets/images/moria.webp"
+    "d": "assets/images/moria.webp",
+    "w": 700,
+    "h": 1133,
+    "sourceWidth": 700,
+    "sourceHeight": 1133
   },
   "doors-of-durin": {
     "f": "J.R.R._Tolkien_-_Doors_of_Durin.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Doors of Durin",
-    "d": "assets/images/doors-of-durin.webp"
+    "d": "assets/images/doors-of-durin.webp",
+    "w": 298,
+    "h": 479,
+    "sourceWidth": 298,
+    "sourceHeight": 479
   },
   "dimrill-dale": {
     "f": "J.R.R._Tolkien_-_Dimrill_Dale_and_Mountains_of_Moria.jpeg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Dimrill Dale and Mountains of Moria",
-    "d": "assets/images/dimrill-dale.webp"
+    "d": "assets/images/dimrill-dale.webp",
+    "w": 366,
+    "h": 278,
+    "sourceWidth": 366,
+    "sourceHeight": 278
   },
   "mirrormere": {
     "f": "Alan_Lee_-_Mirrormere.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - Mirrormere",
-    "d": "assets/images/mirrormere.webp"
+    "d": "assets/images/mirrormere.webp",
+    "w": 606,
+    "h": 982,
+    "sourceWidth": 606,
+    "sourceHeight": 982
   },
   "chamber-of-mazarbul": {
     "f": "Peter_Xavier_Price_-_Balin's_Tomb.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Peter Xavier Price",
     "o": "Peter Xavier Price - Balin's Tomb",
-    "d": "assets/images/chamber-of-mazarbul.webp"
+    "d": "assets/images/chamber-of-mazarbul.webp",
+    "w": 596,
+    "h": 600,
+    "sourceWidth": 596,
+    "sourceHeight": 600
   },
   "bridge-of-khazad-dum": {
     "f": "Alan_Lee_-_The_Bridge_of_Khazad-dûm.jpg",
@@ -577,121 +917,193 @@ window.IMG = {
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "a": "Alan Lee",
     "o": "Alan Lee - The Bridge of Khazad-dûm",
-    "d": "assets/images/bridge-of-khazad-dum.webp"
+    "d": "assets/images/bridge-of-khazad-dum.webp",
+    "w": 452,
+    "h": 700,
+    "sourceWidth": 452,
+    "sourceHeight": 700
   },
   "methedras": {
     "f": "The_Lord_of_the_Rings_Online_-_Methedras.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Methedras",
-    "d": "assets/images/methedras.webp"
+    "d": "assets/images/methedras.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "ost-in-edhil": {
     "f": "Felix_Sotomayor_-_Ost-in-Edhil_cropped.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Felix Sotomayor",
     "o": "Felix Sotomayor - Ost-in-Edhil cropped",
-    "d": "assets/images/ost-in-edhil.webp"
+    "d": "assets/images/ost-in-edhil.webp",
+    "w": 875,
+    "h": 689,
+    "sourceWidth": 875,
+    "sourceHeight": 689
   },
   "sack-of-ost-in-edhil": {
     "f": "Peter_Xavier_Price_-_Celebrimbor's_Death.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Peter Xavier Price",
     "o": "Peter Xavier Price - Celebrimbor's Death",
-    "d": "assets/images/sack-of-ost-in-edhil.webp"
+    "d": "assets/images/sack-of-ost-in-edhil.webp",
+    "w": 1024,
+    "h": 620,
+    "sourceWidth": 1024,
+    "sourceHeight": 620
   },
   "glanduin": {
     "f": "The_Lord_of_the_Rings_Online_-_Glanduin.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Glanduin",
-    "d": "assets/images/glanduin.webp"
+    "d": "assets/images/glanduin.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "battle-of-fornost": {
     "f": "Jan_Pospíšil_-_Battle_of_Fornost.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jan Pospíšil",
     "o": "Jan Pospíšil - Battle of Fornost",
-    "d": "assets/images/battle-of-fornost.webp"
+    "d": "assets/images/battle-of-fornost.webp",
+    "w": 1020,
+    "h": 440,
+    "sourceWidth": 1020,
+    "sourceHeight": 440
   },
   "battle-of-azanulbizar": {
     "f": "Joona_Kujanen_-_The_Battle_of_Nanduhirion.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Joona Kujanen",
     "o": "Joona Kujanen - The Battle of Nanduhirion",
-    "d": "assets/images/battle-of-azanulbizar.webp"
+    "d": "assets/images/battle-of-azanulbizar.webp",
+    "w": 800,
+    "h": 1129,
+    "sourceWidth": 800,
+    "sourceHeight": 1129
   },
   "first-sacking-of-gundabad": {
     "f": "Larry_Elmore_-_Mount_Gundabad.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Larry Elmore",
     "o": "Larry Elmore - Mount Gundabad",
-    "d": "assets/images/first-sacking-of-gundabad.webp"
+    "d": "assets/images/first-sacking-of-gundabad.webp",
+    "w": 288,
+    "h": 243,
+    "sourceWidth": 288,
+    "sourceHeight": 243
   },
   "second-sacking-of-gundabad": {
     "f": "Larry_Elmore_-_Mount_Gundabad.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Larry Elmore",
     "o": "Larry Elmore - Mount Gundabad",
-    "d": "assets/images/second-sacking-of-gundabad.webp"
+    "d": "assets/images/second-sacking-of-gundabad.webp",
+    "w": 288,
+    "h": 243,
+    "sourceWidth": 288,
+    "sourceHeight": 243
   },
   "great-east-road": {
     "f": "Matěj_Čadil_-_Great_East_Road.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Great East Road",
-    "d": "assets/images/great-east-road.webp"
+    "d": "assets/images/great-east-road.webp",
+    "w": 800,
+    "h": 577,
+    "sourceWidth": 800,
+    "sourceHeight": 577
   },
   "fall-of-rhudaur": {
     "f": "Ted_Nasmith_-_View_of_Rhudaur.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - View of Rhudaur",
-    "d": "assets/images/fall-of-rhudaur.webp"
+    "d": "assets/images/fall-of-rhudaur.webp",
+    "w": 450,
+    "h": 305,
+    "sourceWidth": 450,
+    "sourceHeight": 305
   },
   "rhovanion": {
     "f": "J.R.R._Tolkien_-_Map_of_Wilderland.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Map of Wilderland",
-    "d": "assets/images/rhovanion.webp"
+    "d": "assets/images/rhovanion.webp",
+    "w": 1200,
+    "h": 941,
+    "sourceWidth": 3029,
+    "sourceHeight": 2377
   },
   "vales-of-anduin": {
     "f": "The_Lord_of_the_Rings_Online_-_Vales_of_Anduin.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Vales of Anduin",
-    "d": "assets/images/vales-of-anduin.webp"
+    "d": "assets/images/vales-of-anduin.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "anduin": {
     "f": "Gianna_Michele_Kaye_-_The_Great_River_Anduin.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Gianna Michele Kaye",
     "o": "Gianna Michele Kaye - The Great River Anduin",
-    "d": "assets/images/anduin.webp"
+    "d": "assets/images/anduin.webp",
+    "w": 1024,
+    "h": 537,
+    "sourceWidth": 1024,
+    "sourceHeight": 537
   },
   "eotheod": {
     "f": "Donato_Giancola_-_Fram_Framson.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Donato Giancola",
     "o": "Donato Giancola - Fram Framson",
-    "d": "assets/images/eotheod.webp"
+    "d": "assets/images/eotheod.webp",
+    "w": 756,
+    "h": 598,
+    "sourceWidth": 756,
+    "sourceHeight": 598
   },
   "gladden-fields": {
     "f": "Anke_Eißmann_-_The_Gladden_Fields.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Anke Eißmann",
     "o": "Anke Eißmann - The Gladden Fields",
-    "d": "assets/images/gladden-fields.webp"
+    "d": "assets/images/gladden-fields.webp",
+    "w": 856,
+    "h": 500,
+    "sourceWidth": 856,
+    "sourceHeight": 500
   },
   "field-of-celebrant": {
     "f": "The_Lord_of_the_Rings_Online_-_Field_of_Celebrant.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Field of Celebrant",
-    "d": "assets/images/field-of-celebrant.webp"
+    "d": "assets/images/field-of-celebrant.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1280,
+    "sourceHeight": 720
   },
   "brown-lands": {
     "f": "Šárka_Škorpíková_-_Rhovanion_-_The_Brown_Lands.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Šárka Škorpíková",
     "o": "Šárka Škorpíková - Rhovanion - The Brown Lands",
-    "d": "assets/images/brown-lands.webp"
+    "d": "assets/images/brown-lands.webp",
+    "w": 1003,
+    "h": 618,
+    "sourceWidth": 1003,
+    "sourceHeight": 618
   },
   "the-wold": {
     "f": "Alan_Lee_-_The_Plains_of_Rohan_1.jpg",
@@ -699,557 +1111,897 @@ window.IMG = {
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "a": "Alan Lee",
     "o": "Alan Lee - The Plains of Rohan 1",
-    "d": "assets/images/the-wold.webp"
+    "d": "assets/images/the-wold.webp",
+    "w": 712,
+    "h": 899,
+    "sourceWidth": 712,
+    "sourceHeight": 899
   },
   "mirkwood": {
     "f": "J.R.R._Tolkien_-_Mirkwood.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Mirkwood",
-    "d": "assets/images/mirkwood.webp"
+    "d": "assets/images/mirkwood.webp",
+    "w": 800,
+    "h": 460,
+    "sourceWidth": 800,
+    "sourceHeight": 460
   },
   "thranduils-halls": {
     "f": "J.R.R._Tolkien_-_The_Elvenking's_Gate_(II)_(Colored_by_H._E._Riddett).jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - The Elvenking's Gate (II) (Colored by H. E. Riddett)",
-    "d": "assets/images/thranduils-halls.webp"
+    "d": "assets/images/thranduils-halls.webp",
+    "w": 1200,
+    "h": 811,
+    "sourceWidth": 1568,
+    "sourceHeight": 1060
   },
   "woodland-realm": {
     "f": "Alan_Lee_-_Gandalf's_Farewell.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - Gandalf's Farewell",
-    "d": "assets/images/woodland-realm.webp"
+    "d": "assets/images/woodland-realm.webp",
+    "w": 837,
+    "h": 1200,
+    "sourceWidth": 837,
+    "sourceHeight": 1200
   },
   "dol-guldur": {
     "f": "Matěj_Čadil_-_Dol_Guldur.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Dol Guldur",
-    "d": "assets/images/dol-guldur.webp"
+    "d": "assets/images/dol-guldur.webp",
+    "w": 1200,
+    "h": 809,
+    "sourceWidth": 1998,
+    "sourceHeight": 1348
   },
   "erebor": {
     "f": "J.R.R._Tolkien_-_Smaug_flies_round_the_Mountain.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Smaug flies round the Mountain",
-    "d": "assets/images/erebor.webp"
+    "d": "assets/images/erebor.webp",
+    "w": 1163,
+    "h": 803,
+    "sourceWidth": 1163,
+    "sourceHeight": 803
   },
   "kingdom-under-the-mountain": {
     "f": "Jef_Murray_-_The_Lonely_Mountain_2.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - The Lonely Mountain 2",
-    "d": "assets/images/kingdom-under-the-mountain.webp"
+    "d": "assets/images/kingdom-under-the-mountain.webp",
+    "w": 492,
+    "h": 800,
+    "sourceWidth": 492,
+    "sourceHeight": 800
   },
   "dale": {
     "f": "Matěj_Čadil_-_Dale.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Dale",
-    "d": "assets/images/dale.webp"
+    "d": "assets/images/dale.webp",
+    "w": 1200,
+    "h": 1512,
+    "sourceWidth": 1639,
+    "sourceHeight": 2066
   },
   "kingdom-of-dale": {
     "f": "Matěj_Čadil_-_Dale.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Dale",
-    "d": "assets/images/kingdom-of-dale.webp"
+    "d": "assets/images/kingdom-of-dale.webp",
+    "w": 1200,
+    "h": 1512,
+    "sourceWidth": 1639,
+    "sourceHeight": 2066
   },
   "long-lake": {
     "f": "J.R.R._Tolkien_-_Longlake_map.gif",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Longlake map",
-    "d": "assets/images/long-lake.webp"
+    "d": "assets/images/long-lake.webp",
+    "w": 408,
+    "h": 338,
+    "sourceWidth": 408,
+    "sourceHeight": 338
   },
   "esgaroth": {
     "f": "J.R.R._Tolkien_-_Lake_Town_(Colored_by_H._E._Riddett).jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Lake Town (Colored by H. E. Riddett)",
-    "d": "assets/images/esgaroth.webp"
+    "d": "assets/images/esgaroth.webp",
+    "w": 1200,
+    "h": 774,
+    "sourceWidth": 1371,
+    "sourceHeight": 885
   },
   "celduin": {
     "f": "Alan_Lee_-_The_Front_Gate.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Front Gate",
-    "d": "assets/images/celduin.webp"
+    "d": "assets/images/celduin.webp",
+    "w": 846,
+    "h": 1200,
+    "sourceWidth": 846,
+    "sourceHeight": 1200
   },
   "battle-of-five-armies": {
     "f": "Matt_Stewart_-_The_Battle_Under_the_Mountain.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matt Stewart",
     "o": "Matt Stewart - The Battle Under the Mountain",
-    "d": "assets/images/battle-of-five-armies.webp"
+    "d": "assets/images/battle-of-five-armies.webp",
+    "w": 843,
+    "h": 1273,
+    "sourceWidth": 843,
+    "sourceHeight": 1273
   },
   "battle-of-dale": {
     "f": "Steamey_-_King_Brand_and_King_Dáin_Ironfoot.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Steamey",
     "o": "Steamey - King Brand and King Dáin Ironfoot",
-    "d": "assets/images/battle-of-dale.webp"
+    "d": "assets/images/battle-of-dale.webp",
+    "w": 450,
+    "h": 800,
+    "sourceWidth": 450,
+    "sourceHeight": 800
   },
   "grey-mountains": {
     "f": "Matěj_Čadil_-_Ered_Mithrin.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Ered Mithrin",
-    "d": "assets/images/grey-mountains.webp"
+    "d": "assets/images/grey-mountains.webp",
+    "w": 1200,
+    "h": 808,
+    "sourceWidth": 1453,
+    "sourceHeight": 979
   },
   "iron-hills": {
     "f": "The_Lord_of_the_Rings_Online_-_Iron_Hills.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Iron Hills",
-    "d": "assets/images/iron-hills.webp"
+    "d": "assets/images/iron-hills.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "dorwinion": {
     "f": "InDeepBlue_-_The_Great_Gardens_of_Dorwinion.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/InDeepBlue",
     "o": "InDeepBlue - The Great Gardens of Dorwinion",
-    "d": "assets/images/dorwinion.webp"
+    "d": "assets/images/dorwinion.webp",
+    "w": 600,
+    "h": 848,
+    "sourceWidth": 600,
+    "sourceHeight": 848
   },
   "sea-of-rhun": {
     "f": "Ted_Nasmith_-_The_Sea_of_Rhûn.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The Sea of Rhûn",
-    "d": "assets/images/sea-of-rhun.webp"
+    "d": "assets/images/sea-of-rhun.webp",
+    "w": 1200,
+    "h": 434,
+    "sourceWidth": 1920,
+    "sourceHeight": 695
   },
   "rhun": {
     "f": "The_Lord_of_the_Rings_(film_series)_-_Rhun_map.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings (film series) - Rhun map",
-    "d": "assets/images/rhun.webp"
+    "d": "assets/images/rhun.webp",
+    "w": 443,
+    "h": 555,
+    "sourceWidth": 443,
+    "sourceHeight": 555
   },
   "lothlorien": {
     "f": "J.R.R._Tolkien_-_The_Forest_of_Lothlorien_in_Spring.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - The Forest of Lothlorien in Spring",
-    "d": "assets/images/lothlorien.webp"
+    "d": "assets/images/lothlorien.webp",
+    "w": 717,
+    "h": 1000,
+    "sourceWidth": 717,
+    "sourceHeight": 1000
   },
   "caras-galadhon": {
     "f": "Ted_Nasmith_-_The_Great_Tree_at_Caras_Galadhon.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The Great Tree at Caras Galadhon",
-    "d": "assets/images/caras-galadhon.webp"
+    "d": "assets/images/caras-galadhon.webp",
+    "w": 1200,
+    "h": 1167,
+    "sourceWidth": 1600,
+    "sourceHeight": 1556
   },
   "silverlode": {
     "f": "Anna_Kulisz_-_Galadriels_Song.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Anna Kulisz",
     "o": "Anna Kulisz - Galadriels Song",
-    "d": "assets/images/silverlode.webp"
+    "d": "assets/images/silverlode.webp",
+    "w": 1000,
+    "h": 714,
+    "sourceWidth": 1000,
+    "sourceHeight": 714
   },
   "fangorn-forest": {
     "f": "J.R.R._Tolkien_-_Fangorn_Forest.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Fangorn Forest",
-    "d": "assets/images/fangorn-forest.webp"
+    "d": "assets/images/fangorn-forest.webp",
+    "w": 1000,
+    "h": 747,
+    "sourceWidth": 1000,
+    "sourceHeight": 747
   },
   "emyn-muil": {
     "f": "Ted_Nasmith_-_No_Way_Down.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - No Way Down",
-    "d": "assets/images/emyn-muil.webp"
+    "d": "assets/images/emyn-muil.webp",
+    "w": 550,
+    "h": 357,
+    "sourceWidth": 550,
+    "sourceHeight": 357
   },
   "argonath": {
     "f": "Donato_Giancola_-_The_Argonath.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Donato Giancola",
     "o": "Donato Giancola - The Argonath",
-    "d": "assets/images/argonath.webp"
+    "d": "assets/images/argonath.webp",
+    "w": 1200,
+    "h": 1202,
+    "sourceWidth": 1996,
+    "sourceHeight": 2000
   },
   "nen-hithoel": {
     "f": "Francesco_Amadio_-_Rauros.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Francesco Amadio",
     "o": "Francesco Amadio - Rauros",
-    "d": "assets/images/nen-hithoel.webp"
+    "d": "assets/images/nen-hithoel.webp",
+    "w": 1024,
+    "h": 1095,
+    "sourceWidth": 1024,
+    "sourceHeight": 1095
   },
   "amon-hen": {
     "f": "Scott_Peery_-_Amon_Hen.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Scott Peery",
     "o": "Scott Peery - Amon Hen",
-    "d": "assets/images/amon-hen.webp"
+    "d": "assets/images/amon-hen.webp",
+    "w": 900,
+    "h": 660,
+    "sourceWidth": 900,
+    "sourceHeight": 660
   },
   "falls-of-rauros": {
     "f": "J.R.R._Tolkien_-_Rauros_Falls_&_the_Tindrock.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Rauros Falls & the Tindrock",
-    "d": "assets/images/falls-of-rauros.webp"
+    "d": "assets/images/falls-of-rauros.webp",
+    "w": 470,
+    "h": 725,
+    "sourceWidth": 470,
+    "sourceHeight": 725
   },
   "dead-marshes": {
     "f": "Alan_Lee_-_The_Passage_of_the_Marshes.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Passage of the Marshes",
-    "d": "assets/images/dead-marshes.webp"
+    "d": "assets/images/dead-marshes.webp",
+    "w": 601,
+    "h": 973,
+    "sourceWidth": 601,
+    "sourceHeight": 973
   },
   "dagorlad": {
     "f": "The_Lord_of_the_Rings_-_The_Return_of_the_King_-_Dagorlad.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings - The Return of the King - Dagorlad",
-    "d": "assets/images/dagorlad.webp"
+    "d": "assets/images/dagorlad.webp",
+    "w": 788,
+    "h": 396,
+    "sourceWidth": 788,
+    "sourceHeight": 396
   },
   "rohan": {
     "f": "Jef_Murray_-_Edoras.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - Edoras",
-    "d": "assets/images/rohan.webp"
+    "d": "assets/images/rohan.webp",
+    "w": 800,
+    "h": 497,
+    "sourceWidth": 800,
+    "sourceHeight": 497
   },
   "edoras": {
     "f": "Jef_Murray_-_Edoras.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - Edoras",
-    "d": "assets/images/edoras.webp"
+    "d": "assets/images/edoras.webp",
+    "w": 800,
+    "h": 497,
+    "sourceWidth": 800,
+    "sourceHeight": 497
   },
   "meduseld": {
     "f": "Jef_Murray_-_Meduseld.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - Meduseld",
-    "d": "assets/images/meduseld.webp"
+    "d": "assets/images/meduseld.webp",
+    "w": 492,
+    "h": 800,
+    "sourceWidth": 492,
+    "sourceHeight": 800
   },
   "dunharrow": {
     "f": "Ted_Nasmith_-_Dunharrow.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - Dunharrow",
-    "d": "assets/images/dunharrow.webp"
+    "d": "assets/images/dunharrow.webp",
+    "w": 288,
+    "h": 245,
+    "sourceWidth": 288,
+    "sourceHeight": 245
   },
   "dwimorberg": {
     "f": "The_Lord_of_the_Rings_Online_-_Dwimorberg.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Dwimorberg",
-    "d": "assets/images/dwimorberg.webp"
+    "d": "assets/images/dwimorberg.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "paths-of-the-dead": {
     "f": "Darrell_Sweet_-_The_Paths_of_the_Dead.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Darrell Sweet - The Paths of the Dead",
-    "d": "assets/images/paths-of-the-dead.webp"
+    "d": "assets/images/paths-of-the-dead.webp",
+    "w": 1200,
+    "h": 1121,
+    "sourceWidth": 1285,
+    "sourceHeight": 1201
   },
   "harrowdale": {
     "f": "The_Lord_of_the_Rings_Online_-_Harrowdale.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Harrowdale",
-    "d": "assets/images/harrowdale.webp"
+    "d": "assets/images/harrowdale.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "starkhorn": {
     "f": "The_Lord_of_the_Rings_Online_-_Starkhorn.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Starkhorn",
-    "d": "assets/images/starkhorn.webp"
+    "d": "assets/images/starkhorn.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "snowbourn": {
     "f": "The_Lord_of_the_Rings_Online_-_Snowbourn.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Snowbourn",
-    "d": "assets/images/snowbourn.webp"
+    "d": "assets/images/snowbourn.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "helms-deep": {
     "f": "J.R.R._Tolkien_-_Helm's_Deep_and_the_Hornburg.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Helm's Deep and the Hornburg",
-    "d": "assets/images/helms-deep.webp"
+    "d": "assets/images/helms-deep.webp",
+    "w": 514,
+    "h": 478,
+    "sourceWidth": 514,
+    "sourceHeight": 478
   },
   "hornburg": {
     "f": "Jeremy_Bennett_-_Helm's_Deep.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Jeremy Bennett - Helm's Deep",
-    "d": "assets/images/hornburg.webp"
+    "d": "assets/images/hornburg.webp",
+    "w": 441,
+    "h": 274,
+    "sourceWidth": 441,
+    "sourceHeight": 274
   },
   "aglarond": {
     "f": "Ted_Nasmith_-_The_Glittering_Caves.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The Glittering Caves",
-    "d": "assets/images/aglarond.webp"
+    "d": "assets/images/aglarond.webp",
+    "w": 864,
+    "h": 1151,
+    "sourceWidth": 864,
+    "sourceHeight": 1151
   },
   "thrihyrne": {
     "f": "J.R.R._Tolkien_-_Helm's_Deep_and_the_Hornburg.jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Helm's Deep and the Hornburg",
-    "d": "assets/images/thrihyrne.webp"
+    "d": "assets/images/thrihyrne.webp",
+    "w": 514,
+    "h": 478,
+    "sourceWidth": 514,
+    "sourceHeight": 478
   },
   "westfold": {
     "f": "The_Lord_of_the_Rings_Online_-_Westfold.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Westfold",
-    "d": "assets/images/westfold.webp"
+    "d": "assets/images/westfold.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "eastfold": {
     "f": "The_Lord_of_the_Rings_Online_-_Eastfold.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Eastfold",
-    "d": "assets/images/eastfold.webp"
+    "d": "assets/images/eastfold.webp",
+    "w": 1200,
+    "h": 621,
+    "sourceWidth": 1902,
+    "sourceHeight": 985
   },
   "westemnet": {
     "f": "The_Lord_of_the_Rings_-_The_Two_Towers_-_Westemnet_Village.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings - The Two Towers - Westemnet Village",
-    "d": "assets/images/westemnet.webp"
+    "d": "assets/images/westemnet.webp",
+    "w": 813,
+    "h": 395,
+    "sourceWidth": 813,
+    "sourceHeight": 395
   },
   "eastemnet": {
     "f": "The_Lord_of_the_Rings_-_The_Two_Towers_-_Eastemnet_Gullies.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings - The Two Towers - Eastemnet Gullies",
-    "d": "assets/images/eastemnet.webp"
+    "d": "assets/images/eastemnet.webp",
+    "w": 785,
+    "h": 394,
+    "sourceWidth": 785,
+    "sourceHeight": 394
   },
   "entwash": {
     "f": "Jef_Murray_-_Entwash.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - Entwash",
-    "d": "assets/images/entwash.webp"
+    "d": "assets/images/entwash.webp",
+    "w": 800,
+    "h": 509,
+    "sourceWidth": 800,
+    "sourceHeight": 509
   },
   "fords-of-isen": {
     "f": "Matěj_Čadil_-_Ethraid_Engrin.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Ethraid Engrin",
-    "d": "assets/images/fords-of-isen.webp"
+    "d": "assets/images/fords-of-isen.webp",
+    "w": 1200,
+    "h": 686,
+    "sourceWidth": 1448,
+    "sourceHeight": 828
   },
   "isen": {
     "f": "Alan_Lee_-_The_Road_to_Isengard.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Road to Isengard",
-    "d": "assets/images/isen.webp"
+    "d": "assets/images/isen.webp",
+    "w": 608,
+    "h": 1103,
+    "sourceWidth": 608,
+    "sourceHeight": 1103
   },
   "gap-of-rohan": {
     "f": "The_Lord_of_the_Rings_Online_-_Gap_of_Rohan.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Gap of Rohan",
-    "d": "assets/images/gap-of-rohan.webp"
+    "d": "assets/images/gap-of-rohan.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "isengard": {
     "f": "Ted_Nasmith_-_Orthanc_in_the_Second_Age.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - Orthanc in the Second Age",
-    "d": "assets/images/isengard.webp"
+    "d": "assets/images/isengard.webp",
+    "w": 1120,
+    "h": 960,
+    "sourceWidth": 1120,
+    "sourceHeight": 960
   },
   "orthanc": {
     "f": "Alan_Lee_-_The_Voice_of_Saruman.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Voice of Saruman",
-    "d": "assets/images/orthanc.webp"
+    "d": "assets/images/orthanc.webp",
+    "w": 962,
+    "h": 1561,
+    "sourceWidth": 962,
+    "sourceHeight": 1561
   },
   "nan-curunir": {
     "f": "Matěj_Čadil_-_Autumn_at_Isengard.jpeg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Autumn at Isengard",
-    "d": "assets/images/nan-curunir.webp"
+    "d": "assets/images/nan-curunir.webp",
+    "w": 1200,
+    "h": 952,
+    "sourceWidth": 1600,
+    "sourceHeight": 1270
   },
   "firien-wood": {
     "f": "The_Lord_of_the_Rings_Online_-_Firienholt.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Firienholt",
-    "d": "assets/images/firien-wood.webp"
+    "d": "assets/images/firien-wood.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "great-west-road": {
     "f": "The_Lord_of_the_Rings_Online_-_Great_West_Road.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Great West Road",
-    "d": "assets/images/great-west-road.webp"
+    "d": "assets/images/great-west-road.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "gondor": {
     "f": "Abe_Papakhian_-_Minas_Tirith.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Abe Papakhian",
     "o": "Abe Papakhian - Minas Tirith",
-    "d": "assets/images/gondor.webp"
+    "d": "assets/images/gondor.webp",
+    "w": 1200,
+    "h": 874,
+    "sourceWidth": 2653,
+    "sourceHeight": 1934
   },
   "minas-tirith": {
     "f": "Ralph_Damiani_-_Across_Middle-earth_-_The_White_City.png",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ralph Damiani",
     "o": "Ralph Damiani - Across Middle-earth - The White City",
-    "d": "assets/images/minas-tirith.webp"
+    "d": "assets/images/minas-tirith.webp",
+    "w": 1200,
+    "h": 601,
+    "sourceWidth": 1914,
+    "sourceHeight": 960
   },
   "white-tower": {
     "f": "Jef_Murray_-_The_Tower_of_Ecthelion.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Jef Murray",
     "o": "Jef Murray - The Tower of Ecthelion",
-    "d": "assets/images/white-tower.webp"
+    "d": "assets/images/white-tower.webp",
+    "w": 492,
+    "h": 800,
+    "sourceWidth": 492,
+    "sourceHeight": 800
   },
   "pelennor-fields": {
     "f": "Alan_Lee_-_The_Last_Debate.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Last Debate",
-    "d": "assets/images/pelennor-fields.webp"
+    "d": "assets/images/pelennor-fields.webp",
+    "w": 627,
+    "h": 1004,
+    "sourceWidth": 627,
+    "sourceHeight": 1004
   },
   "rammas-echor": {
     "f": "Rammas_Echor.png",
     "l": "Copyrighted, fair-use",
     "o": "Rammas Echor",
-    "d": "assets/images/rammas-echor.webp"
+    "d": "assets/images/rammas-echor.webp",
+    "w": 640,
+    "h": 480,
+    "sourceWidth": 640,
+    "sourceHeight": 480
   },
   "osgiliath": {
     "f": "Alan_Lee_-_The_Window_on_the_West.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Window on the West",
-    "d": "assets/images/osgiliath.webp"
+    "d": "assets/images/osgiliath.webp",
+    "w": 602,
+    "h": 1037,
+    "sourceWidth": 602,
+    "sourceHeight": 1037
   },
   "cair-andros": {
     "f": "Roger_Garland_-_Middle-earth_Panorama_(Rauros).jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Roger Garland",
     "o": "Roger Garland - Middle-earth Panorama (Rauros)",
-    "d": "assets/images/cair-andros.webp"
+    "d": "assets/images/cair-andros.webp",
+    "w": 794,
+    "h": 1250,
+    "sourceWidth": 794,
+    "sourceHeight": 1250
   },
   "anorien": {
     "f": "The_Lord_of_the_Rings_Online_-_Anórien.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Anórien",
-    "d": "assets/images/anorien.webp"
+    "d": "assets/images/anorien.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "druadan-forest": {
     "f": "Gail_McIntosh_-_Drúadan_Forest.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Gail McIntosh",
     "o": "Gail McIntosh - Drúadan Forest",
-    "d": "assets/images/druadan-forest.webp"
+    "d": "assets/images/druadan-forest.webp",
+    "w": 286,
+    "h": 243,
+    "sourceWidth": 286,
+    "sourceHeight": 243
   },
   "amon-din": {
     "f": "Lída_Holubová_-_Amon_Din.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Lída Holubová",
     "o": "Lída Holubová - Amon Din",
-    "d": "assets/images/amon-din.webp"
+    "d": "assets/images/amon-din.webp",
+    "w": 1024,
+    "h": 1292,
+    "sourceWidth": 1024,
+    "sourceHeight": 1292
   },
   "halifirien": {
     "f": "Matěj_Čadil_-_The_Path_to_Amon_Anwar.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - The Path to Amon Anwar",
-    "d": "assets/images/halifirien.webp"
+    "d": "assets/images/halifirien.webp",
+    "w": 800,
+    "h": 798,
+    "sourceWidth": 800,
+    "sourceHeight": 798
   },
   "lossarnach": {
     "f": "The_Lord_of_the_Rings_Online_-_Lossarnach.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Lossarnach",
-    "d": "assets/images/lossarnach.webp"
+    "d": "assets/images/lossarnach.webp",
+    "w": 1200,
+    "h": 630,
+    "sourceWidth": 1904,
+    "sourceHeight": 1001
   },
   "lebennin": {
     "f": "The_Lord_of_the_Rings_Online_-_Lebennin.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Lebennin",
-    "d": "assets/images/lebennin.webp"
+    "d": "assets/images/lebennin.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "pelargir": {
     "f": "Roger_Garland_-_Middle-earth_Panorama_(Pelargir).jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Roger Garland",
     "o": "Roger Garland - Middle-earth Panorama (Pelargir)",
-    "d": "assets/images/pelargir.webp"
+    "d": "assets/images/pelargir.webp",
+    "w": 815,
+    "h": 1285,
+    "sourceWidth": 815,
+    "sourceHeight": 1285
   },
   "ethir-anduin": {
     "f": "The_Return_of_the_King_(1980_film)_-_Ethir_Anduin.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Return of the King (1980 film) - Ethir Anduin",
-    "d": "assets/images/ethir-anduin.webp"
+    "d": "assets/images/ethir-anduin.webp",
+    "w": 688,
+    "h": 432,
+    "sourceWidth": 688,
+    "sourceHeight": 432
   },
   "lamedon": {
     "f": "The_Lord_of_the_Rings_Online_-_Lamedon.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Lamedon",
-    "d": "assets/images/lamedon.webp"
+    "d": "assets/images/lamedon.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "morthond": {
     "f": "The_Lord_of_the_Rings_Online_-_Morthond.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Morthond",
-    "d": "assets/images/morthond.webp"
+    "d": "assets/images/morthond.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "stone-of-erech": {
     "f": "Abe_Papakhian_-_Oathbreakers,_Why_Have_Ye_Come.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Abe Papakhian",
     "o": "Abe Papakhian - Oathbreakers, Why Have Ye Come",
-    "d": "assets/images/stone-of-erech.webp"
+    "d": "assets/images/stone-of-erech.webp",
+    "w": 792,
+    "h": 676,
+    "sourceWidth": 792,
+    "sourceHeight": 676
   },
   "belfalas": {
     "f": "The_Lord_of_the_Rings_Online_-_Belfalas.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Belfalas",
-    "d": "assets/images/belfalas.webp"
+    "d": "assets/images/belfalas.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "dol-amroth": {
     "f": "Ted_Nasmith_-_Dol_Amroth.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - Dol Amroth",
-    "d": "assets/images/dol-amroth.webp"
+    "d": "assets/images/dol-amroth.webp",
+    "w": 1200,
+    "h": 817,
+    "sourceWidth": 1200,
+    "sourceHeight": 817
   },
   "bay-of-belfalas": {
     "f": "The_Lord_of_the_Rings_Online_-_Bay_of_Belfalas.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Bay of Belfalas",
-    "d": "assets/images/bay-of-belfalas.webp"
+    "d": "assets/images/bay-of-belfalas.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "pinnath-gelin": {
     "f": "Peter_Xavier_Price_-_Pinnath_Gelin.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Peter Xavier Price",
     "o": "Peter Xavier Price - Pinnath Gelin",
-    "d": "assets/images/pinnath-gelin.webp"
+    "d": "assets/images/pinnath-gelin.webp",
+    "w": 1018,
+    "h": 705,
+    "sourceWidth": 1018,
+    "sourceHeight": 705
   },
   "anfalas": {
     "f": "The_Lord_of_the_Rings_Online_-_Anfalas.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Anfalas",
-    "d": "assets/images/anfalas.webp"
+    "d": "assets/images/anfalas.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 2560,
+    "sourceHeight": 1440
   },
   "andrast": {
     "f": "Nicholas_Gregory_-_The_Cape_of_Andrast.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Nicholas Gregory - The Cape of Andrast",
-    "d": "assets/images/andrast.webp"
+    "d": "assets/images/andrast.webp",
+    "w": 405,
+    "h": 168,
+    "sourceWidth": 405,
+    "sourceHeight": 168
   },
   "ered-nimrais": {
     "f": "Raine_Kuusi_-_Dusk.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Raine Kuusi",
     "o": "Raine Kuusi - Dusk",
-    "d": "assets/images/ered-nimrais.webp"
+    "d": "assets/images/ered-nimrais.webp",
+    "w": 1200,
+    "h": 500,
+    "sourceWidth": 1550,
+    "sourceHeight": 646
   },
   "ithilien": {
     "f": "Ted_Nasmith_-_First_Sight_of_Ithilien.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - First Sight of Ithilien",
-    "d": "assets/images/ithilien.webp"
+    "d": "assets/images/ithilien.webp",
+    "w": 530,
+    "h": 314,
+    "sourceWidth": 530,
+    "sourceHeight": 314
   },
   "henneth-annun": {
     "f": "Ted_Nasmith_-_Henneth_Annûn.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - Henneth Annûn",
-    "d": "assets/images/henneth-annun.webp"
+    "d": "assets/images/henneth-annun.webp",
+    "w": 399,
+    "h": 335,
+    "sourceWidth": 399,
+    "sourceHeight": 335
   },
   "cross-roads": {
     "f": "Ted_Nasmith_-_At_the_Cross-roads.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - At the Cross-roads",
-    "d": "assets/images/cross-roads.webp"
+    "d": "assets/images/cross-roads.webp",
+    "w": 309,
+    "h": 450,
+    "sourceWidth": 309,
+    "sourceHeight": 450
   },
   "emyn-arnen": {
     "f": "Igor_Kieryluk_-_Emyn_Arnen_Overlook.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Igor Kieryluk - Emyn Arnen Overlook",
-    "d": "assets/images/emyn-arnen.webp"
+    "d": "assets/images/emyn-arnen.webp",
+    "w": 428,
+    "h": 291,
+    "sourceWidth": 428,
+    "sourceHeight": 291
   },
   "field-of-cormallen": {
     "f": "Miriam_Ellis_-_Periannath_on_the_Field_of_Cormallen.jpg",
@@ -1257,19 +2009,31 @@ window.IMG = {
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Miriam Ellis",
     "a": "Miriam Ellis",
     "o": "Miriam Ellis - Periannath on the Field of Cormallen",
-    "d": "assets/images/field-of-cormallen.webp"
+    "d": "assets/images/field-of-cormallen.webp",
+    "w": 800,
+    "h": 959,
+    "sourceWidth": 800,
+    "sourceHeight": 959
   },
   "harondor": {
     "f": "Stephen_Raw_-_Middle-earth_map_(4_of_4).png",
     "l": "Copyrighted, fair-use",
     "o": "Stephen Raw - Middle-earth map (4 of 4)",
-    "d": "assets/images/harondor.webp"
+    "d": "assets/images/harondor.webp",
+    "w": 1200,
+    "h": 745,
+    "sourceWidth": 2000,
+    "sourceHeight": 1243
   },
   "harad-road": {
     "f": "The_Lord_of_the_Rings_Online_-_Harad_Road.jpg",
     "l": "Copyrighted, fair-use",
     "o": "The Lord of the Rings Online - Harad Road",
-    "d": "assets/images/harad-road.webp"
+    "d": "assets/images/harad-road.webp",
+    "w": 1200,
+    "h": 675,
+    "sourceWidth": 1920,
+    "sourceHeight": 1080
   },
   "mordor": {
     "f": "Ted_Nasmith_-_Across_Gorgoroth.jpg",
@@ -1277,34 +2041,54 @@ window.IMG = {
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - Across Gorgoroth",
-    "d": "assets/images/mordor.webp"
+    "d": "assets/images/mordor.webp",
+    "w": 1100,
+    "h": 843,
+    "sourceWidth": 1100,
+    "sourceHeight": 843
   },
   "barad-dur": {
     "f": "J.R.R._Tolkien_-_Barad-dur.jpg",
     "l": "Copyrighted, fair-use",
     "a": "J.R.R. Tolkien",
     "o": "J.R.R. Tolkien - Barad-dur",
-    "d": "assets/images/barad-dur.webp"
+    "d": "assets/images/barad-dur.webp",
+    "w": 792,
+    "h": 1000,
+    "sourceWidth": 792,
+    "sourceHeight": 1000
   },
   "mount-doom": {
     "f": "Alan_Lee_-_Mount_Doom.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - Mount Doom",
-    "d": "assets/images/mount-doom.webp"
+    "d": "assets/images/mount-doom.webp",
+    "w": 608,
+    "h": 990,
+    "sourceWidth": 608,
+    "sourceHeight": 990
   },
   "sammath-naur": {
     "f": "Tim_Kirk_-_The_Cracks_of_Doom.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Tim Kirk",
     "o": "Tim Kirk - The Cracks of Doom",
-    "d": "assets/images/sammath-naur.webp"
+    "d": "assets/images/sammath-naur.webp",
+    "w": 940,
+    "h": 1250,
+    "sourceWidth": 940,
+    "sourceHeight": 1250
   },
   "destruction-of-the-ring": {
     "f": "Steven_White_Jr._-_Frodo's_Journey.gif",
     "o": "Steven White Jr. - Frodo's Journey",
     "d": "assets/images/destruction-of-the-ring.webp",
-    "l": "Copyrighted, fair-use"
+    "l": "Copyrighted, fair-use",
+    "w": 600,
+    "h": 450,
+    "sourceWidth": 600,
+    "sourceHeight": 450
   },
   "gorgoroth": {
     "f": "Ted_Nasmith_-_Across_Gorgoroth.jpg",
@@ -1312,289 +2096,463 @@ window.IMG = {
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - Across Gorgoroth",
-    "d": "assets/images/gorgoroth.webp"
+    "d": "assets/images/gorgoroth.webp",
+    "w": 1100,
+    "h": 843,
+    "sourceWidth": 1100,
+    "sourceHeight": 843
   },
   "nurn": {
     "f": "Shadow_of_Mordor_-_Nurn.JPG",
     "l": "Copyrighted, fair-use",
     "a": "George Rushing",
     "o": "Shadow of Mordor - Nurn",
-    "d": "assets/images/nurn.webp"
+    "d": "assets/images/nurn.webp",
+    "w": 280,
+    "h": 187,
+    "sourceWidth": 2474,
+    "sourceHeight": 1395,
+    "sourceUnavailable": true
   },
   "sea-of-nurnen": {
     "f": "Shadow_of_Mordor_-_Sea_of_Núrnen.JPG",
     "l": "Copyrighted, fair-use",
     "o": "Shadow of Mordor - Sea of Núrnen",
-    "d": "assets/images/sea-of-nurnen.webp"
+    "d": "assets/images/sea-of-nurnen.webp",
+    "w": 280,
+    "h": 187,
+    "sourceWidth": 2495,
+    "sourceHeight": 1403,
+    "sourceUnavailable": true
   },
   "ered-lithui": {
     "f": "Kevin_Ward_-_Ash_Mountains.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Kevin Ward",
     "o": "Kevin Ward - Ash Mountains",
-    "d": "assets/images/ered-lithui.webp"
+    "d": "assets/images/ered-lithui.webp",
+    "w": 296,
+    "h": 252,
+    "sourceWidth": 296,
+    "sourceHeight": 252
   },
   "ephel-duath": {
     "f": "Rob_Alexander_-_Mountains_of_Shadow.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Mountains of Shadow",
-    "d": "assets/images/ephel-duath.webp"
+    "d": "assets/images/ephel-duath.webp",
+    "w": 525,
+    "h": 439,
+    "sourceWidth": 525,
+    "sourceHeight": 439
   },
   "morannon": {
     "f": "John_Howe_-_The_Black_Gates.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/John Howe",
     "o": "John Howe - The Black Gates",
-    "d": "assets/images/morannon.webp"
+    "d": "assets/images/morannon.webp",
+    "w": 441,
+    "h": 696,
+    "sourceWidth": 441,
+    "sourceHeight": 696
   },
   "towers-of-the-teeth": {
     "f": "Pauline_Baynes_-_The_Teeth_of_Mordor.jpeg",
     "l": "Copyrighted, fair-use",
     "o": "Pauline Baynes - The Teeth of Mordor",
-    "d": "assets/images/towers-of-the-teeth.webp"
+    "d": "assets/images/towers-of-the-teeth.webp",
+    "w": 810,
+    "h": 802,
+    "sourceWidth": 810,
+    "sourceHeight": 802
   },
   "cirith-gorgor": {
     "f": "Ted_Nasmith_-_Cirith_Gorgor.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Ted Nasmith",
     "o": "Ted Nasmith - Cirith Gorgor",
-    "d": "assets/images/cirith-gorgor.webp"
+    "d": "assets/images/cirith-gorgor.webp",
+    "w": 400,
+    "h": 336,
+    "sourceWidth": 400,
+    "sourceHeight": 336
   },
   "isenmouthe": {
     "f": "Darrell_Midgette_-_Carach_Angren.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Darrell Midgette - Carach Angren",
-    "d": "assets/images/isenmouthe.webp"
+    "d": "assets/images/isenmouthe.webp",
+    "w": 606,
+    "h": 374,
+    "sourceWidth": 606,
+    "sourceHeight": 374
   },
   "morgai": {
     "f": "Matěj_Čadil_-_The_Morgai.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - The Morgai",
-    "d": "assets/images/morgai.webp"
+    "d": "assets/images/morgai.webp",
+    "w": 1200,
+    "h": 847,
+    "sourceWidth": 2000,
+    "sourceHeight": 1412
   },
   "cirith-ungol": {
     "f": "Rob_Alexander_-_Cirith_Ungol.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Rob Alexander",
     "o": "Rob Alexander - Cirith Ungol",
-    "d": "assets/images/cirith-ungol.webp"
+    "d": "assets/images/cirith-ungol.webp",
+    "w": 508,
+    "h": 420,
+    "sourceWidth": 508,
+    "sourceHeight": 420
   },
   "tower-of-cirith-ungol": {
     "f": "Alan_Lee_-_Cirith_Ungol.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - Cirith Ungol",
-    "d": "assets/images/tower-of-cirith-ungol.webp"
+    "d": "assets/images/tower-of-cirith-ungol.webp",
+    "w": 456,
+    "h": 740,
+    "sourceWidth": 456,
+    "sourceHeight": 740
   },
   "minas-morgul": {
     "f": "Ted_Nasmith_-_The_Tower_of_the_Moon.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The Tower of the Moon",
-    "d": "assets/images/minas-morgul.webp"
+    "d": "assets/images/minas-morgul.webp",
+    "w": 329,
+    "h": 450,
+    "sourceWidth": 329,
+    "sourceHeight": 450
   },
   "morgul-vale": {
     "f": "Soni_Alcorn-Hender_-_Morgul_Vale.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Soni Alcorn-Hender",
     "o": "Soni Alcorn-Hender - Morgul Vale",
-    "d": "assets/images/morgul-vale.webp"
+    "d": "assets/images/morgul-vale.webp",
+    "w": 415,
+    "h": 622,
+    "sourceWidth": 415,
+    "sourceHeight": 622
   },
   "battle-of-the-morannon": {
     "f": "Ted_Nasmith_-_Battle_of_the_Black_Gate.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - Battle of the Black Gate",
-    "d": "assets/images/battle-of-the-morannon.webp"
+    "d": "assets/images/battle-of-the-morannon.webp",
+    "w": 1200,
+    "h": 673,
+    "sourceWidth": 4096,
+    "sourceHeight": 2298
   },
   "siege-of-barad-dur": {
     "f": "Abe_Papakhian_-_I_Behold_(colour).jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Abe Papakhian",
     "o": "Abe Papakhian - I Behold (colour)",
-    "d": "assets/images/siege-of-barad-dur.webp"
+    "d": "assets/images/siege-of-barad-dur.webp",
+    "w": 1200,
+    "h": 763,
+    "sourceWidth": 1280,
+    "sourceHeight": 814
   },
   "harad": {
     "f": "Christopher_Tolkien_-_Map_of_Harad.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Christopher Tolkien - Map of Harad",
-    "d": "assets/images/harad.webp"
+    "d": "assets/images/harad.webp",
+    "w": 1200,
+    "h": 573,
+    "sourceWidth": 1270,
+    "sourceHeight": 607
   },
   "near-harad": {
     "f": "Christopher_Tolkien_-_Map_of_Harad.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Christopher Tolkien - Map of Harad",
-    "d": "assets/images/near-harad.webp"
+    "d": "assets/images/near-harad.webp",
+    "w": 1200,
+    "h": 573,
+    "sourceWidth": 1270,
+    "sourceHeight": 607
   },
   "far-harad": {
     "f": "Christopher_Tolkien_-_Map_of_Harad.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Christopher Tolkien - Map of Harad",
-    "d": "assets/images/far-harad.webp"
+    "d": "assets/images/far-harad.webp",
+    "w": 1200,
+    "h": 573,
+    "sourceWidth": 1270,
+    "sourceHeight": 607
   },
   "haradwaith": {
     "f": "Christopher_Tolkien_-_Map_of_Harad.jpg",
     "l": "Copyrighted, fair-use",
     "o": "Christopher Tolkien - Map of Harad",
-    "d": "assets/images/haradwaith.webp"
+    "d": "assets/images/haradwaith.webp",
+    "w": 1200,
+    "h": 573,
+    "sourceWidth": 1270,
+    "sourceHeight": 607
   },
   "conquest-of-harad": {
     "f": "Matěj_Čadil_-_Hyarmendacil_I_of_Gondor.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Hyarmendacil I of Gondor",
-    "d": "assets/images/conquest-of-harad.webp"
+    "d": "assets/images/conquest-of-harad.webp",
+    "w": 1112,
+    "h": 1600,
+    "sourceWidth": 3292,
+    "sourceHeight": 4733
   },
   "umbar": {
     "f": "Turner_Mohan_-_Umbar.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Turner Mohan",
     "o": "Turner Mohan - Umbar",
-    "d": "assets/images/umbar.webp"
+    "d": "assets/images/umbar.webp",
+    "w": 1024,
+    "h": 666,
+    "sourceWidth": 1024,
+    "sourceHeight": 666
   },
   "havens-of-umbar": {
     "f": "Turner_Mohan_-_Umbar.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Turner Mohan",
     "o": "Turner Mohan - Umbar",
-    "d": "assets/images/havens-of-umbar.webp"
+    "d": "assets/images/havens-of-umbar.webp",
+    "w": 1024,
+    "h": 666,
+    "sourceWidth": 1024,
+    "sourceHeight": 666
   },
   "capture-of-umbar": {
     "f": "Matěj_Čadil_-_Earnil_I_of_Gondor.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Earnil I of Gondor",
-    "d": "assets/images/capture-of-umbar.webp"
+    "d": "assets/images/capture-of-umbar.webp",
+    "w": 1116,
+    "h": 1600,
+    "sourceWidth": 4394,
+    "sourceHeight": 6296
   },
   "siege-of-umbar": {
     "f": "Matěj_Čadil_-_Ciryandil_of_Gondor.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Ciryandil of Gondor",
-    "d": "assets/images/siege-of-umbar.webp"
+    "d": "assets/images/siege-of-umbar.webp",
+    "w": 1119,
+    "h": 1600,
+    "sourceWidth": 3301,
+    "sourceHeight": 4716
   },
   "raid-on-umbar": {
     "f": "Yulia_Alekseeva_-_Aragorn_in_Rivendell.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Yulia Alekseeva",
     "o": "Yulia Alekseeva - Aragorn in Rivendell",
-    "d": "assets/images/raid-on-umbar.webp"
+    "d": "assets/images/raid-on-umbar.webp",
+    "w": 650,
+    "h": 905,
+    "sourceWidth": 650,
+    "sourceHeight": 905
   },
   "khand": {
     "f": "Stephen_Raw_-_Middle-earth_map_(4_of_4).png",
     "l": "Copyrighted, fair-use",
     "o": "Stephen Raw - Middle-earth map (4 of 4)",
-    "d": "assets/images/khand.webp"
+    "d": "assets/images/khand.webp",
+    "w": 1200,
+    "h": 745,
+    "sourceWidth": 2000,
+    "sourceHeight": 1243
   },
   "fall-of-amon-sul": {
     "f": "Fall_of_Amon_Sul_RotWK.png",
     "l": "Copyrighted, fair-use",
     "o": "Fall of Amon Sul RotWK",
-    "d": "assets/images/fall-of-amon-sul.webp"
+    "d": "assets/images/fall-of-amon-sul.webp",
+    "w": 615,
+    "h": 350,
+    "sourceWidth": 615,
+    "sourceHeight": 350
   },
   "battle-of-the-gwathlo": {
     "f": "Anke_Eißmann_-_Journeying_up_Gwathlo.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Anke Eißmann",
     "o": "Anke Eißmann - Journeying up Gwathlo",
-    "d": "assets/images/battle-of-the-gwathlo.webp"
+    "d": "assets/images/battle-of-the-gwathlo.webp",
+    "w": 510,
+    "h": 716,
+    "sourceWidth": 510,
+    "sourceHeight": 716
   },
   "fall-of-erebor": {
     "f": "J.R.R._Tolkien_-_Conversation_with_Smaug_(large).jpg",
     "l": "Copyrighted, fair-use",
     "o": "J.R.R. Tolkien - Conversation with Smaug (large)",
-    "d": "assets/images/fall-of-erebor.webp"
+    "d": "assets/images/fall-of-erebor.webp",
+    "w": 1200,
+    "h": 1514,
+    "sourceWidth": 1713,
+    "sourceHeight": 2162
   },
   "battle-of-the-pelennor-fields": {
     "f": "Per_Sjögren_-_The_Battle_of_the_Pelennor_Fields.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Per Sjögren",
     "o": "Per Sjögren - The Battle of the Pelennor Fields",
-    "d": "assets/images/battle-of-the-pelennor-fields.webp"
+    "d": "assets/images/battle-of-the-pelennor-fields.webp",
+    "w": 1100,
+    "h": 812,
+    "sourceWidth": 1100,
+    "sourceHeight": 812
   },
   "battle-of-the-hornburg": {
     "f": "Alan_Lee_-_The_Battle_of_the_Hornburg.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Battle of the Hornburg",
-    "d": "assets/images/battle-of-the-hornburg.webp"
+    "d": "assets/images/battle-of-the-hornburg.webp",
+    "w": 956,
+    "h": 1551,
+    "sourceWidth": 956,
+    "sourceHeight": 1551
   },
   "battle-of-the-crossings-of-poros": {
     "f": "Douglas_Chaffee_-_Haudh_in_Gwanur.jpg",
     "l": "Copyrighted, fair-use",
     "a": "Douglas Chaffee",
     "o": "Douglas Chaffee - Haudh in Gwanur",
-    "d": "assets/images/battle-of-the-crossings-of-poros.webp"
+    "d": "assets/images/battle-of-the-crossings-of-poros.webp",
+    "w": 287,
+    "h": 245,
+    "sourceWidth": 287,
+    "sourceHeight": 245
   },
   "battle-of-osgiliath-2475": {
     "f": "Alan_Lee_-_The_Window_on_the_West.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Window on the West",
-    "d": "assets/images/battle-of-osgiliath-2475.webp"
+    "d": "assets/images/battle-of-osgiliath-2475.webp",
+    "w": 602,
+    "h": 1037,
+    "sourceWidth": 602,
+    "sourceHeight": 1037
   },
   "fall-of-osgiliath-3018": {
     "f": "Alan_Lee_-_The_Window_on_the_West.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Alan Lee",
     "o": "Alan Lee - The Window on the West",
-    "d": "assets/images/fall-of-osgiliath-3018.webp"
+    "d": "assets/images/fall-of-osgiliath-3018.webp",
+    "w": 602,
+    "h": 1037,
+    "sourceWidth": 602,
+    "sourceHeight": 1037
   },
   "battle-of-cair-andros": {
     "f": "Roger_Garland_-_Middle-earth_Panorama_(Rauros).jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Roger Garland",
     "o": "Roger Garland - Middle-earth Panorama (Rauros)",
-    "d": "assets/images/battle-of-cair-andros.webp"
+    "d": "assets/images/battle-of-cair-andros.webp",
+    "w": 794,
+    "h": 1250,
+    "sourceWidth": 794,
+    "sourceHeight": 1250
   },
   "raid-on-pelargir-1634": {
     "f": "John_Howe_-_Corsairs_01.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/John Howe",
     "o": "John Howe - Corsairs 01",
-    "d": "assets/images/raid-on-pelargir-1634.webp"
+    "d": "assets/images/raid-on-pelargir-1634.webp",
+    "w": 534,
+    "h": 244,
+    "sourceWidth": 534,
+    "sourceHeight": 244
   },
   "siege-of-gondor": {
     "f": "Stephen_Hickman_-_Siege_of_Minas_Tirith.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Stephen Hickman",
     "o": "Stephen Hickman - Siege of Minas Tirith",
-    "d": "assets/images/siege-of-gondor.webp"
+    "d": "assets/images/siege-of-gondor.webp",
+    "w": 800,
+    "h": 394,
+    "sourceWidth": 800,
+    "sourceHeight": 394
   },
   "battle-of-pelargir-3019": {
     "f": "Ted_Nasmith_-_The_King_of_the_Oathbreakers.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Ted Nasmith",
     "o": "Ted Nasmith - The King of the Oathbreakers",
-    "d": "assets/images/battle-of-pelargir-3019.webp"
+    "d": "assets/images/battle-of-pelargir-3019.webp",
+    "w": 1157,
+    "h": 1600,
+    "sourceWidth": 1157,
+    "sourceHeight": 1600
   },
   "siege-of-the-hornburg-long-winter": {
     "f": "R._Ward_Shipman_-_Long_Winter.jpg",
     "l": "Copyrighted, fair-use",
     "a": "R. Ward Shipman",
     "o": "R. Ward Shipman - Long Winter",
-    "d": "assets/images/siege-of-the-hornburg-long-winter.webp"
+    "d": "assets/images/siege-of-the-hornburg-long-winter.webp",
+    "w": 295,
+    "h": 251,
+    "sourceWidth": 295,
+    "sourceHeight": 251
   },
   "wulfs-invasion-of-rohan": {
     "f": "R._Ward_Shipman_-_Long_Winter.jpg",
     "l": "Copyrighted, fair-use",
     "a": "R. Ward Shipman",
     "o": "R. Ward Shipman - Long Winter",
-    "d": "assets/images/wulfs-invasion-of-rohan.webp"
+    "d": "assets/images/wulfs-invasion-of-rohan.webp",
+    "w": 295,
+    "h": 251,
+    "sourceWidth": 295,
+    "sourceHeight": 251
   },
   "death-of-aldamir": {
     "f": "Matěj_Čadil_-_Aldamir_of_Gondor.jpg",
     "l": "Copyrighted, used with permission",
     "lu": "https://tolkiengateway.net/wiki/Tolkien Gateway:Copyrights/Matěj Čadil",
     "o": "Matěj Čadil - Aldamir of Gondor",
-    "d": "assets/images/death-of-aldamir.webp"
+    "d": "assets/images/death-of-aldamir.webp",
+    "w": 1113,
+    "h": 1600,
+    "sourceWidth": 1200,
+    "sourceHeight": 1724
   },
   "breach-of-the-rammas-echor": {
     "f": "Rammas_Echor.png",
     "l": "Copyrighted, fair-use",
     "o": "Rammas Echor",
-    "d": "assets/images/breach-of-the-rammas-echor.webp"
+    "d": "assets/images/breach-of-the-rammas-echor.webp",
+    "w": 640,
+    "h": 480,
+    "sourceWidth": 640,
+    "sourceHeight": 480
   }
 };

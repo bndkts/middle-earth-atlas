@@ -1027,7 +1027,7 @@ function renderPlace(p){
     const on = im.o || im.f.replace(/\.[a-z]+$/i, '').replace(/_/g, ' ');
     const m = /^(.+?)\s+-\s+(.+)$/.exec(on); const artist = m ? m[1] : on, title = m ? m[2] : '';
     const lic = /permission/i.test(im.l || '') ? '© ' + esc(artist) + ', used with permission on Tolkien Gateway' : /fair/i.test(im.l || '') ? '© rights holder · fair use via Tolkien Gateway' : im.l ? esc(im.l) + ' · via Tolkien Gateway' : 'via Tolkien Gateway';
-    fig = `<figure class="pimg"><img src="${im.d}" alt="${esc(on)}" width="280" height="187" loading="lazy"><figcaption>Artwork: <a href="${TG}File:${encodeURIComponent(im.f)}" target="_blank" rel="noopener">${esc(artist)}${title ? ' — <i>' + esc(title) + '</i>' : ''}</a><br>${lic}</figcaption></figure>`;
+    fig = `<figure class="pimg"><img src="${im.d}" alt="${esc(on)}" width="${im.w}" height="${im.h}" loading="lazy" decoding="async"><figcaption>Artwork: <a href="${TG}File:${encodeURIComponent(im.f)}" target="_blank" rel="noopener">${esc(artist)}${title ? ' — <i>' + esc(title) + '</i>' : ''}</a><br>${lic}</figcaption></figure>`;
   }
   el.innerHTML = `
     <button class="back" data-back>${ico('back')} Back</button>
