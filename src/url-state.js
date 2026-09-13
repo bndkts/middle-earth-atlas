@@ -12,17 +12,18 @@
     return y;
   }
   function parse(search, data, end = 3141){
-    const p = new URLSearchParams(search), result = {place:null,journey:null,event:null,year:null,error:null};
-    const fail = message => ({place:null,journey:null,event:null,year:null,error:message});
-    const keys = ['place','journey','event'].filter(key=>p.has(key));
-    if (keys.length > 1 || ['place','journey','event','age','year'].some(k=>p.getAll(k).length>1)) return fail('Choose one place, journey or event in the link.');
+    const p = new URLSearchParams(search), result = {place:null,journey:null,event:null,chapter:null,year:null,error:null};
+    const fail = message => ({place:null,journey:null,event:null,chapter:null,year:null,error:message});
+    const keys = ['place','journey','event','chapter'].filter(key=>p.has(key));
+    if (keys.length > 1 || ['place','journey','event','chapter','age','year'].some(k=>p.getAll(k).length>1)) return fail('Choose one place, journey, event or chapter in the link.');
     for (const key of keys) {
-      const collection = key === 'place' ? data.places : key === 'journey' ? data.journeys : data.timeline;
+      const collection = key === 'place' ? data.places : key === 'journey' ? data.journeys : key === 'chapter' ? data.chapters : data.timeline;
       const found = collection.find(item=>item.id===p.get(key));
       if (!found) return fail('That '+key+' was not found. Explore the atlas or try the search.');
       result[key] = found.id;
       if (key === 'event') result.year = found.absoluteYear;
     }
+    if (result.chapter && (p.has('age') || p.has('year'))) return fail('A chapter spans time and cannot be combined with a timeline year.');
     if (!result.event && (p.has('age') || p.has('year'))) {
       if (!p.has('age') || !/^\d+$/.test(p.get('year')||'')) return fail('Use both an age and a whole year in the link.');
       result.year = absoluteYear(p.get('age'),Number(p.get('year')),end);
@@ -36,6 +37,7 @@
     else {
       if (state.place) p.set('place',state.place);
       else if (state.journey) p.set('journey',state.journey);
+      else if (state.chapter) p.set('chapter',state.chapter);
       if (state.year != null) { const d = dateFromYear(state.year); p.set('age',d.age); p.set('year',d.year); }
     }
     return p.size ? '?'+p : '';

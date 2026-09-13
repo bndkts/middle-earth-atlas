@@ -17,13 +17,14 @@ function load(relativePath) {
 }
 
 load("src/data.js");
+load("src/chapters.js");
 load("src/images.js");
 
-const { places, journeys, timeline } = context.ATLAS_DATA ?? {};
+const { places, journeys, timeline, characters, chapters } = context.ATLAS_DATA ?? {};
 const images = context.IMG;
 
-if (!Array.isArray(places) || !Array.isArray(journeys) || !Array.isArray(timeline)) {
-  fail("ATLAS_DATA must contain places, journeys, and timeline arrays");
+if (!Array.isArray(places) || !Array.isArray(journeys) || !Array.isArray(timeline) || !Array.isArray(characters) || !Array.isArray(chapters)) {
+  fail("ATLAS_DATA must contain places, journeys, timeline, characters, and chapters arrays");
 }
 if (!images || typeof images !== "object" || Array.isArray(images)) {
   fail("IMG must be an object");
@@ -53,11 +54,15 @@ for (const [index, place] of places.entries()) {
   placeIds.add(place.id);
   if (typeof place.n !== "string" || !place.n.trim()) fail(`${label}.n is required`);
   if (!types.has(place.t)) fail(`${label} has an unknown type`);
+  if (!Array.isArray(place.alt) || !Array.isArray(place.ev) || !Array.isArray(place.pp)) fail(`${label} needs alt, ev, and pp arrays`);
+  for (const key of ['r','d','c']) if (typeof place[key] !== 'string' || !place[key].trim()) fail(`${label}.${key} is required`);
   coordinates(place, label);
   source(place.s, label);
   for (const key of ['f', 'to']) if (place[key] != null && !Number.isFinite(place[key])) fail(`${label}.${key} must be a year or null`);
   if (place.f != null && place.to != null && place.f > place.to) fail(`${label} has a reversed period`);
+  if (place.fi && !Number.isFinite(place.f)) fail(`${label} cannot estimate a missing start`);
   for (const event of place.ev || []) {
+    if (typeof event.t !== 'string' || !event.t.trim()) fail(`${label} has an empty chronicle entry`);
     if (!(event.a in ages) || !Number.isFinite(event.yr) || event.y !== event.yr + ages[event.a]) fail(`${label} has inconsistent chronicle dates`);
     // Chronicles may legitimately describe a ruin or an event commemorated later.
     // Only battle records themselves must contain their complete event interval.
@@ -93,6 +98,31 @@ for (const [index, event] of timeline.entries()) {
   if (!event.placeId && event.approximate !== true) fail(`${label} needs a placeId or approximate anchor`);
 }
 
+const characterIds = new Set();
+for (const [index, character] of characters.entries()) {
+  const label = `characters[${index}]`;
+  if (!/^[a-z0-9-]+$/.test(character.id ?? "") || characterIds.has(character.id)) fail(`${label} has an invalid or duplicate id`);
+  if (typeof character.name !== 'string' || !character.name.trim()) fail(`${label}.name is required`);
+  characterIds.add(character.id);
+}
+const chapterIds = new Set();
+const bookCounts = new Map();
+for (const [index, chapter] of chapters.entries()) {
+  const label = `chapters[${index}]`;
+  if (chapter.id !== `lotr-b${chapter.book}-c${String(chapter.chapter).padStart(2,'0')}` || chapterIds.has(chapter.id)) fail(`${label} has an invalid or duplicate id`);
+  if (chapter.work !== 'lotr' || typeof chapter.title !== 'string' || !chapter.title.trim()) fail(`${label} needs a work and title`);
+  if (!Array.isArray(chapter.locations) || !chapter.locations.length) fail(`${label} needs at least one location`);
+  chapterIds.add(chapter.id); bookCounts.set(chapter.book,(bookCounts.get(chapter.book)||0)+1);
+  for (const [locationIndex, location] of chapter.locations.entries()) {
+    const locationLabel = `${label}.locations[${locationIndex}]`;
+    if (!placeById.has(location.placeId)) fail(`${locationLabel} references unknown place: ${location.placeId}`);
+    if (!Array.isArray(location.characters) || !location.characters.length || new Set(location.characters).size !== location.characters.length) fail(`${locationLabel} needs unique characters`);
+    for (const id of location.characters) if (!characterIds.has(id)) fail(`${locationLabel} references unknown character: ${id}`);
+    if (typeof location.note !== 'string' || !location.note.trim()) fail(`${locationLabel}.note is required`);
+  }
+}
+if (JSON.stringify([...bookCounts.values()]) !== JSON.stringify([12,10,11,10,10,9])) fail('Chapters must cover all 62 Lord of the Rings chapters in order');
+
 for (const [placeId, image] of Object.entries(images)) {
   if (!placeIds.has(placeId)) fail(`Image references unknown place id: ${placeId}`);
   if (typeof image.d !== "string" || !image.d.startsWith("assets/images/")) {
@@ -116,6 +146,6 @@ for (const relativePath of ["index.html", "src/styles.css", "src/map.css"]) {
 }
 
 console.log(
-  `Validated ${places.length} places, ${journeys.length} journeys, ` +
+  `Validated ${places.length} places, ${journeys.length} journeys, ${chapters.length} chapters, ` +
     `${timeline.length} timeline events, and ${Object.keys(images).length} images.`,
 );

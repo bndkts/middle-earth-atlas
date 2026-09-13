@@ -3,10 +3,10 @@
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const MAPW = 2600, MAPH = 2300;
-const { places: PLACES, journeys: JOURNEYS, timeline: TIMELINE } = window.ATLAS_DATA;
+const { places: PLACES, journeys: JOURNEYS, timeline: TIMELINE, characters: CHARACTERS, chapters: CHAPTERS } = window.ATLAS_DATA;
 const TG = 'https://tolkiengateway.net/wiki/';
 const published = window.ATLAS_PUBLICATION;
-const urlState = {place:null,journey:null,event:null,year:null};
+const urlState = {place:null,journey:null,event:null,chapter:null,year:null};
 let restoringURL = true;
 function syncURL(patch, replace=false){
   Object.assign(urlState, patch);
@@ -293,7 +293,7 @@ const BUCKETS = $$('#tbase .bk').map(el => {
   const [bx, by] = el.dataset.b.split(',').map(Number);
   return { el, x0: bx * BK, y0: by * BK, x1: bx * BK + BK, y1: by * BK + BK, vis: true };
 });
-let shownMk = [], shownEv = [], lastPosS = -1;
+let shownMk = [], shownEv = [], chapterPins = [], lastPosS = -1;
 const hovRef = { el: null, get: () => null, wp: null };
 function placeMarkers(force){
   const s = V.s;
@@ -303,6 +303,7 @@ function placeMarkers(force){
   if (hovRef.wp) wpEl.style.transform = `translate3d(${(hovRef.wp.x * s).toFixed(1)}px,${(hovRef.wp.y * s).toFixed(1)}px,0)`;
   for (const m of shownMk) m.el.style.transform = `translate3d(${(m.p.x * s).toFixed(1)}px,${(m.p.y * s).toFixed(1)}px,0)` + (m.flip ? ' translateX(-100%)' : '');
   for (const v of shownEv) v.el.style.transform = `translate3d(${(v.e.x * s).toFixed(1)}px,${(v.e.y * s).toFixed(1)}px,0)`;
+  for (const pin of chapterPins) pin.el.style.transform = `translate3d(${(pin.p.x * s).toFixed(1)}px,${(pin.p.y * s).toFixed(1)}px,0)`;
   if (selected) ringEl.style.transform = `translate3d(${(selected.x * s).toFixed(1)}px,${(selected.y * s).toFixed(1)}px,0)`;
 }
 function cull(){
@@ -645,10 +646,11 @@ function updateScale(){
       mapEl.classList.remove('dragging'); endGesture();
       if (!moved && !cancelled) {
         const tgt = downTarget || e.target;
-        const t = tgt.closest('.mk'); const ev = tgt.closest('.ev'); const ml = tgt.closest('.ml');
+        const t = tgt.closest('.mk'); const ev = tgt.closest('.ev'); const ml = tgt.closest('.ml'); const cp = tgt.closest('.chapter-pin');
         const discovery = tgt.closest('[data-discovery]');
         const now = performance.now();
-        if (t) { selectPlace(MK[+t.dataset.i].p, { fly: true }); }
+        if (cp) { focusChapterLocation(+cp.dataset.location); }
+        else if (t) { selectPlace(MK[+t.dataset.i].p, { fly: true }); }
         else if (ev) { showEvent(EV[+ev.dataset.e].e); }
         else if (ml && ml.dataset.pid) { selectPlace(byId[ml.dataset.pid], { fly: true }); }
         else if (discovery && detailLayer) { detailLayer.open(discovery.dataset.discovery); }
@@ -686,7 +688,7 @@ function updateScale(){
     wAnchor = [e.clientX, e.clientY];
     if (!wRaf) { startGesture(); wRaf = requestAnimationFrame(wheelStep); }
   }, { passive: false });
-  // keyboard: arrows pan, +/- zoom, H home, / search, Esc back, R wander, L layers, T timeline, N night
+  // keyboard: arrows pan, +/- zoom, H home, / search, Esc back, R wander, L layers, C chapters, T timeline
   document.addEventListener('keydown', e => {
     const tag = (e.target.tagName || '').toLowerCase();
     if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.metaKey || e.ctrlKey || e.altKey) return;
@@ -703,6 +705,7 @@ function updateScale(){
       case '/': case 's': case 'S': $('#q').focus(); $('#q').select(); break;
       case 'r': case 'R': $('#wander').click(); break;
       case 'l': case 'L': $('#layersbtn').click(); break;
+      case 'c': case 'C': $('#chapbtn').click(); break;
       case 't': case 'T': $('#tlbtn').click(); break;
       case 'Escape': { const back = $('.mode.on [data-back]'); if (back) back.click(); else if (!$('#m-explore').classList.contains('on')) mode('explore'); break; }
       default: return;
@@ -756,8 +759,9 @@ function setSheet(st, preserveScroll = false){
   body.addEventListener('pointerup', up); body.addEventListener('pointercancel', up);
 })();
 function mode(id){
+  if (id !== 'chapter' && activeChapter) { clearChapterPins(); syncURL({chapter:null}); }
   $$('.mode').forEach(m => m.classList.toggle('on', m.id === 'm-' + id)); body.scrollTop = 0;
-  if (id === 'explore' || id === 'discovery') syncURL({place:null,journey:null,event:null});
+  if (id === 'explore' || id === 'discovery') syncURL({place:null,journey:null,event:null,chapter:null});
   if (id === 'explore' && !restoringURL) focusPanel('explore');
 }
 
@@ -833,6 +837,7 @@ function renderExplore(){
     <div class="list">
       <button class="row" id="ex-wander"><span class="ic">${ico('dice')}</span><span class="tx"><b>Take me somewhere</b><small>A random corner of the map</small></span></button>
       <button class="row" id="ex-dir"><span class="ic">${ico('route')}</span><span class="tx"><b>Directions</b><small>Distance and travel time between any two places</small></span></button>
+      <button class="row" id="ex-chapter"><span class="ic">${ico('book')}</span><span class="tx"><b>Explore by chapter</b><small>See where the characters are in all 62 chapters</small></span></button>
       <button class="row" id="ex-tl"><span class="ic">${ico('hour')}</span><span class="tx"><b>Travel in time</b><small>See the map as it was in any year</small></span></button>
       <button class="row" id="ex-layers"><span class="ic">${ico('layers')}</span><span class="tx"><b>Layers</b><small>Realms, roads, journeys, labels</small></span></button>
     </div>
@@ -863,12 +868,80 @@ function renderExplore(){
     const j = e.target.closest('[data-j]'); if (j) return openJourney(j.dataset.j);
     if (e.target.closest('#ex-wander')) return wander();
     if (e.target.closest('#ex-dir')) return openDirections();
+    if (e.target.closest('#ex-chapter')) return openChapter();
     if (e.target.closest('#ex-tl')) return setTimeline(true);
     if (e.target.closest('#ex-layers')) return openLayers();
   });
 }
 function wander(){ const pool = PLACES.filter(p => p.k <= 2 && !p._area); const p = pool[Math.floor(Math.random() * pool.length)]; selectPlace(p, { fly: true, scale: 2.2 }); }
 $('#wander').onclick = wander;
+
+// ---------- chapters ----------
+const characterById = Object.fromEntries(CHARACTERS.map(character => [character.id,character]));
+const roman = ['','I','II','III','IV','V','VI'];
+let activeChapter = null;
+function clearChapterPins(){
+  chapterPins.forEach(pin => pin.el.remove());
+  chapterPins = []; activeChapter = null;
+  $('#chapbtn').classList.remove('on');
+}
+function chapterPlace(location){ return byId[location.placeId]; }
+function chapterCharacters(location){ return location.characters.map(id => characterById[id].name).join(', '); }
+function setChapterPins(chapter){
+  clearChapterPins(); activeChapter = chapter;
+  const frag = document.createDocumentFragment();
+  chapter.locations.forEach((location,index) => {
+    const p = chapterPlace(location), el = document.createElement('button');
+    el.className = 'chapter-pin'; el.dataset.location = index;
+    el.setAttribute('aria-label',`${p.n} — ${chapterCharacters(location)}`);
+    el.innerHTML = `<i>${index+1}</i><span><b>${esc(p.n)}</b><small>${esc(chapterCharacters(location))}</small></span>`;
+    frag.appendChild(el); chapterPins.push({p,el});
+  });
+  mkLayer.appendChild(frag); $('#chapbtn').classList.add('on'); placeMarkers(true);
+}
+function fitChapter(chapter){
+  const points = chapter.locations.map(chapterPlace);
+  const xs = points.map(p=>p.x), ys = points.map(p=>p.y);
+  const x0=Math.min(...xs), x1=Math.max(...xs), y0=Math.min(...ys), y1=Math.max(...ys);
+  const aw=viewport.width-(isDesktop()?460:24), ah=isDesktop()?viewport.height-80:viewport.height*.45;
+  const scale=points.length===1 ? 2 : Math.min(2.2,Math.max(V.min,Math.min(aw/(x1-x0+220),ah/(y1-y0+220))));
+  flyTo((x0+x1)/2,(y0+y1)/2,scale);
+}
+function focusChapterLocation(index){
+  if (!activeChapter) return;
+  const p=chapterPlace(activeChapter.locations[index]);
+  chapterPins.forEach((pin,i)=>pin.el.classList.toggle('selected',i===index));
+  $$('#m-chapter [data-chapter-location]').forEach((row,i)=>row.classList.toggle('selected',i===index));
+  flyTo(p.x,p.y,Math.max(V.s,2));
+}
+function chapterOptions(){
+  return [1,2,3,4,5,6].map(book=>`<optgroup label="Book ${roman[book]}">${CHAPTERS.filter(chapter=>chapter.book===book).map(chapter=>`<option value="${chapter.id}">${chapter.chapter}. ${esc(chapter.title)}</option>`).join('')}</optgroup>`).join('');
+}
+function openChapter(id=activeChapter?.id||CHAPTERS[0].id){
+  const chapter=CHAPTERS.find(item=>item.id===id); if(!chapter) return;
+  if(tlOn) setTimeline(false);
+  stopPlay(); clearWaypoint(); clearSelection(); setChapterPins(chapter);
+  const index=CHAPTERS.indexOf(chapter), el=$('#m-chapter');
+  el.innerHTML=`<button class="back" data-back>${ico('back')} Back</button>
+    <div class="eyebrow">The Lord of the Rings · Book ${roman[chapter.book]}</div>
+    <h1>${esc(chapter.title)}</h1>
+    <label class="chapter-picker" for="chapter-select"><span>Choose a chapter</span><select id="chapter-select">${chapterOptions()}</select></label>
+    <div class="chapter-nav"><button class="pill" data-chapter-step="-1" ${index===0?'disabled':''}>${ico('back')} Previous</button><span>${index+1} of ${CHAPTERS.length}</span><button class="pill" data-chapter-step="1" ${index===CHAPTERS.length-1?'disabled':''}>Next ${ico('back','next-icon')}</button></div>
+    <p class="src">Pins show where tracked characters appear during this chapter, not a single simultaneous moment. Off-page characters are not inferred.</p>
+    <div class="orn"><span>Characters on the map</span></div>
+    <div class="list">${chapter.locations.map((location,locationIndex)=>{const p=chapterPlace(location);return `<button class="row chapter-row" data-chapter-location="${locationIndex}"><span class="chapter-number">${locationIndex+1}</span><span class="tx"><b>${esc(p.n)}</b><small>${esc(chapterCharacters(location))}</small>${location.note?`<span class="chapter-note">${esc(location.note)}</span>`:''}</span></button>`;}).join('')}</div>`;
+  $('#chapter-select').value=chapter.id;
+  mode('chapter'); syncURL({place:null,journey:null,event:null,chapter:chapter.id,year:null});
+  focusPanel('chapter'); if(sheetState==='peek') setSheet('half'); fitChapter(chapter);
+}
+$('#m-chapter').addEventListener('change',event=>{if(event.target.id==='chapter-select') openChapter(event.target.value);});
+$('#m-chapter').addEventListener('click',event=>{
+  if(event.target.closest('[data-back]')) return mode('explore');
+  const step=event.target.closest('[data-chapter-step]');
+  if(step){const index=CHAPTERS.indexOf(activeChapter)+Number(step.dataset.chapterStep);if(CHAPTERS[index])openChapter(CHAPTERS[index].id);return;}
+  const row=event.target.closest('[data-chapter-location]'); if(row) focusChapterLocation(+row.dataset.chapterLocation);
+});
+$('#chapbtn').onclick=()=>activeChapter?mode('explore'):openChapter();
 
 // ---------- chips ----------
 (function chips(){
@@ -941,11 +1014,11 @@ function renderPlace(p){
   const el = $('#m-place');
   const alts = (p.alt||[]).length ? `<div class="alts">${esc(p.alt.join(' · '))}</div>` : '';
   const periodLabel = p.t === 'battle' ? 'Event period' : p.t === 'realm' ? 'Realm period' : p.t === 'ruin' ? 'Before ruin' : 'Recorded period';
-  const when = (p.f != null || p.to != null) ? `<dt>${periodLabel}</dt><dd>${p.fi ? 'c. ' : ''}${p.f != null ? ageLabel(p.f) : 'unknown start'} → ${p.to != null ? ageLabel(p.to) : 'no recorded end'}${p.fi ? ' <span class="sub">(estimated)</span>' : ''}</dd>` : '';
-  const pp = (p.pp||[]).length ? `<dt>Peoples</dt><dd>${esc(p.pp.join(', '))}</dd>` : '';
-  const ev = (p.ev||[]).length ? `<div class="orn"><span>Chronicle</span></div><ul class="evl">${p.ev.map(e => `<li><b>${esc(ageLabel(e.y))}</b>${esc(e.t)}</li>`).join('')}</ul>` : '';
+  const when = (p.f != null || p.to != null) ? `<dt>${periodLabel}</dt><dd>${p.fi ? 'c. ' : ''}${p.f != null ? ageLabel(p.f) : 'unknown start'} → ${p.to != null ? ageLabel(p.to) : 'no recorded end'}${p.fi ? ' <span class="sub">(estimated)</span>' : ''}</dd>` : `<dt>${periodLabel}</dt><dd class="sub">No recorded period</dd>`;
+  const pp = (p.pp||[]).length ? `<dt>Peoples</dt><dd>${esc(p.pp.join(', '))}</dd>` : '<dt>Peoples</dt><dd class="sub">No peoples recorded</dd>';
+  const ev = `<div class="orn"><span>Chronicle</span></div>${(p.ev||[]).length ? `<ul class="evl">${p.ev.map(e => `<li><b>${esc(ageLabel(e.y))}</b>${esc(e.t)}</li>`).join('')}</ul>` : '<p class="empty-section">No dated events recorded for this place.</p>'}`;
   const jt = journeysThrough(p);
-  const jr = jt.length ? `<div class="orn"><span>Journeys</span></div><div class="list">${jt.map(([j, l]) => `<button class="row j" data-j="${j.id}" style="--jc:${j.color}"><span class="ic">${ico('route')}</span><span class="tx"><b>${esc(j.name)}</b><small>${esc(l.date)}${l.note ? ' · ' + esc(l.note) : ''}</small></span></button>`).join('')}</div>` : '';
+  const jr = `<div class="orn"><span>Journeys</span></div>${jt.length ? `<div class="list">${jt.map(([j, l]) => `<button class="row j" data-j="${j.id}" style="--jc:${j.color}"><span class="ic">${ico('route')}</span><span class="tx"><b>${esc(j.name)}</b><small>${esc(l.date)}${l.note ? ' · ' + esc(l.note) : ''}</small></span></button>`).join('')}</div>` : '<p class="empty-section">No mapped journey passes through this place.</p>'}`;
   const nb = nearby(p);
   const src = p.s ? (p.s.startsWith('tg:') ? TG + p.s.slice(3) : p.s) : null;
   const im = (window.IMG || {})[p.id];
@@ -1263,6 +1336,7 @@ function restoreURL(){
   if (state.place) selectPlace(byId[state.place],{fly:true});
   if (state.journey) openJourney(state.journey);
   if (state.event) showEvent(TIMELINE.find(ev=>ev.id===state.event));
+  if (state.chapter) openChapter(state.chapter);
   Object.assign(urlState,state);
   restoringURL = false;
   if (state.error) { toast(state.error); $('#search-status').textContent = state.error; }

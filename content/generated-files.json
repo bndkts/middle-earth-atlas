@@ -1,5 +1,6 @@
 [
   "data/index.html",
+  "data/v1/chapters.json",
   "data/v1/events.json",
   "data/v1/journeys.json",
   "data/v1/places.json",

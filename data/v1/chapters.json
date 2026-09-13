@@ -1,0 +1,1948 @@
+{
+  "schemaVersion": 1,
+  "revision": "5fdfa67c165b9bf6be9a2b922a9921633b7aca62dc210c20550a4fd8e4201b74",
+  "documentation": "https://atlas.bag-end.eu/data/",
+  "coordinateSystem": {
+    "name": "atlas-schematic",
+    "width": 2600,
+    "height": 2300,
+    "origin": "top-left",
+    "xDirection": "right",
+    "yDirection": "down",
+    "units": "map units, not latitude/longitude",
+    "notice": "Map positions are schematic reconstructions, not surveyed locations. The scale varies by region; map distances are estimates, not measured road lengths."
+  },
+  "calendar": {
+    "offsets": {
+      "YT": -9031,
+      "FA": -4031,
+      "SA": -3441,
+      "TA": 0,
+      "FoA": 3021
+    },
+    "notice": "absoluteYear = year + age offset; a sorting convention, not Gregorian time. YT does not imply solar-year duration."
+  },
+  "reuseNotice": "Code and documentation are MIT licensed. No additional rights in Tolkien works or third-party illustrations are granted. See documentation.",
+  "records": [
+    {
+      "id": "lotr-b1-c01",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 1,
+      "title": "A Long-expected Party",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c01",
+      "locations": [
+        {
+          "placeId": "party-field",
+          "placeName": "Party Field",
+          "characters": [
+            "Bilbo Baggins",
+            "Frodo Baggins",
+            "Gandalf"
+          ],
+          "note": "Bilbo and Frodo celebrate their shared birthday.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=party-field"
+        },
+        {
+          "placeId": "bag-end",
+          "placeName": "Bag End",
+          "characters": [
+            "Bilbo Baggins",
+            "Frodo Baggins",
+            "Gandalf"
+          ],
+          "note": "Bilbo leaves the Ring and departs Bag End.",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c02",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 2,
+      "title": "The Shadow of the Past",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c02",
+      "locations": [
+        {
+          "placeId": "bag-end",
+          "placeName": "Bag End",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gandalf"
+          ],
+          "note": "Gandalf reveals the Ring’s history; Sam is discovered listening.",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c03",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 3,
+      "title": "Three is Company",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c03",
+      "locations": [
+        {
+          "placeId": "bag-end",
+          "placeName": "Bag End",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Peregrin Took"
+          ],
+          "note": "The travellers leave Hobbiton.",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        },
+        {
+          "placeId": "woody-end",
+          "placeName": "Woody End",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Peregrin Took"
+          ],
+          "note": "They meet Gildor’s wandering Elves.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=woody-end"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c04",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 4,
+      "title": "A Short Cut to Mushrooms",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c04",
+      "locations": [
+        {
+          "placeId": "bamfurlong",
+          "placeName": "Bamfurlong",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Peregrin Took"
+          ],
+          "note": "Farmer Maggot shelters the travellers.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bamfurlong"
+        },
+        {
+          "placeId": "bucklebury-ferry",
+          "placeName": "Bucklebury Ferry",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Peregrin Took",
+            "Meriadoc Brandybuck"
+          ],
+          "note": "Merry meets them at the ferry.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bucklebury-ferry"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c05",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 5,
+      "title": "A Conspiracy Unmasked",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c05",
+      "locations": [
+        {
+          "placeId": "crickhollow",
+          "placeName": "Crickhollow",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "The friends reveal their conspiracy and prepare to leave Buckland.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=crickhollow"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c06",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 6,
+      "title": "The Old Forest",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c06",
+      "locations": [
+        {
+          "placeId": "old-forest",
+          "placeName": "The Old Forest",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "The four hobbits lose their way in the forest.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=old-forest"
+        },
+        {
+          "placeId": "old-man-willow",
+          "placeName": "Old Man Willow",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "Old Man Willow traps Merry and Pippin.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=old-man-willow"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c07",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 7,
+      "title": "In the House of Tom Bombadil",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c07",
+      "locations": [
+        {
+          "placeId": "tom-bombadils-house",
+          "placeName": "Tom Bombadil's House",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "The hobbits rest as Tom tells them about the land.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=tom-bombadils-house"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c08",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 8,
+      "title": "Fog on the Barrow-downs",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c08",
+      "locations": [
+        {
+          "placeId": "great-barrow",
+          "placeName": "The Great Barrow",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "A Barrow-wight captures the hobbits before Tom rescues them.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=great-barrow"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c09",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 9,
+      "title": "At the Sign of the Prancing Pony",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c09",
+      "locations": [
+        {
+          "placeId": "prancing-pony",
+          "placeName": "The Prancing Pony",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn"
+          ],
+          "note": "The hobbits meet Strider at the inn.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=prancing-pony"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c10",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 10,
+      "title": "Strider",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c10",
+      "locations": [
+        {
+          "placeId": "bree",
+          "placeName": "Bree",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn"
+          ],
+          "note": "Strider joins the hobbits after the attack on their rooms.",
+          "placeUrl": "https://atlas.bag-end.eu/places/bree/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c11",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 11,
+      "title": "A Knife in the Dark",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c11",
+      "locations": [
+        {
+          "placeId": "midgewater-marshes",
+          "placeName": "Midgewater Marshes",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn"
+          ],
+          "note": "The company crosses the marshes.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=midgewater-marshes"
+        },
+        {
+          "placeId": "weathertop",
+          "placeName": "Weathertop",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn"
+          ],
+          "note": "The Nazgûl attack and wound Frodo.",
+          "placeUrl": "https://atlas.bag-end.eu/places/weathertop/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b1-c12",
+      "work": "The Lord of the Rings",
+      "book": 1,
+      "chapter": 12,
+      "title": "Flight to the Ford",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b1-c12",
+      "locations": [
+        {
+          "placeId": "trollshaws",
+          "placeName": "Trollshaws",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn"
+          ],
+          "note": "The travellers pass through the Trollshaws.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=trollshaws"
+        },
+        {
+          "placeId": "ford-of-bruinen",
+          "placeName": "Ford of Bruinen",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn"
+          ],
+          "note": "The company reaches the Ford ahead of the Ringwraiths.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=ford-of-bruinen"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c01",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 1,
+      "title": "Many Meetings",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c01",
+      "locations": [
+        {
+          "placeId": "rivendell",
+          "placeName": "Rivendell",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Bilbo Baggins",
+            "Elrond",
+            "Arwen"
+          ],
+          "note": "Friends and allies reunite in Rivendell.",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c02",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 2,
+      "title": "The Council of Elrond",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c02",
+      "locations": [
+        {
+          "placeId": "rivendell",
+          "placeName": "Rivendell",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli",
+            "Bilbo Baggins",
+            "Elrond"
+          ],
+          "note": "The Council decides that the Ring must be destroyed.",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c03",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 3,
+      "title": "The Ring Goes South",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c03",
+      "locations": [
+        {
+          "placeId": "rivendell",
+          "placeName": "Rivendell",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The Fellowship departs.",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        },
+        {
+          "placeId": "eregion",
+          "placeName": "Eregion",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The Fellowship crosses Hollin.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=eregion"
+        },
+        {
+          "placeId": "redhorn-pass",
+          "placeName": "Redhorn Pass",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "Snow turns them back from Caradhras.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=redhorn-pass"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c04",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 4,
+      "title": "A Journey in the Dark",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c04",
+      "locations": [
+        {
+          "placeId": "doors-of-durin",
+          "placeName": "Doors of Durin",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The Fellowship enters Moria.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=doors-of-durin"
+        },
+        {
+          "placeId": "moria",
+          "placeName": "Moria",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "They travel through the dark halls.",
+          "placeUrl": "https://atlas.bag-end.eu/places/moria/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c05",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 5,
+      "title": "The Bridge of Khazad-dûm",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c05",
+      "locations": [
+        {
+          "placeId": "chamber-of-mazarbul",
+          "placeName": "Chamber of Mazarbul",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The Fellowship is attacked beside Balin’s tomb.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=chamber-of-mazarbul"
+        },
+        {
+          "placeId": "bridge-of-khazad-dum",
+          "placeName": "Bridge of Khazad-dûm",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Gandalf",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "Gandalf confronts the Balrog.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bridge-of-khazad-dum"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c06",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 6,
+      "title": "Lothlórien",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c06",
+      "locations": [
+        {
+          "placeId": "dimrill-dale",
+          "placeName": "Dimrill Dale",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The survivors leave Moria.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dimrill-dale"
+        },
+        {
+          "placeId": "nimrodel",
+          "placeName": "Nimrodel",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "They meet the Galadhrim by the Nimrodel.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=nimrodel"
+        },
+        {
+          "placeId": "cerin-amroth",
+          "placeName": "Cerin Amroth",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The company reaches the heart of Lórien.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=cerin-amroth"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c07",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 7,
+      "title": "The Mirror of Galadriel",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c07",
+      "locations": [
+        {
+          "placeId": "caras-galadhon",
+          "placeName": "Caras Galadhon",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli",
+            "Galadriel",
+            "Celeborn"
+          ],
+          "note": "The Fellowship rests; Frodo and Sam look into the Mirror.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=caras-galadhon"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c08",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 8,
+      "title": "Farewell to Lórien",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c08",
+      "locations": [
+        {
+          "placeId": "caras-galadhon",
+          "placeName": "Caras Galadhon",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli",
+            "Galadriel",
+            "Celeborn"
+          ],
+          "note": "The Galadhrim give the travellers boats and gifts.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=caras-galadhon"
+        },
+        {
+          "placeId": "the-tongue",
+          "placeName": "The Tongue",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The Fellowship sets out down the Anduin.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=the-tongue"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c09",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 9,
+      "title": "The Great River",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c09",
+      "locations": [
+        {
+          "placeId": "sarn-gebir",
+          "placeName": "Sarn Gebir",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "Orcs attack the boats near the rapids.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=sarn-gebir"
+        },
+        {
+          "placeId": "argonath",
+          "placeName": "Argonath",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The boats pass the Gates of the Kings.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=argonath"
+        },
+        {
+          "placeId": "parth-galen",
+          "placeName": "Parth Galen",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The company camps below Amon Hen.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b2-c10",
+      "work": "The Lord of the Rings",
+      "book": 2,
+      "chapter": 10,
+      "title": "The Breaking of the Fellowship",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b2-c10",
+      "locations": [
+        {
+          "placeId": "amon-hen",
+          "placeName": "Amon Hen",
+          "characters": [
+            "Frodo Baggins",
+            "Boromir",
+            "Aragorn"
+          ],
+          "note": "Boromir confronts Frodo; Aragorn searches for him.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=amon-hen"
+        },
+        {
+          "placeId": "parth-galen",
+          "placeName": "Parth Galen",
+          "characters": [
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "Orcs attack and the Fellowship scatters.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        },
+        {
+          "placeId": "nen-hithoel",
+          "placeName": "Nen Hithoel",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "note": "Frodo and Sam cross the lake toward Mordor.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=nen-hithoel"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c01",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 1,
+      "title": "The Departure of Boromir",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c01",
+      "locations": [
+        {
+          "placeId": "parth-galen",
+          "placeName": "Parth Galen",
+          "characters": [
+            "Aragorn",
+            "Boromir",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "The Three Hunters find Boromir and begin their pursuit.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=parth-galen"
+        },
+        {
+          "placeId": "falls-of-rauros",
+          "placeName": "Falls of Rauros",
+          "characters": [
+            "Boromir",
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "Boromir’s funeral boat passes toward Rauros.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=falls-of-rauros"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c02",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 2,
+      "title": "The Riders of Rohan",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c02",
+      "locations": [
+        {
+          "placeId": "eastemnet",
+          "placeName": "Eastemnet",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Éomer"
+          ],
+          "note": "The Three Hunters meet Éomer and the Riders.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=eastemnet"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c03",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 3,
+      "title": "The Uruk-hai",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c03",
+      "locations": [
+        {
+          "placeId": "eastemnet",
+          "placeName": "Eastemnet",
+          "characters": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Éomer"
+          ],
+          "note": "Éomer’s riders attack the Uruk-hai carrying the captives.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=eastemnet"
+        },
+        {
+          "placeId": "fangorn-forest",
+          "placeName": "Fangorn Forest",
+          "characters": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "Merry and Pippin escape into Fangorn.",
+          "placeUrl": "https://atlas.bag-end.eu/places/fangorn-forest/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c04",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 4,
+      "title": "Treebeard",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c04",
+      "locations": [
+        {
+          "placeId": "fangorn-forest",
+          "placeName": "Fangorn Forest",
+          "characters": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Treebeard"
+          ],
+          "note": "Treebeard carries the hobbits through the forest.",
+          "placeUrl": "https://atlas.bag-end.eu/places/fangorn-forest/"
+        },
+        {
+          "placeId": "derndingle",
+          "placeName": "Derndingle",
+          "characters": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Treebeard"
+          ],
+          "note": "The Entmoot gathers in Derndingle.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=derndingle"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c05",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 5,
+      "title": "The White Rider",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c05",
+      "locations": [
+        {
+          "placeId": "fangorn-forest",
+          "placeName": "Fangorn Forest",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf"
+          ],
+          "note": "The Three Hunters meet Gandalf the White.",
+          "placeUrl": "https://atlas.bag-end.eu/places/fangorn-forest/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c06",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 6,
+      "title": "The King of the Golden Hall",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c06",
+      "locations": [
+        {
+          "placeId": "edoras",
+          "placeName": "Edoras",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer",
+            "Éowyn"
+          ],
+          "note": "Gandalf frees Théoden from Wormtongue’s influence.",
+          "placeUrl": "https://atlas.bag-end.eu/places/edoras/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c07",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 7,
+      "title": "Helm’s Deep",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c07",
+      "locations": [
+        {
+          "placeId": "helms-deep",
+          "placeName": "Helm's Deep",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer"
+          ],
+          "note": "The defenders withstand Saruman’s army; Gandalf returns at dawn.",
+          "placeUrl": "https://atlas.bag-end.eu/places/helms-deep/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c08",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 8,
+      "title": "The Road to Isengard",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c08",
+      "locations": [
+        {
+          "placeId": "helms-deep",
+          "placeName": "Helm's Deep",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer"
+          ],
+          "note": "The victors leave the Hornburg.",
+          "placeUrl": "https://atlas.bag-end.eu/places/helms-deep/"
+        },
+        {
+          "placeId": "isengard",
+          "placeName": "Isengard",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Treebeard"
+          ],
+          "note": "They find Isengard flooded and occupied by Ents.",
+          "placeUrl": "https://atlas.bag-end.eu/places/isengard/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c09",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 9,
+      "title": "Flotsam and Jetsam",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c09",
+      "locations": [
+        {
+          "placeId": "isengard",
+          "placeName": "Isengard",
+          "characters": [
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer",
+            "Treebeard"
+          ],
+          "note": "Merry and Pippin tell how the Ents overthrew Isengard.",
+          "placeUrl": "https://atlas.bag-end.eu/places/isengard/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c10",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 10,
+      "title": "The Voice of Saruman",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c10",
+      "locations": [
+        {
+          "placeId": "orthanc",
+          "placeName": "Orthanc",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Saruman",
+            "Treebeard"
+          ],
+          "note": "Gandalf confronts Saruman at Orthanc.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=orthanc"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b3-c11",
+      "work": "The Lord of the Rings",
+      "book": 3,
+      "chapter": 11,
+      "title": "The Palantír",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b3-c11",
+      "locations": [
+        {
+          "placeId": "dol-baran",
+          "placeName": "Dol Baran",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éomer",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "Pippin looks into the palantír.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dol-baran"
+        },
+        {
+          "placeId": "rohan",
+          "placeName": "Rohan",
+          "characters": [
+            "Gandalf",
+            "Peregrin Took"
+          ],
+          "note": "Gandalf and Pippin ride east toward Minas Tirith.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=rohan"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c01",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 1,
+      "title": "The Taming of Sméagol",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c01",
+      "locations": [
+        {
+          "placeId": "emyn-muil",
+          "placeName": "Emyn Muil",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "Frodo and Sam capture Gollum in the rocky hills.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=emyn-muil"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c02",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 2,
+      "title": "The Passage of the Marshes",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c02",
+      "locations": [
+        {
+          "placeId": "dead-marshes",
+          "placeName": "Dead Marshes",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "Gollum leads the hobbits across the haunted marshes.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dead-marshes"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c03",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 3,
+      "title": "The Black Gate Is Closed",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c03",
+      "locations": [
+        {
+          "placeId": "morannon",
+          "placeName": "Morannon",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "The travellers see that the Black Gate cannot be entered.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morannon"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c04",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 4,
+      "title": "Of Herbs and Stewed Rabbit",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c04",
+      "locations": [
+        {
+          "placeId": "north-ithilien",
+          "placeName": "North Ithilien",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum",
+            "Faramir"
+          ],
+          "note": "Faramir’s Rangers encounter the travellers in Ithilien.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=north-ithilien"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c05",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 5,
+      "title": "The Window on the West",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c05",
+      "locations": [
+        {
+          "placeId": "henneth-annun",
+          "placeName": "Henneth Annûn",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Faramir"
+          ],
+          "note": "Faramir questions Frodo at the hidden refuge.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=henneth-annun"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c06",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 6,
+      "title": "The Forbidden Pool",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c06",
+      "locations": [
+        {
+          "placeId": "henneth-annun",
+          "placeName": "Henneth Annûn",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum",
+            "Faramir"
+          ],
+          "note": "Frodo saves Gollum at the forbidden pool.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=henneth-annun"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c07",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 7,
+      "title": "Journey to the Cross-roads",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c07",
+      "locations": [
+        {
+          "placeId": "cross-roads",
+          "placeName": "Cross-roads",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "The travellers reach the Cross-roads at sunset.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=cross-roads"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c08",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 8,
+      "title": "The Stairs of Cirith Ungol",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c08",
+      "locations": [
+        {
+          "placeId": "morgul-vale",
+          "placeName": "Morgul Vale",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "They watch the Morgul-host depart.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morgul-vale"
+        },
+        {
+          "placeId": "stairs-of-cirith-ungol",
+          "placeName": "Stairs of Cirith Ungol",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "They climb toward the secret pass.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=stairs-of-cirith-ungol"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c09",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 9,
+      "title": "Shelob’s Lair",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c09",
+      "locations": [
+        {
+          "placeId": "cirith-ungol",
+          "placeName": "Cirith Ungol",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "Shelob attacks in the tunnels above the pass.",
+          "placeUrl": "https://atlas.bag-end.eu/places/cirith-ungol/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b4-c10",
+      "work": "The Lord of the Rings",
+      "book": 4,
+      "chapter": 10,
+      "title": "The Choices of Master Samwise",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b4-c10",
+      "locations": [
+        {
+          "placeId": "cirith-ungol",
+          "placeName": "Cirith Ungol",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "note": "Sam discovers that Frodo is alive and taken by Orcs.",
+          "placeUrl": "https://atlas.bag-end.eu/places/cirith-ungol/"
+        },
+        {
+          "placeId": "tower-of-cirith-ungol",
+          "placeName": "Tower of Cirith Ungol",
+          "characters": [
+            "Frodo Baggins"
+          ],
+          "note": "Orcs carry Frodo into the tower.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=tower-of-cirith-ungol"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c01",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 1,
+      "title": "Minas Tirith",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c01",
+      "locations": [
+        {
+          "placeId": "minas-tirith",
+          "placeName": "Minas Tirith",
+          "characters": [
+            "Gandalf",
+            "Peregrin Took",
+            "Denethor",
+            "Faramir"
+          ],
+          "note": "Gandalf and Pippin enter the City and meet Denethor.",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c02",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 2,
+      "title": "The Passing of the Grey Company",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c02",
+      "locations": [
+        {
+          "placeId": "helms-deep",
+          "placeName": "Helm's Deep",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Théoden",
+            "Éomer",
+            "Meriadoc Brandybuck"
+          ],
+          "note": "The Grey Company meets Aragorn at the Hornburg.",
+          "placeUrl": "https://atlas.bag-end.eu/places/helms-deep/"
+        },
+        {
+          "placeId": "dunharrow",
+          "placeName": "Dunharrow",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Éowyn"
+          ],
+          "note": "Aragorn parts from Éowyn before taking the Dimholt road.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dunharrow"
+        },
+        {
+          "placeId": "paths-of-the-dead",
+          "placeName": "Paths of the Dead",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli"
+          ],
+          "note": "Aragorn takes the Paths of the Dead.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=paths-of-the-dead"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c03",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 3,
+      "title": "The Muster of Rohan",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c03",
+      "locations": [
+        {
+          "placeId": "dunharrow",
+          "placeName": "Dunharrow",
+          "characters": [
+            "Théoden",
+            "Éowyn",
+            "Meriadoc Brandybuck"
+          ],
+          "note": "Rohan musters; Merry secretly joins the ride east.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dunharrow"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c04",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 4,
+      "title": "The Siege of Gondor",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c04",
+      "locations": [
+        {
+          "placeId": "minas-tirith",
+          "placeName": "Minas Tirith",
+          "characters": [
+            "Gandalf",
+            "Peregrin Took",
+            "Denethor",
+            "Faramir"
+          ],
+          "note": "The armies of Mordor besiege the City.",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        },
+        {
+          "placeId": "pelennor-fields",
+          "placeName": "Pelennor Fields",
+          "characters": [
+            "Théoden",
+            "Éowyn",
+            "Meriadoc Brandybuck"
+          ],
+          "note": "The Rohirrim reach the Pelennor at dawn.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelennor-fields"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c05",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 5,
+      "title": "The Ride of the Rohirrim",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c05",
+      "locations": [
+        {
+          "placeId": "druadan-forest",
+          "placeName": "Drúadan Forest",
+          "characters": [
+            "Théoden",
+            "Éowyn",
+            "Meriadoc Brandybuck",
+            "Éomer"
+          ],
+          "note": "The Rohirrim take the hidden road through the forest.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=druadan-forest"
+        },
+        {
+          "placeId": "pelennor-fields",
+          "placeName": "Pelennor Fields",
+          "characters": [
+            "Théoden",
+            "Éowyn",
+            "Meriadoc Brandybuck",
+            "Éomer"
+          ],
+          "note": "The riders arrive before Minas Tirith.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelennor-fields"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c06",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 6,
+      "title": "The Battle of the Pelennor Fields",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c06",
+      "locations": [
+        {
+          "placeId": "pelennor-fields",
+          "placeName": "Pelennor Fields",
+          "characters": [
+            "Aragorn",
+            "Legolas",
+            "Gimli",
+            "Gandalf",
+            "Théoden",
+            "Éowyn",
+            "Meriadoc Brandybuck",
+            "Éomer"
+          ],
+          "note": "The forces of Gondor and Rohan fight before the City.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=pelennor-fields"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c07",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 7,
+      "title": "The Pyre of Denethor",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c07",
+      "locations": [
+        {
+          "placeId": "minas-tirith",
+          "placeName": "Minas Tirith",
+          "characters": [
+            "Gandalf",
+            "Peregrin Took",
+            "Denethor",
+            "Faramir"
+          ],
+          "note": "Gandalf and Pippin save Faramir from the pyre.",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c08",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 8,
+      "title": "The Houses of Healing",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c08",
+      "locations": [
+        {
+          "placeId": "houses-of-healing",
+          "placeName": "Houses of Healing",
+          "characters": [
+            "Aragorn",
+            "Gandalf",
+            "Éowyn",
+            "Faramir",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "Aragorn tends the wounded after the battle.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=houses-of-healing"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c09",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 9,
+      "title": "The Last Debate",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c09",
+      "locations": [
+        {
+          "placeId": "minas-tirith",
+          "placeName": "Minas Tirith",
+          "characters": [
+            "Aragorn",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Éomer"
+          ],
+          "note": "The Captains decide to march on the Black Gate.",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b5-c10",
+      "work": "The Lord of the Rings",
+      "book": 5,
+      "chapter": 10,
+      "title": "The Black Gate Opens",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b5-c10",
+      "locations": [
+        {
+          "placeId": "morannon",
+          "placeName": "Morannon",
+          "characters": [
+            "Aragorn",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Peregrin Took",
+            "Éomer"
+          ],
+          "note": "The Captains of the West challenge Sauron at the Morannon.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morannon"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c01",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 1,
+      "title": "The Tower of Cirith Ungol",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c01",
+      "locations": [
+        {
+          "placeId": "tower-of-cirith-ungol",
+          "placeName": "Tower of Cirith Ungol",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "note": "Sam enters the tower and rescues Frodo.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=tower-of-cirith-ungol"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c02",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 2,
+      "title": "The Land of Shadow",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c02",
+      "locations": [
+        {
+          "placeId": "morgai",
+          "placeName": "Morgai",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee"
+          ],
+          "note": "The hobbits struggle north through Mordor.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morgai"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c03",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 3,
+      "title": "Mount Doom",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c03",
+      "locations": [
+        {
+          "placeId": "mount-doom",
+          "placeName": "Mount Doom",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Gollum"
+          ],
+          "note": "The Ring is destroyed in the Sammath Naur.",
+          "placeUrl": "https://atlas.bag-end.eu/places/mount-doom/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c04",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 4,
+      "title": "The Field of Cormallen",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c04",
+      "locations": [
+        {
+          "placeId": "morannon",
+          "placeName": "Morannon",
+          "characters": [
+            "Aragorn",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Peregrin Took",
+            "Éomer"
+          ],
+          "note": "Sauron’s forces collapse at the Black Gate.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=morannon"
+        },
+        {
+          "placeId": "field-of-cormallen",
+          "placeName": "Field of Cormallen",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Aragorn",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Éomer",
+            "Faramir"
+          ],
+          "note": "The Fellowship and their allies reunite in Ithilien.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=field-of-cormallen"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c05",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 5,
+      "title": "The Steward and the King",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c05",
+      "locations": [
+        {
+          "placeId": "minas-tirith",
+          "placeName": "Minas Tirith",
+          "characters": [
+            "Aragorn",
+            "Arwen",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Faramir",
+            "Éowyn",
+            "Éomer",
+            "Elrond",
+            "Galadriel"
+          ],
+          "note": "Aragorn is crowned and weds Arwen.",
+          "placeUrl": "https://atlas.bag-end.eu/places/minas-tirith/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c06",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 6,
+      "title": "Many Partings",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c06",
+      "locations": [
+        {
+          "placeId": "edoras",
+          "placeName": "Edoras",
+          "characters": [
+            "Aragorn",
+            "Arwen",
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Elrond",
+            "Galadriel"
+          ],
+          "note": "The companions bid farewell to Théoden.",
+          "placeUrl": "https://atlas.bag-end.eu/places/edoras/"
+        },
+        {
+          "placeId": "isengard",
+          "placeName": "Isengard",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Legolas",
+            "Gimli",
+            "Elrond",
+            "Galadriel",
+            "Treebeard"
+          ],
+          "note": "Their roads divide near Isengard.",
+          "placeUrl": "https://atlas.bag-end.eu/places/isengard/"
+        },
+        {
+          "placeId": "dunland",
+          "placeName": "Dunland",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Elrond",
+            "Galadriel",
+            "Saruman"
+          ],
+          "note": "The travellers meet Saruman on the road through Dunland.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=dunland"
+        },
+        {
+          "placeId": "rivendell",
+          "placeName": "Rivendell",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Bilbo Baggins",
+            "Elrond"
+          ],
+          "note": "The hobbits return to Rivendell and Bilbo.",
+          "placeUrl": "https://atlas.bag-end.eu/places/rivendell/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c07",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 7,
+      "title": "Homeward Bound",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c07",
+      "locations": [
+        {
+          "placeId": "prancing-pony",
+          "placeName": "The Prancing Pony",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf"
+          ],
+          "note": "The travellers hear unsettling news in Bree.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=prancing-pony"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c08",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 8,
+      "title": "The Scouring of the Shire",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c08",
+      "locations": [
+        {
+          "placeId": "bywater",
+          "placeName": "Bywater",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "The hobbits lead the uprising at Bywater.",
+          "placeUrl": "https://atlas.bag-end.eu/?place=bywater"
+        },
+        {
+          "placeId": "bag-end",
+          "placeName": "Bag End",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Saruman"
+          ],
+          "note": "They confront Saruman at Bag End.",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    },
+    {
+      "id": "lotr-b6-c09",
+      "work": "The Lord of the Rings",
+      "book": 6,
+      "chapter": 9,
+      "title": "The Grey Havens",
+      "mapUrl": "https://atlas.bag-end.eu/?chapter=lotr-b6-c09",
+      "locations": [
+        {
+          "placeId": "the-shire",
+          "placeName": "The Shire",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took"
+          ],
+          "note": "The Shire heals as the years pass.",
+          "placeUrl": "https://atlas.bag-end.eu/places/the-shire/"
+        },
+        {
+          "placeId": "mithlond",
+          "placeName": "Grey Havens",
+          "characters": [
+            "Frodo Baggins",
+            "Samwise Gamgee",
+            "Meriadoc Brandybuck",
+            "Peregrin Took",
+            "Gandalf",
+            "Bilbo Baggins",
+            "Elrond",
+            "Galadriel"
+          ],
+          "note": "The Ring-bearers depart from the Grey Havens.",
+          "placeUrl": "https://atlas.bag-end.eu/places/mithlond/"
+        },
+        {
+          "placeId": "bag-end",
+          "placeName": "Bag End",
+          "characters": [
+            "Samwise Gamgee"
+          ],
+          "note": "Sam returns home.",
+          "placeUrl": "https://atlas.bag-end.eu/places/bag-end/"
+        }
+      ]
+    }
+  ]
+}

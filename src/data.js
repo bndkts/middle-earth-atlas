@@ -3778,7 +3778,7 @@ window.ATLAS_DATA = {
       ],
       "t": "forest",
       "r": "Minhiriath",
-      "x": 660,
+      "x": 740,
       "y": 1200,
       "k": 3,
       "d": "The 'Black Wood', a dark and little-explored forest on a headland between the mouths of the Baranduin and the Greyflood, the last surviving remnant of the great primeval forest that once covered Minhiriath before the Númenóreans felled it. Shy woodland folk, distrustful of all outsiders, are said to linger there still.",
@@ -5516,7 +5516,7 @@ window.ATLAS_DATA = {
       "c": "Hobbit",
       "s": "tg:Mount_Gundabad",
       "ap": true,
-      "fi": true
+      "fi": false
     },
     {
       "id": "second-sacking-of-gundabad",

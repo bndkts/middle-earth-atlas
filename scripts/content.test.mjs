@@ -33,7 +33,7 @@ test('publication rejects absent IDs and duplicate event identities',()=>{
   assert.equal(escapeHTML('<script>"&\''),'&lt;script&gt;&quot;&amp;&#39;');
 });
 test('exports preserve complete records, uncertainty, references and stable event links',()=>{
-  for (const [name,records] of [['places',data.places],['journeys',data.journeys],['events',data.timeline]]) {
+  for (const [name,records] of [['places',data.places],['journeys',data.journeys],['chapters',data.chapters],['events',data.timeline]]) {
     const payload=JSON.parse(outputs.get(`data/v1/${name}.json`));
     assert.equal(payload.records.length,records.length);
     assert.equal(payload.schemaVersion,1);
@@ -45,7 +45,7 @@ test('exports preserve complete records, uncertainty, references and stable even
     }
   }
 });
-test('URL navigation round-trips entity and year states including era boundaries',()=>{
+test('URL navigation round-trips entities, chapters and years including era boundaries',()=>{
   for (const y of [-9000,-4031,-4030,-3441,-3440,0,1,3021,3022,3141]) {
     const state={place:'rivendell',year:y};
     const parsed=url.parse(url.search(state),data);
@@ -54,10 +54,12 @@ test('URL navigation round-trips entity and year states including era boundaries
   const ev=data.timeline[0];
   assert.equal(url.parse('?event='+ev.id,data).year,ev.absoluteYear);
   assert.equal(url.parse('?journey=fellowship',data).journey,'fellowship');
+  assert.equal(url.parse('?chapter=lotr-b1-c01',data).chapter,'lotr-b1-c01');
+  assert.equal(url.search({chapter:'lotr-b6-c09'}),'?chapter=lotr-b6-c09');
   assert.equal(url.parse('',data).place,null);
 });
 test('invalid URL values cannot silently open a wrong entity or fictional date',()=>{
-  for (const query of ['?place=missing','?place=rivendell&journey=fellowship','?place=rivendell&place=moria','?year=3019','?age=TA','?age=TA&year=1.5','?age=TA&year=3022','?age=FA&year=591','?age=foo&year=1','?age=YT&year=1','?age=TA&year=-1']) assert.ok(url.parse(query,data).error,query);
+  for (const query of ['?place=missing','?chapter=missing','?place=rivendell&journey=fellowship','?place=rivendell&chapter=lotr-b1-c01','?chapter=lotr-b1-c01&age=TA&year=3018','?place=rivendell&place=moria','?year=3019','?age=TA','?age=TA&year=1.5','?age=TA&year=3022','?age=FA&year=591','?age=foo&year=1','?age=YT&year=1','?age=TA&year=-1']) assert.ok(url.parse(query,data).error,query);
 });
 test('generation is deterministic and sitemap contains no interactive query variants',()=>{
   assert.deepEqual([...buildOutputs()],[...outputs]);

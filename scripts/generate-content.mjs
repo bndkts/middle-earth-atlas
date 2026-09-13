@@ -13,6 +13,7 @@ export const config = json('content/publication.json');
 const references = json('content/references.json');
 const context = { window: {} };
 vm.runInNewContext(read('src/data.js'), context);
+vm.runInNewContext(read('src/chapters.js'), context);
 export const data = context.window.ATLAS_DATA;
 const base = config.baseUrl;
 const source = s => s?.startsWith('tg:') ? 'https://tolkiengateway.net/wiki/' + s.slice(3) : s;
@@ -80,7 +81,7 @@ function page(url, heading, description, body, parent) {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 ${metadata(url, `${heading} | ${title}`, description, crumbs)}
-<link rel="stylesheet" href="/src/content.css">
+<link rel="stylesheet" href="/src/content.css"><script defer src="/src/offline.js"></script>
 </head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="/">Middle-earth Atlas</a>${navigation}</header>
 <main id="content"><nav aria-label="Breadcrumb">${crumbs.map(([name,url],i) => i === crumbs.length-1 ? `<span aria-current="page">${e(name)}</span>` : link(url,name)).join(' / ')}</nav><h1>${e(heading)}</h1>${body}</main>
 <footer><p>An unofficial Tolkien fan atlas. Not affiliated with the Tolkien Estate or Middle-earth Enterprises.</p><p>${link('/methodology/', 'Sources, estimates and corrections')} · ${link('/data/', 'Data and reuse')} · ${link('https://github.com/bndkts/middle-earth-atlas', 'Project on GitHub')}</p></footer></body></html>\n`;
@@ -99,12 +100,13 @@ export function buildOutputs() {
     const related = data.journeys.filter(j=>j.legs.some(l=>l.placeId===p.id));
     const neighbours = data.places.filter(q=>q.id!==p.id && q.k<=2).sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y)).slice(0,6);
     const refs = [{label:'Tolkien Gateway: '+p.n,url:source(p.s)},...(references.places[p.id]||[])];
+    const period = p.f==null && p.to==null ? 'No recorded period' : `${p.fi?'Estimated start: ':''}${year(p.f)} → ${p.to==null?'no recorded end':year(p.to)}`;
     putPage(`/places/${p.id}/`,p.n,`${p.n} in ${p.r}: location, history, alternative names and sources, with a direct link to the interactive Middle-earth map.`,
       `<p class="eyebrow">${e(p.r)} · ${e(p.t)}</p><p class="lead">${e(p.d)}</p><p>${link('/?place='+p.id,'Show '+p.n+' on the map')}</p>
-      <dl><dt>Other names</dt><dd>${e(p.alt.join(' · ')||'None listed')}</dd><dt>Region</dt><dd>${e(p.r)}</dd><dt>Peoples</dt><dd>${e(p.pp.join(', ')||'Not listed')}</dd><dt>Reading reference</dt><dd>${e(bookNames[p.c]||p.c)}</dd><dt>Recorded period</dt><dd>${p.fi?'Estimated start: ':''}${year(p.f)} → ${p.to==null?'no recorded end':year(p.to)}</dd></dl>
+      <dl><dt>Other names</dt><dd>${e(p.alt.join(' · ')||'None listed')}</dd><dt>Region</dt><dd>${e(p.r)}</dd><dt>Peoples</dt><dd>${e(p.pp.join(', ')||'No peoples recorded')}</dd><dt>Reading reference</dt><dd>${e(bookNames[p.c]||p.c)}</dd><dt>Recorded period</dt><dd>${period}</dd></dl>
       <aside><p>${mapNotice}${p.ap?' This entry has an additionally uncertain position.':''} Recorded periods describe the entry, not necessarily the continued existence of its geography.</p>${link('/methodology/','How to interpret this atlas')}</aside>
-      ${p.ev.length?`<h2>Chronicle</h2><ol>${p.ev.map(ev=>`<li><strong>${e(ev.a)} ${e(ev.yr)}</strong> — ${e(ev.t)}</li>`).join('')}</ol>`:''}
-      ${related.length?`<h2>Journeys through ${e(p.n)}</h2>${list(related.map(j=>link(journeyURL(j.id),j.name)))}`:''}
+      <h2>Chronicle</h2>${p.ev.length?`<ol>${p.ev.map(ev=>`<li><strong>${e(ev.a)} ${e(ev.yr)}</strong> — ${e(ev.t)}</li>`).join('')}</ol>`:'<p class="note">No dated events recorded for this place.</p>'}
+      <h2>Journeys through ${e(p.n)}</h2>${related.length?list(related.map(j=>link(journeyURL(j.id),j.name))):'<p class="note">No mapped journey passes through this place.</p>'}
       <h2>Nearby on the schematic map</h2>${list(neighbours.map(q=>link(placeURL(q.id),q.n)))}
       <h2>Sources and further reading</h2>${referenceList(refs)}<p class="note">Chapter references, where supplied, were located through secondary reference material. This page does not claim a fresh verification against every primary text. ${link('/methodology/#corrections','Report a correction')}.</p>`,['Places','/places/']);
   }
@@ -118,12 +120,13 @@ export function buildOutputs() {
       <h2>Sources and further reading</h2>${referenceList(references.journeys[j.id])}`,['Journeys','/journeys/']);
   }
   putPage('/methodology/','Sources and atlas method','How the Middle-earth Atlas represents Tolkien’s geography, chronology, reconstructed journeys and distance estimates.',read('content/methodology.html'));
-  putPage('/data/','Atlas data and documentation','Download versioned Middle-earth place, journey and event data with stable IDs, source links and coordinate and calendar documentation.',read('content/data-documentation.html'));
+  putPage('/data/','Atlas data and documentation','Download versioned Middle-earth place, journey, chapter and event data with stable IDs, source links and coordinate and calendar documentation.',read('content/data-documentation.html'));
   const digest = createHash('sha256').update(JSON.stringify({data,references,config})).digest('hex');
   const envelope = records => JSON.stringify({schemaVersion:1,revision:digest,documentation:base+'/data/',coordinateSystem:{name:'atlas-schematic',width:2600,height:2300,origin:'top-left',xDirection:'right',yDirection:'down',units:'map units, not latitude/longitude',notice:mapNotice},calendar:{offsets:{YT:-9031,FA:-4031,SA:-3441,TA:0,FoA:3021},notice:'absoluteYear = year + age offset; a sorting convention, not Gregorian time. YT does not imply solar-year duration.'},reuseNotice:'Code and documentation are MIT licensed. No additional rights in Tolkien works or third-party illustrations are granted. See documentation.',records},null,2)+'\n';
   out.set('data/v1/places.json',envelope(data.places.map(p=>({id:p.id,name:p.n,alternateNames:p.alt,type:p.t,region:p.r,description:p.d,coordinates:{x:p.x,y:p.y,approximate:!!p.ap},recordedPeriod:{fromAbsoluteYear:p.f,toAbsoluteYear:p.to,estimatedStart:!!p.fi},peoples:p.pp,book:bookNames[p.c]||p.c,sourceUrl:source(p.s),references:references.places[p.id]||[],chronicle:p.ev.map(ev=>({age:ev.a,year:ev.yr,absoluteYear:ev.y,description:ev.t})),url:absolute(placeURL(p.id)),mapUrl:base+'/?place='+p.id}))));
   out.set('data/v1/journeys.json',envelope(data.journeys.map(j=>({id:j.id,name:j.name,travellers:j.who,url:absolute(journeyURL(j.id)),mapUrl:base+'/?journey='+j.id,references:references.journeys[j.id],reconstructionNotice:journeyNotice,waypoints:j.legs.map((l,i)=>({sequence:i+1,placeName:l.place,placeId:l.placeId||null,dateLabel:l.date,note:l.note||null,coordinates:{x:l.x,y:l.y,approximate:!!l.approximate},via:l.via||[],placeSourceUrl:l.placeId?source(byId.get(l.placeId).s):null,placeUrl:l.placeId?absolute(placeURL(l.placeId)):null}))}))));
   out.set('data/v1/events.json',envelope(data.timeline.map(ev=>({id:ev.id,title:ev.title,description:ev.text,age:ev.age,year:ev.year,absoluteYear:ev.absoluteYear,dateLabel:ev.date,timeLabel:ev.timeLabel||null,dateUncertain:!!ev.dateUncertain,placeName:ev.place,placeId:ev.placeId||null,coordinates:{x:ev.x,y:ev.y,approximate:!!ev.approximate},sourceUrl:source(ev.src),mapUrl:base+'/?event='+ev.id,placeUrl:ev.placeId?absolute(placeURL(ev.placeId)):null}))));
+  out.set('data/v1/chapters.json',envelope(data.chapters.map(chapter=>({id:chapter.id,work:'The Lord of the Rings',book:chapter.book,chapter:chapter.chapter,title:chapter.title,mapUrl:base+'/?chapter='+chapter.id,locations:chapter.locations.map(location=>({placeId:location.placeId,placeName:byId.get(location.placeId).n,characters:location.characters.map(id=>data.characters.find(character=>character.id===id).name),note:location.note,placeUrl:absolute(placeURL(location.placeId))}))}))));
   out.set('src/publication.js','// Generated by scripts/generate-content.mjs\nwindow.ATLAS_PUBLICATION = '+JSON.stringify({places:config.places,journeys:config.journeys})+';\n');
   const home = read('index.html');
   out.set('index.html',home.replace(/<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,`<!-- SEO:START -->\n${metadata('/','Interactive Middle-earth Map, Timeline & Journeys | Middle-earth Atlas',intro)}\n<!-- SEO:END -->`));

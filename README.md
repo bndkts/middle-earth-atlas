@@ -92,8 +92,12 @@ the Tolkien Estate, Middle-earth Enterprises, or their licensees.
 The map is complemented by static place and journey guides at `/places/` and
 `/journeys/`, a source/method page at `/methodology/`, and documented JSON
 exports at `/data/`. Reading pages work without JavaScript. The map supports
-`/?place=rivendell`, `/?journey=fellowship`, `/?event=EVENT_ID`, and optional
+`/?place=rivendell`, `/?journey=fellowship`, `/?chapter=lotr-b1-c01`, `/?event=EVENT_ID`, and optional
 `age=TA&year=3019` for place/journey views. Browser history restores selections.
+
+After the first online visit, the interactive atlas works offline. Place artwork
+and reading pages are cached as they are visited; offline typography falls back
+to the system-font stack if Google Fonts is unavailable.
 
 After changing atlas data, publication settings, references, or templates, run:
 
