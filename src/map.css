@@ -50,6 +50,9 @@
 .tr-birch{fill:var(--land-hi);stroke:var(--ink-warm);stroke-width:.18;stroke-linejoin:round}
 .z-vlo .tr-detail,.z-lo .tr-detail{display:none}
 .z-lo .trees{display:none}
+/* Regional silhouettes carry the distinction, not just a different green wash. */
+#woodland-fangorn .tr-detail,#woodland-old-forest .tr-detail{stroke-width:.3;opacity:.8}
+#woodland-lorien .tr-birch{fill:#eee0b5}
 /* hills & mountains */
 .hlground{fill:var(--land)}
 .hlshade{fill:var(--ink-warm);opacity:.12}
