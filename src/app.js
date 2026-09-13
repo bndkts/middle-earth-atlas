@@ -20,8 +20,8 @@ function focusPanel(id){
   const heading = $('#m-'+id+' h1, #m-'+id+' h2');
   if (heading) { heading.tabIndex = -1; heading.focus({preventScroll:true}); }
 }
-function readingLink(kind,id,label){
-  return published[kind].includes(id) ? `<a class="pill" href="/${kind}/${id}/">${esc(label)}</a>` : '';
+function readingLink(kind,id,label,className='pill'){
+  return published[kind].includes(id) ? `<a class="${className}" href="/${kind}/${id}/">${esc(label)}</a>` : '';
 }
 const mapEl = $('#map'), world = $('#world'), mkLayer = $('#markers'), dyn = $('#dyn'), sheet = $('#sheet'), body = $('#sheetbody');
 // Read dimensions only at startup/resize, never after map style writes in a frame.
@@ -1038,8 +1038,8 @@ function renderPlace(p){
       <button class="abtn" data-center>${ico('center')}Centre</button>
       ${src ? `<a class="abtn" href="${esc(src)}" target="_blank" rel="noopener">${ico('book')}Lore</a>` : `<button class="abtn" disabled>${ico('book')}Lore</button>`}
     </div>
-    ${readingLink('places',p.id,'Read the place guide')}
     <p class="desc">${esc(p.d)}</p>
+    ${readingLink('places',p.id,'Read the place guide','place-guide')}
     <dl class="kv">${when}${pp}<dt>Attested in</dt><dd>${esc({Hobbit:'The Hobbit',LotR:'The Lord of the Rings',Silm:'The Silmarillion',UT:'Unfinished Tales',HoME:'The History of Middle-earth',Letters:'Letters of J.R.R. Tolkien'}[p.c] || p.c || '—')}</dd></dl>
     ${ev}${jr}
     <div class="orn"><span>Nearby</span></div>
