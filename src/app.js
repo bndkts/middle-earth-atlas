@@ -25,10 +25,16 @@ function readingLink(kind,id,label,className='pill'){
 }
 const mapEl = $('#map'), world = $('#world'), mkLayer = $('#markers'), dyn = $('#dyn'), sheet = $('#sheet'), body = $('#sheetbody');
 // Read dimensions only at startup/resize, never after map style writes in a frame.
-const viewport = {};
+const viewport = {chromeTop:100};
+function measureToolbar(){
+  const rect = $('#top').getBoundingClientRect();
+  // Ignore provisional WebKit bounds outside the viewport until layout settles.
+  if (rect.bottom >= 0 && rect.bottom <= viewport.height) viewport.chromeTop = rect.bottom;
+  return rect;
+}
 function measureViewport(){
   viewport.width = window.innerWidth; viewport.height = window.innerHeight;
-  viewport.chromeTop = $('#top').getBoundingClientRect().bottom;
+  measureToolbar();
 }
 measureViewport();
 const isDesktop = () => viewport.width >= 900;
@@ -756,6 +762,9 @@ $('#zin').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1.6, cx, 
 $('#zout').onclick = () => { const [cx, cy] = visibleCenter(); zoomAnim(1/1.6, cx, cy); };
 $('#home').onclick = () => { const h = homeView(); flyTo((viewport.width/2 - h.tx)/h.s, (viewport.height/2 - h.ty)/h.s, h.s, 900); setTimeout(() => { Object.assign(V, h); clamp(); apply(); }, reduceMotion ? 0 : 950); };
 window.addEventListener('resize', () => {
+  // WebKit also emits resize at navigation without changing the viewport.
+  // Do not interrupt a place flight and adopt its intermediate zoom in that case.
+  if (viewport.width === window.innerWidth && viewport.height === window.innerHeight) { measureToolbar(); return; }
   const [cx,cy]=visibleCenter(), anchor={x:(cx-V.tx)/V.s,y:(cy-V.ty)/V.s};
   if (!gesturing) finishRaster();
   measureViewport();
@@ -1410,9 +1419,14 @@ window.__fly = flyTo;
   sheet.addEventListener('click', () => showHov(null));
   window.addEventListener('resize', () => showHov(null));
   hovRef.el = hov; hovRef.get = () => hovP;
-  // the panel starts below the search bar and chips, whatever their height
+  // Refresh camera bounds after building the controls, and when fonts/layout change.
+  // WebKit can report a provisional toolbar position during the initial measurement.
+  // Keep this outside gesture frames; the desktop panel shares the same measurement.
   const top = $('#top');
-  const syncTop = () => { if (isDesktop()) document.documentElement.style.setProperty('--topH', (top.offsetHeight + 8 - 16) + 'px'); };
+  const syncTop = () => {
+    const rect = measureToolbar();
+    if (isDesktop()) document.documentElement.style.setProperty('--topH', (rect.height - 8) + 'px');
+  };
   if (window.ResizeObserver) new ResizeObserver(syncTop).observe(top);
   window.addEventListener('resize', syncTop); syncTop();
 })();
