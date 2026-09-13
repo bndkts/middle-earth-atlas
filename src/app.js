@@ -827,17 +827,21 @@ function renderExplore(){
   el.innerHTML = `
     <div class="hero"><div><div class="eyebrow">Gazetteer · Third Age</div><h1>Middle-earth</h1></div><small>${PLACES.length} places · ${TIMELINE.length} events</small></div>
     <p class="sub" style="margin-top:6px"><span class="t-only">Pinch to travel, tap a name to read its tale — from Bag End to the Sammath Naur.</span><span class="f-only">Scroll to zoom, drag to travel, click a name to read its tale — from Bag End to the Sammath Naur.</span></p>
-    <div class="hints f-only"><span><span class="kbd">/</span> search</span><span><span class="kbd">←</span><span class="kbd">↑</span><span class="kbd">↓</span><span class="kbd">→</span> pan</span><span><span class="kbd">+</span><span class="kbd">−</span> zoom</span><span><span class="kbd">H</span> home</span><span><span class="kbd">R</span> wander</span><span><span class="kbd">Esc</span> back</span></div>
-    <nav class="reading-nav" aria-label="Read the atlas"><a href="/places/">Places</a><a href="/journeys/">Journeys</a><a href="/methodology/">Sources &amp; method</a><a href="/data/">Open data</a></nav>
+    <details class="entry-section"><summary>${ico('center')} Discover places</summary>
     <div class="tiles">${feat.map(p => `<button class="tile" data-go="${p.id}">${pIcon(p)}<b>${esc(p.n)}</b><small>${esc(p.r)}</small></button>`).join('')}</div>
-    <div class="orn"><span>Journeys</span></div>
+    <a class="place-guide" href="/places/">Browse the place guides</a></details>
+    <details class="entry-section"><summary>${ico('route')} Follow a journey</summary>
     <div class="list">${JOURNEYS.map(j => `<button class="row j" data-j="${j.id}" style="--jc:${j.color}"><span class="ic">${ico('route')}</span><span class="tx"><b>${esc(j.name)}</b><small>${esc(j.legs[0].date)} → ${esc(j.legs[j.legs.length-1].date)} · ${j.legs.length} waypoints</small></span></button>`).join('')}</div>
+    <a class="journey-guide" href="/journeys/">Browse the journey guides</a></details>
+    <button class="entry-reader" id="ex-chapter">${ico('book')} Read alongside the book</button>
+    <details class="atlas-help"><summary>Help &amp; about this atlas</summary>
+    <div class="hints f-only"><span><span class="kbd">/</span> search</span><span><span class="kbd">← ↑ ↓ →</span> pan</span><span><span class="kbd">+ −</span> zoom</span><span><span class="kbd">H</span> home</span><span><span class="kbd">R</span> wander</span><span><span class="kbd">Esc</span> back</span></div>
+    <nav class="reading-nav" aria-label="Read the atlas"><a href="/methodology/">Sources &amp; method</a><a href="/data/">Open data</a></nav>
     <p class="sub discovery-hint">Look a little closer: zoom into the countryside to find tiny drawings. Tap a gold sparkle to discover their stories.</p>
     <div class="orn"><span>Wander</span></div>
     <div class="list">
       <button class="row" id="ex-wander"><span class="ic">${ico('dice')}</span><span class="tx"><b>Take me somewhere</b><small>A random corner of the map</small></span></button>
       <button class="row" id="ex-dir"><span class="ic">${ico('route')}</span><span class="tx"><b>Directions</b><small>Distance and travel time between any two places</small></span></button>
-      <button class="row" id="ex-chapter"><span class="ic">${ico('book')}</span><span class="tx"><b>Explore by chapter</b><small>See where the characters are in all 62 chapters</small></span></button>
       <button class="row" id="ex-tl"><span class="ic">${ico('hour')}</span><span class="tx"><b>Travel in time</b><small>See the map as it was in any year</small></span></button>
       <button class="row" id="ex-layers"><span class="ic">${ico('layers')}</span><span class="tx"><b>Layers</b><small>Realms, roads, journeys, labels</small></span></button>
     </div>
@@ -862,7 +866,7 @@ function renderExplore(){
         </g>
       </svg>
       by <a href="https://github.com/bndkts" target="_blank" rel="noopener">@bndkts</a>
-    </p>`;
+    </p></details>`;
   el.addEventListener('click', e => {
     const go = e.target.closest('[data-go]'); if (go) return selectPlace(byId[go.dataset.go], { fly: true });
     const j = e.target.closest('[data-j]'); if (j) return openJourney(j.dataset.j);

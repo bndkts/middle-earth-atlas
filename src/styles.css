@@ -212,6 +212,17 @@ a{color:var(--accent)}
 .oss-links a{padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:var(--paper-2);font-size:12px;text-decoration:none}
 .back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:13px;margin-bottom:8px;font-style:italic}
 .back svg{width:14px;height:14px}
+.entry-section,.entry-reader{border-bottom:1px solid var(--line);margin:0;width:100%;text-align:left}
+.entry-section summary,.entry-reader{padding:14px 0;font-size:18px;cursor:pointer;color:var(--text)}
+.entry-section summary svg,.entry-reader svg{width:19px;height:19px;vertical-align:-3px;margin-right:7px;color:var(--accent)}
+.entry-section[open] summary{color:var(--accent)}
+.entry-section .tiles{margin-top:8px}
+.atlas-help{margin-top:16px;color:var(--muted)}
+.atlas-help>summary{font-size:13px;cursor:pointer}
+@media(min-width:900px){
+  #sheet:has(#m-explore.on) .panel{bottom:auto;max-height:calc(100% - var(--topH,112px))}
+  #sheet:has(#m-explore.on) #sheetbody{flex:0 1 auto}
+}
 /* chapter explorer */
 .chapter-picker{display:flex;flex-direction:column;gap:5px;margin:14px 0 8px;color:var(--muted);font-size:13px;font-style:italic}
 .chapter-picker select{width:100%;font:inherit;font-size:15px;color:var(--text);background:var(--paper-2);border:1px solid var(--line);border-radius:9px;padding:8px 10px}
