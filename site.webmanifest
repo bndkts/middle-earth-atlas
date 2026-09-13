@@ -1,0 +1,21 @@
+{
+  "name": "Middle-earth Atlas",
+  "short_name": "Atlas",
+  "description": "An interactive map, timeline, and journey explorer for Middle-earth.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5ecd6",
+  "theme_color": "#f5ecd6",
+  "icons": [
+    {
+      "src": "/assets/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

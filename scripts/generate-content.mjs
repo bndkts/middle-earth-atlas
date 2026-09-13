@@ -48,6 +48,12 @@ function year(y) {
 }
 const title = 'Middle-earth Atlas';
 const intro = 'Explore an interactive Middle-earth map, character journeys and historical timeline, with a searchable guide to places from Tolkien’s books.';
+const icons = `<link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f5ecd6">`;
 const navigation = `<nav aria-label="Atlas"><a href="/">Interactive map</a><a href="/places/">Places</a><a href="/journeys/">Journeys</a><a href="/methodology/">Sources &amp; method</a><a href="/data/">Open data</a></nav>`;
 const siteSchema = {'@context':'https://schema.org','@type':'WebSite','@id':base+'/#website',url:base+'/',name:title,inLanguage:'en',description:intro};
 function metadata(url, heading, description, crumbs = []) {
@@ -66,6 +72,7 @@ function metadata(url, heading, description, crumbs = []) {
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${e(heading)}"><meta name="twitter:description" content="${e(description)}">
   <meta name="twitter:image" content="${base}/assets/atlas-social.png">
+  ${icons}
   <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`;
 }
 function page(url, heading, description, body, parent) {
@@ -73,7 +80,7 @@ function page(url, heading, description, body, parent) {
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 ${metadata(url, `${heading} | ${title}`, description, crumbs)}
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/src/content.css">
+<link rel="stylesheet" href="/src/content.css">
 </head><body><a class="skip" href="#content">Skip to content</a><header><a class="brand" href="/">Middle-earth Atlas</a>${navigation}</header>
 <main id="content"><nav aria-label="Breadcrumb">${crumbs.map(([name,url],i) => i === crumbs.length-1 ? `<span aria-current="page">${e(name)}</span>` : link(url,name)).join(' / ')}</nav><h1>${e(heading)}</h1>${body}</main>
 <footer><p>An unofficial Tolkien fan atlas. Not affiliated with the Tolkien Estate or Middle-earth Enterprises.</p><p>${link('/methodology/', 'Sources, estimates and corrections')} · ${link('/data/', 'Data and reuse')} · ${link('https://github.com/bndkts/middle-earth-atlas', 'Project on GitHub')}</p></footer></body></html>\n`;
