@@ -80,7 +80,7 @@ test('the original SVG has provenance and the offline shell includes its depende
   for(const key of ['creator','source','rights','attribution']) assert.ok(plate[key]);
   assert.ok(readFileSync(new URL('../'+plate.d,import.meta.url),'utf8').startsWith('<svg'));
   const worker=readFileSync(new URL('../service-worker.js',import.meta.url),'utf8');
-  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-3','/src/submap-camera.mjs?v=moria-3','/src/submap.css?v=moria-3','/'+plate.d+'?v=moria-3']) assert.ok(worker.includes(JSON.stringify(file)),file);
+  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-5','/src/submap-camera.mjs?v=moria-5','/src/submap.css?v=moria-5','/'+plate.d+'?v=moria-5']) assert.ok(worker.includes(JSON.stringify(file)),file);
 });
 
 test('the Moria reading page offers a direct link to the regional map', async () => {
@@ -136,4 +136,74 @@ test('bridge label can sit below its marker to leave the Balrog vignette visible
   const {layoutLabels}=await import('../src/submap-camera.mjs');
   const [label]=layoutLabels([{id:'bridge',x:250,y:250,width:100,height:23,side:'below'}],500,500,'bridge');
   assert.ok(label.y>250,'Place the label below the encounter, not over the figures');
+});
+
+test('drawn hall passages join another passage, a room, or a gate instead of ending in open rock', () => {
+  const source=readFileSync(new URL('./draw-moria.mjs',import.meta.url),'utf8');
+  const passages=vm.runInNewContext(source.match(/const passages=(\[[\s\S]*?\n  \]);/)[1]);
+  const mines=vm.runInNewContext(source.match(/const minePaths=(\[[\s\S]*?\n  \]);/)[1]);
+  const halls=[...source.matchAll(/hall\((\d+),(\d+),(\d+),(\d+),/g)].map(m=>m.slice(1).map(Number));
+  const points=d=>{let x=0,y=0;return [...d.matchAll(/([MLHV])([^MLHV]+)/g)].map(([,command,values])=>{
+    const numbers=values.trim().split(/[ ,]+/).map(Number);
+    if(command==='H')x=numbers[0];else if(command==='V')y=numbers[0];else [x,y]=numbers;
+    return [x,y];
+  });};
+  const lines=[...passages,...mines.map(d=>[d,7])].map(([d,width])=>({points:points(d),width}));
+  const distance=([x,y],[ax,ay],[bx,by])=>{
+    const dx=bx-ax,dy=by-ay,t=Math.max(0,Math.min(1,((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy)));
+    return Math.hypot(x-ax-t*dx,y-ay-t*dy);
+  };
+  const gaps=[];
+  for(let i=0;i<passages.length;i++){
+    const line=lines[i];
+    for(const endpoint of [line.points[0],line.points.at(-1)]){
+      const inRoom=halls.some(([x,y,w,h])=>endpoint[0]>=x&&endpoint[0]<=x+w&&endpoint[1]>=y&&endpoint[1]<=y+h);
+      const atGateOrBridge=[[149,518],[1270,604]].some(p=>Math.hypot(p[0]-endpoint[0],p[1]-endpoint[1])<2);
+      const joins=lines.some((other,j)=>j!==i&&other.points.slice(1).some((p,k)=>distance(endpoint,other.points[k],p)<=(line.width+other.width)/2));
+      if(!inRoom&&!atGateOrBridge&&!joins)gaps.push(endpoint.join(','));
+    }
+  }
+  assert.deepEqual(gaps,[],'Unconnected corridor ends in the rendered plate');
+});
+
+test('room doorways follow actual corridor crossings, including floor shafts', async () => {
+  const {roomOpenings}=await import('./moria-geometry.mjs');
+  const room={x:100,y:100,w:100,h:60,outline:[[100,160],[100,100],[200,100],[200,160]]};
+  const routes=[['M80 140H130',12],['M170 150V190',8],['M50 70H90',12]];
+  const openings=roomOpenings(routes,[room]);
+  assert.deepEqual(openings.map(({x,y})=>[x,y]),[[100,140],[170,160]]);
+  assert.equal(openings[0].width,12);
+  assert.equal(openings[1].dy,1);
+});
+
+test('every hall and mine branch is reachable from the western entrance', async () => {
+  const {passagePoints,roomOpenings}=await import('./moria-geometry.mjs');
+  const source=readFileSync(new URL('./draw-moria.mjs',import.meta.url),'utf8');
+  const passages=vm.runInNewContext(source.match(/const passages=(\[[\s\S]*?\n  \]);/)[1]);
+  const mines=vm.runInNewContext(source.match(/const minePaths=(\[[\s\S]*?\n  \]);/)[1]);
+  // The bridge is a separately drawn span between the second hall and exit stairs.
+  const routes=[...passages,...mines.map(d=>[d,7]),['M1150 601H1270',8]];
+  const rooms=[...source.matchAll(/hall\((\d+),(\d+),(\d+),(\d+),/g)].map(m=>{
+    const [x,y,w,h]=m.slice(1).map(Number);return {x,y,w,h,outline:[[x,y],[x+w,y],[x+w,y+h],[x,y+h]]};
+  });
+  const points=routes.map(([d])=>passagePoints(d));
+  const distance=([x,y],[ax,ay],[bx,by])=>{
+    const dx=bx-ax,dy=by-ay,t=Math.max(0,Math.min(1,((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy)));
+    return Math.hypot(x-ax-t*dx,y-ay-t*dy);
+  };
+  const cross=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
+  const close=(a,b,c,d,pad)=>{
+    if(cross(a,b,c)*cross(a,b,d)<0&&cross(c,d,a)*cross(c,d,b)<0)return true;
+    return Math.min(distance(a,c,d),distance(b,c,d),distance(c,a,b),distance(d,a,b))<=pad;
+  };
+  const edges=Array.from({length:routes.length+rooms.length},()=>[]);
+  const join=(a,b)=>{edges[a].push(b);edges[b].push(a);};
+  for(let i=0;i<routes.length;i++){
+    for(let j=i+1;j<routes.length;j++)if(points[i].slice(1).some((b,k)=>points[j].slice(1).some((d,l)=>close(points[i][k],b,points[j][l],d,(routes[i][1]+routes[j][1])/2))))join(i,j);
+    for(const [j,room]of rooms.entries())if(points[i].some(([x,y])=>x>=room.x&&x<=room.x+room.w&&y>=room.y&&y<=room.y+room.h)||roomOpenings([routes[i]],[room]).length)join(i,routes.length+j);
+  }
+  const reached=new Set([0]),queue=[0];
+  while(queue.length)for(const next of edges[queue.shift()])if(!reached.has(next)){reached.add(next);queue.push(next);}
+  const disconnected=edges.flatMap((_,i)=>reached.has(i)?[]:[i<routes.length?routes[i][0]:`hall ${rooms[i-routes.length].x},${rooms[i-routes.length].y}`]);
+  assert.deepEqual(disconnected,[],'Disconnected chambers or mine networks');
 });
