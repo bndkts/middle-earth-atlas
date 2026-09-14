@@ -5,7 +5,7 @@
   "description": "An interactive map, timeline, and journey explorer for Middle-earth.",
   "license": "MIT",
   "scripts": {
-    "test": "node --check src/data.js && node --check src/chapters.js && node --check src/images.js && node --check src/app.js && node --check src/url-state.js && node --check src/offline.js && node --check service-worker.js && node scripts/validate-data.mjs && node scripts/generate-content.mjs --check && node --test scripts/*.test.mjs",
+    "test": "node --check src/data.js && node --check src/chapters.js && node --check src/images.js && node --check src/app.js && node --check src/submap.mjs && node --check src/submap-camera.mjs && node --check src/url-state.js && node --check src/offline.js && node --check service-worker.js && node scripts/validate-data.mjs && node scripts/generate-content.mjs --check && node --test scripts/*.test.mjs",
     "generate": "node scripts/generate-content.mjs",
     "check:generated": "node scripts/generate-content.mjs --check"
   },
