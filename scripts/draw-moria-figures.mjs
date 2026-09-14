@@ -1,58 +1,31 @@
-// Original pen drawings. Figure proportions are independent of their map scale.
-// Fine hatching and sparse pigment keep these vignettes within the atlas palette.
+// Original ink silhouettes. Equipment and posture identify the small vignettes.
+// Sparse hatching and muted washes keep the figures within the atlas palette.
 export function moriaFigureDefinitions() {
-  return `<pattern id="figure-hatch" width="5" height="7" patternUnits="userSpaceOnUse"><path d="M-2 6L3 0M1 9L7 1" fill="none" stroke="#393b30" stroke-width=".55" opacity=".6"/></pattern>
+  return `<pattern id="figure-hatch" width="5" height="7" patternUnits="userSpaceOnUse"><path d="M-2 6L3 0M1 9L7 1" fill="none" stroke="#303a30" stroke-width=".45" opacity=".5"/></pattern>
 <pattern id="shadow-hatch" width="1.8" height="2.8" patternUnits="userSpaceOnUse"><path d="M-.5 2.8L1.4 0M1 3.7L2.9 .8" fill="none" stroke="#252f27" stroke-width=".2" opacity=".6"/></pattern>
-<pattern id="figure-mail" width="5" height="4" patternUnits="userSpaceOnUse"><path d="M0 1q1.2 3 2.5 0m0 0q1.2 3 2.5 0" fill="none" stroke="#353a31" stroke-width=".6"/></pattern>
-<g id="orc-spearman" stroke="#3e4135" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M-13-47Q-5-49 3-45L5-29-3-14-3-4 3-2 2 0h-13l-1-5 1-14 6-13-6-5Z" fill="#676959"/>
-  <path d="M-1-44Q6-44 11-40L15-24 11-8 16-3 21-2 20 0H9L6-5 6-20 1-28-8-37Z" fill="#85816a"/>
-  <path d="M-10-17l7 3m-8 3 8 1m-8 2 8 1M7-17l6 1m-6 3 6 1m-6 2 5 1M-11-2h11m10 0h8" fill="none" stroke-width=".6"/>
-  <path d="M-10-69q11-5 18 7l3 18-5 4-5-3-4 2-5-2-6 3-2-8Z" fill="#8a8267"/>
-  <path d="M-10-69q11-5 18 7l3 18-5 4-5-3-4 2-5-2-6 3-2-8Z" fill="url(#figure-mail)" stroke="none"/>
-  <path d="M-12-67Q-8-75-2-74L5-68 2-54l-8 5-7-9Z" fill="#696e5d"/>
-  <path d="M-10-68l5 7 2 9m-4-15 4 5m-3 0-6 5M-12-47l22 1-1 3-20-1Z" fill="none" stroke="#b1a184" stroke-width=".75"/>
-  <path d="M4-65q5-2 7 5l4 11 11-8 3 3-11 11q-3 2-6-1L4-54Z" fill="#888975"/>
-  <path d="M9-59l3 7m4 4 8-7M26-57l4-1 2 2-2 4-4-1Z" fill="none" stroke-width=".7"/>
-  <path d="M-9-65q-6 3-7 10l-1 15 5 1 5-14 6-7Z" fill="#777765"/>
-  <path d="M-4-74l1-7 7-3 6 5-1 5 4 3-5 2-1 4-6 1-4-5Z" fill="#a9a38a"/>
-  <path d="M-3-79l-6-4 2 7 5 2M-2-82q-2-10 7-10 9 3 6 12l-5-4-8 5Z" fill="#686e61"/>
-  <path d="M1-89l5 7m-6-4 2 4M5-78l4 1M5-71l4 1m-7 1 2 3M-3-80v4" fill="none" stroke-width=".65"/>
-  <path d="M29-1l1-97" fill="none" stroke="#6a573c" stroke-width="1.7"/>
-  <path d="M30-111l-4 12 4 5 3-6Z" fill="#b7b5a3"/>
-  <path d="M30-109v14m-2 3h4m-4 3h4m-4 3h4" fill="none" stroke-width=".5"/>
-  <path d="M-23-50Q-14-55-7-47L-5-34q-4 12-13 17-8-10-9-20Z" fill="#8b795c"/>
-  <path d="M-23-50Q-14-55-7-47L-5-34q-4 12-13 17-8-10-9-20Z" fill="url(#figure-hatch)" stroke="none"/>
-  <path d="M-21-48q6-4 12 2l2 12q-3 9-11 14-6-10-7-17Z" fill="none" stroke="#b6a384" stroke-width=".8"/>
-  <ellipse cx="-16" cy="-37" rx="3" ry="4" fill="#aaa78f"/>
-  <path d="M-16-48v7m0 8-1 11m-7-22 3 1m11 0 2-1M-19-38l3-2 2 3" fill="none" stroke-width=".6"/>
+<g id="orc-spearman" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M-16 0q7-7 6-16l-4-14 5-14q-12 3-12 18l-3 2q-3-12 3-28 3-10 12-15l-3-8 5-8 6-10 5 11 6 7-3 8 4 7 1 10 10 4 5-6 2 3-5 9-6-1-9-4q1 15-6 24l8 13 8 2-1 3H7l-9-18-5 9-1 7 5 2-1 2Z" fill="#505747"/>
+  <path d="M-10-54q-8 9-6 19M-5-41q5 11 0 20m8-13 2 10M-7-75q8 4 14 0" fill="none" stroke="#96967b" stroke-width=".8" opacity=".65"/>
+  <path d="M-8-71q6 1 10 6l-2 13-7 5q-4-9-1-24Z" fill="#414b3e"/>
+  <path d="M30 0v-97m0-13-4 12 4 3 3-3Z" fill="#90917a" stroke="#52523e" stroke-width="1.2"/>
+  <path d="M-25-47q10-7 19 1l-1 18q-4 9-12 13-9-13-6-32Z" fill="#6e6c51" stroke="#444c3d" stroke-width="1"/>
+  <path d="M-22-44q7-4 13 0l-1 14q-3 8-9 11m2-24-1 23" fill="none" stroke="#9f9571" stroke-width=".65"/>
 </g>
-<g id="orc-archer" stroke="#404135" stroke-width=".95" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M-12-45Q-6-49 1-44l-3 15-12 14-3 11 6 2-1 2h-14l1-6 6-17 7-13Z" fill="#797864"/>
-  <path d="M-1-44q8-1 13 5l-1 14 10 20 8 3-1 2H16l-5-5-9-16-7-10Z" fill="#666c5b"/>
-  <path d="M-18-14l5 2m-7 2 6 2m29-9-5 3m7 0-5 3m7 0-5 3" fill="none" stroke="#b6a586" stroke-width=".7"/>
-  <path d="M-14-70q9-7 18-4l5 12-1 17-5 6-4-3-5 1-3-4-8 2 3-14Z" fill="#807b61"/>
-  <path d="M-14-70q9-7 18-4l5 12-1 17-5 6-4-3-5 1-3-4-8 2 3-14Z" fill="url(#figure-hatch)" stroke="none"/>
-  <path d="M-15-69l22 16m-19-20 20 17M-11-46l20-3m-20 6 20-3" fill="none" stroke="#bcaa82" stroke-width=".8"/>
-  <path d="M-6-75l2-8 8-3 5 5-1 5 5 2-5 3-1 5-6-2-3-5Z" fill="#a29f84"/>
-  <path d="M-5-82q0-10 8-10l6 5 1 7-7-4-8 5Z" fill="#64695a"/>
-  <path d="M-5-82l-6-2 3 6 4 1m7-3 4 1m-2 6h4" fill="none" stroke-width=".7"/>
-  <path d="M3-70Q7-75 12-72l10 4 17-3 2 4-20 5-12-3Z" fill="#9b967b"/>
-  <path d="M-9-69l-14 5 5 10 23-17-2-3-19 12-1-3 13-2Z" fill="#9b967b"/>
-  <path d="M-19-60l3 3m-1-6 3 3M15-69l5 4m3-1 12-4M-1-73l5-1 2 3-3 3-4-2" fill="none" stroke-width=".65"/>
-  <path d="M37-92C51-86 43-77 43-68S55-49 43-41" fill="none" stroke="#6a563b" stroke-width="1.8"/>
-  <path d="M37-92 4-71 43-41M3-71l51 1-4-2m4 2-4 2" fill="none" stroke-width=".55"/>
-  <path d="M-20-49l-9-22 7-3 10 22Z" fill="#75614a"/>
-  <path d="M-25-71l-6-18m9 17-5-18m-7 3 4 4m0-7 4 4" fill="none" stroke-width=".7"/>
+<g id="orc-archer" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M-24 0q7-10 9-20l-1-15 4-21-8-7 10-8-3-6 7-14 8 5 5 9-3 9 9 7 18-1 6-6 3 3-6 8-20 3-8-4-2 14 8 13-2 8 9 15 7 2-1 2H14L1-19-3-26-9-17-14-4l5 2-1 2Z" fill="#555a48"/>
+  <path d="M-12-66l-13 5 8 9 22-16-2-4-20 11 7-2Z" fill="#656b55"/>
+  <path d="M-10-49q6 10 3 20m3-12 4 12M-6-77q6 3 12 0m-23 21 16-10M7-62l14 3" fill="none" stroke="#99967a" stroke-width=".75" opacity=".65"/>
+  <path d="M-22-49l-9-24 6-3 12 25Z" fill="#6d6950"/>
+  <path d="M-28-74l-5-13m9 12-4-15M36-92C50-83 42-77 42-68S52-49 43-41" fill="none" stroke="#6a6046" stroke-width="1.4"/>
+  <path d="M36-92 3-69 43-41M3-69h50l-4-2m4 2-4 2" fill="none" stroke="#5c5c46" stroke-width=".6"/>
 </g>`;
 }
 
 export function moriaFigureScenes() {
   const s=[];
   const p=(d,fill='none',extra='')=>s.push(`<path d="${d}" fill="${fill}" ${extra}/>`);
-  let hatch='figure-hatch';
-  const body=(d,fill)=>{p(d,fill);p(d,`url(#${hatch})`,'stroke="none"');};
-  const group=(id,x,y,scale)=>s.push(`<g id="${id}" transform="translate(${x} ${y}) scale(${scale})" stroke="#3f4033" stroke-width=".75" stroke-linejoin="round" stroke-linecap="round">`);
+  const body=(d,fill)=>{p(d,fill);p(d,'url(#figure-hatch)','stroke="none"');};
+  const group=(id,x,y,scale)=>s.push(`<g id="${id}" transform="translate(${x} ${y}) scale(${scale})" stroke="none" stroke-linejoin="round" stroke-linecap="round">`);
   const end=()=>s.push('</g>');
   s.push('<g id="orc-patrols"><title>Orc patrols among the abandoned halls</title>');
   for(const [type,x,y,scale] of [
@@ -62,31 +35,24 @@ export function moriaFigureScenes() {
   ])s.push(`<use href="#orc-${type}" transform="translate(${x} ${y}) scale(${scale})"/>`);
   end();
 
-  // Drummer seen from the side, folded over a hide drum with raised sticks.
   group('orc-drummer',904,650,.29);
-  body('M-5-39q10-3 18 3l7 12-9 14-1 7 9 2-1 2H6L3-5l5-17-10-4-5 9-7 13 4 3-1 2h-13l2-6 9-20Z','#777662');
-  body('M-12-65Q-2-72 7-62l7 21-4 4-8-3-6 3-8-4-2-9Z','#8c8165');
-  body('M-11-64l-7 10 8 7 17-13 1-4-18 10-1-2 7-8M5-61l8 12 11-10 4 3-13 15-7-5-7-8Z','#9c977b');
-  p('M-6-67l-2-7 4-9 8 1 4 5-1 5 4 2-5 2-1 5-5 2Z','#9c9e83');
-  p('M-8-73q-6-16 5-17 12 0 11 13l-7-5-6 4Z','#646b5b');
-  p('M-7-77l-5-2 3 6 4 1M2-75h3m0 6h3','none','stroke-width=".7"');
-  p('M3-64l18 8m4-4 13-12','none','stroke="#655239" stroke-width="1.2"');
-  p('M11-29v-24q15-5 28 1l-1 24q-15 7-27-1Z','#99805c');
-  s.push('<ellipse cx="25" cy="-52" rx="14" ry="4" fill="#cbb792"/>');
-  p('M12-49l4 22 5-22 5 22 5-21 5 19M11-30q13 6 27 0m-23-23q10-2 20 1','none','stroke="#4b4938" stroke-width=".6"');
+  s.push('<title>A hunched Orc drummer in the deep halls</title>');
+  body('M-25 0q10-11 9-23-8-20 2-37l7-8-3-11 8-12 8 7 4 12-4 7q8 5 10 16l10-10 3 3-13 17-7-5-2 12 7 9-8 16 7 4-1 3H2l-3-9 6-12-11-4-8 22 7 3Z','#505847');
+  p('M-12-61l-12 9 11 6 16-16-3-3-15 13Z','#646a53');
+  p('M-8-71q7 3 13 0M-10-40q7 7 4 17m-5 7-4 12','none','stroke="#939177" stroke-width=".75"');
+  p('M3-63l18 7m3-3 14-13','none','stroke="#655b43" stroke-width="1.2"');
+  body('M11-50q14-7 28 0l-1 24q-14 6-27-2Z','#81724f');
+  p('M12-50q13 5 26 0m-24 3 5 20 5-19 6 19 6-21','none','stroke="#b7a478" stroke-width=".65"');
   end();
 
-  // Troll: small recessed head, long heavy arms and a low, asymmetrical stance.
   group('cave-troll',1023,465,.4);
-  body('M-12-70Q-30-72-39-52l-7 26 1 13 6 2 3-4-1-10 6-16 5-2-1 17 6 9-4 14-8 3v3h19l5-5 6-22 7 10 3 13-3 2 2 3h18l-1-5-6-5-3-20-6-15 5-9 5 18 4 18 7 6 7-2-2-7-4-4-3-29Q26-66 9-68Z','#888c7a');
-  p('M-28-58q-3 14 3 23m-10-13-5 22m14-8 8 9-1 11m24-25 7 14 2 16M-17-54q10 11 25 6m-22 0q8 7 18 5m-13 3 10 3','none','stroke="#4d5142" stroke-width=".7"');
-  p('M-12-67q-4-12 4-18 10-5 19 5l-1 8 4 5-5 6-11 1-7-4Z','#a1a18a');
-  p('M-8-78l5-1m6 0 4 2m-6 0-2 7 5 1m-11 3 10 1M-11-73l3 4m14 6 3-4','none','stroke-width=".85"');
-  p('M-8-67l1 4m8-3 2 4','none','stroke="#c1b79a" stroke-width="1.2"');
-  p('M-24-27q12 5 24 0l8 14-7-3-2 3-6-4-5 2-3-5-8 2Z','#6c6550');
-  p('M31-10l-4-50 6-2 4 49Z','#78654b');
-  p('M25-59l-2-15 3-4 8 1 3 16-3 3Z','#8c7857');
-  p('M26-73l7-1m-6 7 8-1m-7-10 2 15','none','stroke-width=".7"');
+  s.push('<title>A cave troll, stooped beneath the gallery roof</title>');
+  body('M-36 0q9-5 9-14-8-10-2-30-9 8-9 22l-3 11-8 2q-3-22 9-43 9-16 27-19-4-9 3-15 10-5 20 4l3 9q16 6 24 25l8 31-6 8-6-3-2-11-6-21-1 22 2 13 8 7H10L5-25-3-31-9-12-10-3l-8 4Z','#626954');
+  p('M-9-76q9-5 17 1l-1 10-8 5-8-6Z','#454f3f');
+  p('M-26-54q-6 12-4 20m13-17q10 6 22 1M19-50q7 9 8 22M-15-22l-4 15m26-27 4 20','none','stroke="#97977b" stroke-width=".75" opacity=".65"');
+  p('M31-10l-4-51 6-2 4 50Z','#696147');
+  p('M24-61l-2-15 11-3 4 18-7 4Z','#777052');
+  p('M25-71l9-2m-8 8 9-2','none','stroke="#a5956f" stroke-width=".6"');
   end();
 
   // An ink apparition: the outline dissolves into smoke, with no exposed anatomy.
@@ -120,24 +86,18 @@ export function moriaFigureScenes() {
   for(const [x,y]of [[-38,-53],[-23,-67],[24,-53],[34,-41],[-31,-23],[8,-84]])p(`M${x} ${y}l.7-2.2`,'none','stroke="#b18b51" stroke-width=".65"');
   end();
 
-  // Gandalf in profile: weathered hat, beard and a cloak blown behind him.
-  hatch='figure-hatch';
+  // A grey silhouette: hat, beard, staff and a pale blade carry the identity.
   group('gandalf-at-bridge',1254,601,.52);
-  p('M-3-12l-2 10-8 1-1 2H0l4-11M10-10l3 8 8 1v2H9L4-8','#5f6559');
-  body('M-6-54Q2-59 12-51l4 19q6 11 14 18l-5 1 6 7-10-1 4 6-9-2-3 3-8-3-15 3 5-18-4-19Z','#92988a');
-  p('M10-46q0 17 9 32m-7-14 4 19M0-45q3 17-2 33m8-8 1 14m-12-4 1-13M-3-52l6 10','none','stroke="#d7ceb2" stroke-width=".9"');
-  p('M-5-51Q-9-49-11-39l-10 9-8-2-1 4 9 3 16-10 4-12Z','#a3a898');
-  p('M8-49l4 13 11-8 3 3-13 13-5-4-6-13Z','#9fa493');
-  p('M-27-33l-5-1-2 2 1 5 4 1M23-45l5-2 2 3-3 4-3-1','#bcb69b');
-  p('M-6-55l-5-7 1-7 7-3 7 4-1 10-3 5Z','#c5bfa6');
-  p('M-8-66l-6 5 5 1-1 5 5 2m-4-11h2','none','stroke-width=".65"');
-  p('M-6-59q5 0 7-6l1 14-4 10-1-7-4-8Z','#d4cdb5');
-  p('M-3-58v10m2-12v8M-8-65l5-2','none','stroke="#7e8474" stroke-width=".6"');
-  body('M-15-68Q-9-72-7-81l6-15 3 12 4 7 9 8q-17 5-30 1Z','#7e887b');
-  p('M-13-69q12 2 24-1M-5-78l5-13m-5 18 10 1','none','stroke="#c8c3a8" stroke-width=".65"');
-  p('M-32 0l1-70-2-7 3-4 3 2-1 7-2 72','none','stroke="#6b614a" stroke-width="1.25"');
-  p('M26-42l16-24 1-5-5 4-14 22Z','#c2c8b6','stroke-width=".5"');
-  p('M23-47l6 5','none','stroke="#bda676" stroke-width="1"');
+  s.push('<title>Gandalf holds the narrow bridge</title>');
+  body('M-12 0q8-22 4-39l-6 8-12 5-7-2 1-5 7 2 11-11q2-9 10-13l1-13 9-1 1 14q7 3 9 16l9-5 3 4-14 12-6-8q3 18 16 29l-8-2 7 8-14-5-2 5-10-2Z','#737d6b');
+  p('M-5-56q2 17-2 33M7-46q0 18 10 32m-11-3 3 11M-3-18l-2 11','none','stroke="#b6b49a" stroke-width=".85" opacity=".8"');
+  p('M-9-70l11-3 4 7-3 14-4 9-3-9-5-8-4-2Z','#a8ae96');
+  p('M-9-69l14-2 1 9-9-1-6 2Z','#4f5d4e');
+  body('M-17-69q10-2 11-13l7-16q-2 14 6 22l10 8q-18 5-34-1Z','#657461');
+  p('M-15-68q15 3 29-1M-5-78l5-14M-3-57l2 8','none','stroke="#bdbea3" stroke-width=".65"');
+  p('M-32 0l1-70-2-7 3-4 3 2-1 7-2 72','none','stroke="#666044" stroke-width="1.25"');
+  p('M25-43l16-25 2-4-5 3-15 25Z','#bfc3a8');
+  p('M22-46l7 4','none','stroke="#a69a71" stroke-width=".9"');
   p('M-30-87v10m-5-5h10m-8-3 6 6m-6 0 6-6','none','stroke="#ece3c4" stroke-width=".75"');
   end();
   return s.join('\n');

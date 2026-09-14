@@ -80,7 +80,7 @@ test('the original SVG has provenance and the offline shell includes its depende
   for(const key of ['creator','source','rights','attribution']) assert.ok(plate[key]);
   assert.ok(readFileSync(new URL('../'+plate.d,import.meta.url),'utf8').startsWith('<svg'));
   const worker=readFileSync(new URL('../service-worker.js',import.meta.url),'utf8');
-  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-5','/src/submap-camera.mjs?v=moria-5','/src/submap.css?v=moria-5','/'+plate.d+'?v=moria-5']) assert.ok(worker.includes(JSON.stringify(file)),file);
+  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-6','/src/submap-camera.mjs?v=moria-6','/src/submap.css?v=moria-6','/'+plate.d+'?v=moria-6']) assert.ok(worker.includes(JSON.stringify(file)),file);
 });
 
 test('the Moria reading page offers a direct link to the regional map', async () => {
