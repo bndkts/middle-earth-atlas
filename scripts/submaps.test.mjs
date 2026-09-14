@@ -80,7 +80,7 @@ test('the original SVG has provenance and the offline shell includes its depende
   for(const key of ['creator','source','rights','attribution']) assert.ok(plate[key]);
   assert.ok(readFileSync(new URL('../'+plate.d,import.meta.url),'utf8').startsWith('<svg'));
   const worker=readFileSync(new URL('../service-worker.js',import.meta.url),'utf8');
-  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-6','/src/submap-camera.mjs?v=moria-6','/src/submap.css?v=moria-6','/'+plate.d+'?v=moria-6']) assert.ok(worker.includes(JSON.stringify(file)),file);
+  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-7','/src/submap-camera.mjs?v=moria-7','/src/submap.css?v=moria-7','/'+plate.d+'?v=moria-7']) assert.ok(worker.includes(JSON.stringify(file)),file);
 });
 
 test('the Moria reading page offers a direct link to the regional map', async () => {
@@ -206,4 +206,60 @@ test('every hall and mine branch is reachable from the western entrance', async 
   while(queue.length)for(const next of edges[queue.shift()])if(!reached.has(next)){reached.add(next);queue.push(next);}
   const disconnected=edges.flatMap((_,i)=>reached.has(i)?[]:[i<routes.length?routes[i][0]:`hall ${rooms[i-routes.length].x},${rooms[i-routes.length].y}`]);
   assert.deepEqual(disconnected,[],'Disconnected chambers or mine networks');
+});
+
+test('vertical walking passages have access flights, including the exit below the small arch hall', async () => {
+  const {verticalAccess}=await import('./moria-geometry.mjs');
+  assert.equal(typeof verticalAccess,'function');
+  const room={x:618,y:492,w:132,h:30};
+  const access=verticalAccess([['M740 515V548',9],['M445 482V557',13],['M396 695V746',7]],[room]);
+  assert.ok(access.some(a=>a.x===740&&a.top<=523&&a.bottom>=547&&a.kind==='stairs'));
+  assert.ok(access.some(a=>a.x===445&&a.top===482&&a.bottom===557));
+  const crossing=verticalAccess([['M740 480V548',9]],[room]);
+  assert.ok(crossing.some(a=>a.top<=492&&a.bottom>=522),'A roof entrance needs stairs continuing through the room to its floor');
+  assert.ok(access.some(a=>a.x===396&&a.kind==='ladder'),'Mine shafts use a distinct ladder symbol');
+});
+
+test('the cave troll fits beneath the gallery vault and inside its end wall', async () => {
+  const {moriaFigureScenes}=await import('./draw-moria-figures.mjs');
+  const [,x,y,scale]=moriaFigureScenes().match(/id="cave-troll" transform="translate\((\d+) (\d+)\) scale\(([\d.]+)\)"/).map(Number);
+  // Conservative bounds of the actual silhouette, including the raised club.
+  assert.ok(x+50*scale<1015,'Troll overlaps the end wall');
+  const roofAt=px=>{const t=(px-854)/176;return 452-62*t*(1-t);};
+  assert.ok(y-90*scale>=Math.max(roofAt(x-50*scale),roofAt(x+50*scale)),'Troll protrudes through the sloping vault');
+  assert.ok(y<=469,'Feet must rest within the gallery floor');
+});
+
+test('labels protect illustrated scenes even when their usual preferred position is free', async () => {
+  const {layoutLabels}=await import('../src/submap-camera.mjs');
+  const protectedArt={x:100,y:100,width:260,height:170};
+  const labels=layoutLabels([{id:'bridge',x:230,y:280,width:100,height:23}],500,500,'bridge',[protectedArt]);
+  assert.equal(labels.length,1);
+  assert.ok(labels[0].y>=273,'A label must not cover the figures above the bridge');
+});
+
+test('landmark framing makes mobile details readable while keeping the complete scene in view', async () => {
+  const {landmarkCamera,fitCamera}=await import('../src/submap-camera.mjs');
+  assert.equal(typeof landmarkCamera,'function');
+  const scene={x:1100,y:495,width:210,height:180};
+  for(const [width,height]of [[390,350],[1100,600]]){
+    const camera=landmarkCamera(scene,width,height);
+    assert.ok(camera.scale>fitCamera(width,height).scale*2);
+    assert.ok(scene.x*camera.scale+camera.x>=19);
+    assert.ok((scene.x+scene.width)*camera.scale+camera.x<=width-19);
+    assert.ok(scene.y*camera.scale+camera.y>=19);
+    assert.ok((scene.y+scene.height)*camera.scale+camera.y<=height-19);
+  }
+  assert.ok(landmarkCamera({x:0,y:0,width:0,height:0},390,350).scale>0);
+});
+
+test('furnishing bays leave roof stairs and raised side entrances clear', async () => {
+  const {furnishingFits}=await import('./moria-geometry.mjs');
+  assert.equal(typeof furnishingFits,'function');
+  const room={x:394,y:550,w:130,h:35};
+  const openings=[{x:394,y:561,dx:1,dy:0,width:11,room},{x:445,y:550,dx:0,dy:1,width:13,room},{x:524,y:561,dx:1,dy:0,width:13,room}];
+  assert.equal(furnishingFits(402,24,openings),false,'Left entrance landing');
+  assert.equal(furnishingFits(429,24,openings),false,'Central descending stairs');
+  assert.equal(furnishingFits(483,24,openings),false,'Right entrance stair');
+  assert.equal(furnishingFits(460,16,openings),true,'Remaining storage space');
 });

@@ -29,3 +29,38 @@ export function roomOpenings(routes, rooms) {
   }
   return openings;
 }
+
+// Draw access equipment along every vertical route from the occupied floor.
+// Roof entries continue to the floor inside the room instead of stopping in air.
+export function verticalAccess(routes, rooms) {
+  const access=[];
+  for(const [d,width]of routes){
+    const points=passagePoints(d);
+    for(let i=1;i<points.length;i++){
+      const [x,ay]=points[i-1],[bx,by]=points[i];
+      if(x!==bx||Math.abs(by-ay)<4)continue;
+      let spans=[[Math.min(ay,by),Math.max(ay,by)]];
+      for(const room of rooms){
+        if(x<=room.x+3||x>=room.x+room.w-3)continue;
+        const roof=room.y,floor=room.y+room.h;
+        spans=spans.flatMap(([top,bottom])=>{
+          if(bottom<=roof||top>=floor)return [[top,bottom]];
+          if(top<roof)return [[top,Math.max(bottom,floor)]];
+          return [[top,Math.min(bottom,roof)],[Math.max(top,floor),bottom]].filter(([a,b])=>b-a>3);
+        });
+      }
+      for(const [top,bottom]of spans)access.push({x,top,bottom,width,kind:width<9?'ladder':'stairs'});
+    }
+  }
+  return access;
+}
+
+// Furniture belongs behind the walking route, never across an access flight.
+export function furnishingFits(x, width, openings) {
+  return !openings.some(o=>{
+    const vertical=Math.abs(o.dy)>.01;
+    const start=vertical?o.x-o.width/2-2:o.x<o.room.x+o.room.w/2?o.x-2:o.x-25;
+    const end=vertical?o.x+o.width/2+2:o.x<o.room.x+o.room.w/2?o.x+25:o.x+2;
+    return x<end&&x+width>start;
+  });
+}

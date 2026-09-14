@@ -26,25 +26,46 @@ metadata is in `window.ATLAS_MAP_IMAGES` in `src/images.js`.
 The SVG is self-contained: no raster images, scripts, filters or external fonts.
 Tests enforce deterministic generation and a 600 KB ceiling. Gesture frames
 update the plate transform, nine screen-space markers, collision-checked names
-and zoom controls. Names start hidden on narrow views, with a working toggle.
+and zoom controls. Names start hidden on narrow views, with a working toggle. Small numbered
+markers sit outside the main scenes and use fine reference lines. Label layout
+avoids the main halls, bridge figures, forge and cavern, as well as other labels
+and markers. Close views show only the selected place name. Each article's
+`data-bounds` frames its illustrated scene independently of `data-pin` and
+`data-target`, which place its marker and reference line in illustration units.
+Mobile overview uses the plate's aspect ratio; selected places open a closer
+view. Layout changes wait for an active pointer gesture to finish.
 Viewport dimensions are measured at resize and gesture start, not after writes
 inside pointer-move handlers. Pointer cancellation, focus loss and resize clear
 active gestures. Keyboard zoom and selection also cancel an unfinished drag.
 
 The page, ES module import and service-worker precache use a matching
-`v=moria-6` asset revision. Bump it together when changing the viewer or plate,
+`v=moria-7` asset revision. Bump it together when changing the viewer or plate,
 so a waiting older service worker cannot combine new HTML with stale assets.
 
 ## Passage continuity
 
 Hall passages and mine branches are painted together, one stone layer at a
 time, so intersecting corridors share an open interior. Chamber openings are
-computed from actual route/room intersections in `scripts/moria-geometry.mjs`;
-raised side entrances receive stairs down to the hall floor. Tests reject
+computed from actual route/room intersections in `scripts/moria-geometry.mjs`.
+Wall masks leave those openings clear as the room is drawn, rather than painting
+patches over its furnishings. Raised entrances receive stairs to the floor;
+vertical walking passages have paired flights and mine shafts use ladders.
+Roof entries continue down through the room, and furnishing bays leave the
+access flights clear. A rear portal and landing connect the great hall to the
+Endless Stair. Tests reject
 unattached hall-corridor endpoints, misplaced openings, and halls or mine
 networks disconnected from the western entrance. Roughly hatched mining faces
 remain deliberate dead ends. These checks establish illustration continuity,
-not historical accuracy or a navigable game level.
+not historical accuracy or a navigable game level. Separate checks cover
+stair access, furnishing clearance, the troll's fit beneath its curved vault,
+protected illustration areas and desktop/mobile landmark framing.
+
+The architectural vocabulary distinguishes vaulted galleries, monumental
+ribbed halls, curtained dwellings, timber stores, masonry forge hoods and the
+single archive vault. Fine stone outlines, uneven ink hatching and broad rock
+washes replace the earlier heavy corridor shoulders. The central shaft uses a
+lighter, narrower silhouette; the lower cavern has irregular shelves and a
+broken shoreline so that the occupied halls lead the composition.
 
 ## Interpretation and sources
 

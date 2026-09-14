@@ -1,10 +1,14 @@
-import { WIDTH, HEIGHT, fitCamera, panCamera, zoomCamera, captureView, restoreView, layoutLabels } from './submap-camera.mjs?v=moria-6';
+import { WIDTH, HEIGHT, fitCamera, panCamera, zoomCamera, captureView, restoreView, layoutLabels, landmarkCamera } from './submap-camera.mjs?v=moria-7';
 
 const viewport = document.querySelector('#map-viewport');
 const plate = document.querySelector('#map-plate');
 const articles = [...document.querySelectorAll('.place-notes article')];
 const index = [...document.querySelectorAll('.place-index a')];
 const pins = document.querySelector('#map-pins');
+const leaders=document.createElementNS('http://www.w3.org/2000/svg','svg');
+leaders.id='map-leaders';leaders.setAttribute('aria-hidden','true');pins.before(leaders);
+const artBounds=[{x:634,y:332,width:327,height:86},{x:995,y:298,width:96,height:58},{x:933,y:531,width:235,height:77},{x:1100,y:495,width:195,height:115},{x:632,y:807,width:476,height:127},{x:310,y:597,width:192,height:45}];
+const boundsOf=article=>{const [x,y,width,height]=article.dataset.bounds.split(' ').map(Number);return {x,y,width,height};};
 const status = document.querySelector('#map-status');
 const controls = document.querySelector('.map-controls');
 // Keep the static index first for readers without JavaScript.
@@ -22,8 +26,9 @@ textMeasure.font = '11px Georgia';
 for (const [i, article] of articles.entries()) {
   const pin = document.createElement('button');
   pin.className = 'map-pin'; pin.dataset.place = article.id;
-  pin.dataset.x = Number(article.dataset.x) / 100 * WIDTH;
-  pin.dataset.y = Number(article.dataset.y) / 100 * HEIGHT;
+  const [pinX,pinY]=article.dataset.pin.split(' ').map(Number);
+  pin.dataset.x=pinX;pin.dataset.y=pinY;
+  const leader=document.createElementNS(leaders.namespaceURI,'line');leader.dataset.place=article.id;leaders.append(leader);
   nameMetrics.set(article.id, {width:Math.ceil(textMeasure.measureText(article.dataset.label).width)+16,height:23,side:article.dataset.labelSide});
   const option=document.createElement('option');option.value=article.id;option.textContent=String(i+1).padStart(2,'0')+' · '+article.dataset.label;picker.append(option);
   pin.setAttribute('aria-label', `Explore ${article.querySelector('h3').textContent}`);
@@ -36,7 +41,7 @@ for (const [i, article] of articles.entries()) {
   pin.addEventListener('click', e => { if (e.detail === 0) choose(article.id,{center:true,focus:true}); });
   pin.addEventListener('focus', () => {
     if (pointers.size) return;
-    const x = Number(article.dataset.x)/100*WIDTH, y = Number(article.dataset.y)/100*HEIGHT;
+    const x=+pin.dataset.x,y=+pin.dataset.y;
     if (x*camera.scale+camera.x < 25 || x*camera.scale+camera.x > size.width-25 || y*camera.scale+camera.y < 45 || y*camera.scale+camera.y > size.height-25) {
       camera = panCamera({...camera, x:size.width/2-x*camera.scale, y:size.height/2-y*camera.scale},0,0,size.width,size.height); paint();
     }
@@ -47,19 +52,30 @@ function paint() {
   frame = requestAnimationFrame(() => {
     frame = null;
     plate.style.transform = `translate(${camera.x}px,${camera.y}px) scale(${camera.scale})`;
+    const ratio = camera.scale / fitCamera(size.width,size.height).scale;
+    // Changing the mobile layout during a pinch would cancel its captured pointers.
+    if(!pointers.size)document.body.classList.toggle('overview-fit',ratio<1.01);
     const points=[];
     for(const pin of pins.children){
       const x=+pin.dataset.x*camera.scale+camera.x,y=+pin.dataset.y*camera.scale+camera.y;
       pin.hidden=x<12||x>size.width-12||y<12||y>size.height-12;
+      const article=articles.find(a=>a.id===pin.dataset.place);
+      const leader=leaders.querySelector(`[data-place="${article.id}"]`);
+      leader.style.display=pin.hidden?'none':'';
+      const [targetX,targetY]=article.dataset.target.split(' ').map(Number);
+      const tx=targetX*camera.scale+camera.x,ty=targetY*camera.scale+camera.y;
+      const length=Math.max(1,Math.hypot(tx-x,ty-y));
+      for(const [key,value]of Object.entries({x1:x+(tx-x)/length*10,y1:y+(ty-y)/length*10,x2:tx,y2:ty}))leader.setAttribute(key,value);
+      leader.classList.toggle('selected',article.id===selected);
       pin.style.transform=`translate(${x-22}px,${y-22}px)`;
       pin.querySelector('.pin-label').hidden=true;
       if(!pin.hidden)points.push({id:pin.dataset.place,x,y,...nameMetrics.get(pin.dataset.place)});
     }
-    for(const label of layoutLabels(points,size.width,size.height,selected)){
+    for(const label of layoutLabels(points,size.width,size.height,selected,artBounds.map(b=>({x:b.x*camera.scale+camera.x,y:b.y*camera.scale+camera.y,width:b.width*camera.scale,height:b.height*camera.scale})))){
+      if(ratio>2.2&&selected&&label.id!==selected)continue;
       const pin=pins.querySelector(`[data-place="${label.id}"]`),point=points.find(p=>p.id===label.id),name=pin.querySelector('.pin-label');
       name.hidden=false;name.style.left=`${label.x-point.x+22}px`;name.style.top=`${label.y-point.y+22}px`;
     }
-    const ratio = camera.scale / fitCamera(size.width,size.height).scale;
     document.querySelector('#zoom-level').textContent = `${Math.round(ratio*100)}%`;
     document.querySelector('#zoom-out').disabled = ratio <= 1.001;
     document.querySelector('#zoom-in').disabled = ratio >= 5.999;
@@ -107,8 +123,7 @@ function choose(id, {write = true, center = false, focus = false} = {}) {
   for(const a of index){if(a.hash==='#'+selected)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');}
   for(const pin of pins.children)pin.setAttribute('aria-pressed',String(pin.dataset.place===selected));
   if(center && article){
-    const scale=Math.max(camera.scale,fitCamera(size.width,size.height).scale*2);
-    camera=panCamera({scale,x:size.width/2-(+article.dataset.x/100*WIDTH)*scale,y:size.height/2-(+article.dataset.y/100*HEIGHT)*scale},0,0,size.width,size.height);
+    camera=landmarkCamera(boundsOf(article),size.width,size.height);
   } else if(center)camera=fitCamera(size.width,size.height);
   if(write){
     const hash=selected?'#'+selected:location.pathname;
@@ -186,6 +201,7 @@ function release(e) {
     saveHistory();
   } else moved = true;
   beginGesture();
+  paint();
 }
 for (const type of ['pointerup','pointercancel','lostpointercapture']) viewport.addEventListener(type,release);
 window.addEventListener('blur',resetGesture);
@@ -209,6 +225,7 @@ function expandMap(on){
   resetGesture();
   document.body.classList.toggle('map-expanded',on);
   expand.setAttribute('aria-expanded',String(on));
+  expand.querySelector('.expand-label').textContent=on?'Close':'Expand';
   expand.setAttribute('aria-label',on?'Exit expanded map':'Expand map');
 }
 expand.onclick=()=>expandMap(!document.body.classList.contains('map-expanded'));
