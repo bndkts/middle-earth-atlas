@@ -35,6 +35,7 @@ export function layoutLabels(points, width, height, selected) {
       [p.x-p.width/2,p.y-20-p.height],[p.x+20,p.y-p.height/2],
       [p.x-p.width/2,p.y+20],[p.x-20-p.width,p.y-p.height/2],
     ];
+    if(p.side==='below')candidates.unshift(candidates.splice(2,1)[0]);
     for(const [x,y] of candidates){
       const r={id:p.id,x:Math.max(4,Math.min(width-p.width-4,x)),y:Math.max(4,Math.min(height-p.height-4,y)),width:p.width,height:p.height};
       if(r.width>width-8||r.height>height-8||markers.some(m=>overlaps(r,m))||placed.some(m=>overlaps(r,m)))continue;

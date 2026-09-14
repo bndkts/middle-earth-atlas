@@ -80,7 +80,7 @@ test('the original SVG has provenance and the offline shell includes its depende
   for(const key of ['creator','source','rights','attribution']) assert.ok(plate[key]);
   assert.ok(readFileSync(new URL('../'+plate.d,import.meta.url),'utf8').startsWith('<svg'));
   const worker=readFileSync(new URL('../service-worker.js',import.meta.url),'utf8');
-  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-2','/src/submap-camera.mjs?v=moria-2','/src/submap.css?v=moria-2','/'+plate.d+'?v=moria-2']) assert.ok(worker.includes(JSON.stringify(file)),file);
+  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-3','/src/submap-camera.mjs?v=moria-3','/src/submap.css?v=moria-3','/'+plate.d+'?v=moria-3']) assert.ok(worker.includes(JSON.stringify(file)),file);
 });
 
 test('the Moria reading page offers a direct link to the regional map', async () => {
@@ -130,4 +130,10 @@ test('new Moria pages cannot pair new markup with the previous cached viewer or 
   for(const asset of ['submap.css','submap.mjs','moria-section.svg'])assert.ok(html.includes(asset+'?v='),asset);
   const source=readFileSync(new URL('../src/submap.mjs',import.meta.url),'utf8');
   assert.match(source,/submap-camera\.mjs\?v=/);
+});
+
+test('bridge label can sit below its marker to leave the Balrog vignette visible', async () => {
+  const {layoutLabels}=await import('../src/submap-camera.mjs');
+  const [label]=layoutLabels([{id:'bridge',x:250,y:250,width:100,height:23,side:'below'}],500,500,'bridge');
+  assert.ok(label.y>250,'Place the label below the encounter, not over the figures');
 });

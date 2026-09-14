@@ -1,4 +1,4 @@
-import { WIDTH, HEIGHT, fitCamera, panCamera, zoomCamera, captureView, restoreView, layoutLabels } from './submap-camera.mjs?v=moria-2';
+import { WIDTH, HEIGHT, fitCamera, panCamera, zoomCamera, captureView, restoreView, layoutLabels } from './submap-camera.mjs?v=moria-3';
 
 const viewport = document.querySelector('#map-viewport');
 const plate = document.querySelector('#map-plate');
@@ -24,7 +24,7 @@ for (const [i, article] of articles.entries()) {
   pin.className = 'map-pin'; pin.dataset.place = article.id;
   pin.dataset.x = Number(article.dataset.x) / 100 * WIDTH;
   pin.dataset.y = Number(article.dataset.y) / 100 * HEIGHT;
-  nameMetrics.set(article.id, {width:Math.ceil(textMeasure.measureText(article.dataset.label).width)+16,height:23});
+  nameMetrics.set(article.id, {width:Math.ceil(textMeasure.measureText(article.dataset.label).width)+16,height:23,side:article.dataset.labelSide});
   const option=document.createElement('option');option.value=article.id;option.textContent=String(i+1).padStart(2,'0')+' · '+article.dataset.label;picker.append(option);
   pin.setAttribute('aria-label', `Explore ${article.querySelector('h3').textContent}`);
   pin.setAttribute('aria-pressed', 'false');
