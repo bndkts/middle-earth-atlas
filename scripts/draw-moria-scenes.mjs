@@ -1,5 +1,7 @@
 import { moriaFigureDefinitions, moriaFigureScenes } from './draw-moria-figures.mjs';
 
+export const mineStations = [{x:291,y:794},{x:456,y:746},{x:619,y:838},{x:1049,y:812}];
+
 // Original ink miniatures, using the main map's muted pigment palette.
 // All figures are illustrative story vignettes, not a simultaneous population.
 export function drawMoriaScenes() {
@@ -48,13 +50,13 @@ export function drawMoriaScenes() {
     p(`M${x} ${y}l-5-2-5 1v-4l5-1 5 2 5-2 5 1v4l-5-1Z`,'#e3d2ad','stroke-width=".5"');
     p(`M${x} ${y}v-4`,'none','stroke-width=".4"');
   }
-  for(const [x,y]of [[674,587],[977,601],[896,653],[1107,599]]){
+  for(const [x,y]of [[674,587],[977,601],[879,654],[1107,599]]){
     p(`M${x-8} ${y-2}l13-5 5 2-1 5-13 2Z`,'#b8b1a0');
     p(`M${x-4} ${y-4}l1 5m4-7 1 5m4-6 1 5`,'none','stroke-width=".4"');
     p(`M${x+10} ${y}l3-3 4 1-1 3Z`,'#b29e79','stroke-width=".5"');
   }
   // Quiet machinery: loaded wagons, a hoist, discarded picks and stacked timber.
-  for(const [x,y]of [[291,793],[456,746],[566,838],[1049,812]])use('mine-cart',x,y,.55);
+  for(const {x,y}of mineStations)use('mine-cart',x,y+1.8,.55);
   group('mine-hoist',717,789,.8);
   p('M-16 22l5-41h24l7 41M-11-19l21 41M13-19l-25 41','none','stroke="#7b6344" stroke-width="2"');
   s.push('<circle cx="1" cy="-9" r="8" fill="#b19a70"/><circle cx="1" cy="-9" r="2" fill="#635e50"/>');
@@ -62,7 +64,7 @@ export function drawMoriaScenes() {
   for(const [x,y]of [[339,629],[455,628],[534,814]])p(`M${x} ${y}l9-17m-15 6q10-11 16-6M${x-4} ${y}l9-4`,'none','stroke="#655a45" stroke-width="1"');
   for(let j=0;j<3;j++)p(`M361 ${634-j*3}h18m-18 0 2-2h18l-2 2Z`,'#a38960','stroke-width=".5"');
   // One banked forge supplies a small warm pigment accent in the western halls.
-  group('abandoned-forge',478,634,.85);
+  group('abandoned-forge',478,638,.85);
   p('M-11 0v-17l5-8H6l5 8V0Z','#88816b');
   p('M-7 0v-12q7-7 14 0V0Z','#454b40');
   use('brazier',0,0,.75);
@@ -73,7 +75,7 @@ export function drawMoriaScenes() {
   }
 
   s.push(moriaFigureScenes());
-  for(const [x,y,scale]of [[574,469,.65],[703,649,.62],[968,754,.6]])use('brazier',x,y,scale);
+  for(const [x,y,scale]of [[574,472.7,.65],[716,650.7,.62],[968,757.7,.6]])use('brazier',x,y,scale);
   // Broken masonry collects around the void, keeping the danger within the map.
   for(const [x,y]of [[1168,636],[1224,658],[1188,705],[1227,803]])p(`M${x} ${y}l3-5 5 2-1 5Z`,'#b19a70','stroke-width=".5"');
   s.push('</g>');

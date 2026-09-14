@@ -80,7 +80,7 @@ test('the original SVG has provenance and the offline shell includes its depende
   for(const key of ['creator','source','rights','attribution']) assert.ok(plate[key]);
   assert.ok(readFileSync(new URL('../'+plate.d,import.meta.url),'utf8').startsWith('<svg'));
   const worker=readFileSync(new URL('../service-worker.js',import.meta.url),'utf8');
-  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-7','/src/submap-camera.mjs?v=moria-7','/src/submap.css?v=moria-7','/'+plate.d+'?v=moria-7']) assert.ok(worker.includes(JSON.stringify(file)),file);
+  for(const file of ['/maps/moria/','/src/submap.mjs?v=moria-8','/src/submap-camera.mjs?v=moria-8','/src/submap.css?v=moria-8','/'+plate.d+'?v=moria-8']) assert.ok(worker.includes(JSON.stringify(file)),file);
 });
 
 test('the Moria reading page offers a direct link to the regional map', async () => {
@@ -262,4 +262,71 @@ test('furnishing bays leave roof stairs and raised side entrances clear', async 
   assert.equal(furnishingFits(429,24,openings),false,'Central descending stairs');
   assert.equal(furnishingFits(483,24,openings),false,'Right entrance stair');
   assert.equal(furnishingFits(460,16,openings),true,'Remaining storage space');
+});
+
+test('the drummer fits below the complete curved vault without standing in the floor opening', async () => {
+  const {moriaFigureScenes}=await import('./draw-moria-figures.mjs');
+  const [,x,y,scale]=moriaFigureScenes().match(/id="orc-drummer" transform="translate\(([\d.]+) ([\d.]+)\) scale\(([\d.]+)\)"/).map(Number);
+  const roofAt=px=>{const t=(px-859)/83;return 642-62*t*(1-t);};
+  assert.ok(y-92*scale>Math.max(roofAt(x-25*scale),roofAt(x+39*scale))+1,'Drummer crosses the curved roof');
+  assert.ok(y>=651&&y<=655,'Drummer must stand at the room floor');
+  assert.ok(x-25*scale>905||x+39*scale<895,'Keep the floor opening at x900 clear');
+});
+
+test('all mine carts stand on the floor of a drawn horizontal mine passage', async () => {
+  const {drawMoriaScenes}=await import('./draw-moria-scenes.mjs');
+  const {passagePoints}=await import('./moria-geometry.mjs');
+  const source=readFileSync(new URL('./draw-moria.mjs',import.meta.url),'utf8');
+  const mines=vm.runInNewContext(source.match(/const minePaths=(\[[\s\S]*?\n  \]);/)[1]);
+  const segments=mines.flatMap(d=>{const ps=passagePoints(d);return ps.slice(1).map((p,i)=>[ps[i],p]);});
+  const carts=[...drawMoriaScenes().matchAll(/href="#mine-cart" transform="translate\(([\d.]+) ([\d.]+)\) scale\(([\d.]+)\)"/g)];
+  assert.equal(carts.length,4);
+  for(const [,sx,sy,ss]of carts){
+    const x=+sx,y=+sy,scale=+ss;
+    assert.ok(segments.some(([[ax,ay],[bx,by]])=>ay===by&&x-13*scale>Math.min(ax,bx)&&x+13*scale<Math.max(ax,bx)&&Math.abs(y+1.5*scale-(ay+2.6))<.7),`Cart at ${x},${y} is not grounded on a mine floor`);
+  }
+});
+
+test('storage vessels rest on the room floor and leave access routes clear', async () => {
+  const {drawMoria}=await import('./draw-moria.mjs');
+  const svg=drawMoria();
+  const vessels=[...svg.matchAll(/d="M([\d.]+) ([\d.]+)q-2-8 4-10v-3h5v3q6 3 4 10z"/g)];
+  assert.equal(vessels.length,7);
+  for(const [,x,y]of vessels){
+    assert.ok(+y>=649&&+y<=651,`Vessel at ${x},${y} floats above the floor`);
+    assert.ok(+x>594&&+x+13<694,'Vessels must leave both stair entrances and the floor shaft clear');
+  }
+});
+
+test('every Endless Stair tread mark remains within its narrowed flight', () => {
+  const source=readFileSync(new URL('./draw-moria.mjs',import.meta.url),'utf8');
+  const loop=source.slice(source.indexOf('for(let k=1;k<10;k++){'),source.indexOf("path(`M${n(cx-2)}"));
+  const strokes=[];vm.runInNewContext(loop,{cx:810,y:500,line:(x,y,x2,y2)=>strokes.push([x,y,x2,y2])});
+  assert.equal(strokes.length,9);
+  for(const [x]of strokes)assert.ok(x>801&&x<819,`Tread at ${x} protrudes outside the 18-unit flight`);
+});
+
+test('stair landings meet corridor floors instead of ending at their centre lines', async () => {
+  const {accessLandings}=await import('./moria-geometry.mjs');
+  assert.equal(typeof accessLandings,'function');
+  const routes=[['M340 449H446',17],['M356 449V492H574',12]];
+  const flight=accessLandings({x:356,top:449,bottom:492,width:12},routes,[]);
+  assert.ok(Math.abs(flight.top-456.6)<.01);
+  assert.ok(Math.abs(flight.bottom-497.1)<.01);
+  const room={x:327,y:500,w:184,h:35};
+  const floor=accessLandings({x:445,top:535,bottom:557,width:13},[['M445 557H575',13]],[room]);
+  assert.equal(floor.top,535,'A room floor is already the correct landing height');
+});
+
+test('freestanding braziers rest on hall floors and leave the store shaft clear', async () => {
+  const {drawMoriaScenes}=await import('./draw-moria-scenes.mjs');
+  const source=readFileSync(new URL('./draw-moria.mjs',import.meta.url),'utf8');
+  const rooms=[...source.matchAll(/hall\((\d+),(\d+),(\d+),(\d+),/g)].map(m=>m.slice(1).map(Number));
+  const fires=[...drawMoriaScenes().matchAll(/href="#brazier" transform="translate\(([\d.]+) ([\d.]+)\) scale\(([\d.]+)\)"/g)].filter(m=>+m[1]>0);
+  assert.equal(fires.length,3);
+  for(const [,sx,sy,ss]of fires){
+    const x=+sx,y=+sy;
+    assert.ok(rooms.some(([rx,ry,w,h])=>x>=rx&&x<=rx+w&&Math.abs(y-ry-h)<1),`Brazier at ${x},${y} floats above its floor`);
+    if(y>640&&y<660)assert.ok(x-4*ss>706,'Brazier blocks the store floor shaft');
+  }
 });

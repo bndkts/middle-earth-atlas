@@ -1,4 +1,4 @@
-import { WIDTH, HEIGHT, fitCamera, panCamera, zoomCamera, captureView, restoreView, layoutLabels, landmarkCamera } from './submap-camera.mjs?v=moria-7';
+import { WIDTH, HEIGHT, fitCamera, panCamera, zoomCamera, captureView, restoreView, layoutLabels, landmarkCamera } from './submap-camera.mjs?v=moria-8';
 
 const viewport = document.querySelector('#map-viewport');
 const plate = document.querySelector('#map-plate');

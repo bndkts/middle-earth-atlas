@@ -64,3 +64,22 @@ export function furnishingFits(x, width, openings) {
     return x<end&&x+width>start;
   });
 }
+
+// A route describes the middle of a passage; stairs meet its walking surface.
+export function accessLandings(access, routes, rooms) {
+  const floorAt=(y)=>{
+    if(rooms.some(r=>access.x>=r.x&&access.x<=r.x+r.w&&Math.abs(y-r.y-r.h)<.5))return y;
+    const candidates=[];
+    for(const [d,width]of routes){
+      const ps=passagePoints(d);
+      for(let i=1;i<ps.length;i++){
+        const [ax,ay]=ps[i-1],[bx,by]=ps[i];
+        if(ay!==by||access.x<Math.min(ax,bx)-.1||access.x>Math.max(ax,bx)+.1)continue;
+        if(Math.abs(ay-y)<=Math.max(width,access.width))candidates.push({distance:Math.abs(ay-y),floor:ay+width/2-.9});
+      }
+    }
+    candidates.sort((a,b)=>a.distance-b.distance);
+    return candidates[0]?.floor??y;
+  };
+  return {...access,top:floorAt(access.top),bottom:floorAt(access.bottom)};
+}
